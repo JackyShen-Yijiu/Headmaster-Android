@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">一步学车</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="data_title">数据概览</string>
+    <string name="industry_consult">行业资讯</string>
+    <string name="my_chat_messages">我的消息</string>
+    <string name="appointment_tip">预约提醒</string>
+    <string name="new_message_tip">新消息提醒</string>
+    <string name="about_us">关于我们</string>
+    <string name="set_rate">去评分</string>
+    <string name="callback">反馈</string>
+    
+
+    <!-- 登录页面 -->
+    <string name="phonenumber">账号</string>
+    <string name="password">密码</string>
+    <string name="login">登入</string>
+    
+        <!-- 下拉刷新 -->
+    <string name="pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pull_to_refresh_release_label">释放刷新...</string>
+    <string name="pull_to_refresh_refreshing_label">正在加载...</string>
+    <string name="pull_to_refresh_tap_label">点击刷新</string>
+    <string name="contact_customer_service">联系客服</string>
+    <string name="publish_bulletin">发布公告</string>
+    <string name="publish">公告</string>
+    <string name="coach">教练</string>
+    <string name="student">学员</string>
+    <string name="max_300_word">最多输入300字</string>
+</resources>

@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    >
+
+    <ImageView
+        android:id="@+id/iv_bulletin_item_deviderline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2a2a2a"
+        android:contentDescription="@string/app_name" />
+    <TextView
+        android:id="@+id/tv_bulletin_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_bulletin_item_deviderline"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="18dp"
+        android:textColor="#bfbfbf"
+        android:textSize="14sp"
+        android:text="如果你无法简单地表达你的想法，那只能说明你还不公了解它。 --阿尔伯特.爱因斯坦" />
+
+    <RelativeLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/tv_bulletin_item_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="15dp"
+        >
+        <TextView
+        android:id="@+id/tv_bulletin_item_object"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#047a64"
+        android:textSize="14sp"
+        android:text="@string/coach" />
+        
+        <TextView
+        android:id="@+id/tv_bulletin_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_bulletin_item_object"
+        android:layout_marginLeft="23dp"
+        android:textColor="#bfbfbf"
+        android:textSize="14sp"
+        android:text="上午8：28" />
+       
+        
+        <ImageView
+        android:id="@+id/iv_bulletin_item_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="18dp"
+        android:src="@drawable/delete"
+         />
+         <TextView
+        android:id="@+id/tv_bulletin_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="23dp"
+        android:textColor="#bfbfbf"
+        android:layout_toLeftOf="@+id/iv_bulletin_item_delete"
+        android:textSize="14sp"
+        android:text="2015-12-12" />
+        
+        
+    </RelativeLayout>
+
+    
+
+    
+
+</RelativeLayout>
