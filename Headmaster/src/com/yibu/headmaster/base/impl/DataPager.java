@@ -23,7 +23,7 @@ public class DataPager extends BasePager {
 	@Override
 	public View initView() {
 		View view = View.inflate(HeadmasterApplication.getContext(),
-				R.layout.datas_information, null);
+				R.layout.data_information, null);
 		ViewUtils.inject(this, view);
 
 		return view;
@@ -31,7 +31,6 @@ public class DataPager extends BasePager {
 
 	@Override
 	public void process(String data) {
-		// TODO Auto-generated method stub
 
 	}
 
