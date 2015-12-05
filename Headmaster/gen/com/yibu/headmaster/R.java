@@ -136,26 +136,29 @@ containing a value of this type.
         public static final int radiogroup_bottom=0x7f020018;
         public static final int scan=0x7f020019;
         public static final int shuju=0x7f02001a;
-        public static final int text_cursor_drawable=0x7f02001b;
-        public static final int ts39x36=0x7f02001c;
-        public static final int unread_count_bg=0x7f02001d;
-        public static final int weather=0x7f02001e;
-        public static final int x_k293x47=0x7f02001f;
-        public static final int x_m293x47=0x7f020020;
-        public static final int xc48x46=0x7f020021;
-        public static final int xh48x46=0x7f020022;
-        public static final int xz48x46=0x7f020023;
+        public static final int switch_bkground=0x7f02001b;
+        public static final int switch_off=0x7f02001c;
+        public static final int switch_on=0x7f02001d;
+        public static final int text_cursor_drawable=0x7f02001e;
+        public static final int ts39x36=0x7f02001f;
+        public static final int unread_count_bg=0x7f020020;
+        public static final int weather=0x7f020021;
+        public static final int x_k293x47=0x7f020022;
+        public static final int x_m293x47=0x7f020023;
+        public static final int xc48x46=0x7f020024;
+        public static final int xh48x46=0x7f020025;
+        public static final int xz48x46=0x7f020026;
     }
     public static final class id {
         public static final int RelativeLayout_chartbar=0x7f090015;
         public static final int RelativeLayout_chartone=0x7f09000d;
         public static final int RelativeLayout_chartthree=0x7f090019;
         public static final int RelativeLayout_charttwo=0x7f090011;
-        public static final int avatar=0x7f09005c;
+        public static final int avatar=0x7f090061;
         public static final int base_deviderline=0x7f090007;
         public static final int base_deviderline_down=0x7f090032;
         public static final int base_deviderline_up=0x7f090031;
-        public static final int base_title_tv=0x7f090065;
+        public static final int base_title_tv=0x7f09006a;
         public static final int base_titlebar_layout=0x7f090003;
         public static final int both=0x7f090000;
         public static final int drawerLayout_main=0x7f090022;
@@ -181,7 +184,7 @@ containing a value of this type.
         public static final int linearLayout2=0x7f090036;
         public static final int linearLayout3=0x7f090039;
         public static final int listView1=0x7f090053;
-        public static final int list_item_layout=0x7f09005b;
+        public static final int list_item_layout=0x7f090060;
         public static final int login_deivder_im=0x7f09001e;
         public static final int login_login_btn=0x7f090020;
         public static final int login_login_layout=0x7f09001c;
@@ -190,24 +193,24 @@ containing a value of this type.
         public static final int login_phone_et=0x7f09001d;
         public static final int login_rootview_rl=0x7f09001a;
         public static final int login_service_phone=0x7f090021;
-        public static final int lv_publish_bulletin_list=0x7f090056;
-        public static final int message=0x7f090060;
+        public static final int lv_publish_bulletin_list=0x7f09005b;
+        public static final int message=0x7f090065;
         public static final int message_list=0x7f090029;
-        public static final int msg_state=0x7f09005f;
+        public static final int msg_state=0x7f090064;
         public static final int my_rl_coach=0x7f090050;
         public static final int my_rl_notice=0x7f09004f;
         public static final int my_rl_setting=0x7f090051;
         public static final int my_rl_xingxi=0x7f09004c;
-        public static final int name=0x7f09005e;
+        public static final int name=0x7f090063;
         public static final int navigation_drawer=0x7f090028;
-        public static final int progressBar1=0x7f090057;
-        public static final int progressBar_main=0x7f090055;
+        public static final int progressBar1=0x7f09005c;
+        public static final int progressBar_main=0x7f09005a;
         public static final int pullDownFromTop=0x7f090001;
-        public static final int pullToRefreshListView=0x7f090054;
+        public static final int pullToRefreshListView=0x7f090059;
         public static final int pullUpFromBottom=0x7f090002;
-        public static final int pull_to_refresh_image=0x7f09005a;
-        public static final int pull_to_refresh_progress=0x7f090059;
-        public static final int pull_to_refresh_text=0x7f090058;
+        public static final int pull_to_refresh_image=0x7f09005f;
+        public static final int pull_to_refresh_progress=0x7f09005e;
+        public static final int pull_to_refresh_text=0x7f09005d;
         public static final int rb_bottom_chatter=0x7f090027;
         public static final int rb_bottom_data=0x7f090025;
         public static final int rb_bottom_news=0x7f090026;
@@ -224,8 +227,13 @@ containing a value of this type.
         public static final int rl_publish_bulletin_header=0x7f09002b;
         public static final int scrollView_showContent=0x7f090009;
         public static final int search_view=0x7f090052;
-        public static final int shoumsg=0x7f090062;
-        public static final int startdw=0x7f090063;
+        public static final int setting_aboutus_tv=0x7f090056;
+        public static final int setting_appointment_ck=0x7f090054;
+        public static final int setting_callback_tv=0x7f090058;
+        public static final int setting_newmessage_ck=0x7f090055;
+        public static final int setting_rate_tv=0x7f090057;
+        public static final int shoumsg=0x7f090067;
+        public static final int startdw=0x7f090068;
         public static final int textView1=0x7f090034;
         public static final int textView2=0x7f090035;
         public static final int textView_item_content=0x7f09003e;
@@ -239,19 +247,19 @@ containing a value of this type.
         public static final int textView_yueke1=0x7f090010;
         public static final int textView_zhaosheng=0x7f09000b;
         public static final int textView_zhaosheng1=0x7f09000c;
-        public static final int time=0x7f090061;
-        public static final int title_left_btn=0x7f090064;
+        public static final int time=0x7f090066;
+        public static final int title_left_btn=0x7f090069;
         public static final int tv_base_right=0x7f090006;
         public static final int tv_base_title=0x7f090005;
         public static final int tv_bulletin_item_content=0x7f090041;
         public static final int tv_bulletin_item_date=0x7f090045;
         public static final int tv_bulletin_item_object=0x7f090042;
         public static final int tv_bulletin_item_time=0x7f090043;
-        public static final int unread_msg_number=0x7f09005d;
+        public static final int unread_msg_number=0x7f090062;
         public static final int vp_content_pagers=0x7f090023;
-        public static final int weather=0x7f090066;
-        public static final int weather_degree=0x7f090067;
-        public static final int weather_icon=0x7f090068;
+        public static final int weather=0x7f09006b;
+        public static final int weather_degree=0x7f09006c;
+        public static final int weather_icon=0x7f09006d;
     }
     public static final class layout {
         public static final int activity_base=0x7f030000;
@@ -267,14 +275,15 @@ containing a value of this type.
         public static final int left_coach_list_item=0x7f03000a;
         public static final int left_content=0x7f03000b;
         public static final int left_my_coach=0x7f03000c;
-        public static final int news_information=0x7f03000d;
-        public static final int publish_bulletin=0x7f03000e;
-        public static final int pull_to_refresh_footer=0x7f03000f;
-        public static final int pull_to_refresh_header=0x7f030010;
-        public static final int refresh_footer=0x7f030011;
-        public static final int row_chat_history=0x7f030012;
-        public static final int test=0x7f030013;
-        public static final int title_main=0x7f030014;
+        public static final int left_setting=0x7f03000d;
+        public static final int news_information=0x7f03000e;
+        public static final int publish_bulletin=0x7f03000f;
+        public static final int pull_to_refresh_footer=0x7f030010;
+        public static final int pull_to_refresh_header=0x7f030011;
+        public static final int refresh_footer=0x7f030012;
+        public static final int row_chat_history=0x7f030013;
+        public static final int test=0x7f030014;
+        public static final int title_main=0x7f030015;
     }
     public static final class string {
         public static final int about_us=0x7f050008;
@@ -351,6 +360,7 @@ containing a value of this type.
         public static final int AppTheme=0x7f060001;
         public static final int bottomTheme=0x7f060002;
         public static final int btn_style=0x7f060003;
+        public static final int person_center_text_style=0x7f060004;
     }
     public static final class styleable {
         /** Attributes that can be used with a PullToRefresh.

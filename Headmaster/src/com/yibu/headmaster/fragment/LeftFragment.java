@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.yibu.headmaster.LeftMyCoachActivity;
+import com.yibu.headmaster.LeftSettingActivity;
 import com.yibu.headmaster.PublishBulletinActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -75,8 +76,12 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 
 		// 设置
 		case R.id.my_rl_setting:
-
-			ToastUtil.showToast(HeadmasterApplication.getContext(), "设置");
+			LogUtil.print("设置");
+			Intent intent_setting = new Intent(
+					HeadmasterApplication.getContext(),
+					LeftSettingActivity.class);
+			startActivity(intent_setting);
+			// ToastUtil.showToast(HeadmasterApplication.getContext(), "设置");
 			break;
 
 		}

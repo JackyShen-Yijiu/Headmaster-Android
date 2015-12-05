@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f7f9fb"
+        android:contentDescription="@string/app_name" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cccccc"
+        android:contentDescription="@string/app_name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:paddingLeft="15dp"
+            android:text="@string/appointment_tip"
+            android:textColor="#333333" />
+
+        <CheckBox
+            android:id="@+id/setting_appointment_ck"
+            android:layout_width="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="22dp"
+            android:button="@null"
+            android:background="@drawable/switch_bkground"
+            android:layout_marginRight="15dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:background="#e6e6e6"
+        android:contentDescription="@string/app_name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:paddingLeft="15dp"
+            android:text="@string/new_message_tip"
+            android:textColor="#333333" />
+
+        <CheckBox
+            android:id="@+id/setting_newmessage_ck"
+            android:layout_width="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="22dp"
+            android:button="@null"
+            android:background="@drawable/switch_bkground"
+            android:layout_marginRight="15dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cccccc"
+        android:contentDescription="@string/app_name" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f7f9fb"
+        android:contentDescription="@string/app_name" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cccccc"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/setting_aboutus_tv"
+        style="@style/person_center_text_style"
+        android:text="@string/about_us" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:background="#e6e6e6"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/setting_rate_tv"
+        style="@style/person_center_text_style"
+        android:text="@string/set_rate" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:background="#e6e6e6"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/setting_callback_tv"
+        style="@style/person_center_text_style"
+        android:text="@string/callback" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cccccc"
+        android:contentDescription="@string/app_name" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f7f9fb"
+        android:contentDescription="@string/app_name" />
+
+</LinearLayout>
