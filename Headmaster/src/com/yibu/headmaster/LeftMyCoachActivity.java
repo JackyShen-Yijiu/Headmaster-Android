@@ -11,6 +11,8 @@ public class LeftMyCoachActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		view = View.inflate(getBaseContext(), R.layout.left_my_coach, null);
 		content.addView(view);
+
+		setSonsTitle(getString(R.string.coach_title));
 	}
 
 	@Override

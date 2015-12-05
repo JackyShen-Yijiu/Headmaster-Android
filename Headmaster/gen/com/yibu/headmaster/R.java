@@ -292,6 +292,7 @@ containing a value of this type.
         public static final int appointment_tip=0x7f050006;
         public static final int callback=0x7f05000a;
         public static final int coach=0x7f050015;
+        public static final int coach_title=0x7f050019;
         public static final int contact_customer_service=0x7f050012;
         public static final int data_title=0x7f050003;
         public static final int hello_world=0x7f050001;
@@ -313,8 +314,9 @@ containing a value of this type.
         public static final int pull_to_refresh_release_label=0x7f05000f;
         public static final int pull_to_refresh_tap_label=0x7f050011;
         public static final int set_rate=0x7f050009;
+        public static final int setting_title=0x7f05001a;
         public static final int student=0x7f050016;
-        /**  搜索栏  
+        /**  左侧教练 
          */
         public static final int title_search_hint=0x7f050018;
     }
