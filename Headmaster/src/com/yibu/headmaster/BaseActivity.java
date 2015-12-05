@@ -17,8 +17,6 @@ import android.widget.TextView;
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yibu.headmaster.utils.ToastUtil;
-//
-//
 
 public abstract class BaseActivity extends Activity implements OnClickListener {
 
