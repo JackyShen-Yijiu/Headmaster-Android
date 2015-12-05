@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:measureWithLargestChild="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_item"
+        android:layout_width="match_parent"
+        android:layout_height="83dp" >
+
+        <ImageView
+            android:id="@+id/imageView_head"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+			android:layout_marginTop="6dp"
+			android:layout_marginBottom="6dp"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imageView_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_name"
+            android:layout_marginTop="11dp"
+            android:layout_toRightOf="@+id/imageView_head"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/x_m293x47" />
+
+        <TextView
+            android:id="@+id/textView_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imageView_head"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="12dp"
+            android:text="请叫我不要太帅"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:id="@+id/imageView_talk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/lt61x62" />
+
+    </RelativeLayout>
+
+    
+
+</LinearLayout>

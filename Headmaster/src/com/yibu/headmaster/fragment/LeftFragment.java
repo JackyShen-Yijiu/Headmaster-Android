@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.PublishBulletinActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -64,8 +65,12 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 			break;
 		// 我的教练
 		case R.id.my_rl_coach:
-
-			ToastUtil.showToast(HeadmasterApplication.getContext(), "我的教练");
+			LogUtil.print("我的教练");
+			Intent intent_coach = new Intent(
+					HeadmasterApplication.getContext(),
+					LeftMyCoachActivity.class);
+			startActivity(intent_coach);
+			// ToastUtil.showToast(HeadmasterApplication.getContext(), "我的教练");
 			break;
 
 		// 设置

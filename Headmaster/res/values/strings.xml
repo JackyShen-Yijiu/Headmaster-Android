@@ -30,4 +30,8 @@
     <string name="coach">教练</string>
     <string name="student">学员</string>
     <string name="max_300_word">最多输入300字</string>
+    
+    
+     <!-- 搜索栏  -->
+    <string name="title_search_hint">搜索</string>
 </resources>
