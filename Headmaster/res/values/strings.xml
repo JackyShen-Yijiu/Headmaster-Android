@@ -31,8 +31,9 @@
     <string name="student">学员</string>
     <string name="max_300_word">最多输入300字</string>
     
-    
-     <!-- 搜索栏  -->
+    <!-- 左侧教练 -->
     <string name="title_search_hint">搜索</string>
-    <string name="title_search_hss">搜索</string>
+    <string name="coach_title">我的教练</string>
+    <string name="setting_title">设置</string>
+     <!-- 左侧设置 -->
 </resources>

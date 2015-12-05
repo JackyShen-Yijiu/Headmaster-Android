@@ -11,6 +11,8 @@ public class LeftSettingActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		view = View.inflate(getBaseContext(), R.layout.left_setting, null);
 		content.addView(view);
+
+		setSonsTitle(getString(R.string.setting_title));
 	}
 
 	@Override

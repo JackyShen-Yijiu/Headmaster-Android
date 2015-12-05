@@ -216,6 +216,7 @@ int string app_name 0x7f050000
 int string appointment_tip 0x7f050006
 int string callback 0x7f05000a
 int string coach 0x7f050015
+int string coach_title 0x7f050019
 int string contact_customer_service 0x7f050012
 int string data_title 0x7f050003
 int string hello_world 0x7f050001
@@ -233,6 +234,7 @@ int string pull_to_refresh_refreshing_label 0x7f050010
 int string pull_to_refresh_release_label 0x7f05000f
 int string pull_to_refresh_tap_label 0x7f050011
 int string set_rate 0x7f050009
+int string setting_title 0x7f05001a
 int string student 0x7f050016
 int string title_search_hint 0x7f050018
 int style AppBaseTheme 0x7f060000
