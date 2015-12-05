@@ -34,4 +34,5 @@
     
      <!-- 搜索栏  -->
     <string name="title_search_hint">搜索</string>
+    <string name="title_search_hss">搜索</string>
 </resources>
