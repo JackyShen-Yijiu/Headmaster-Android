@@ -21,7 +21,6 @@ import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnLastItemVisible
 import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnRefreshListener;
 import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshListView;
 import com.yibu.headmaster.utils.JsonUtil;
-import com.yibu.headmaster.utils.LogUtil;
 
 public class NewsPager extends BasePager {
 
@@ -79,7 +78,6 @@ public class NewsPager extends BasePager {
 		final ArrayList<NewsBean> newsBean = (ArrayList<NewsBean>) JsonUtil
 				.parseJsonToList(data, new TypeToken<List<NewsBean>>() {
 				}.getType());
-		LogUtil.print(newsBean.get(0).contenturl);
 
 		if (curpage == 0) {
 			totalList.clear();

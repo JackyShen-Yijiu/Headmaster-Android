@@ -113,7 +113,7 @@ public class PublishBulletinActivity extends BaseActivity {
 					loadNetworkData();
 				} else {
 					mListView.loadMoreFinished();
-					ToastUtil.showToast(mContext, "亲，没有更多数据了");
+					ToastUtil.showToast(mContext, "没有更多数据了");
 				}
 			}
 		});
@@ -122,12 +122,6 @@ public class PublishBulletinActivity extends BaseActivity {
 
 	private void loadNetworkData() {
 
-		try {
-			new Thread().sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		ApiHttpClient.get("userinfo/getbulletin?seqindex=" + curpage
 				+ "&count=10&userid="
 				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="

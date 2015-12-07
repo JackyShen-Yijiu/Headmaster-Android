@@ -4,56 +4,87 @@
     android:layout_height="match_parent"
     android:background="@drawable/main_bg" >
 
-    <FrameLayout 
+<FrameLayout
         android:id="@+id/fl_data_circle"
         android:layout_width="258dp"
         android:layout_height="258dp"
-         android:layout_marginLeft="51dp"
-             android:layout_marginRight="51dp"
-             android:layout_marginTop="107dp"
-        >
-        <ImageView
-        android:id="@+id/data_circle_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/shuju" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="107dp" >
 
-         <com.github.lzyzsd.circleprogress.ArcProgress
-             android:id="@+id/data_arc_progress_outside"
-             android:layout_width="258dp"
-             android:layout_height="258dp"
-             android:layout_gravity="center_horizontal"
-             custom:arc_angle="270"
-             custom:arc_bottom_text="当天累积负荷"
-             custom:arc_bottom_text_size="16sp"
-             custom:arc_stroke_width="10dp"
-             custom:arc_suffix_text_padding="3dp"
-             custom:arc_suffix_text_size="22sp"
-             custom:arc_progress="30"
-             custom:arc_text_color="#f955d2"
-             custom:arc_is_display_text="false"
-             custom:arc_finished_color="#f955d2"
-             custom:arc_unfinished_color="@android:color/transparent" />
-         
-         <com.github.lzyzsd.circleprogress.ArcProgress
-             android:id="@+id/data_arc_progress_inside"
-             custom:arc_is_display_text="true"
-             android:layout_width="194dp"
-             android:layout_height="194dp"
-             android:layout_marginTop="32dp"
-             android:layout_gravity="center_horizontal"
-             custom:arc_angle="270"
-             custom:arc_bottom_text="实时负荷"
-             custom:arc_bottom_text_size="16sp"
-             custom:arc_progress="55"
-             custom:arc_stroke_width="10dp"
-             custom:arc_suffix_text="%"
-             custom:arc_suffix_text_padding="3dp"
-             custom:arc_suffix_text_size="18sp"
-             custom:arc_text_color="#00e4b7"
-             custom:arc_finished_color="#00e4b7"
-             custom:arc_unfinished_color="@android:color/transparent" />
-         
+        <ImageView
+            android:id="@+id/data_circle_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shuju" />
+
+        <com.github.lzyzsd.circleprogress.ArcProgress
+            android:id="@+id/data_arc_progress_outside_forcast"
+            android:layout_width="258dp"
+            android:layout_height="258dp"
+            android:layout_gravity="center_horizontal"
+            custom:arc_angle="270"
+            custom:arc_bottom_text_size="16sp"
+            custom:arc_finished_color="#4e1741"
+            custom:arc_is_display_text="false"
+            custom:arc_progress="60"
+            custom:arc_stroke_width="10dp"
+            
+            custom:arc_suffix_text_size="22sp"
+            custom:arc_text_color="#4e1741"
+            custom:arc_unfinished_color="@android:color/transparent" />
+
+        <com.github.lzyzsd.circleprogress.ArcProgress
+            android:id="@+id/data_arc_progress_outside"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            custom:arc_angle="270"
+            custom:arc_bottom_text="当天累积负荷"
+            custom:arc_bottom_text_size="16sp"
+            custom:arc_finished_color="#f955d2"
+            custom:arc_is_display_text="false"
+            custom:arc_progress="30"
+            custom:arc_stroke_width="10dp"
+            
+            custom:arc_suffix_text_size="22sp"
+            custom:arc_text_color="#f955d2"
+            custom:arc_unfinished_color="@android:color/transparent" />
+
+        <com.github.lzyzsd.circleprogress.ArcProgress
+            android:id="@+id/data_arc_progress_inside_forcast"
+            android:layout_width="196dp"
+            android:layout_height="196dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="31dp"
+            custom:arc_angle="270"
+            custom:arc_bottom_text_size="16sp"
+            custom:arc_finished_color="#284E4D"
+            custom:arc_is_display_text="false"
+            custom:arc_progress="100"
+            custom:arc_stroke_width="10dp"
+            custom:arc_suffix_text_padding="3dp"
+            custom:arc_suffix_text_size="18sp"
+            custom:arc_text_color="#284E4D"
+            custom:arc_unfinished_color="@android:color/transparent" />
+
+        <com.github.lzyzsd.circleprogress.ArcProgress
+            android:id="@+id/data_arc_progress_inside"
+            android:layout_width="194dp"
+            android:layout_height="194dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="31dp"
+            custom:arc_angle="270"
+            custom:arc_bottom_text="实时负荷"
+            custom:arc_bottom_text_size="16sp"
+            custom:arc_finished_color="#00e4b7"
+            custom:arc_is_display_text="true"
+            custom:arc_progress="55"
+            custom:arc_stroke_width="10dp"
+            custom:arc_suffix_text="%"
+            custom:arc_suffix_text_padding="3dp"
+            custom:arc_suffix_text_size="18sp"
+            custom:arc_text_color="#00e4b7"
+            custom:arc_unfinished_color="@android:color/transparent" />
     </FrameLayout>
 
     <LinearLayout
@@ -63,7 +94,6 @@
         android:layout_below="@+id/fl_data_circle"
         android:layout_marginLeft="64dp"
         android:layout_marginRight="64dp"
-        android:layout_marginTop="36dp"
         android:orientation="horizontal" >
 
         <!-- 第一个星 -->
@@ -76,6 +106,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/data_goodcommnent_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20"
@@ -97,6 +128,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/data_generalcomment_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4"
@@ -118,6 +150,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/data_badcomment_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -139,6 +172,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/data_complaintstudentcount_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
@@ -162,24 +196,43 @@
         android:orientation="horizontal" >
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/data_yesterday_ib"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/btn_radio" />
-            <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/btn_radio" />
-                <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/btn_radio" />
+            android:clickable="true"
+            android:background="@drawable/yesterday_selector" />
 
+        <ImageView
+            android:id="@+id/data_line_left_iv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/right" />
+        <ImageButton
+            android:id="@+id/data_today_ib"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:background="@drawable/today_selector" />
+         <ImageView
+            android:id="@+id/data_line_right_iv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/left" />
+
+        <ImageButton
+            android:id="@+id/data_this_week_ib"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:background="@drawable/this_week_selector"
+             />
     </LinearLayout>
 
     <RelativeLayout
@@ -188,7 +241,6 @@
         android:layout_height="70dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" >
-
 
         <ImageView
             android:id="@+id/base_deviderline_down"
@@ -214,7 +266,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/tv_data_subject1_sum"
+                    android:id="@+id/tv_data_subject1_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="44"
@@ -238,7 +290,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/tv_data_subject2_sum"
+                    android:id="@+id/tv_data_subject2_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="25"
@@ -309,8 +361,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:gravity="center"
             android:layout_marginRight="25dp"
+            android:gravity="center"
             android:orientation="vertical" >
 
             <TextView
@@ -335,9 +387,8 @@
             android:layout_width="1dp"
             android:layout_height="55dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
             android:layout_toRightOf="@+id/ll_data_subjects"
             android:background="#2a2a2a" />
     </RelativeLayout>
-
 </RelativeLayout>
