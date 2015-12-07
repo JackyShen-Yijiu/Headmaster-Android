@@ -16,10 +16,7 @@ import android.widget.TextView;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.R;
-import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.BulletinBean;
 import com.yibu.headmaster.utils.CommonUtils;
 import com.yibu.headmaster.utils.LogUtil;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:background="#ffffff"
+    android:background="@drawable/sbg"
     android:layout_gravity="left"
     android:orientation="vertical" >
 
@@ -18,20 +18,23 @@
             android:layout_height="wrap_content" >
 
             <ImageView
-                android:id="@+id/iv_left_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/ic_launcher" />
-
-            <ImageView
                 android:id="@+id/iv_left_head_portrait"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/left_title" />
+
+            <ImageView
+                android:id="@+id/iv_left_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/left_menu" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -41,22 +44,19 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/my_rl_xingxi" >
 
-            <ImageView
-                android:id="@+id/imageView1"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="30dp"
-                android:src="@drawable/ic_launcher" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="38dp"
+                android:drawableLeft="@drawable/notice"
+                android:drawablePadding="15dp"
                 android:text="发布公告"
-                android:textColor="#000000" />
+                android:textSize="16sp"
+                android:textColor="#bfbfbf" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -65,21 +65,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/my_rl_notice" >
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="30dp"
-                android:src="@drawable/ic_launcher" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="38dp"
+                android:drawableLeft="@drawable/coach"
+                android:drawablePadding="15dp"
                 android:text="我的教练"
-                android:textColor="#000000" />
+                android:textSize="16sp"
+                android:textColor="#bfbfbf" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -88,21 +85,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/my_rl_coach" >
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="30dp"
-                android:src="@drawable/ic_launcher" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="设置" 
-                android:textColor="#000000"/>
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="38dp"
+                android:drawableLeft="@drawable/setting"
+                android:drawablePadding="15dp"
+                android:text="设置"
+                android:textSize="16sp"
+                android:textColor="#bfbfbf" />
         </RelativeLayout>
     </RelativeLayout>
 

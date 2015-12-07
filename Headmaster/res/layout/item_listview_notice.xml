@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dp">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageView_item_cover"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:scaleType="centerCrop"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="6dp"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_launcher" />
-
-    <TextView
-        android:id="@+id/textView_item_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"       
-        android:layout_toRightOf="@+id/imageView_item_cover"
-        android:layout_centerVertical="true"
-        android:text="content" />
 
     <TextView
         android:id="@+id/textView_item_time"
@@ -27,13 +20,24 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView_item_cover"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:gravity="right"
+        android:textColor="#666"
         android:text="26分钟前"
+        android:textSize="14sp"
          />
 
-  
-
-    
+    <TextView
+        android:id="@+id/textView_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/imageView_item_cover"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="content"
+        android:textColor="#bfbfbf"
+        android:textSize="14sp" />
 
 </RelativeLayout>

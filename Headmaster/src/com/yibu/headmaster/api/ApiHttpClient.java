@@ -9,7 +9,8 @@ import com.yibu.headmaster.utils.LogUtil;
 
 public class ApiHttpClient {
 
-	public static String API_URL = "http://101.200.204.240:8181/api/headmaster/%s";
+	public static String Base_URL = "http://101.200.204.240:8181/";
+	public static String API_URL = Base_URL + "api/headmaster/%s";
 	public static final String DELETE = "DELETE";
 	public static final String GET = "GET";
 	public static final String POST = "POST";
@@ -39,6 +40,12 @@ public class ApiHttpClient {
 		client.get(getAbsoluteApiUrl(partUrl), handler);
 	}
 
+	public static void getWithFullPath(String partUrl,
+			AsyncHttpResponseHandler handler) {
+		LogUtil.print(Base_URL + partUrl);
+		client.get(Base_URL + partUrl, handler);
+	}
+
 	public static void get(String partUrl, RequestParams params,
 			AsyncHttpResponseHandler handler) {
 		client.get(getAbsoluteApiUrl(partUrl), params, handler);
@@ -46,7 +53,6 @@ public class ApiHttpClient {
 
 	public static String getAbsoluteApiUrl(String partUrl) {
 		String url = String.format(API_URL, partUrl);
-		LogUtil.print(url);
 		return url;
 	}
 
