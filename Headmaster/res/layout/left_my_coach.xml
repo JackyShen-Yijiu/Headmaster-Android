@@ -2,10 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context="com.example.search.MainActivity" >
+    android:focusable="true"  
+   android:focusableInTouchMode="true" >
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -23,15 +21,18 @@
             android:id="@+id/base_deviderline_down"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_alignParentBottom="true"
             android:background="#2a2a2a" />
 
         <SearchView
             android:id="@+id/search_view"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="37dp"
             android:iconifiedByDefault="false"
             android:inputType="textFilter"
+            android:background="@null"
             android:queryHint="@string/title_search_hint" >
         </SearchView>
     </RelativeLayout>
@@ -41,6 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@drawable/listview_selector"
         android:layout_below="@+id/relativeLayout1" >
     </ListView>
 

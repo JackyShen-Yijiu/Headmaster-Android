@@ -33,10 +33,10 @@ public class MainPagerAdapter extends PagerAdapter {
 		BasePager basePager = pagers.get(position);
 		container.addView(basePager.rootView);
 		// 更新界面
+		basePager.initData();
+		// if (position == 0) {
 		// basePager.initData();
-		if (position == 0) {
-			basePager.initData();
-		}
+		// }
 		return basePager.rootView;
 	}
 

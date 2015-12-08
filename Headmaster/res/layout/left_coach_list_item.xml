@@ -11,7 +11,8 @@
             android:layout_height="70dp"
 			android:layout_marginTop="6dp"
 			android:layout_marginBottom="6dp"
-            android:src="@drawable/ic_launcher" />
+			android:layout_marginLeft="10dp"
+            android:src="@drawable/my_coach_default" />
 
         <ImageView
             android:id="@+id/imageView_star"
@@ -41,6 +42,13 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"
             android:src="@drawable/lt61x62" />
+        <View
+        android:id="@+id/iv_item_deviderline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView_head"
+        android:background="#2a2a2a" />
 
     </RelativeLayout>
 

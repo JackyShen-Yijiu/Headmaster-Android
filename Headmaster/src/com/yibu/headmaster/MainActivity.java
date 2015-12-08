@@ -9,7 +9,6 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -96,6 +95,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		raButton2 = (RadioButton) findViewById(R.id.rb_bottom_news);
 		raButton3 = (RadioButton) findViewById(R.id.rb_bottom_chatter);
 		raButton1.setBackgroundResource(R.drawable.bottom_1);
+		contentPager.setOffscreenPageLimit(2);
 	}
 
 	protected void initListener() {
@@ -124,32 +124,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		// 设置数据适配器
 		contentPager.setAdapter(new MainPagerAdapter(pagers));
 
-		contentPager
-				.setOnPageChangeListener(new ViewPagerOnPageChangeListener());
 		// 监听单选按钮
 		contentBottom
 				.setOnCheckedChangeListener(new BottomOnCheckedChangeListener());
-	}
-
-	class ViewPagerOnPageChangeListener implements OnPageChangeListener {
-
-		@Override
-		public void onPageScrolled(int position, float positionOffset,
-				int positionOffsetPixels) {
-
-		}
-
-		@Override
-		public void onPageSelected(int position) {
-			// 懒加载
-			pagers.get(position).initData();
-		}
-
-		@Override
-		public void onPageScrollStateChanged(int state) {
-
-		}
-
 	}
 
 	class BottomOnCheckedChangeListener implements OnCheckedChangeListener {

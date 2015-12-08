@@ -37,13 +37,11 @@ public class LeftMyCoachActivity extends BaseActivity {
 
 	@Override
 	protected void initListener() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void initData() {
-		// TODO Auto-generated method stub
 		adapter = new MyCoachAdapter(this, list);
 		mListView.setAdapter(adapter);
 
@@ -76,7 +74,6 @@ public class LeftMyCoachActivity extends BaseActivity {
 
 	@Override
 	public void processFailure() {
-		// TODO Auto-generated method stub
 		ToastUtil.showToast(mContext, "网络异常");
 	}
 

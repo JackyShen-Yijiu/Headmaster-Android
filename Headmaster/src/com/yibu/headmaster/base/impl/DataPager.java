@@ -76,6 +76,10 @@ public class DataPager extends BasePager implements OnClickListener {
 
 	@Override
 	public void initData() {
+		progressOut1 = 0;
+		progressOut2 = 0;
+		progressIn2 = 0;
+		LogUtil.print("cccccccccc");
 		loadNetworkData();
 
 	}
@@ -223,6 +227,11 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		progressInsideForcast.setMax(todayBean.coachcoursenow);
 		progressInsideForcast.setProgress(todayBean.coachcoursenow);
+		if (todayBean.coachcoursenow == 0) {
+
+			progressInsideForcast.setMax(100);
+			progressInsideForcast.setProgress(100);
+		}
 
 		progressInside.setMax(todayBean.coachcoursenow);
 		progressInside.setProgress(0);
@@ -264,8 +273,11 @@ public class DataPager extends BasePager implements OnClickListener {
 	};
 
 	private void loadNetworkData() {
+		String userId = null;
+		if (HeadmasterApplication.app != null) {
 
-		String userId = HeadmasterApplication.app.userInfo.userid;
+			userId = HeadmasterApplication.app.userInfo.userid;
+		}
 		String schoolId = HeadmasterApplication.app.userInfo.driveschool.schoolid;
 
 		ApiHttpClient.get("statistics/getmainpagedata?userid=" + userId
@@ -305,11 +317,17 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		switch (v.getId()) {
 		case R.id.data_yesterday_ib:
+			progressOut1 = 0;
+			progressOut2 = 0;
+			progressIn2 = 0;
 			setState(1);
 			searchtype = 2;
 			loadNetworkData();
 			break;
 		case R.id.data_today_ib:
+			progressOut1 = 0;
+			progressOut2 = 0;
+			progressIn2 = 0;
 			setState(2);
 			searchtype = 1;
 			loadNetworkData();
