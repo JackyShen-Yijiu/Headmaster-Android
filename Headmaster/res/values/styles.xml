@@ -48,4 +48,11 @@
         <item name="android:paddingLeft">15dp</item>
     </style>
 
+<style name="DialogTheme" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否模糊 -->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 </resources>

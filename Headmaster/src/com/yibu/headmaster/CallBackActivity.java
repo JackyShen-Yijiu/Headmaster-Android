@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.loopj.android.http.RequestParams;
+import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.utils.ToastUtil;
+import com.yibu.headmaster.utils.ZProgressHUD;
 
 public class CallBackActivity extends BaseActivity implements OnClickListener {
 
@@ -67,6 +69,8 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 				params.put("mobileversion", android.os.Build.MODEL);
 				params.put("appversion", android.os.Build.VERSION.RELEASE);
 
+				ApiHttpClient.postWithFullPath("api/v1/userfeedback", params,
+						handler);
 			}
 		}
 	}
@@ -79,13 +83,14 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void processSuccess(String data) {
 		// TODO Auto-generated method stub
+		ZProgressHUD.getInstance(this).show();
+		ZProgressHUD.getInstance(this).dismissWithSuccess("反馈成功");
 
 	}
 
 	@Override
 	public void processFailure() {
 		// TODO Auto-generated method stub
-
 	}
 
 }

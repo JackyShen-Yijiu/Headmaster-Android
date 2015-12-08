@@ -46,6 +46,12 @@ public class ApiHttpClient {
 		client.get(Base_URL + partUrl, handler);
 	}
 
+	public static void postWithFullPath(String partUrl, RequestParams params,
+			AsyncHttpResponseHandler handler) {
+		LogUtil.print(Base_URL + partUrl);
+		client.post(Base_URL + partUrl, params, handler);
+	}
+
 	public static void get(String partUrl, RequestParams params,
 			AsyncHttpResponseHandler handler) {
 		client.get(getAbsoluteApiUrl(partUrl), params, handler);
