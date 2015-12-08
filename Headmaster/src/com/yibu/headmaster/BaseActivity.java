@@ -7,12 +7,16 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+import cn.sft.baseactivity.util.c;
 
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -34,6 +38,8 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
 	protected String result = "";
 	protected String msg = "";
+	// 内容布局
+	private LinearLayout contentLayout;
 
 	protected AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler() {
 
@@ -120,6 +126,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onStop() {
+		overridePendingTransition(R.anim.pre_enter, R.anim.pre_exit);
 		super.onStop();
 
 	}
@@ -127,7 +134,6 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		overridePendingTransition(R.anim.pre_enter, R.anim.pre_exit);
 	}
 
 	@Override
@@ -145,6 +151,18 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
 	public void setSonsTitle(String title) {
 		baseTitle.setText(title);
+	}
+
+	public boolean onClickSingleView() {
+		return !c.j();
+	}
+
+	// 关于我们 页面加载
+	protected void addView(int layoutId) {
+		LinearLayout.LayoutParams params = new LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		LayoutInflater inflater = getLayoutInflater();
+		contentLayout.addView(inflater.inflate(layoutId, null), params);
 	}
 
 	protected abstract void initView();
