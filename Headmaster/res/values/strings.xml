@@ -36,9 +36,10 @@
     <string name="coach_title">我的教练</string>
     <string name="setting_title">设置</string>
      <!-- 左侧设置 -->
-     <!-- 关于我们 -->
-      <string name="setting_aboutus">关于我们</string>         
+      <string name="setting_aboutus">关于我们</string>  
+      <string name="setting_callback">反馈</string>  
       <string name="allow_protocol">许可服务协议</string>
+      <string name="opinions_suggestions">请留下宝贵的意见和建议</string>
       
      <string-array name="tab_names">
         <item>今天</item>

@@ -6,7 +6,10 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -163,6 +166,13 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		LayoutInflater inflater = getLayoutInflater();
 		contentLayout.addView(inflater.inflate(layoutId, null), params);
+	}
+
+	protected SpannableString setHint(int stringId) {
+		SpannableString name = new SpannableString(getString(stringId));
+		name.setSpan(new AbsoluteSizeSpan(15, true), 0, name.length(),
+				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+		return name;
 	}
 
 	protected abstract void initView();

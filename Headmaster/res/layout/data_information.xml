@@ -92,9 +92,9 @@
         android:id="@+id/data_star_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_below="@+id/fl_data_circle"
-        android:layout_marginLeft="64dp"
-        android:layout_marginRight="64dp"
         android:orientation="horizontal" >
 
         <!-- 第一个星 -->
@@ -133,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4"
-                android:textColor="#009577"
+                android:textColor="#19f9cc"
                 android:textSize="16sp" />
 
             <ImageView
@@ -155,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textColor="#004d3e"
+                android:textColor="#19f9cc"
                 android:textSize="16sp" />
 
             <ImageView

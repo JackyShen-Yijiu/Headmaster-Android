@@ -3,11 +3,12 @@ package com.yibu.headmaster;
 import android.annotation.SuppressLint;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class TermsActivity extends BaseActivity {
+public class TermsActivity extends BaseActivity implements OnClickListener {
 
 	private WebView webView;
 	private View view;
