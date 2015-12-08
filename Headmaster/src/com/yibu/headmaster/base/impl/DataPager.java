@@ -79,7 +79,6 @@ public class DataPager extends BasePager implements OnClickListener {
 		progressOut1 = 0;
 		progressOut2 = 0;
 		progressIn2 = 0;
-		LogUtil.print("cccccccccc");
 		loadNetworkData();
 
 	}
@@ -180,18 +179,93 @@ public class DataPager extends BasePager implements OnClickListener {
 	}
 
 	// 设置圆盘的值
+	// private void setCircleData(final MainOfTodayBean todayBean) {
+	//
+	// progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
+	// progressOutsideForcast.setProgress(0);
+	// // 动画效果
+	// new Thread(new Runnable() {
+	//
+	// @Override
+	// public void run() {
+	// for (int i = 0; i < todayBean.reservationcoursecountday; i++) {
+	// try {
+	// Thread.sleep(1000 / todayBean.reservationcoursecountday);
+	// } catch (InterruptedException e) {
+	// e.printStackTrace();
+	// }
+	//
+	// progressOut1++;
+	// Message msg = Message.obtain();
+	// msg.what = 1;
+	// msgHandler.sendMessage(msg);
+	// }
+	// }
+	// }).start();
+	// progressOutside.setMax(todayBean.coachstotalcoursecount);
+	// progressOutside.setProgress(0);
+	// // 动画效果
+	// new Thread(new Runnable() {
+	//
+	// @Override
+	// public void run() {
+	// for (int i = 0; i < todayBean.finishreservationnow; i++) {
+	// try {
+	// Thread.sleep(1000 / todayBean.finishreservationnow);
+	// } catch (InterruptedException e) {
+	// e.printStackTrace();
+	// }
+	//
+	// progressOut2++;
+	// Message msg = Message.obtain();
+	// msg.what = 2;
+	// msgHandler.sendMessage(msg);
+	// }
+	// }
+	// }).start();
+	//
+	// progressInsideForcast.setMax(todayBean.coachcoursenow);
+	// progressInsideForcast.setProgress(todayBean.coachcoursenow);
+	// if (todayBean.coachcoursenow == 0) {
+	//
+	// progressInsideForcast.setMax(100);
+	// progressInsideForcast.setProgress(100);
+	// }
+	//
+	// progressInside.setMax(todayBean.coachcoursenow);
+	// progressInside.setProgress(0);
+	// new Thread(new Runnable() {
+	//
+	// @Override
+	// public void run() {
+	// for (int i = 0; i < todayBean.finishreservationnow; i++) {
+	// try {
+	// Thread.sleep(1000 / todayBean.finishreservationnow);
+	// } catch (InterruptedException e) {
+	// e.printStackTrace();
+	// }
+	//
+	// progressIn2++;
+	// Message msg = Message.obtain();
+	// msg.what = 3;
+	// msgHandler.sendMessage(msg);
+	// }
+	// }
+	// }).start();
+	// }
+
 	private void setCircleData(final MainOfTodayBean todayBean) {
 
-		progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
+		progressOutsideForcast.setMax(100);
 		progressOutsideForcast.setProgress(0);
 		// 动画效果
 		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				for (int i = 0; i < todayBean.reservationcoursecountday; i++) {
+				for (int i = 0; i < 0; i++) {
 					try {
-						Thread.sleep(1000 / todayBean.reservationcoursecountday);
+						Thread.sleep(1000 / 98);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -203,16 +277,16 @@ public class DataPager extends BasePager implements OnClickListener {
 				}
 			}
 		}).start();
-		progressOutside.setMax(todayBean.coachstotalcoursecount);
+		progressOutside.setMax(100);
 		progressOutside.setProgress(0);
 		// 动画效果
 		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				for (int i = 0; i < todayBean.finishreservationnow; i++) {
+				for (int i = 0; i < 76; i++) {
 					try {
-						Thread.sleep(1000 / todayBean.finishreservationnow);
+						Thread.sleep(1000 / 76);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -233,15 +307,15 @@ public class DataPager extends BasePager implements OnClickListener {
 			progressInsideForcast.setProgress(100);
 		}
 
-		progressInside.setMax(todayBean.coachcoursenow);
+		progressInside.setMax(100);
 		progressInside.setProgress(0);
 		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				for (int i = 0; i < todayBean.finishreservationnow; i++) {
+				for (int i = 0; i < 54; i++) {
 					try {
-						Thread.sleep(1000 / todayBean.finishreservationnow);
+						Thread.sleep(1000 / 54);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}

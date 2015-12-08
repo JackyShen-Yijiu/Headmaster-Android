@@ -265,7 +265,7 @@ public class PagerSlidingTab extends HorizontalScrollView {
 		tab.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pager.setCurrentItem(position);
+				pager.setCurrentItem(position, false);
 			}
 		});
 
@@ -282,7 +282,7 @@ public class PagerSlidingTab extends HorizontalScrollView {
 		tab.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pager.setCurrentItem(position);
+				pager.setCurrentItem(position, false);
 			}
 		});
 

@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -64,11 +65,17 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	public LocationClient mLocationClient = null;
 	public MyLocationListenner myListener = new MyLocationListenner();
+	Window window;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
+		window = getWindow();
+		WindowManager.LayoutParams params = window.getAttributes();
+		params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+		window.setAttributes(params);
+
 		setContentView(R.layout.activity_main);
 
 		initView();

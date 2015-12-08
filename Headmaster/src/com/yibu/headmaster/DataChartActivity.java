@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 
 import com.yibu.headmaster.adapter.MoreDataAdapter;
@@ -16,6 +17,7 @@ public class DataChartActivity extends BaseActivity {
 	private List<MoreDataPager> tabPagers;
 	private PagerSlidingTab slidingTab;
 	private ViewPager viewPager;
+	private String[] titles;
 
 	@Override
 	protected void initView() {
@@ -26,11 +28,28 @@ public class DataChartActivity extends BaseActivity {
 				.findViewById(R.id.more_data_sliding_tab);
 		viewPager = (ViewPager) view.findViewById(R.id.more_data_view_pager);
 
+		baseTitle.setText("今天数据");
 	}
 
 	@Override
 	protected void initListener() {
+		slidingTab.setOnPageChangeListener(new OnPageChangeListener() {
 
+			@Override
+			public void onPageSelected(int arg0) {
+				baseTitle.setText(titles[arg0] + "数据");
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+
+			}
+		});
 	}
 
 	@Override
@@ -38,12 +57,12 @@ public class DataChartActivity extends BaseActivity {
 
 		// 初始化数据
 		tabPagers = new ArrayList<MoreDataPager>();
-		String[] title = new String[] { "今天", "昨天", "本周", "本月", "本年" };
-		for (int i = 0; i < title.length; i++) {
+		titles = new String[] { "今天", "昨天", "本周", "本月", "本年" };
+		for (int i = 0; i < titles.length; i++) {
 			tabPagers.add(new MoreDataPager(getApplicationContext()));
 		}
 
-		viewPager.setAdapter(new MoreDataAdapter(title, tabPagers));
+		viewPager.setAdapter(new MoreDataAdapter(titles, tabPagers));
 		slidingTab.setViewPager(viewPager);
 	}
 
