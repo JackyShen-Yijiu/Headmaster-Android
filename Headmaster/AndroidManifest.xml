@@ -77,6 +77,8 @@
             android:screenOrientation="portrait">
        
             </activity>
+            <activity android:name=".NewsDetailActivity"
+                android:screenOrientation="portrait"></activity>
        
           <service
             android:name="com.baidu.location.f"
