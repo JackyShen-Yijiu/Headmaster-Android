@@ -55,9 +55,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>          
         </activity>       
-        <activity 
-            android:name=".WelcomeActivity"> 
+        <activity  android:name=".WelcomeActivity">  </activity> 
+        <activity android:name=".AboutUsActivity"
+            android:screenOrientation="portrait">
         </activity>
+         <activity  android:name=".TermsActivity"></activity>
         <activity 
             android:name=".PublishBulletinActivity" 
             android:screenOrientation="portrait"> 

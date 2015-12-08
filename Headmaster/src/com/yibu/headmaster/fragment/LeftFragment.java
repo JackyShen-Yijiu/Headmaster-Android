@@ -71,7 +71,6 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 					HeadmasterApplication.getContext(),
 					LeftMyCoachActivity.class);
 			startActivity(intent_coach);
-			// ToastUtil.showToast(HeadmasterApplication.getContext(), "我的教练");
 			break;
 
 		// 设置
@@ -81,7 +80,6 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 					HeadmasterApplication.getContext(),
 					LeftSettingActivity.class);
 			startActivity(intent_setting);
-			// ToastUtil.showToast(HeadmasterApplication.getContext(), "设置");
 			break;
 
 		}

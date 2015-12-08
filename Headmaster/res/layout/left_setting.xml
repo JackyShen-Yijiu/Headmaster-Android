@@ -1,134 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#ffffff"
-    android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg" >
 
-    <ImageView
+    <RelativeLayout
+        android:id="@+id/rl_new_one"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#f7f9fb"
-        android:contentDescription="@string/app_name" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#cccccc"
-        android:contentDescription="@string/app_name" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:orientation="horizontal" >
-
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="42dp" >
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:paddingLeft="15dp"
-            android:text="@string/appointment_tip"
-            android:textColor="#333333" />
-
-        <CheckBox
-            android:id="@+id/setting_appointment_ck"
-            android:layout_width="45dp"
-            android:layout_gravity="center_vertical"
-            android:layout_height="22dp"
-            android:button="@null"
-            android:background="@drawable/switch_bkground"
-            android:layout_marginRight="15dp" />
-    </LinearLayout>
-
-    <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="29dp"
+            android:text="每天消息提醒"
+            android:textColor="#bfbfbf"
+            android:textSize="14sp" />
+       <CheckBox
+            android:id="@+id/imageView_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_marginRight="49dp"
+			android:button="@null"
+            android:background="@drawable/switch_bkground" />
+    </RelativeLayout>
+     
+    <RelativeLayout
+        android:id="@+id/rl_new_two"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="15dp"
-        android:background="#e6e6e6"
-        android:contentDescription="@string/app_name" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:orientation="horizontal" >
-
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_new_one"
+        android:layout_marginTop="40dp" >
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:paddingLeft="15dp"
-            android:text="@string/new_message_tip"
-            android:textColor="#333333" />
-
-        <CheckBox
-            android:id="@+id/setting_newmessage_ck"
-            android:layout_width="45dp"
-            android:layout_gravity="center_vertical"
-            android:layout_height="22dp"
-            android:button="@null"
-            android:background="@drawable/switch_bkground"
-            android:layout_marginRight="15dp" />
-    </LinearLayout>
-
-    <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="29dp"
+            android:text="投诉消息提醒"
+            android:textColor="#bfbfbf"
+            android:textSize="14sp" />
+        <CheckBox 
+            android:id="@+id/imageView_open1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_marginRight="49dp"
+			android:button="@null"
+            android:background="@drawable/switch_bkground" />
+    </RelativeLayout>
+     
+    <RelativeLayout
+        android:id="@+id/rl_new_three"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#cccccc"
-        android:contentDescription="@string/app_name" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#f7f9fb"
-        android:contentDescription="@string/app_name" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#cccccc"
-        android:contentDescription="@string/app_name" />
-
-    <TextView
+        android:layout_height="wrap_content"
+       android:layout_below="@+id/rl_new_two"
+        android:layout_marginTop="40dp" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="29dp"
+            android:text="新学员报名提醒"
+            android:textColor="#bfbfbf"
+            android:textSize="14sp" />
+        <CheckBox 
+            android:id="@+id/imageView_open2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_marginRight="49dp"		
+			android:button="@null"
+            android:background="@drawable/switch_bkground" />
+    </RelativeLayout>
+    
+        <RelativeLayout
         android:id="@+id/setting_aboutus_tv"
-        style="@style/person_center_text_style"
-        android:text="@string/about_us" />
-
-    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="15dp"
-        android:background="#e6e6e6"
-        android:contentDescription="@string/app_name" />
-
-    <TextView
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_new_three"
+        android:clickable="true"
+        android:layout_marginTop="40dp" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="29dp"
+            android:text="关于我们"
+            android:textColor="#bfbfbf"
+            android:textSize="14sp" />
+    </RelativeLayout>
+         <RelativeLayout
         android:id="@+id/setting_rate_tv"
-        style="@style/person_center_text_style"
-        android:text="@string/set_rate" />
-
-    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="15dp"
-        android:background="#e6e6e6"
-        android:contentDescription="@string/app_name" />
-
-    <TextView
+        android:layout_height="wrap_content"
+       android:layout_below="@+id/setting_aboutus_tv"
+        android:layout_marginTop="40dp" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="29dp"
+            android:text="去评分"
+            android:textColor="#bfbfbf"
+            android:textSize="14sp" />
+    </RelativeLayout>
+         <RelativeLayout
         android:id="@+id/setting_callback_tv"
-        style="@style/person_center_text_style"
-        android:text="@string/callback" />
-
-    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#cccccc"
-        android:contentDescription="@string/app_name" />
+        android:layout_height="wrap_content"
+       android:layout_below="@+id/setting_rate_tv"
+        android:layout_marginTop="40dp" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="29dp"
+            android:text="反馈"
+            android:textColor="#bfbfbf"
+            android:textSize="14sp" />
+    </RelativeLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#f7f9fb"
-        android:contentDescription="@string/app_name" />
-
-</LinearLayout>
+</RelativeLayout>
