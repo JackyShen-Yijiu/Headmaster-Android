@@ -47,14 +47,13 @@
                 android:layout_gravity="center_vertical"
                 android:textColor="#fefefe" 
                 android:textSize="12sp"
-                android:text="23°C"/>
+                />
             <ImageView
                 android:id="@+id/weather_icon"
                 android:layout_width="@dimen/weather_icon_width"
                 android:layout_height="@dimen/weather_icon_height"
                 android:scaleType="centerCrop"
                 android:layout_marginRight="15dp"
-                android:src="@drawable/weather"
                 android:contentDescription="@string/app_name" />
                 
             </LinearLayout>

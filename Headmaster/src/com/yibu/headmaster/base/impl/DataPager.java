@@ -3,10 +3,12 @@ package com.yibu.headmaster.base.impl;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.github.lzyzsd.circleprogress.ArcProgress;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.yibu.headmaster.DataChartActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
@@ -62,8 +65,9 @@ public class DataPager extends BasePager implements OnClickListener {
 	private ImageView leftLine;
 	@ViewInject(R.id.data_line_right_iv)
 	private ImageView rightLine;
+	@ViewInject(R.id.fl_data_circle)
+	private FrameLayout dataCircle;
 
-	private int state = 2;// 显示内容：： 1 昨天 ， 2今天 ，3 本周
 	private int searchtype = 1;// 查询类型 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
 
 	public DataPager(Context context) {
@@ -85,6 +89,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		yesterday.setOnClickListener(this);
 		today.setOnClickListener(this);
 		thisWeek.setOnClickListener(this);
+		dataCircle.setOnClickListener(this);
 		return view;
 	}
 
@@ -105,17 +110,28 @@ public class DataPager extends BasePager implements OnClickListener {
 				currentNum.setText(todayBean.applystudentcount + "");
 
 				setCircleData(todayBean);
-				setComment(todayBean);
+				setCommnent(todayBean);
 			}
 		} else if (searchtype == 3) {
 			// 本周
 			MainOfWeekBean weekBean = JsonUtil.parseJsonToBean(data,
 					MainOfWeekBean.class);
+			if (weekBean != null) {
+				setWeekCommnent(weekBean);
+			}
 		}
 	}
 
+	// 设置本周的评论数
+	private void setWeekCommnent(MainOfWeekBean weekBean) {
+		goodCommnent.setText(weekBean.goodcommentcount + "");
+		generalCommnent.setText(weekBean.generalcomment + "");
+		badCommnent.setText(weekBean.badcommentcount + "");
+		complaintStudentCount.setText(weekBean.complaintstudentcount + "");
+	}
+
 	// 设置评论数
-	private void setComment(MainOfTodayBean todayBean) {
+	private void setCommnent(MainOfTodayBean todayBean) {
 		goodCommnent.setText(todayBean.commentstudentcount.goodcommnent + "");
 		generalCommnent.setText(todayBean.commentstudentcount.generalcomment
 				+ "");
@@ -126,61 +142,36 @@ public class DataPager extends BasePager implements OnClickListener {
 	// 设置头部学校学生数量
 	private void setSchoolStudentCount(
 			List<Schoolstudentcount> schoolstudentcount) {
-		for (int i = 0; i < schoolstudentcount.size(); i++) {
-			int subjectid = schoolstudentcount.get(i).subjectid;
-			switch (subjectid) {
-			case 0:
+		if (schoolstudentcount != null) {
+			for (int i = 0; i < schoolstudentcount.size(); i++) {
+				int subjectid = schoolstudentcount.get(i).subjectid;
+				switch (subjectid) {
+				case 0:
 
-				subject1Num
-						.setText(schoolstudentcount.get(i).studentcount + "");
-				break;
-			case 1:
-				subject2Num
-						.setText(schoolstudentcount.get(i).studentcount + "");
+					subject1Num.setText(schoolstudentcount.get(i).studentcount
+							+ "");
+					break;
+				case 1:
+					subject2Num.setText(schoolstudentcount.get(i).studentcount
+							+ "");
 
-				break;
-			case 2:
-				subject3Num
-						.setText(schoolstudentcount.get(i).studentcount + "");
+					break;
+				case 2:
+					subject3Num.setText(schoolstudentcount.get(i).studentcount
+							+ "");
 
-				break;
-			case 3:
-				subject4Num
-						.setText(schoolstudentcount.get(i).studentcount + "");
+					break;
+				case 3:
+					subject4Num.setText(schoolstudentcount.get(i).studentcount
+							+ "");
 
-				break;
+					break;
 
-			default:
-				break;
-			}
-		}
-
-	}
-
-	// 设置圆盘的值
-	private void setCircleWeekData(final MainOfWeekBean weekBean) {
-
-		progressOutsideForcast.setMax(weekBean.coachstotalcoursecount);
-		progressOutsideForcast.setProgress(0);
-		// 动画效果
-		new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				for (int i = 0; i < weekBean.reservationcoursecountday; i++) {
-					try {
-						Thread.sleep(1000 / weekBean.reservationcoursecountday);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-
-					progressOut1++;
-					Message msg = Message.obtain();
-					msg.what = 1;
-					msgHandler.sendMessage(msg);
+				default:
+					break;
 				}
 			}
-		}).start();
+		}
 
 	}
 
@@ -282,6 +273,7 @@ public class DataPager extends BasePager implements OnClickListener {
 				handler);
 	}
 
+	// 显示内容：： 1 昨天 ， 2今天 ，3 本周
 	private void setState(int curState) {
 		yesterday.setSelected(false);
 		today.setSelected(false);
@@ -329,7 +321,10 @@ public class DataPager extends BasePager implements OnClickListener {
 			loadNetworkData();
 
 			break;
-
+		case R.id.fl_data_circle:
+			LogUtil.print("更多数据");
+			Intent intent = new Intent(mContext, DataChartActivity.class);
+			mContext.startActivity(intent);
 		default:
 			break;
 		}

@@ -16,25 +16,21 @@ public class DataChartActivity extends BaseActivity {
 
 	@Override
 	protected void initListener() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void initData() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void processSuccess(String data) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void processFailure() {
-		// TODO Auto-generated method stub
 
 	}
 

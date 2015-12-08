@@ -26,7 +26,7 @@
     <string name="pull_to_refresh_tap_label">点击刷新</string>
     <string name="contact_customer_service">联系客服</string>
     <string name="publish_bulletin">发布公告</string>
-    <string name="publish">公告</string>
+    <string name="publish">发布</string>
     <string name="coach">教练</string>
     <string name="student">学员</string>
     <string name="max_300_word">最多输入300字</string>
@@ -36,4 +36,12 @@
     <string name="coach_title">我的教练</string>
     <string name="setting_title">设置</string>
      <!-- 左侧设置 -->
+     
+     <string-array name="tab_names">
+        <item>今天</item>
+        <item>昨天</item>
+        <item>本周</item>
+        <item>本月</item>
+        <item>本年</item>
+    </string-array>
 </resources>

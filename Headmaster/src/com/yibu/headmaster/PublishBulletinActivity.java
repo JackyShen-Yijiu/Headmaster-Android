@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -32,8 +31,6 @@ import com.yibu.headmaster.view.QuickReturnListView;
 public class PublishBulletinActivity extends BaseActivity {
 
 	private RadioGroup radioGroup;
-	private RadioButton rbCoach;
-	private RadioButton rbStudent;
 	private EditText pulishContent;
 
 	private BulletinAdapter adapter;
@@ -63,10 +60,10 @@ public class PublishBulletinActivity extends BaseActivity {
 
 		radioGroup = (RadioGroup) viewHeader
 				.findViewById(R.id.rg_publish_bulletin_select);
-		rbCoach = (RadioButton) viewHeader
-				.findViewById(R.id.rb_publish_bulletin_coach);
-		rbStudent = (RadioButton) viewHeader
-				.findViewById(R.id.rb_publish_bulletin_student);
+		// rbCoach = (RadioButton) viewHeader
+		// .findViewById(R.id.rb_publish_bulletin_coach);
+		// rbStudent = (RadioButton) viewHeader
+		// .findViewById(R.id.rb_publish_bulletin_student);
 		pulishContent = (EditText) viewHeader
 				.findViewById(R.id.et_publish_bulletin_content);
 

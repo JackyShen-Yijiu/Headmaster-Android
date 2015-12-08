@@ -38,6 +38,7 @@ import com.yibu.headmaster.base.impl.ChatterPager;
 import com.yibu.headmaster.base.impl.DataPager;
 import com.yibu.headmaster.base.impl.NewsPager;
 import com.yibu.headmaster.bean.WeatherBean;
+import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
@@ -105,13 +106,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void initData() {
 
 		String weather_temp = SharedPreferencesUtil.getString(
-				getApplicationContext(), WEATHER_TEMPERATURE, "");
+				HeadmasterApplication.getContext(), WEATHER_TEMPERATURE, "");
 		String weather_pic = SharedPreferencesUtil.getString(
-				getApplicationContext(), WEATHER_PIC, "");
+				HeadmasterApplication.getContext(), WEATHER_PIC, "");
 		if (!TextUtils.isEmpty(weather_temp) && TextUtils.isEmpty(weather_pic)) {
 			weatherDegree.setText(weather_temp + "°C");
 			Picasso.with(getApplicationContext()).load(weather_pic)
 					.into(weatherIcon);
+			LogUtil.print("-----00+++" + weather_pic);
 		}
 
 		pagers = new ArrayList<BasePager>();
@@ -289,11 +291,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
 						// 保存天气
 						SharedPreferencesUtil.putString(
-								getApplicationContext(), WEATHER_TEMPERATURE,
-								weather_temp);
+								HeadmasterApplication.getContext(),
+								WEATHER_TEMPERATURE, weather_temp);
 						SharedPreferencesUtil.putString(
-								getApplicationContext(), WEATHER_PIC,
-								weather_pic);
+								HeadmasterApplication.getContext(),
+								WEATHER_PIC, weather_pic);
 					}
 				} else {
 
@@ -311,9 +313,10 @@ public class MainActivity extends Activity implements OnClickListener {
 					byte[] responseBody, Throwable error) {
 
 				String weather_temp = SharedPreferencesUtil.getString(
-						getApplicationContext(), WEATHER_TEMPERATURE, "");
+						HeadmasterApplication.getContext(),
+						WEATHER_TEMPERATURE, "");
 				String weather_pic = SharedPreferencesUtil.getString(
-						getApplicationContext(), WEATHER_PIC, "");
+						HeadmasterApplication.getContext(), WEATHER_PIC, "");
 				if (weather_pic != null && weather_temp != null) {
 					weatherDegree.setText(weather_temp + "°C");
 					Picasso.with(getApplicationContext()).load(weather_pic)
