@@ -48,10 +48,11 @@ public class NewsPager extends BasePager {
 		listView_show = pullToRefreshListView.getRefreshableView();
 		listView_show.setCacheColorHint(Color.TRANSPARENT);
 		listView_show.setDividerHeight(0);
-		listView_show.setSelector(android.R.color.transparent);
+		// listView_show.setSelector(android.R.color.transparent);
 
 		listView_show.setOnItemClickListener(new ListViewOnItemClickListener());
 		listView_show.setSelector(R.drawable.listview_selector);
+		// listView_show.setDrawSelectorOnTop(true);
 
 		totalList = new ArrayList<NewsBean>();
 		adapter = new NewsInformationAdapter(mContext, totalList);

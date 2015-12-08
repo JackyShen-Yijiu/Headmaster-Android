@@ -9,7 +9,7 @@
     
     <!-- 咨询Listview分割线颜色 -->
     <color name="divider_color">#000000</color>
-    <color name="listview_selected_color">#31403D</color>
+    <color name="listview_selected_color">#313f3e</color>
     
      <color name="background_tab_pressed">#6633B5E5</color>
   <color name="slidingtab_indicatorcolor">#01e2b6</color>
