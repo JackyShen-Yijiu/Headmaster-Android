@@ -324,6 +324,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		case R.id.fl_data_circle:
 			LogUtil.print("更多数据");
 			Intent intent = new Intent(mContext, DataChartActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			mContext.startActivity(intent);
 		default:
 			break;

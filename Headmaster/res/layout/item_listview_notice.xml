@@ -9,7 +9,7 @@
         android:layout_height="70dp"
         android:scaleType="centerCrop"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_launcher" />
@@ -18,9 +18,10 @@
         android:id="@+id/textView_item_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView_item_cover"
+        android:layout_above="@+id/iv_item_deviderline"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
+        android:layout_marginBottom="6dp"
         android:gravity="right"
         android:textColor="#666"
         android:text="26分钟前"
@@ -39,5 +40,13 @@
         android:text="content"
         android:textColor="#bfbfbf"
         android:textSize="14sp" />
+
+    <View
+        android:id="@+id/iv_item_deviderline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView_item_cover"
+        android:background="#2a2a2a" />
 
 </RelativeLayout>

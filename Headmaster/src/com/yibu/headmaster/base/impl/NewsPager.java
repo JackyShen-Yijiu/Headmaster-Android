@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.yibu.headmaster.NewsDetailActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.adapter.NewsInformationAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
@@ -41,6 +46,13 @@ public class NewsPager extends BasePager {
 	@Override
 	public void initData() {
 		listView_show = pullToRefreshListView.getRefreshableView();
+		listView_show.setCacheColorHint(Color.TRANSPARENT);
+		listView_show.setDividerHeight(0);
+		listView_show.setSelector(android.R.color.transparent);
+
+		listView_show.setOnItemClickListener(new ListViewOnItemClickListener());
+		listView_show.setSelector(R.drawable.listview_selector);
+
 		totalList = new ArrayList<NewsBean>();
 		adapter = new NewsInformationAdapter(mContext, totalList);
 		listView_show.setAdapter(adapter);
@@ -101,6 +113,21 @@ public class NewsPager extends BasePager {
 		ViewUtils.inject(this, view);
 
 		return view;
+	}
+
+	class ListViewOnItemClickListener implements OnItemClickListener {
+
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			NewsBean bean = totalList.get(position);
+
+			Intent intent = new Intent(mContext, NewsDetailActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent.putExtra("url", bean.contenturl);
+			mContext.startActivity(intent);
+		}
+
 	}
 
 }
