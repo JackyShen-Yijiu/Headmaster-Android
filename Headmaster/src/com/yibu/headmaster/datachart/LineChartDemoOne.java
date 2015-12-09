@@ -123,6 +123,7 @@ public class LineChartDemoOne extends DemoView {
 			// chartLn.getPlotGrid().showOddRowBgColor();
 			chartLn.getPlotGrid().getHorizontalLinePaint();
 			chartLn.getPlotGrid().getVerticalLinePaint();
+			// chartLn.getPlotGrid().setEvenRowsFillVisible(true);
 
 			// 数据轴最大值
 			chartLn.getDataAxis().setAxisMax(28);

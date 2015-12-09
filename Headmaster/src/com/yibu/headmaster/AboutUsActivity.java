@@ -13,7 +13,7 @@ public class AboutUsActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void initView() {
-		view = View.inflate(getBaseContext(), R.layout.left_setting_aboutus,
+		view = View.inflate(getBaseContext(), R.layout.left_setting_about_us,
 				null);
 		content.addView(view);
 		setSonsTitle(getString(R.string.setting_aboutus));

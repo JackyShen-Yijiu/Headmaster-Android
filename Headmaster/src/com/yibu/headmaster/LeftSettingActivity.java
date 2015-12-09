@@ -3,6 +3,7 @@ package com.yibu.headmaster;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -14,17 +15,23 @@ public class LeftSettingActivity extends BaseActivity implements
 	private RelativeLayout setting_callback;
 	private RelativeLayout setting_rate;
 	private View view;
+	private CheckBox appointmentCk;
+	private CheckBox messageCk;
 
 	@Override
 	protected void initView() {
 		view = View.inflate(getBaseContext(), R.layout.left_setting, null);
 		content.addView(view);
+		setSonsTitle(getString(R.string.setting_title));
 		setting_aboutus = (RelativeLayout) view
 				.findViewById(R.id.setting_aboutus_tv);
 		setting_callback = (RelativeLayout) view
 				.findViewById(R.id.setting_callback_tv);
 		setting_rate = (RelativeLayout) view.findViewById(R.id.setting_rate_tv);
-		setSonsTitle(getString(R.string.setting_title));
+
+		appointmentCk = (CheckBox) findViewById(R.id.imageView_open);
+		messageCk = (CheckBox) findViewById(R.id.imageView_open1);
+
 	}
 
 	@Override

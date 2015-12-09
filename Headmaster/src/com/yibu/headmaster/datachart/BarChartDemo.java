@@ -1,10 +1,32 @@
+/**
+ * Copyright 2014  XCL-Charts
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 	
+ * @Project XCL-Charts 
+ * @Description Android图表基类库
+ * @author XiongChuanLiang<br/>(xcl_168@aliyun.com)
+ * @Copyright Copyright (c) 2014 XCL-Charts (www.xclcharts.com)
+ * @license http://www.apache.org/licenses/  Apache v2 License
+ * @version 1.0
+ */
 package com.yibu.headmaster.datachart;
 
 import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.xclcharts.chart.BarChart3D;
+import org.xclcharts.chart.BarChart;
 import org.xclcharts.chart.BarData;
 import org.xclcharts.common.DensityUtil;
 import org.xclcharts.common.IFormatterDoubleCallBack;
@@ -15,28 +37,26 @@ import org.xclcharts.renderer.XEnum;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.widget.Toast;
 
 /**
- * @ClassName Bar3DChart01View
- * @Description 3D柱形图例子
+ * @ClassName BarChart02View
+ * @Description 柱形图例子(横向)
  * @author XiongChuanLiang<br/>
- * 
+ *         (xcl_168@aliyun.com)
  */
 public class BarChartDemo extends DemoView {
 
-	private String TAG = "Bar3DChart01View";
-	private BarChart3D chart = new BarChart3D();
+	private static final String TAG = "BarChart02View";
+	private BarChart chart = new BarChart();
 
 	// 标签轴
 	private List<String> chartLabels = new LinkedList<String>();
-	// 数据轴
-	private List<BarData> BarDataset = new LinkedList<BarData>();
-
-	Paint mPaintToolTip = new Paint(Paint.ANTI_ALIAS_FLAG);
+	private List<BarData> chartData = new LinkedList<BarData>();
 
 	public BarChartDemo(Context context) {
 		super(context);
@@ -67,86 +87,71 @@ public class BarChartDemo extends DemoView {
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		// 图所占范围大小
-		chart.setChartRange(w, h);
+		if (null != chart)
+			chart.setChartRange(w, h);
 	}
 
 	private void chartRender() {
 		try {
-
 			// 设置绘图区默认缩进px值,留置空间显示Axis,Axistitle....
 			int[] ltrb = getBarLnDefaultSpadding();
 			chart.setPadding(DensityUtil.dip2px(getContext(), 50), ltrb[1],
-					ltrb[2], ltrb[3] + DensityUtil.dip2px(getContext(), 25));
-
-			// 显示边框
-			// chart.showRoundBorder();
+					ltrb[2], ltrb[3]);
 
 			// 数据源
-			chart.setDataSource(BarDataset);
+			chart.setDataSource(chartData);
 			chart.setCategories(chartLabels);
+			// 隐藏轴线和tick
+			chart.getDataAxis().hideAxisLine();
+			chart.getCategoryAxis().hideAxisLine();
+
 			// 禁止缩放
 			chart.disableScale();
-			// 坐标系
+			// 仅能横向移动
+			chart.setPlotPanMode(XEnum.PanMode.HORIZONTAL);
+			// // 轴标题
+			// chart.getAxisTitle().setLeftTitle("所售商品");
+			// chart.getAxisTitle().setLowerTitle("纯利润(天)");
+			// chart.getAxisTitle().setRightTitle("生意兴隆通四海,财源茂盛达三江。");
+			// 隐藏Key
+			chart.getPlotLegend().hide();
+
+			// 数据轴
 			chart.getDataAxis().setAxisMax(28);
 			chart.getDataAxis().setAxisMin(0);
 			chart.getDataAxis().setAxisSteps(7);
-			// chart.getCategoryAxis().setAxisTickLabelsRotateAngle(-45f);
 
-			// 隐藏轴线和tick
-			chart.getDataAxis().hideAxisLine();
-
-			chart.getCategoryAxis().hideAxisLine();
-
-			// 标题
-			chart.setTitle("教授授课");
-			chart.addSubtitle("课时");
-			chart.setTitleAlign(XEnum.HorizontalAlign.LEFT);
-
-			// 背景网格
-			chart.getPlotGrid().showHorizontalLines();
-			chart.getPlotGrid().showVerticalLines();
-			// chart.getPlotGrid().showEvenRowBgColor();
-			// chart.getPlotGrid().showOddRowBgColor();
-
-			// 定义数据轴标签显示格式
-			chart.getDataAxis().setTickLabelRotateAngle(-45);
 			chart.getDataAxis().getTickLabelPaint()
 					.setColor(Color.rgb(1, 226, 182));
 			chart.getCategoryAxis().getTickLabelPaint()
 					.setColor(Color.rgb(1, 226, 182));
+
 			chart.getDataAxis().setLabelFormatter(new IFormatterTextCallBack() {
 
 				@Override
 				public String textFormatter(String value) {
 					// TODO Auto-generated method stub
-					Double tmp = Double.parseDouble(value);
-					DecimalFormat df = new DecimalFormat("#0");
-					String label = df.format(tmp).toString();
-					return (label + "节");
+					String tmp = value + "节";
+					return tmp;
 				}
 
 			});
 
-			/*
-			 * // 设置标签轴标签交错换行显示 chart.getCategoryAxis().setLabelLineFeed(
-			 * XEnum.LabelLineFeed.EVEN_ODD);
-			 */
+			// 网格
+			chart.getPlotGrid().showHorizontalLines();
+			chart.getPlotGrid().showVerticalLines();
+			// chart.getPlotGrid().showEvenRowBgColor();
+			// 柱形和标签居中方式
+			chart.setBarCenterStyle(XEnum.BarCenterStyle.TICKMARKS);
 
-			// 定义标签轴标签显示格式
-
-			// chart.getCategoryAxis().setAxisLineStyle(XEnum.AxisLineStyle.NONE);
-			chart.getCategoryAxis().setLabelFormatter(
-					new IFormatterTextCallBack() {
-
-						@Override
-						public String textFormatter(String value) {
-							// TODO Auto-generated method stub
-							return value;
-						}
-
-					});
-			// 定义柱形上标签显示格式
+			// 标签轴文字旋转-45度
+			// chart.getCategoryAxis().setTickLabelRotateAngle(-45f);
+			// 横向显示柱形
+			chart.setChartDirection(XEnum.Direction.VERTICAL);
+			// 在柱形顶部显示值
 			chart.getBar().setItemLabelVisible(true);
+			chart.getBar().getItemLabelPaint().setTextSize(22);
+
 			chart.setItemLabelFormatter(new IFormatterDoubleCallBack() {
 				@Override
 				public String doubleFormatter(Double value) {
@@ -159,45 +164,45 @@ public class BarChartDemo extends DemoView {
 
 			// 激活点击监听
 			chart.ActiveListenItemClick();
+			chart.showClikedFocus();
 
-			// 仅能横向移动
-			chart.setPlotPanMode(XEnum.PanMode.HORIZONTAL);
-
-			// 扩展横向显示范围
-			// chart.getPlotArea().extWidth(200f);
-
-			// 标签文字与轴间距
-			chart.getCategoryAxis().setTickLabelMargin(5);
-
-			// 不使用精确计算，忽略Java计算误差
-			chart.disableHighPrecision();
-
-			// 设置轴标签字体大小
-			chart.getDataAxis().getTickLabelPaint().setTextSize(26);
+			/*
+			 * chart.setDataAxisPosition(XEnum.DataAxisPosition.BOTTOM);
+			 * chart.getDataAxis
+			 * ().setVerticalTickPosition(XEnum.VerticalAlign.BOTTOM);
+			 * 
+			 * chart.setCategoryAxisPosition(XEnum.CategoryAxisPosition.LEFT);
+			 * chart.getCategoryAxis().setHorizontalTickAlign(Align.LEFT);
+			 */
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG, e.toString());
 		}
+
 	}
 
 	private void chartDataSet() {
 		// 标签对应的柱形数据集
 		List<Double> dataSeriesA = new LinkedList<Double>();
-		dataSeriesA.add(20d);
-		dataSeriesA.add(25d);
-		dataSeriesA.add(14d);
-		dataSeriesA.add(15d);
+		dataSeriesA.add((double) 20);
+		dataSeriesA.add((double) 25);
+		dataSeriesA.add((double) 15);
+		dataSeriesA.add((double) 18);
+		dataSeriesA.add((double) 16);
+		BarData BarDataA = new BarData("小熊", dataSeriesA,
+				Color.rgb(1, 226, 182));
 
-		BarDataset.add(new BarData("课时", dataSeriesA, Color.rgb(1, 226, 182)));
-
+		chartData.add(BarDataA);
 	}
 
 	private void chartLabels() {
-		chartLabels.add("1");
 		chartLabels.add("2");
 		chartLabels.add("3");
+		chartLabels.add("2");
 		chartLabels.add("1");
+		chartLabels.add("2");
+
 	}
 
 	@Override
@@ -221,25 +226,23 @@ public class BarChartDemo extends DemoView {
 
 	// 触发监听
 	private void triggerClick(float x, float y) {
-		if (!chart.getListenItemClickStatus())
-			return;
-
 		BarPosition record = chart.getPositionRecord(x, y);
 		if (null == record)
 			return;
 
-		BarData bData = BarDataset.get(record.getDataID());
+		BarData bData = chartData.get(record.getDataID());
 		Double bValue = bData.getDataSet().get(record.getDataChildID());
 
-		// 在点击处显示tooltip
-		mPaintToolTip.setColor(Color.WHITE);
-		chart.getToolTip().getBackgroundPaint()
-				.setColor(Color.rgb(1, 226, 182));
-		chart.getToolTip().getBorderPaint().setColor(Color.RED);
-		chart.getToolTip().setCurrentXY(x, y);
-		chart.getToolTip().addToolTip(
-				" Current Value:" + Double.toString(bValue), mPaintToolTip);
-		chart.getToolTip().getBackgroundPaint().setAlpha(100);
+		Toast.makeText(
+				this.getContext(),
+				"info:" + record.getRectInfo() + " Key:" + bData.getKey()
+						+ " Current Value:" + Double.toString(bValue),
+				Toast.LENGTH_SHORT).show();
+
+		chart.showFocusRectF(record.getRectF());
+		chart.getFocusPaint().setStyle(Style.STROKE);
+		chart.getFocusPaint().setStrokeWidth(3);
+		chart.getFocusPaint().setColor(Color.rgb(1, 226, 182));
 		this.invalidate();
 	}
 
