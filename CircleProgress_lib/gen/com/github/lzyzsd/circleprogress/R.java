@@ -12,7 +12,7 @@ public final class R {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static int arcProgressStyle=0x7f010027;
+        public static int arcProgressStyle=0x7f010028;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -28,7 +28,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_bottom_text=0x7f010023;
+        public static int arc_bottom_text=0x7f010024;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -38,7 +38,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_bottom_text_size=0x7f010024;
+        public static int arc_bottom_text_size=0x7f010025;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -47,7 +47,15 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_finished_color=0x7f01001d;
+        public static int arc_finished_color=0x7f01001e;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static int arc_is_display_text=0x7f01001c;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -81,7 +89,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_suffix_text=0x7f010020;
+        public static int arc_suffix_text=0x7f010021;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -91,7 +99,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_suffix_text_padding=0x7f010022;
+        public static int arc_suffix_text_padding=0x7f010023;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -101,7 +109,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_suffix_text_size=0x7f010021;
+        public static int arc_suffix_text_size=0x7f010022;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -110,7 +118,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_text_color=0x7f01001f;
+        public static int arc_text_color=0x7f010020;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -120,7 +128,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_text_size=0x7f01001e;
+        public static int arc_text_size=0x7f01001f;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -129,11 +137,11 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int arc_unfinished_color=0x7f01001c;
+        public static int arc_unfinished_color=0x7f01001d;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static int circleProgressStyle=0x7f010025;
+        public static int circleProgressStyle=0x7f010026;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -206,7 +214,7 @@ containing a value of this type.
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static int donutProgressStyle=0x7f010026;
+        public static int donutProgressStyle=0x7f010027;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -360,6 +368,7 @@ containing a value of this type.
            <tr><td><code>{@link #ArcProgress_arc_bottom_text com.github.lzyzsd.circleprogress:arc_bottom_text}</code></td><td></td></tr>
            <tr><td><code>{@link #ArcProgress_arc_bottom_text_size com.github.lzyzsd.circleprogress:arc_bottom_text_size}</code></td><td></td></tr>
            <tr><td><code>{@link #ArcProgress_arc_finished_color com.github.lzyzsd.circleprogress:arc_finished_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #ArcProgress_arc_is_display_text com.github.lzyzsd.circleprogress:arc_is_display_text}</code></td><td></td></tr>
            <tr><td><code>{@link #ArcProgress_arc_max com.github.lzyzsd.circleprogress:arc_max}</code></td><td></td></tr>
            <tr><td><code>{@link #ArcProgress_arc_progress com.github.lzyzsd.circleprogress:arc_progress}</code></td><td></td></tr>
            <tr><td><code>{@link #ArcProgress_arc_stroke_width com.github.lzyzsd.circleprogress:arc_stroke_width}</code></td><td></td></tr>
@@ -374,6 +383,7 @@ containing a value of this type.
            @see #ArcProgress_arc_bottom_text
            @see #ArcProgress_arc_bottom_text_size
            @see #ArcProgress_arc_finished_color
+           @see #ArcProgress_arc_is_display_text
            @see #ArcProgress_arc_max
            @see #ArcProgress_arc_progress
            @see #ArcProgress_arc_stroke_width
@@ -388,7 +398,7 @@ containing a value of this type.
             0x7f010018, 0x7f010019, 0x7f01001a, 0x7f01001b,
             0x7f01001c, 0x7f01001d, 0x7f01001e, 0x7f01001f,
             0x7f010020, 0x7f010021, 0x7f010022, 0x7f010023,
-            0x7f010024
+            0x7f010024, 0x7f010025
         };
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_angle}
@@ -401,9 +411,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_angle
+          @attr name com.github.lzyzsd.circleprogress:arc_angle
         */
-        public static final int ArcProgress_arc_angle = 1;
+        public static int ArcProgress_arc_angle = 1;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_bottom_text}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -415,9 +425,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_bottom_text
+          @attr name com.github.lzyzsd.circleprogress:arc_bottom_text
         */
-        public static final int ArcProgress_arc_bottom_text = 11;
+        public static int ArcProgress_arc_bottom_text = 12;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_bottom_text_size}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -431,9 +441,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_bottom_text_size
+          @attr name com.github.lzyzsd.circleprogress:arc_bottom_text_size
         */
-        public static final int ArcProgress_arc_bottom_text_size = 12;
+        public static int ArcProgress_arc_bottom_text_size = 13;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_finished_color}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -446,9 +456,23 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_finished_color
+          @attr name com.github.lzyzsd.circleprogress:arc_finished_color
         */
-        public static final int ArcProgress_arc_finished_color = 5;
+        public static int ArcProgress_arc_finished_color = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_is_display_text}
+          attribute's value can be found in the {@link #ArcProgress} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.github.lzyzsd.circleprogress:arc_is_display_text
+        */
+        public static int ArcProgress_arc_is_display_text = 4;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_max}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -460,9 +484,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_max
+          @attr name com.github.lzyzsd.circleprogress:arc_max
         */
-        public static final int ArcProgress_arc_max = 3;
+        public static int ArcProgress_arc_max = 3;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_progress}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -474,9 +498,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_progress
+          @attr name com.github.lzyzsd.circleprogress:arc_progress
         */
-        public static final int ArcProgress_arc_progress = 0;
+        public static int ArcProgress_arc_progress = 0;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_stroke_width}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -490,9 +514,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_stroke_width
+          @attr name com.github.lzyzsd.circleprogress:arc_stroke_width
         */
-        public static final int ArcProgress_arc_stroke_width = 2;
+        public static int ArcProgress_arc_stroke_width = 2;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_suffix_text}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -504,9 +528,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_suffix_text
+          @attr name com.github.lzyzsd.circleprogress:arc_suffix_text
         */
-        public static final int ArcProgress_arc_suffix_text = 8;
+        public static int ArcProgress_arc_suffix_text = 9;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_suffix_text_padding}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -520,9 +544,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_suffix_text_padding
+          @attr name com.github.lzyzsd.circleprogress:arc_suffix_text_padding
         */
-        public static final int ArcProgress_arc_suffix_text_padding = 10;
+        public static int ArcProgress_arc_suffix_text_padding = 11;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_suffix_text_size}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -536,9 +560,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_suffix_text_size
+          @attr name com.github.lzyzsd.circleprogress:arc_suffix_text_size
         */
-        public static final int ArcProgress_arc_suffix_text_size = 9;
+        public static int ArcProgress_arc_suffix_text_size = 10;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_text_color}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -551,9 +575,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_text_color
+          @attr name com.github.lzyzsd.circleprogress:arc_text_color
         */
-        public static final int ArcProgress_arc_text_color = 7;
+        public static int ArcProgress_arc_text_color = 8;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_text_size}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -567,9 +591,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_text_size
+          @attr name com.github.lzyzsd.circleprogress:arc_text_size
         */
-        public static final int ArcProgress_arc_text_size = 6;
+        public static int ArcProgress_arc_text_size = 7;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arc_unfinished_color}
           attribute's value can be found in the {@link #ArcProgress} array.
@@ -582,9 +606,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:arc_unfinished_color
+          @attr name com.github.lzyzsd.circleprogress:arc_unfinished_color
         */
-        public static final int ArcProgress_arc_unfinished_color = 4;
+        public static int ArcProgress_arc_unfinished_color = 5;
         /** Attributes that can be used with a CircleProgress.
            <p>Includes the following attributes:</p>
            <table>
@@ -625,9 +649,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:circle_finished_color
+          @attr name com.github.lzyzsd.circleprogress:circle_finished_color
         */
-        public static final int CircleProgress_circle_finished_color = 3;
+        public static int CircleProgress_circle_finished_color = 3;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#circle_max}
           attribute's value can be found in the {@link #CircleProgress} array.
@@ -639,9 +663,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:circle_max
+          @attr name com.github.lzyzsd.circleprogress:circle_max
         */
-        public static final int CircleProgress_circle_max = 1;
+        public static int CircleProgress_circle_max = 1;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#circle_prefix_text}
           attribute's value can be found in the {@link #CircleProgress} array.
@@ -653,9 +677,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:circle_prefix_text
+          @attr name com.github.lzyzsd.circleprogress:circle_prefix_text
         */
-        public static final int CircleProgress_circle_prefix_text = 6;
+        public static int CircleProgress_circle_prefix_text = 6;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#circle_progress}
           attribute's value can be found in the {@link #CircleProgress} array.
@@ -667,9 +691,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:circle_progress
+          @attr name com.github.lzyzsd.circleprogress:circle_progress
         */
-        public static final int CircleProgress_circle_progress = 0;
+        public static int CircleProgress_circle_progress = 0;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#circle_suffix_text}
           attribute's value can be found in the {@link #CircleProgress} array.
@@ -681,9 +705,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:circle_suffix_text
+          @attr name com.github.lzyzsd.circleprogress:circle_suffix_text
         */
-        public static final int CircleProgress_circle_suffix_text = 7;
+        public static int CircleProgress_circle_suffix_text = 7;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#circle_text_color}
           attribute's value can be found in the {@link #CircleProgress} array.
@@ -696,9 +720,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:circle_text_color
+          @attr name com.github.lzyzsd.circleprogress:circle_text_color
         */
-        public static final int CircleProgress_circle_text_color = 5;
+        public static int CircleProgress_circle_text_color = 5;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#circle_text_size}
           attribute's value can be found in the {@link #CircleProgress} array.
@@ -712,9 +736,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:circle_text_size
+          @attr name com.github.lzyzsd.circleprogress:circle_text_size
         */
-        public static final int CircleProgress_circle_text_size = 4;
+        public static int CircleProgress_circle_text_size = 4;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#circle_unfinished_color}
           attribute's value can be found in the {@link #CircleProgress} array.
@@ -727,9 +751,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:circle_unfinished_color
+          @attr name com.github.lzyzsd.circleprogress:circle_unfinished_color
         */
-        public static final int CircleProgress_circle_unfinished_color = 2;
+        public static int CircleProgress_circle_unfinished_color = 2;
         /** Attributes that can be used with a DonutProgress.
            <p>Includes the following attributes:</p>
            <table>
@@ -788,9 +812,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_background_color
+          @attr name com.github.lzyzsd.circleprogress:donut_background_color
         */
-        public static final int DonutProgress_donut_background_color = 11;
+        public static int DonutProgress_donut_background_color = 11;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_circle_starting_degree}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -802,9 +826,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_circle_starting_degree
+          @attr name com.github.lzyzsd.circleprogress:donut_circle_starting_degree
         */
-        public static final int DonutProgress_donut_circle_starting_degree = 15;
+        public static int DonutProgress_donut_circle_starting_degree = 15;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_finished_color}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -817,9 +841,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_finished_color
+          @attr name com.github.lzyzsd.circleprogress:donut_finished_color
         */
-        public static final int DonutProgress_donut_finished_color = 3;
+        public static int DonutProgress_donut_finished_color = 3;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_finished_stroke_width}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -833,9 +857,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_finished_stroke_width
+          @attr name com.github.lzyzsd.circleprogress:donut_finished_stroke_width
         */
-        public static final int DonutProgress_donut_finished_stroke_width = 4;
+        public static int DonutProgress_donut_finished_stroke_width = 4;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_inner_bottom_text}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -847,9 +871,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_inner_bottom_text
+          @attr name com.github.lzyzsd.circleprogress:donut_inner_bottom_text
         */
-        public static final int DonutProgress_donut_inner_bottom_text = 12;
+        public static int DonutProgress_donut_inner_bottom_text = 12;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_inner_bottom_text_color}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -862,9 +886,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_inner_bottom_text_color
+          @attr name com.github.lzyzsd.circleprogress:donut_inner_bottom_text_color
         */
-        public static final int DonutProgress_donut_inner_bottom_text_color = 14;
+        public static int DonutProgress_donut_inner_bottom_text_color = 14;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_inner_bottom_text_size}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -878,9 +902,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_inner_bottom_text_size
+          @attr name com.github.lzyzsd.circleprogress:donut_inner_bottom_text_size
         */
-        public static final int DonutProgress_donut_inner_bottom_text_size = 13;
+        public static int DonutProgress_donut_inner_bottom_text_size = 13;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_max}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -892,9 +916,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_max
+          @attr name com.github.lzyzsd.circleprogress:donut_max
         */
-        public static final int DonutProgress_donut_max = 1;
+        public static int DonutProgress_donut_max = 1;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_prefix_text}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -906,9 +930,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_prefix_text
+          @attr name com.github.lzyzsd.circleprogress:donut_prefix_text
         */
-        public static final int DonutProgress_donut_prefix_text = 8;
+        public static int DonutProgress_donut_prefix_text = 8;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_progress}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -920,9 +944,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_progress
+          @attr name com.github.lzyzsd.circleprogress:donut_progress
         */
-        public static final int DonutProgress_donut_progress = 0;
+        public static int DonutProgress_donut_progress = 0;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_suffix_text}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -934,9 +958,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_suffix_text
+          @attr name com.github.lzyzsd.circleprogress:donut_suffix_text
         */
-        public static final int DonutProgress_donut_suffix_text = 9;
+        public static int DonutProgress_donut_suffix_text = 9;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_text}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -948,9 +972,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_text
+          @attr name com.github.lzyzsd.circleprogress:donut_text
         */
-        public static final int DonutProgress_donut_text = 10;
+        public static int DonutProgress_donut_text = 10;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_text_color}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -963,9 +987,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_text_color
+          @attr name com.github.lzyzsd.circleprogress:donut_text_color
         */
-        public static final int DonutProgress_donut_text_color = 7;
+        public static int DonutProgress_donut_text_color = 7;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_text_size}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -979,9 +1003,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_text_size
+          @attr name com.github.lzyzsd.circleprogress:donut_text_size
         */
-        public static final int DonutProgress_donut_text_size = 6;
+        public static int DonutProgress_donut_text_size = 6;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_unfinished_color}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -994,9 +1018,9 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_unfinished_color
+          @attr name com.github.lzyzsd.circleprogress:donut_unfinished_color
         */
-        public static final int DonutProgress_donut_unfinished_color = 2;
+        public static int DonutProgress_donut_unfinished_color = 2;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donut_unfinished_stroke_width}
           attribute's value can be found in the {@link #DonutProgress} array.
@@ -1010,9 +1034,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:donut_unfinished_stroke_width
+          @attr name com.github.lzyzsd.circleprogress:donut_unfinished_stroke_width
         */
-        public static final int DonutProgress_donut_unfinished_stroke_width = 5;
+        public static int DonutProgress_donut_unfinished_stroke_width = 5;
         /** Attributes that can be used with a Themes.
            <p>Includes the following attributes:</p>
            <table>
@@ -1028,7 +1052,7 @@ containing a value of this type.
            @see #Themes_donutProgressStyle
          */
         public static final int[] Themes = {
-            0x7f010025, 0x7f010026, 0x7f010027
+            0x7f010026, 0x7f010027, 0x7f010028
         };
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#arcProgressStyle}
@@ -1037,9 +1061,9 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:arcProgressStyle
+          @attr name com.github.lzyzsd.circleprogress:arcProgressStyle
         */
-        public static final int Themes_arcProgressStyle = 2;
+        public static int Themes_arcProgressStyle = 2;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#circleProgressStyle}
           attribute's value can be found in the {@link #Themes} array.
@@ -1047,9 +1071,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:circleProgressStyle
+          @attr name com.github.lzyzsd.circleprogress:circleProgressStyle
         */
-        public static final int Themes_circleProgressStyle = 0;
+        public static int Themes_circleProgressStyle = 0;
         /**
           <p>This symbol is the offset where the {@link com.github.lzyzsd.circleprogress.R.attr#donutProgressStyle}
           attribute's value can be found in the {@link #Themes} array.
@@ -1057,8 +1081,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:donutProgressStyle
+          @attr name com.github.lzyzsd.circleprogress:donutProgressStyle
         */
-        public static final int Themes_donutProgressStyle = 1;
+        public static int Themes_donutProgressStyle = 1;
     };
 }
