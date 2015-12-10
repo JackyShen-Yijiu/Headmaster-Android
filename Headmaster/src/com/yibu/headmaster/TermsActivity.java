@@ -39,9 +39,6 @@ public class TermsActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if (!onClickSingleView()) {
-			return;
-		}
 		switch (v.getId()) {
 		case R.id.ib_base_arrow:
 			finish();
@@ -73,6 +70,7 @@ public class TermsActivity extends BaseActivity implements OnClickListener {
 		super.onPause();
 	}
 
+	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
 			webView.goBack();

@@ -5,13 +5,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.View;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public abstract class BasePager {
+public abstract class BasePager extends Fragment {
 
 	public View rootView;
 	protected Context mContext;

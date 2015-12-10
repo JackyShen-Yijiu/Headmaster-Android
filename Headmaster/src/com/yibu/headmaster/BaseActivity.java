@@ -20,7 +20,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
-import cn.sft.baseactivity.util.c;
 
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -171,10 +170,6 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
 	public void setSonsTitle(String title) {
 		baseTitle.setText(title);
-	}
-
-	public boolean onClickSingleView() {
-		return !c.j();
 	}
 
 	// 关于我们 页面加载

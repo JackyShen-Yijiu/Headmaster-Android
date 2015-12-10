@@ -32,9 +32,6 @@ public class AboutUsActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if (!onClickSingleView()) {
-			return;
-		}
 		switch (v.getId()) {
 		case R.id.ib_base_arrow:
 			finish();
