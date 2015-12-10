@@ -133,17 +133,19 @@ public class LineChartDemoOne extends DemoView {
 			// 仅横向平移
 			chartLn.setPlotPanMode(XEnum.PanMode.HORIZONTAL);
 
-			// 隐藏X,Y轴线
+			// 隐藏轴线和tick
 			chartLn.getDataAxis().hideAxisLine();
-
 			chartLn.getCategoryAxis().hideAxisLine();
+			chartLn.getDataAxis().hideTickMarks();
+			chartLn.getCategoryAxis().hideTickMarks();
 
 			chartLn.getDataAxis().setTickLabelRotateAngle(-90);
 			chartLn.getDataAxis().getTickLabelPaint()
 					.setColor(Color.rgb(1, 226, 182));
 			chartLn.getCategoryAxis().getTickLabelPaint()
 					.setColor(Color.rgb(1, 226, 182));
-
+			// 隐藏图列
+			chartLn.getPlotLegend().hide();
 			// 调整轴显示位置
 
 			chartLn.setCategoryAxisLocation(XEnum.AxisLocation.BOTTOM);

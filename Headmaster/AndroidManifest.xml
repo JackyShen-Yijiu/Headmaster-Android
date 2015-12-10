@@ -60,6 +60,7 @@
         <activity android:name=".AboutUsActivity"></activity>
          <activity  android:name=".TermsActivity"></activity>
          <activity  android:name=".CallBackActivity"></activity>
+         <activity  android:name=".AssessActivity"></activity>
         <activity 
             android:name=".PublishBulletinActivity" 
             android:screenOrientation="portrait"> 

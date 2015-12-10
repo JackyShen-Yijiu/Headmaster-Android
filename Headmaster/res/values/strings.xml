@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">一步校长</string>
-    <string name="welcome_text">www.ifanying.com</string>
+<string name="app_name">一步校长</string>
+    <string name="welcome_text">www.ifanying.com</string>  
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="data_title">数据概览</string>
@@ -41,6 +40,10 @@
       <string name="setting_callback">反馈</string>  
       <string name="allow_protocol">许可服务协议</string>
       <string name="opinions_suggestions">请留下宝贵的意见和建议</string>
+      
+      
+      <!-- 评价 -->
+      <string name="assess">评价</string>
       
      <string-array name="tab_names">
         <item>今天</item>

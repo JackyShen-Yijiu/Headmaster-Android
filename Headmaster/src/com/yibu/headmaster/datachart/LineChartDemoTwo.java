@@ -101,6 +101,9 @@ public class LineChartDemoTwo extends DemoView {
 			// 仅横向平移
 			chartLn.setPlotPanMode(XEnum.PanMode.HORIZONTAL);
 
+			// 隐藏图列
+			chartLn.getPlotLegend().hide();
+
 			// 隐藏X,Y轴线
 			chartLn.getDataAxis().hideAxisLine();
 

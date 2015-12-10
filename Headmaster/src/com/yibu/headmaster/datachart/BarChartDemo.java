@@ -31,17 +31,13 @@ import org.xclcharts.chart.BarData;
 import org.xclcharts.common.DensityUtil;
 import org.xclcharts.common.IFormatterDoubleCallBack;
 import org.xclcharts.common.IFormatterTextCallBack;
-import org.xclcharts.event.click.BarPosition;
 import org.xclcharts.renderer.XEnum;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.widget.Toast;
 
 /**
  * @ClassName BarChart02View
@@ -104,6 +100,8 @@ public class BarChartDemo extends DemoView {
 			// 隐藏轴线和tick
 			chart.getDataAxis().hideAxisLine();
 			chart.getCategoryAxis().hideAxisLine();
+			chart.getDataAxis().hideTickMarks();
+			chart.getCategoryAxis().hideTickMarks();
 
 			// 禁止缩放
 			chart.disableScale();
@@ -162,19 +160,6 @@ public class BarChartDemo extends DemoView {
 				}
 			});
 
-			// 激活点击监听
-			chart.ActiveListenItemClick();
-			chart.showClikedFocus();
-
-			/*
-			 * chart.setDataAxisPosition(XEnum.DataAxisPosition.BOTTOM);
-			 * chart.getDataAxis
-			 * ().setVerticalTickPosition(XEnum.VerticalAlign.BOTTOM);
-			 * 
-			 * chart.setCategoryAxisPosition(XEnum.CategoryAxisPosition.LEFT);
-			 * chart.getCategoryAxis().setHorizontalTickAlign(Align.LEFT);
-			 */
-
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			Log.e(TAG, e.toString());
@@ -212,38 +197,6 @@ public class BarChartDemo extends DemoView {
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
 		}
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		// TODO Auto-generated method stub
-		super.onTouchEvent(event);
-		if (event.getAction() == MotionEvent.ACTION_UP) {
-			triggerClick(event.getX(), event.getY());
-		}
-		return true;
-	}
-
-	// 触发监听
-	private void triggerClick(float x, float y) {
-		BarPosition record = chart.getPositionRecord(x, y);
-		if (null == record)
-			return;
-
-		BarData bData = chartData.get(record.getDataID());
-		Double bValue = bData.getDataSet().get(record.getDataChildID());
-
-		Toast.makeText(
-				this.getContext(),
-				"info:" + record.getRectInfo() + " Key:" + bData.getKey()
-						+ " Current Value:" + Double.toString(bValue),
-				Toast.LENGTH_SHORT).show();
-
-		chart.showFocusRectF(record.getRectF());
-		chart.getFocusPaint().setStyle(Style.STROKE);
-		chart.getFocusPaint().setStrokeWidth(3);
-		chart.getFocusPaint().setColor(Color.rgb(1, 226, 182));
-		this.invalidate();
 	}
 
 }

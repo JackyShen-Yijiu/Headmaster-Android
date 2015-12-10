@@ -417,6 +417,7 @@ public class DataPager extends BasePager implements OnClickListener {
 			Intent intent = new Intent(mContext, DataChartActivity.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			mContext.startActivity(intent);
+			break;
 		default:
 			break;
 		}

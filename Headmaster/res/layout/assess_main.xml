@@ -53,7 +53,7 @@
             android:drawablePadding="10dp"
             android:text="好评"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -66,7 +66,7 @@
             android:drawablePadding="10dp"
             android:text="中评"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -79,7 +79,7 @@
             android:drawablePadding="10dp"
             android:text="差评" 
             android:textColor="#ffffff"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
 
 
     </RelativeLayout>

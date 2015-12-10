@@ -6,6 +6,7 @@ import java.util.List;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.yibu.headmaster.adapter.MoreDataAdapter;
 import com.yibu.headmaster.base.impl.MoreDataPager;
@@ -18,6 +19,8 @@ public class DataChartActivity extends BaseActivity {
 	private PagerSlidingTab slidingTab;
 	private ViewPager viewPager;
 	private String[] titles;
+	private RelativeLayout relativeLayout_textView_shouke;
+	private RelativeLayout relativeLayout_textView_pingjia;
 
 	@Override
 	protected void initView() {
@@ -28,11 +31,16 @@ public class DataChartActivity extends BaseActivity {
 				.findViewById(R.id.more_data_sliding_tab);
 		viewPager = (ViewPager) view.findViewById(R.id.more_data_view_pager);
 
+		if (relativeLayout_textView_shouke == null) {
+			System.out.println("sdsfdsfsd");
+		}
+
 		baseTitle.setText("今天数据");
 	}
 
 	@Override
 	protected void initListener() {
+
 		slidingTab.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
@@ -64,6 +72,16 @@ public class DataChartActivity extends BaseActivity {
 
 		viewPager.setAdapter(new MoreDataAdapter(titles, tabPagers));
 		slidingTab.setViewPager(viewPager);
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.ib_base_arrow:
+			finish();
+			break;
+		}
 	}
 
 	@Override
