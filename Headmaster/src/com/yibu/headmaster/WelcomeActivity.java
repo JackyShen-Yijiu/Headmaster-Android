@@ -61,6 +61,18 @@ public class WelcomeActivity extends BaseActivity {
 
 		if (!TextUtils.isEmpty(lastLoginPhone) && !TextUtils.isEmpty(password)) {
 			login(lastLoginPhone, password);
+		} else {
+			// 转到主界面
+			new Handler().postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+					Intent intent = new Intent(WelcomeActivity.this,
+							LoginActivity.class);
+					startActivity(intent);
+					WelcomeActivity.this.finish();
+				}
+			}, 1000);
 		}
 	}
 
