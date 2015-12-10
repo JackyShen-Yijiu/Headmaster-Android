@@ -13,5 +13,8 @@
     
      <color name="background_tab_pressed">#6633B5E5</color>
   <color name="slidingtab_indicatorcolor">#01e2b6</color>
+  <color name="common_bg">#fcfcfc</color>
+  <color name="btn_gray_normal">#999999</color>
+  <color name="top_bar_normal_bg">#00acff</color>
     	
 </resources>

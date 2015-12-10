@@ -44,7 +44,11 @@
       
       <!-- 评价 -->
       <string name="assess">评价</string>
-      
+      <string name="send">发送</string>
+      <string name="press_speak">按住&#160;说话</string>
+    <string name="unpress_end">松开&#160;结束</string>
+    <string name="unpress_cancel">松开手指取消发送</string>
+    <string name="take_picture">拍照</string>
      <string-array name="tab_names">
         <item>今天</item>
         <item>昨天</item>

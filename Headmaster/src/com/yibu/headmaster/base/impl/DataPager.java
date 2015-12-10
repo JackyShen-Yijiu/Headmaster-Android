@@ -23,6 +23,7 @@ import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.MainOfTodayBean;
 import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
 import com.yibu.headmaster.bean.MainOfWeekBean;
+import com.yibu.headmaster.bean.UserBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
@@ -344,14 +345,22 @@ public class DataPager extends BasePager implements OnClickListener {
 			}
 		};
 	};
+	private UserBean bean;
 
 	private void loadNetworkData() {
 		String userId = null;
 		if (HeadmasterApplication.app != null) {
 
 			userId = HeadmasterApplication.app.userInfo.userid;
+			// String value = SharedPreferencesUtil.getString(mContext,
+			// LoginActivity.USER_INFO, "");
+			// if (!TextUtils.isEmpty(value)) {
+			// bean = JsonUtil.parseJsonToBean(value, UserBean.class);
+			// userId = bean.userid;
+			// }
 		}
 		String schoolId = HeadmasterApplication.app.userInfo.driveschool.schoolid;
+		// String schoolId = bean.driveschool.schoolid;
 
 		ApiHttpClient.get("statistics/getmainpagedata?userid=" + userId
 				+ "&searchtype=" + searchtype + "&schoolid=" + schoolId,

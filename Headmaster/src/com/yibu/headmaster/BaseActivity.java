@@ -23,7 +23,6 @@ import android.widget.TextView;
 
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.ToastUtil;
 
 public abstract class BaseActivity extends Activity implements OnClickListener {
@@ -44,7 +43,6 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	protected static float screenDensity;
 	protected static int densityDpi;
 
-	protected static HeadmasterApplication app;
 	// 内容布局
 	private LinearLayout contentLayout;
 
@@ -120,9 +118,6 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 			screenHeight = metric.heightPixels; // 屏幕高度（像素）
 			screenDensity = metric.density; // 屏幕密度（0.75 / 1.0 / 1.5）
 			densityDpi = metric.densityDpi;
-		}
-		if (app == null) {
-			app = HeadmasterApplication.getInstance();
 		}
 
 		content = (FrameLayout) findViewById(R.id.fl_base_content);

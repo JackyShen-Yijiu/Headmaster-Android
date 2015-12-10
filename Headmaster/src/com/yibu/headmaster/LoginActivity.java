@@ -51,14 +51,10 @@ public class LoginActivity extends Activity implements OnClickListener {
 	RelativeLayout rootView;
 
 	public static final String USER_INFO = "userInfo";
-	public HeadmasterApplication app;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		if (app == null) {
-			app = HeadmasterApplication.getInstance();
-		}
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -221,9 +217,10 @@ public class LoginActivity extends Activity implements OnClickListener {
 			// 保存用户信息
 			SharedPreferencesUtil.putString(LoginActivity.this,
 					LoginActivity.USER_INFO, value);
-			app.userInfo = userBean;
+			HeadmasterApplication.app.userInfo = userBean;
 			ApiHttpClient.setHeader(new String[] { "authorization",
 					HeadmasterApplication.app.userInfo.token });
+			System.out.println(HeadmasterApplication.app.userInfo.name);
 			// 转到主界面
 			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 			startActivity(intent);

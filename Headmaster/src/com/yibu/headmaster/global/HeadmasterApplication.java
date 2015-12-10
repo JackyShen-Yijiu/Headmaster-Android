@@ -27,6 +27,7 @@ public class HeadmasterApplication extends Application {
 		mContext = this;
 		mHandler = new Handler();
 
+		app = new HeadmasterApplication();
 		init();
 	}
 

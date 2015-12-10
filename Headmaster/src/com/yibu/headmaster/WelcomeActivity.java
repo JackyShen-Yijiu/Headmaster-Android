@@ -19,6 +19,8 @@ import com.yibu.headmaster.utils.SharedPreferencesUtil;
 
 public class WelcomeActivity extends BaseActivity {
 
+	private HeadmasterApplication app = HeadmasterApplication.app;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -59,6 +61,7 @@ public class WelcomeActivity extends BaseActivity {
 		String password = SharedPreferencesUtil.getString(getBaseContext(),
 				Config.LAST_LOGIN_PASSWORD, "");
 
+		LogUtil.print("用户名：密码：" + lastLoginPhone + password);
 		if (!TextUtils.isEmpty(lastLoginPhone) && !TextUtils.isEmpty(password)) {
 			login(lastLoginPhone, password);
 		} else {
@@ -88,7 +91,6 @@ public class WelcomeActivity extends BaseActivity {
 	@Override
 	public void processSuccess(String data) {
 		UserBean userBean = JsonUtil.parseJsonToBean(data, UserBean.class);
-		LogUtil.print(userBean.headportrait);
 
 		if (userBean != null) {
 			// 保存用户信息
