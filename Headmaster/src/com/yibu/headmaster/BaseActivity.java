@@ -10,6 +10,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,24 +24,28 @@ import cn.sft.baseactivity.util.c;
 
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.ToastUtil;
 
 public abstract class BaseActivity extends Activity implements OnClickListener {
 
-	// @ViewInject(R.id.ib_base_arrow)
 	private ImageButton arrowButton;
 
-	// @ViewInject(R.id.tv_base_title)
 	public TextView baseTitle;
 
-	// @ViewInject(R.id.tv_base_right)
 	public TextView baseRight;
 
-	// @ViewInject(R.id.fl_base_content)
 	public FrameLayout content;
 
 	protected String result = "";
 	protected String msg = "";
+
+	protected static int screenWidth;
+	protected static int screenHeight;
+	protected static float screenDensity;
+	protected static int densityDpi;
+
+	protected static HeadmasterApplication app;
 	// 内容布局
 	private LinearLayout contentLayout;
 
@@ -103,11 +108,23 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	};
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle paramBundle) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		super.onCreate(savedInstanceState);
+		super.onCreate(paramBundle);
 		setContentView(R.layout.activity_base);
 		ViewUtils.inject(this);
+
+		if ((screenHeight <= 0) || (screenWidth <= 0)) {
+			DisplayMetrics metric = new DisplayMetrics();
+			getWindowManager().getDefaultDisplay().getMetrics(metric);
+			screenWidth = metric.widthPixels; // 屏幕宽度（像素）
+			screenHeight = metric.heightPixels; // 屏幕高度（像素）
+			screenDensity = metric.density; // 屏幕密度（0.75 / 1.0 / 1.5）
+			densityDpi = metric.densityDpi;
+		}
+		if (app == null) {
+			app = HeadmasterApplication.getInstance();
+		}
 
 		content = (FrameLayout) findViewById(R.id.fl_base_content);
 		arrowButton = (ImageButton) findViewById(R.id.ib_base_arrow);

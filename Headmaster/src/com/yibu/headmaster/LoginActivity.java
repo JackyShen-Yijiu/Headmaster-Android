@@ -27,6 +27,7 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.yibu.common.Config;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.UserBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -128,6 +129,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 	private void login() {
 		String checkResult = checkLoginInfo();
 		if (checkResult == null) {
+
 			AsyncHttpResponseHandler handler = new MyAsyncHttpResponseHandler();
 
 			RequestParams params = new RequestParams();
@@ -199,29 +201,34 @@ public class LoginActivity extends Activity implements OnClickListener {
 			}
 			if (!TextUtils.isEmpty(msg)) {
 				// 加载失败，弹出失败对话框
-				ToastUtil.showToast(LoginActivity.this, msg);
-			} else {
+			} else if (value != null) {
 				process(value);
+			} else {
+				ToastUtil.showToast(LoginActivity.this, "网络异常");
 			}
 
 		}
 
 		private void process(String value) {
 			UserBean userBean = JsonUtil.parseJsonToBean(value, UserBean.class);
-			LogUtil.print(userBean.headportrait);
+			LogUtil.print("用户：" + userBean.headportrait);
+			// 保存用户名和密码到本地
+			SharedPreferencesUtil.putString(getBaseContext(),
+					Config.LAST_LOGIN_ACCOUNT, phoneEt.getText().toString());
+			SharedPreferencesUtil
+					.putString(getBaseContext(), Config.LAST_LOGIN_PASSWORD,
+							passwordEt.getText().toString());
 			// 保存用户信息
 			SharedPreferencesUtil.putString(LoginActivity.this,
 					LoginActivity.USER_INFO, value);
-			if (userBean != null) {
-				app.userInfo = userBean;
-				ApiHttpClient.setHeader(new String[] { "authorization",
-						HeadmasterApplication.app.userInfo.token });
-			}
-
+			app.userInfo = userBean;
+			ApiHttpClient.setHeader(new String[] { "authorization",
+					HeadmasterApplication.app.userInfo.token });
 			// 转到主界面
 			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 			startActivity(intent);
 			finish();
+
 		}
 	}
 

@@ -16,6 +16,7 @@ public class HeadmasterApplication extends Application {
 	private static Handler mHandler;
 
 	public static HeadmasterApplication app;
+	public boolean isLogin;
 
 	// 用户信息
 	public UserBean userInfo;
