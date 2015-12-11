@@ -96,6 +96,8 @@
                 android:screenOrientation="portrait" ></activity>
             <activity android:name="com.yibu.headmaster.emchat.ShowVideoActivity"
                 android:screenOrientation="portrait" ></activity>
+            <activity android:name="com.yibu.headmaster.PersonSettingActivity"
+                android:screenOrientation="portrait"></activity>
           <service
             android:name="com.baidu.location.f"
             android:enabled="true"

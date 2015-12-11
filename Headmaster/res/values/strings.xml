@@ -56,4 +56,5 @@
         <item>本月</item>
         <item>本年</item>
     </string-array>
+        <string name="exit_login">退出登入</string>
 </resources>

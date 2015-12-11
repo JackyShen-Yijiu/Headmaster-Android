@@ -5,19 +5,37 @@
     android:orientation="vertical" >
 
     <ImageView
+        android:id="@+id/persion_head_iv"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="22dp"
         android:scaleType="centerCrop"
         android:src="@drawable/left_title" />
-    
-    <TextView 
+
+    <TextView
+        android:id="@+id/persion_name_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/persion_head_iv"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/persion_head_iv"
         android:text="李教练"
-        android:textColor="#4e4e4e"
-        />
-    
+        android:textColor="#b4b4b4"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/persion_exit_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/persion_head_iv"
+        android:layout_marginTop="12dp"
+        android:background="#555555" 
+        android:textColor="#b4b4b4"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@string/exit_login" />
 
 </RelativeLayout>

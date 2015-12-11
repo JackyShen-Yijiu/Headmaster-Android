@@ -12,6 +12,7 @@
             android:layout_height="36dp"
             android:textSize="14sp"
             android:textColor="#047a64"
+            app:tabPaddingLeftRight="19dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             app:indicatorColor="@color/slidingtab_indicatorcolor"

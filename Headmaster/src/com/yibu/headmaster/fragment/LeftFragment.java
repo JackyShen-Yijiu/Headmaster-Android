@@ -10,11 +10,11 @@ import android.widget.RelativeLayout;
 
 import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
+import com.yibu.headmaster.PersonSettingActivity;
 import com.yibu.headmaster.PublishBulletinActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
-import com.yibu.headmaster.utils.ToastUtil;
 
 public class LeftFragment extends BaseFragment implements OnClickListener {
 
@@ -55,7 +55,10 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 		// 打开个人设置
 		case R.id.iv_left_head_portrait:
 
-			ToastUtil.showToast(HeadmasterApplication.getContext(), "个人设置");
+			Intent intent_persion = new Intent(
+					HeadmasterApplication.getContext(),
+					PersonSettingActivity.class);
+			startActivity(intent_persion);
 			break;
 		// 公告
 		case R.id.my_rl_notice:

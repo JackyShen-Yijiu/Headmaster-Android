@@ -23,7 +23,6 @@ import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.MainOfTodayBean;
 import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
 import com.yibu.headmaster.bean.MainOfWeekBean;
-import com.yibu.headmaster.bean.UserBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
@@ -71,6 +70,12 @@ public class DataPager extends BasePager implements OnClickListener {
 
 	private int searchtype = 1;// 查询类型 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
 
+	private enum DayButton {
+		TODAY, YESTERDAY, THISWEEK;
+	}
+
+	private DayButton currentDay = DayButton.TODAY;
+
 	public DataPager(Context context) {
 		super(context);
 	}
@@ -80,6 +85,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		progressOut1 = 0;
 		progressOut2 = 0;
 		progressIn2 = 0;
+		setState(2);
 		loadNetworkData();
 
 	}
@@ -89,7 +95,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		View view = View.inflate(HeadmasterApplication.getContext(),
 				R.layout.data_information, null);
 		ViewUtils.inject(this, view);
-		setState(1);
+
 		yesterday.setOnClickListener(this);
 		today.setOnClickListener(this);
 		thisWeek.setOnClickListener(this);
@@ -273,6 +279,7 @@ public class DataPager extends BasePager implements OnClickListener {
 					progressOut1++;
 					Message msg = Message.obtain();
 					msg.what = 1;
+					msg.obj = 0;
 					msgHandler.sendMessage(msg);
 				}
 			}
@@ -294,6 +301,7 @@ public class DataPager extends BasePager implements OnClickListener {
 					progressOut2++;
 					Message msg = Message.obtain();
 					msg.what = 2;
+					msg.obj = 76;
 					msgHandler.sendMessage(msg);
 				}
 			}
@@ -323,6 +331,7 @@ public class DataPager extends BasePager implements OnClickListener {
 					progressIn2++;
 					Message msg = Message.obtain();
 					msg.what = 3;
+					msg.obj = 54;
 					msgHandler.sendMessage(msg);
 				}
 			}
@@ -337,15 +346,35 @@ public class DataPager extends BasePager implements OnClickListener {
 		public void handleMessage(android.os.Message msg) {
 			if (msg.what == 1) {
 				progressOutsideForcast.setProgress(progressOut1);
+				if (progressOut1 != (Integer) msg.obj) {
+					setButtonUnClickable(false);
+				} else {
+					setButtonUnClickable(true);
+				}
 			} else if (msg.what == 2) {
 				progressOutside.setProgress(progressOut2);
+				if (progressOut2 != (Integer) msg.obj) {
+					setButtonUnClickable(false);
+				} else {
+					setButtonUnClickable(true);
+				}
 			} else if (msg.what == 3) {
 				progressInside.setProgress(progressIn2);
-
+				if (progressIn2 != (Integer) msg.obj) {
+					setButtonUnClickable(false);
+				} else {
+					setButtonUnClickable(true);
+				}
 			}
-		};
+		}
+
 	};
-	private UserBean bean;
+
+	public void setButtonUnClickable(boolean enable) {
+		yesterday.setClickable(enable);
+		today.setClickable(enable);
+		thisWeek.setClickable(enable);
+	}
 
 	private void loadNetworkData() {
 		String userId = null;
@@ -374,6 +403,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		thisWeek.setSelected(false);
 		switch (curState) {
 		case 1:
+
 			yesterday.setSelected(true);
 			leftLine.setBackgroundResource(R.drawable.left);
 			rightLine.setBackgroundResource(R.drawable.center);
@@ -399,27 +429,37 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		switch (v.getId()) {
 		case R.id.data_yesterday_ib:
+			if (currentDay == DayButton.YESTERDAY) {
+				return;
+			}
 			progressOut1 = 0;
 			progressOut2 = 0;
 			progressIn2 = 0;
 			setState(1);
 			searchtype = 2;
 			loadNetworkData();
+			currentDay = DayButton.YESTERDAY;
 			break;
 		case R.id.data_today_ib:
+			if (currentDay == DayButton.TODAY) {
+				return;
+			}
 			progressOut1 = 0;
 			progressOut2 = 0;
 			progressIn2 = 0;
 			setState(2);
 			searchtype = 1;
 			loadNetworkData();
-
+			currentDay = DayButton.TODAY;
 			break;
 		case R.id.data_this_week_ib:
+			if (currentDay == DayButton.THISWEEK) {
+				return;
+			}
 			setState(3);
 			searchtype = 3;
 			loadNetworkData();
-
+			currentDay = DayButton.THISWEEK;
 			break;
 		case R.id.fl_data_circle:
 			LogUtil.print("更多数据");
