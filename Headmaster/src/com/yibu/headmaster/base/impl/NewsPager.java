@@ -26,6 +26,8 @@ import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnLastItemVisible
 import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnRefreshListener;
 import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshListView;
 import com.yibu.headmaster.utils.JsonUtil;
+import com.yibu.headmaster.utils.LogUtil;
+import com.yibu.headmaster.utils.ToastUtil;
 
 public class NewsPager extends BasePager {
 
@@ -36,7 +38,7 @@ public class NewsPager extends BasePager {
 	private ProgressBar progressBar_main;
 
 	private NewsInformationAdapter adapter = null;
-	private int curpage = 0;
+	private int seqindex = 0;
 	private ArrayList<NewsBean> totalList;
 
 	public NewsPager(Context context) {
@@ -62,7 +64,7 @@ public class NewsPager extends BasePager {
 		pullToRefreshListView.setOnRefreshListener(new OnRefreshListener() {
 			@Override
 			public void onRefresh() {
-				curpage = 0;
+				seqindex = 0;
 				loadNetworkData();
 				pullToRefreshListView.onRefreshComplete();
 			}
@@ -71,8 +73,14 @@ public class NewsPager extends BasePager {
 				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
 					@Override
 					public void onLastItemVisible() {
-						curpage++;
-						loadNetworkData();
+						// 加载下一页数据，传上一页最后一条数据的seqindex
+						seqindex = totalList.get(totalList.size() - 1).seqindex;
+						if (seqindex == 0) {
+							ToastUtil.showToast(mContext, "没有更多数据了");
+						} else {
+							loadNetworkData();
+						}
+						LogUtil.print(seqindex + "wwwwwwwwwww");
 					}
 				});
 		// 加载数据
@@ -81,7 +89,7 @@ public class NewsPager extends BasePager {
 
 	private void loadNetworkData() {
 
-		ApiHttpClient.get("info/getnews?seqindex=" + curpage + "&count=10",
+		ApiHttpClient.get("info/getnews?seqindex=" + seqindex + "&count=10",
 				handler);
 	}
 
@@ -92,7 +100,7 @@ public class NewsPager extends BasePager {
 				.parseJsonToList(data, new TypeToken<List<NewsBean>>() {
 				}.getType());
 
-		if (curpage == 0) {
+		if (seqindex == 0) {
 			totalList.clear();
 		} else {
 			totalList.addAll(newsBean);

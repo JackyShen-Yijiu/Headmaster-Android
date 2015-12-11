@@ -9,7 +9,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.lidroid.xutils.ViewUtils;
@@ -92,8 +92,8 @@ public class BulletinAdapter extends BasicAdapter<BulletinBean> {
 		TextView time;
 		@ViewInject(R.id.tv_bulletin_item_date)
 		TextView date;
-		@ViewInject(R.id.iv_bulletin_item_delete)
-		ImageView delete;
+		@ViewInject(R.id.fl_bulletin_item_delete)
+		FrameLayout delete;
 
 	}
 

@@ -14,7 +14,7 @@
 			android:layout_marginLeft="10dp"
             android:src="@drawable/my_coach_default" />
 
-        <ImageView
+        <!-- <ImageView
             android:id="@+id/imageView_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +22,18 @@
             android:layout_marginTop="11dp"
             android:layout_toRightOf="@+id/imageView_head"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/x_m293x47" />
+            android:src="@drawable/x_m293x47" /> -->
+            <RatingBar
+                android:id="@+id/imageView_star"
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content" 
+                android:layout_below="@+id/textView_name"
+            android:layout_marginTop="11dp"
+            android:layout_toRightOf="@+id/imageView_head"
+            android:layout_marginLeft="10dp"
+                android:rating="0" 
+                android:isIndicator="true"
+                style="@style/roomRatingBar"/>
 
         <TextView
             android:id="@+id/textView_name"
@@ -34,14 +45,21 @@
             android:text="请叫我不要太帅"
             android:textColor="#ffffff" />
 
-        <ImageView
+        <FrameLayout 
             android:id="@+id/imageView_talk"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
+            >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
+            android:layout_gravity="right"
             android:src="@drawable/lt61x62" />
+        </FrameLayout>
         <View
         android:id="@+id/iv_item_deviderline"
         android:layout_width="match_parent"

@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
@@ -27,7 +26,7 @@ import com.yibu.headmaster.utils.ToastUtil;
 
 public abstract class BaseActivity extends Activity implements OnClickListener {
 
-	private ImageButton arrowButton;
+	private FrameLayout arrowButton;
 
 	public TextView baseTitle;
 
@@ -121,7 +120,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 		}
 
 		content = (FrameLayout) findViewById(R.id.fl_base_content);
-		arrowButton = (ImageButton) findViewById(R.id.ib_base_arrow);
+		arrowButton = (FrameLayout) findViewById(R.id.ib_base_arrow);
 		baseTitle = (TextView) findViewById(R.id.tv_base_title);
 		baseRight = (TextView) findViewById(R.id.tv_base_right);
 

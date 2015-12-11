@@ -53,15 +53,20 @@
                          
         </activity>       
         <activity  android:name=".WelcomeActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">  
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait" >  
              <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter> </activity> 
-        <activity android:name=".AboutUsActivity"></activity>
-         <activity  android:name=".TermsActivity"></activity>
-         <activity  android:name=".CallBackActivity"></activity>
-         <activity  android:name=".AssessActivity"></activity>
+        <activity android:name=".AboutUsActivity"
+            android:screenOrientation="portrait" ></activity>
+         <activity  android:name=".TermsActivity"
+             android:screenOrientation="portrait" ></activity>
+         <activity  android:name=".CallBackActivity"
+             android:screenOrientation="portrait" ></activity>
+         <activity  android:name=".AssessActivity"
+             android:screenOrientation="portrait" ></activity>
         <activity 
             android:name=".PublishBulletinActivity" 
             android:screenOrientation="portrait"> 
@@ -82,6 +87,15 @@
             <activity android:name=".NewsDetailActivity"
                 android:screenOrientation="portrait"></activity>
        
+            <activity android:name="com.yibu.headmaster.ChatActivity"
+                android:screenOrientation="portrait" ></activity>
+            <activity android:name="com.yibu.headmaster.emchat.BaiduMapActivity"></activity>
+            <activity android:name="com.yibu.headmaster.emchat.ShowBigImage"
+                android:screenOrientation="portrait" ></activity>
+            <activity android:name="com.yibu.headmaster.emchat.ShowNormalFileActivity"
+                android:screenOrientation="portrait" ></activity>
+            <activity android:name="com.yibu.headmaster.emchat.ShowVideoActivity"
+                android:screenOrientation="portrait" ></activity>
           <service
             android:name="com.baidu.location.f"
             android:enabled="true"

@@ -17,7 +17,6 @@ import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.bean.NewsBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
-import com.yibu.headmaster.utils.LogUtil;
 
 public class NewsInformationAdapter extends BasicAdapter<NewsBean> {
 
@@ -41,8 +40,6 @@ public class NewsInformationAdapter extends BasicAdapter<NewsBean> {
 			mHolder = (NewsHolder) convertView.getTag();
 		}
 		NewsBean newsBean = list.get(position);
-		LogUtil.print(newsBean.createtime + "");
-		LogUtil.print(newsBean.title + "====");
 		Picasso.with(HeadmasterApplication.getContext()).load(newsBean.logimg)
 				.into(mHolder.imageView_item_cover);
 		mHolder.textView_item_content.setText(newsBean.title);

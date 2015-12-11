@@ -26,15 +26,19 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/left_title" />
 
-            <ImageView
+            <FrameLayout 
                 android:id="@+id/iv_left_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:padding="21dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="22dp"
-                android:layout_marginTop="20dp"
+                >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/left_menu" />
+            </FrameLayout>
 
         </RelativeLayout>
 

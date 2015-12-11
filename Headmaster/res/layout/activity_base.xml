@@ -10,16 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="49dp" >
 
-        <ImageButton
+        <FrameLayout 
             android:id="@+id/ib_base_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
+            android:padding="10dp"
+            >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@null"
+            android:clickable="false"
             android:contentDescription="@string/app_name"
             android:src="@drawable/base_arrow" />
-
+	
+        </FrameLayout>
         <TextView
             android:id="@+id/tv_base_title"
             android:layout_width="wrap_content"

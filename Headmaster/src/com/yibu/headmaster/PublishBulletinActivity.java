@@ -1,6 +1,8 @@
 package com.yibu.headmaster;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.http.Header;
@@ -10,6 +12,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -38,7 +41,7 @@ public class PublishBulletinActivity extends BaseActivity {
 
 	private boolean moreData = false;
 
-	private int curpage = 0;
+	private int seqindex = 0;
 	private int bulletinObject = 1;
 
 	private Context mContext = null;
@@ -104,10 +107,12 @@ public class PublishBulletinActivity extends BaseActivity {
 			public void onLoadingMore() {
 
 				if (moreData) {
-					// 处理加载更多业务
-					curpage++;
-					// isLoadMore = true;
-					loadNetworkData();
+					seqindex = list.get(list.size() - 1).seqindex;
+					if (seqindex == 0) {
+						ToastUtil.showToast(mContext, "没有更多数据了");
+					} else {
+						loadNetworkData();
+					}
 				} else {
 					mListView.loadMoreFinished();
 					ToastUtil.showToast(mContext, "没有更多数据了");
@@ -119,7 +124,7 @@ public class PublishBulletinActivity extends BaseActivity {
 
 	private void loadNetworkData() {
 
-		ApiHttpClient.get("userinfo/getbulletin?seqindex=" + curpage
+		ApiHttpClient.get("userinfo/getbulletin?seqindex=" + seqindex
 				+ "&count=10&userid="
 				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
 				+ HeadmasterApplication.app.userInfo.driveschool.schoolid + "",
@@ -212,9 +217,24 @@ public class PublishBulletinActivity extends BaseActivity {
 						ToastUtil.showToast(mContext, data);
 
 						// 发布成功后，刷新列表
-						// BulletinBean bean = new BulletinBean();
-						// bean.bulletinid =
-						// list.add(object)
+						BulletinBean bean = new BulletinBean();
+						bean.content = pulishContent.getText().toString();
+						SimpleDateFormat format = new SimpleDateFormat(
+								"yyyy-MM-dd'T'HH:mm:ss");
+						bean.createtime = format.format(new Date());
+						if (radioGroup.getCheckedRadioButtonId() == R.id.rb_publish_bulletin_coach) {
+							bean.bulletobject = 1;
+						} else {
+							bean.bulletobject = 1;
+
+						}
+						list.add(0, bean);
+						adapter.notifyDataSetChanged();
+						pulishContent.setText("");
+						// 隐藏软键盘
+						InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+						imm.hideSoftInputFromWindow(
+								pulishContent.getWindowToken(), 0);
 					}
 
 				}
