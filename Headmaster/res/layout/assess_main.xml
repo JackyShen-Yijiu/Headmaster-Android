@@ -1,93 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/main_bg"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <RelativeLayout
+    <com.yibu.headmaster.lib.pulltorefresh.PullToRefreshListView
+        android:id="@+id/pullToRefreshListView"
         android:layout_width="match_parent"
-        android:layout_height="234dp" >
-        
-        <RelativeLayout
-            android:id="@+id/RelativeLayout_ring"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_below="@+id/textView_assess" >
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp"
+        android:padding="5dp" />
 
-            <com.yibu.headmaster.datachart.DountChartDemo
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true" />
-        </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressBar_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
 
-        <TextView
-            android:id="@+id/textView_assess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
-            android:text="评价比列"
-            android:textColor="#01e2b6"
-            android:textSize="20sp" />
+    
 
-        <ImageView
-            android:id="@+id/imageView_change"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/textView_assess"
-            android:layout_marginRight="25dp"
-            android:src="@drawable/assess_up_down" />
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView_change"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_toLeftOf="@+id/imageView_change"
-            android:drawableLeft="@drawable/xh48x46"
-            android:drawablePadding="10dp"
-            android:text="好评"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView1"
-            android:layout_below="@+id/textView1"
-            android:layout_marginTop="25dp"
-            android:drawableLeft="@drawable/xz48x46"
-            android:drawablePadding="10dp"
-            android:text="中评"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="25dp"
-            android:drawableLeft="@drawable/xc48x46"
-            android:drawablePadding="10dp"
-            android:text="差评" 
-            android:textColor="#ffffff"
-            android:textSize="18sp"/>
-
-
-    </RelativeLayout>
-
-    <ListView
-        android:id="@+id/listView_assess"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
-
-</LinearLayout>
+</RelativeLayout>

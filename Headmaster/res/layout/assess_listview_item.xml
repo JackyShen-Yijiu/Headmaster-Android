@@ -4,102 +4,71 @@
     android:layout_height="wrap_content" >
 
     <ImageView
-        android:id="@+id/imageView_assess_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/assess_student_image"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/assess_title" />
 
-    <ImageView
-        android:id="@+id/imageView_assess_talk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView_assess_title"
-        android:layout_alignTop="@+id/imageView_assess_title"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="34dp"
-        android:src="@drawable/assess_new" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView_assess_title"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/assess_star_null" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageView1"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/assess_title" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView_assess_talk"
-        android:layout_marginLeft="27dp"
-        android:layout_toRightOf="@+id/imageView1"
-        android:src="@drawable/assess_new" />
-
-    <TextView
-        android:id="@+id/textView_class"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView_assess_title"
-        android:layout_alignLeft="@+id/imageView1"
-        android:text="经济班" 
-        android:textColor="#ffffff"/>
-
-    <TextView
-        android:id="@+id/textView_subject"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView_class"
-        android:layout_alignBottom="@+id/textView_class"
-        android:layout_alignRight="@+id/imageView1"
-        android:text="科2"
-        android:textColor="#ffffff" />
-
-    
-
     <TextView
         android:id="@+id/textView_student_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView_assess_title"
-        android:layout_below="@+id/imageView_assess_talk"
+        android:layout_alignLeft="@id/assess_student_image"
+        android:layout_below="@id/assess_student_image"
         android:layout_marginTop="14dp"
-        android:text="我叫车大神"
-        android:textColor="#ffffff"
-        android:textSize="15sp" />
-    <TextView
-        android:id="@+id/textView_coach_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView_student_id"
-        android:layout_alignRight="@+id/imageView2"
-        android:text="李教练"
-        android:textColor="#ffffff"
+        android:text="我叫车"
+        android:textColor="#bfbfbf"
         android:textSize="15sp" />
 
     <TextView
         android:id="@+id/textView_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView_student_id"
-        android:layout_below="@+id/textView_student_id"
+        android:layout_alignLeft="@id/textView_student_id"
+        android:layout_below="@id/textView_student_id"
         android:layout_marginTop="14dp"
         android:text="阿斯顿萨达萨达萨达撒旦撒大苏打飒飒打撒撒大苏打"
+        android:textColor="#999"
+        android:textSize="14sp"/>
+
+    <ImageView
+        android:id="@+id/assess_coach_image"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_alignParentRight="true"
+		android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/assess_title" />
+
+    <TextView
+        android:id="@+id/textView_coach_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/textView_content"
+        android:layout_alignRight="@id/assess_coach_image"
+        android:text="李教练"
         android:textColor="#bfbfbf"
-        android:textSize="15sp"/>
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/imageView_assess_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView_student_id"
+        android:layout_alignRight="@+id/assess_student_image"
+        android:src="@drawable/assess_new" />
+
+    <ImageView
+        android:id="@+id/imageView_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView_student_id"
+        android:layout_alignLeft="@+id/assess_coach_image"
+        android:src="@drawable/assess_new" />
 
     <TextView
         android:id="@+id/textView_time"
@@ -107,9 +76,36 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/textView_coach_id"
         android:layout_below="@+id/textView_content"
-        android:layout_marginTop="13dp"
         android:text="2015-11-02"
-        android:textColor="#ffffff"
-        android:textSize="15sp" />
+        android:textColor="#999"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/imageView_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/assess_star_null" />
+
+    <TextView
+        android:id="@+id/textView_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_class"
+        android:layout_alignBottom="@+id/textView_class"
+        android:layout_toLeftOf="@+id/textView_time"
+        android:text="科2"
+        android:textColor="#bfbfbf" />
+
+    <TextView
+        android:id="@+id/textView_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assess_student_image"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/textView_student_id"
+        android:text="经济班"
+        android:textColor="#bfbfbf" />
 
 </RelativeLayout>
