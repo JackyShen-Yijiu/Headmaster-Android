@@ -1,6 +1,7 @@
 package com.yibu.headmaster.datachart;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.xclcharts.chart.AreaChart;
 import org.xclcharts.chart.AreaData;
@@ -15,6 +16,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
+
+import com.yibu.headmaster.bean.MoreDataBean.Applystuentlist;
 
 public class LineChartDemoOne extends DemoView {
 	private String TAG = "MultiAxisChart03View";
@@ -34,10 +37,15 @@ public class LineChartDemoOne extends DemoView {
 	private LineChart chartLn = new LineChart();
 	private LinkedList<LineData> chartData = new LinkedList<LineData>();
 
-	public LineChartDemoOne(Context context) {
+	// 招生表的数据
+	private List<Applystuentlist> applystuentlist;
+
+	public LineChartDemoOne(Context context,
+			List<Applystuentlist> applystuentlist) {
 		super(context);
-		// TODO Auto-generated constructor stub
+		this.applystuentlist = applystuentlist;
 		initView();
+
 	}
 
 	public LineChartDemoOne(Context context, AttributeSet attrs) {
@@ -50,7 +58,13 @@ public class LineChartDemoOne extends DemoView {
 		initView();
 	}
 
-	private void initView() {
+	// 传数据
+	public void setData(List<Applystuentlist> applystuentlist) {
+
+		this.applystuentlist = applystuentlist;
+	}
+
+	public void initView() {
 
 		chartLabels();
 		chartDataSetLn();
@@ -187,9 +201,19 @@ public class LineChartDemoOne extends DemoView {
 	private void chartDataSetLn() {
 		// Line 1
 		LinkedList<Double> dataSeries1 = new LinkedList<Double>();
-		dataSeries1.add(5d);
-		dataSeries1.add(10d);
-		dataSeries1.add(12d);
+		// dataSeries1.add(5d);
+		// dataSeries1.add(10d);
+		// dataSeries1.add(12d);
+
+		if (applystuentlist != null) {
+			for (Applystuentlist applystuent : applystuentlist) {
+				dataSeries1.add((double) applystuent.applystudentcount);
+			}
+
+		}
+
+		System.out.println(dataSeries1.size() + "qwqwqw");
+
 		LineData lineData1 = new LineData("直线", dataSeries1, Color.rgb(1, 226,
 				182));
 		lineData1.setDotStyle(XEnum.DotStyle.RING);
@@ -204,13 +228,19 @@ public class LineChartDemoOne extends DemoView {
 	}
 
 	// X轴数据
-	private void chartLabels() {
-		mLabels.add("7:00");
-		mLabels.add("9:00");
-		mLabels.add("13:00");
-		mLabels.add("15:00");
-		mLabels.add("19:00");
-		mLabels.add("21:00");
+	public void chartLabels() {
+		// mLabels.add("7:00");
+		// mLabels.add("9:00");
+		// mLabels.add("13:00");
+		// mLabels.add("15:00");
+		// mLabels.add("19:00");
+		// mLabels.add("21:00");
+		if (applystuentlist != null) {
+			for (Applystuentlist applystuent : applystuentlist) {
+				mLabels.add(applystuent.hour + ":00");
+			}
+
+		}
 
 	}
 

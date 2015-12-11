@@ -50,6 +50,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="14dp" >  
           <com.yibu.headmaster.datachart.LineChartDemoOne
+              android:id="@+id/data_encroll_student"
               android:layout_width="match_parent"
         	  android:layout_height="match_parent"/>            
     </RelativeLayout>
