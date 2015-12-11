@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res/com.yibu.headmaster"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+
+    <com.yibu.headmaster.lib.PagerSliding.PagerSlidingTab
+            android:id="@+id/assess_detail_sliding_tab"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:textSize="14sp"
+            android:textColor="#047a64"
+            app:tabPaddingLeftRight="27dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            app:indicatorColor="@color/slidingtab_indicatorcolor"
+            app:underlineColor="#2a2a2a"
+            app:indicatorHeight="1dp" >
+        </com.yibu.headmaster.lib.PagerSliding.PagerSlidingTab>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/assess_detail_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </android.support.v4.view.ViewPager>
+    
+</LinearLayout>

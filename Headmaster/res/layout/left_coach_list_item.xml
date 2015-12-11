@@ -43,7 +43,7 @@
             android:layout_marginTop="18dp"
             android:layout_marginLeft="12dp"
             android:text="请叫我不要太帅"
-            android:textColor="#ffffff" />
+            android:textColor="#bfbfbf" />
 
         <FrameLayout 
             android:id="@+id/imageView_talk"

@@ -32,7 +32,7 @@
         android:layout_below="@id/textView_student_id"
         android:layout_marginTop="14dp"
         android:text="阿斯顿萨达萨达萨达撒旦撒大苏打飒飒打撒撒大苏打"
-        android:textColor="#999"
+        android:textColor="#bfbfbf"
         android:textSize="14sp"/>
 
     <ImageView

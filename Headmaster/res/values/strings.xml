@@ -57,4 +57,5 @@
         <item>本年</item>
     </string-array>
         <string name="exit_login">退出登入</string>
+        <string name="search">搜索</string>
 </resources>

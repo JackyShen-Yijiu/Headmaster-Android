@@ -5,37 +5,34 @@
     android:focusable="true"  
    android:focusableInTouchMode="true" >
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
-        android:layout_height="37dp" >
+        android:layout_height="wrap_content" 
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/base_deviderline_up"
+        <com.yibu.headmaster.view.CleanableEditText
+            android:id="@+id/search_view"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentTop="true"
-            android:background="#2a2a2a" />
-
+            android:layout_height="37dp"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:layout_marginBottom="5dp"
+            android:textColor="#bfbfbf"
+            android:hint="@string/search"
+            android:drawableLeft="@drawable/failure"
+            android:drawableRight="@drawable/failure"
+             />
         <ImageView
             android:id="@+id/base_deviderline_down"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_alignParentBottom="true"
             android:background="#2a2a2a" />
-
-        <SearchView
-            android:id="@+id/search_view"
-            android:layout_width="wrap_content"
-            android:layout_height="37dp"
-            android:iconifiedByDefault="false"
-            android:inputType="textFilter"
-            android:background="@null"
-            android:queryHint="@string/title_search_hint" >
-        </SearchView>
-    </RelativeLayout>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listView1"

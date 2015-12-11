@@ -12,6 +12,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -81,6 +82,23 @@ public class PublishBulletinActivity extends BaseActivity {
 
 	@Override
 	protected void initListener() {
+
+		pulishContent.setOnFocusChangeListener(new OnFocusChangeListener() {
+
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+
+				EditText _v = (EditText) v;
+				if (!hasFocus) {// 失去焦点
+					_v.setHint(_v.getTag().toString());
+				} else {
+					String hint = _v.getHint().toString();
+					_v.setTag(hint);
+					_v.setHint("");
+				}
+			}
+		});
+
 		radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 			@Override
