@@ -89,23 +89,30 @@
         android:src="@drawable/assess_star_null" />
 
     <TextView
+        android:id="@+id/textView_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/assess_student_image"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/textView_student_id"
+        android:text="经济班"
+        android:textColor="#bfbfbf" />
+
+    <View
+        android:id="@+id/iv_item_deviderline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/textView_time"
+        android:background="#2a2a2a" />
+
+    <TextView
         android:id="@+id/textView_subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView_class"
         android:layout_alignBottom="@+id/textView_class"
-        android:layout_toLeftOf="@+id/textView_time"
+        android:layout_toRightOf="@+id/imageView_star"
         android:text="科2"
-        android:textColor="#bfbfbf" />
-
-    <TextView
-        android:id="@+id/textView_class"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/assess_student_image"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/textView_student_id"
-        android:text="经济班"
         android:textColor="#bfbfbf" />
 
 </RelativeLayout>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -48,6 +49,8 @@ public class AssessActivity extends BaseActivity {
 		pullToRefreshListView = (PullToRefreshListView) view
 				.findViewById(R.id.pullToRefreshListView);
 		list_assess = pullToRefreshListView.getRefreshableView();
+		list_assess.setCacheColorHint(Color.TRANSPARENT);
+		list_assess.setDividerHeight(0);
 		setSonsTitle(getString(R.string.assess));
 		viewHeader = View.inflate(getBaseContext(), R.layout.assess_head_view,
 				null);
