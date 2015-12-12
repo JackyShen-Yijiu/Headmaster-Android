@@ -267,7 +267,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				if (!TextUtils.isEmpty(value)) {
 					weatherBean = JsonUtil.parseJsonToBean(value,
 							WeatherBean.class);
-					LogUtil.print(weatherBean.now.weather_pic);
 
 					if (weatherBean != null) {
 						weather_temp = weatherBean.now.temperature;

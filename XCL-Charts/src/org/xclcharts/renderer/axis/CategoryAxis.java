@@ -22,61 +22,119 @@
 
 package org.xclcharts.renderer.axis;
 
-
 /**
  * @ClassName CategoryAxisRender
  * @Description 分类轴(Category Axis)类，设置步长
- * @author XiongChuanLiang<br/>(xcl_168@aliyun.com)
- *  
+ * @author XiongChuanLiang<br/>
+ *         (xcl_168@aliyun.com)
+ * 
  */
 public class CategoryAxis extends XYAxis {
-	
-	//分类轴分隔值	
-	private double  mAxisSteps = 0.0d;
-	
+
+	// 分类轴分隔值
+	private double mAxisSteps = 0.0d;
+
 	private boolean mAxisBindStd = false;
-	
-	public CategoryAxis()
-	{
-		
+
+	private double mCategoryAxisMin = 0d;
+
+	private double mCategoryAxisMax = 0d;
+
+	private boolean mAxisStdStatus = false;
+
+	private float mCategoryAxisStd = 0.0f;
+
+	public CategoryAxis() {
+
 	}
-	
+
+	/**
+	 * 返回当前正负标准值，如没设则默认为轴的最小值
+	 * 
+	 * @return 标准值
+	 */
+	public float getAxisStd() {
+		if (mAxisStdStatus) {
+			return mCategoryAxisStd;
+		} else {
+			return (float) mCategoryAxisMin;
+		}
+	}
+
+	/**
+	 * 设置分类轴最小值,默认为0
+	 * 
+	 * @param min
+	 *            最小值
+	 */
+	public void setAxisMin(double min) {
+		mCategoryAxisMin = min;
+	}
+
+	/**
+	 * 设置分类轴最大值
+	 * 
+	 * @param max
+	 *            最大值
+	 */
+	public void setAxisMax(double max) {
+		mCategoryAxisMax = max;
+	}
+
 	/**
 	 * 设置分类轴步长
-	 * @param steps 步长
+	 * 
+	 * @param steps
+	 *            步长
 	 */
-	public void setAxisSteps(double steps)
-	{
-		 mAxisSteps = steps;
+	public void setAxisSteps(double steps) {
+		mAxisSteps = steps;
 	}
-	
+
 	/**
 	 * 返回分类轴步长
+	 * 
 	 * @return 步长
 	 */
-	public double getAxisSteps()
-	{
+	public double getAxisSteps() {
 		return mAxisSteps;
 	}
-	
+
 	/**
-	 * 是否将分类轴与数据轴的正负标准值绑定, 
-	 * 如绑定，则轴会显示在标准值所在位置
-	 * @param status 设置状态
+	 * 返回分类轴轴最小值
+	 * 
+	 * @return 最小值
 	 */
-	public void setAxisBuildStd(boolean status)
-	{
+	public float getAxisMin() {
+		return (float) mCategoryAxisMin;
+	}
+
+	/**
+	 * 返回分类轴最大值
+	 * 
+	 * @return 最大值
+	 */
+	public float getAxisMax() {
+		return (float) mCategoryAxisMax;
+	}
+
+	/**
+	 * 是否将分类轴与数据轴的正负标准值绑定, 如绑定，则轴会显示在标准值所在位置
+	 * 
+	 * @param status
+	 *            设置状态
+	 */
+	public void setAxisBuildStd(boolean status) {
 		mAxisBindStd = status;
 	}
-	
+
 	/**
-	 * 分类轴与数据轴的正负标准值绑定状态 
+	 * 分类轴与数据轴的正负标准值绑定状态
+	 * 
 	 * @return 状态
 	 */
-	public boolean getAxisBuildStdStatus()
-	{
+	public boolean getAxisBuildStdStatus() {
 		return mAxisBindStd;
 	}
-	
 
 }

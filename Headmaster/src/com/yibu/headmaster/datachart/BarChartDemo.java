@@ -39,6 +39,8 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.yibu.headmaster.bean.MoreDataBean.Coachcourselist;
+
 /**
  * @ClassName BarChart02View
  * @Description 柱形图例子(横向)
@@ -54,9 +56,13 @@ public class BarChartDemo extends DemoView {
 	private List<String> chartLabels = new LinkedList<String>();
 	private List<BarData> chartData = new LinkedList<BarData>();
 
-	public BarChartDemo(Context context) {
+	// 教练授课 的数据
+
+	private List<Coachcourselist> coachcourselist;
+
+	public BarChartDemo(Context context, List<Coachcourselist> coachcourselist) {
 		super(context);
-		// TODO Auto-generated constructor stub
+		this.coachcourselist = coachcourselist;
 		initView();
 	}
 
@@ -170,11 +176,19 @@ public class BarChartDemo extends DemoView {
 	private void chartDataSet() {
 		// 标签对应的柱形数据集
 		List<Double> dataSeriesA = new LinkedList<Double>();
-		dataSeriesA.add((double) 20);
-		dataSeriesA.add((double) 25);
-		dataSeriesA.add((double) 15);
-		dataSeriesA.add((double) 18);
-		dataSeriesA.add((double) 16);
+		// dataSeriesA.add((double) 20);
+		// dataSeriesA.add((double) 25);
+		// dataSeriesA.add((double) 15);
+		// dataSeriesA.add((double) 18);
+		// dataSeriesA.add((double) 16);
+
+		if (coachcourselist != null) {
+			for (Coachcourselist coachcourse : coachcourselist) {
+				dataSeriesA.add((double) coachcourse.coursecount);
+			}
+
+		}
+
 		BarData BarDataA = new BarData("小熊", dataSeriesA,
 				Color.rgb(1, 226, 182));
 
@@ -182,12 +196,17 @@ public class BarChartDemo extends DemoView {
 	}
 
 	private void chartLabels() {
-		chartLabels.add("2");
-		chartLabels.add("3");
-		chartLabels.add("2");
-		chartLabels.add("1");
-		chartLabels.add("2");
+		// chartLabels.add("2");
+		// chartLabels.add("3");
+		// chartLabels.add("2");
+		// chartLabels.add("1");
+		// chartLabels.add("2");
+		if (coachcourselist != null) {
+			for (Coachcourselist coachcourse : coachcourselist) {
+				chartLabels.add(coachcourse.coachcount + "");
+			}
 
+		}
 	}
 
 	@Override

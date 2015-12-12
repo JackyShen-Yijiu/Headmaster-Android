@@ -30,283 +30,272 @@ import android.graphics.Paint.Style;
 /**
  * @ClassName PlotGrid
  * @Description 主图表区网格类，用于定制其属性
- * @author XiongChuanLiang<br/>(xcl_168@aliyun.com)
- *
+ * @author XiongChuanLiang<br/>
+ *         (xcl_168@aliyun.com)
+ * 
  */
 public class PlotGrid {
-	 //横向网格线
-	 private Paint mPaintGridLineHorizontal = null;
-	 //竖向网格线
-	 private Paint mPaintGridLineVertical = null;
-	 
-	 //是否显示横向网格线
-	 private boolean mGridLinesHorizontalVisible = false;
-	 //是否显示竖向网格线
-	 private boolean mGridLinesVerticalVisible = false;		
+	// 横向网格线
+	private Paint mPaintGridLineHorizontal = null;
+	// 竖向网格线
+	private Paint mPaintGridLineVertical = null;
 
-	 //是否显示奇数行填充色
-	 private boolean mOddRowBgColorVisible = false;
-	//是否显示偶数行填充色
-	 private boolean mEvenRowBgColorVisible = false;
-	 
-	 //横向网格线
-	 private Paint mPaintOddBgColor = null;
-	 //竖向网格线
-	 private Paint mPaintEvenBgColor = null;
-	 
-	 // Solid、Dot、Dash。
-	 private XEnum.LineStyle mHorizontalLineStyle = XEnum.LineStyle.SOLID;
-	 private XEnum.LineStyle mVerticalLineStyle = XEnum.LineStyle.SOLID;
-	
-	public PlotGrid()
-	{		
+	// 是否显示横向网格线
+	private boolean mGridLinesHorizontalVisible = false;
+	// 是否显示竖向网格线
+	private boolean mGridLinesVerticalVisible = false;
+
+	// 是否显示奇数行填充色
+	private boolean mOddRowBgColorVisible = false;
+	// 是否显示偶数行填充色
+	private boolean mEvenRowBgColorVisible = false;
+
+	// 横向网格线
+	private Paint mPaintOddBgColor = null;
+	// 竖向网格线
+	private Paint mPaintEvenBgColor = null;
+
+	// Solid、Dot、Dash。
+	private XEnum.LineStyle mHorizontalLineStyle = XEnum.LineStyle.SOLID;
+	private XEnum.LineStyle mVerticalLineStyle = XEnum.LineStyle.SOLID;
+
+	public PlotGrid() {
 
 	}
-		
-	private void initEvenBgColorPaint()
-	{
-		if(null == mPaintEvenBgColor)
-		{
+
+	private void initEvenBgColorPaint() {
+		if (null == mPaintEvenBgColor) {
 			mPaintEvenBgColor = new Paint();
-			mPaintEvenBgColor.setStyle(Style.FILL);						
-			mPaintEvenBgColor.setColor(Color.rgb(239, 239, 239)); 					
+			mPaintEvenBgColor.setStyle(Style.FILL);
+			mPaintEvenBgColor.setColor(Color.rgb(239, 239, 239));
 			mPaintEvenBgColor.setAntiAlias(true);
 		}
 	}
-	
-	private void initOddBgColorPaint()
-	{
-		if(null == mPaintOddBgColor)
-		{
+
+	private void initOddBgColorPaint() {
+		if (null == mPaintOddBgColor) {
 			mPaintOddBgColor = new Paint();
 			mPaintOddBgColor.setStyle(Style.FILL);
 			mPaintOddBgColor.setColor(Color.WHITE);
 			mPaintOddBgColor.setAntiAlias(true);
 		}
 	}
-	
-	private void initHorizontalLinePaint()
-	{
-		if(null == mPaintGridLineHorizontal)
-		{
+
+	private void initHorizontalLinePaint() {
+		if (null == mPaintGridLineHorizontal) {
 			mPaintGridLineHorizontal = new Paint();
 			mPaintGridLineHorizontal.setAntiAlias(true);
 			mPaintGridLineHorizontal.setStrokeWidth(1);
-			mPaintGridLineHorizontal.setColor(Color.rgb(180, 205, 230));
-		}		
+			mPaintGridLineHorizontal.setColor(Color.argb(51, 255, 255, 255));
+		}
 	}
-	
-	private void initVerticalLinePaint()
-	{
-		if(null == mPaintGridLineVertical)
-		{
-			mPaintGridLineVertical = new Paint();	
-			mPaintGridLineVertical.setColor(Color.rgb(180, 205, 230));				
+
+	private void initVerticalLinePaint() {
+		if (null == mPaintGridLineVertical) {
+			mPaintGridLineVertical = new Paint();
+			mPaintGridLineVertical.setColor(Color.argb(51, 255, 255, 255));
 			mPaintGridLineVertical.setStrokeWidth(1);
 			mPaintGridLineVertical.setAntiAlias(true);
 		}
 	}
-		
+
 	/**
 	 * 设置奇数行填充色
-	 * @param color 填充色
+	 * 
+	 * @param color
+	 *            填充色
 	 */
-	public void setOddRowBackgroundColor(int color) 
-	{
+	public void setOddRowBackgroundColor(int color) {
 		mPaintOddBgColor.setColor(color);
 	}
+
 	/**
 	 * 设置偶数行填充色
-	 * @param color 填充色
+	 * 
+	 * @param color
+	 *            填充色
 	 */
-	public void setEvenRowBackgroundColor(int color)
-	{	
+	public void setEvenRowBackgroundColor(int color) {
 		mPaintOddBgColor.setColor(color);
 	}
-	
+
 	/**
 	 * 显示横向网格线
 	 */
-	public void showHorizontalLines()
-	{
+	public void showHorizontalLines() {
 		mGridLinesHorizontalVisible = true;
 	}
-	
+
 	/**
 	 * 隐藏横向网格线
 	 */
-	public void hideHorizontalLines()
-	{
+	public void hideHorizontalLines() {
 		mGridLinesHorizontalVisible = false;
-		if(null != mPaintGridLineHorizontal)mPaintGridLineHorizontal = null;
+		if (null != mPaintGridLineHorizontal)
+			mPaintGridLineHorizontal = null;
 	}
-	
-	
+
 	/**
 	 * 返回是否显示横向网格线
+	 * 
 	 * @return 是否显示
 	 */
-	public boolean isShowHorizontalLines()
-	{
+	public boolean isShowHorizontalLines() {
 		return mGridLinesHorizontalVisible;
-	}	
-	
+	}
+
 	/**
 	 * 显示竖向网格线
 	 * 
 	 */
-	public void showVerticalLines() 
-	{
+	public void showVerticalLines() {
 		mGridLinesVerticalVisible = true;
 	}
-	
+
 	/**
 	 * 隐藏竖向网格线
 	 */
-	public void hideVerticalLines() 
-	{
+	public void hideVerticalLines() {
 		mGridLinesVerticalVisible = false;
-		if(null != mPaintGridLineVertical)mPaintGridLineVertical =null;
+		if (null != mPaintGridLineVertical)
+			mPaintGridLineVertical = null;
 	}
-	
-	
+
 	/**
 	 * 返回是否显示竖向网格线
+	 * 
 	 * @return 是否显示
 	 */
-	public boolean isShowVerticalLines()
-	{
+	public boolean isShowVerticalLines() {
 		return mGridLinesVerticalVisible;
 	}
-	
-	
+
 	/**
 	 * 显示奇数行背景色
 	 */
-	public void showOddRowBgColor()
-	{
+	public void showOddRowBgColor() {
 		mOddRowBgColorVisible = true;
 	}
-	
+
 	/**
 	 * 隐藏奇数行背景色
 	 */
-	public void hideOddRowBgColor()
-	{
+	public void hideOddRowBgColor() {
 		mOddRowBgColorVisible = false;
-		if(null != mPaintOddBgColor) mPaintOddBgColor = null;
+		if (null != mPaintOddBgColor)
+			mPaintOddBgColor = null;
 	}
-	
+
 	/**
 	 * 返回是否显示奇数行填充
+	 * 
 	 * @return 是否填充
 	 */
-	public boolean isShowOddRowBgColor() 
-	{
+	public boolean isShowOddRowBgColor() {
 		return mOddRowBgColorVisible;
 	}
-	
+
 	/**
 	 * 显示偶数行背景色
 	 */
-	public void  showEvenRowBgColor() 
-	{
+	public void showEvenRowBgColor() {
 		mEvenRowBgColorVisible = true;
 	}
-	
+
 	/**
 	 * 隐藏偶数行背景色
 	 */
-	public void  hideEvenRowBgColor() 
-	{
+	public void hideEvenRowBgColor() {
 		mEvenRowBgColorVisible = false;
-		if(null != mPaintEvenBgColor) mPaintEvenBgColor = null;
+		if (null != mPaintEvenBgColor)
+			mPaintEvenBgColor = null;
 	}
-	
-	
+
 	/**
 	 * 返回是否显示偶数行填充
+	 * 
 	 * @return 是否填充
 	 */
-	public boolean isShowEvenRowBgColor()
-	{
+	public boolean isShowEvenRowBgColor() {
 		return mEvenRowBgColorVisible;
 	}
-				
+
 	/**
 	 * 开放横向网格线画笔
+	 * 
 	 * @return 画笔
 	 */
-	public Paint getHorizontalLinePaint()
-	{
+	public Paint getHorizontalLinePaint() {
 		initHorizontalLinePaint();
-		return mPaintGridLineHorizontal;	
+		return mPaintGridLineHorizontal;
 	}
-			 
+
 	/**
 	 * 开放竖向网格线画笔
+	 * 
 	 * @return 画笔
 	 */
-	public Paint getVerticalLinePaint()
-	{
+	public Paint getVerticalLinePaint() {
 		initVerticalLinePaint();
-		return mPaintGridLineVertical;	
+		return mPaintGridLineVertical;
 	}
-	
+
 	/**
 	 * 开放奇数行填充画笔
+	 * 
 	 * @return 画笔
 	 */
-	public Paint getOddRowsBgColorPaint()
-	{
+	public Paint getOddRowsBgColorPaint() {
 		initOddBgColorPaint();
-		return mPaintOddBgColor;	
+		return mPaintOddBgColor;
 	}
-	 
+
 	/**
 	 * 开放偶数行填充画笔
+	 * 
 	 * @return 画笔
 	 */
-	public Paint getEvenRowsBgColorPaint()
-	{
+	public Paint getEvenRowsBgColorPaint() {
 		initEvenBgColorPaint();
-		return mPaintEvenBgColor;	
+		return mPaintEvenBgColor;
 	}
 
 	/**
 	 * 返回竖向网格线当前绘制风格
-	 * @return  绘制风格
+	 * 
+	 * @return 绘制风格
 	 */
-	public XEnum.LineStyle getVerticalLineStyle()
-	{ 
+	public XEnum.LineStyle getVerticalLineStyle() {
 		return mVerticalLineStyle;
 	}
 
 	/**
 	 * 设置竖向网格线当前绘制风格
-	 * @param style 绘制风格
+	 * 
+	 * @param style
+	 *            绘制风格
 	 */
-	public void setVerticalLineStyle(XEnum.LineStyle style)
-	{
+	public void setVerticalLineStyle(XEnum.LineStyle style) {
 		mVerticalLineStyle = style;
 	}
-	
+
 	/**
 	 * 返回横向网格线当前绘制风格
+	 * 
 	 * @return 绘制风格
 	 */
-	public XEnum.LineStyle getHorizontalLineStyle()
-	{
+	public XEnum.LineStyle getHorizontalLineStyle() {
 		return mHorizontalLineStyle;
 	}
 
 	/**
-	 * 设置横向网格线当前绘制风格 
-	 * @param style 绘制风格
+	 * 设置横向网格线当前绘制风格
+	 * 
+	 * @param style
+	 *            绘制风格
 	 */
-	public void setHorizontalLineStyle(XEnum.LineStyle style)
-	{
+	public void setHorizontalLineStyle(XEnum.LineStyle style) {
 		mHorizontalLineStyle = style;
 	}
-	 
+
 }
