@@ -27,6 +27,8 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.sft.api.UserLogin;
+import com.sft.listener.EMLoginListener;
 import com.yibu.common.Config;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.UserBean;
@@ -36,8 +38,10 @@ import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.MD5;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
+import com.yibu.headmaster.utils.ZProgressHUD;
 
-public class LoginActivity extends Activity implements OnClickListener {
+public class LoginActivity extends Activity implements OnClickListener,
+		EMLoginListener {
 
 	@ViewInject(R.id.login_logo_iv)
 	private ImageView loginLogo;
@@ -207,24 +211,21 @@ public class LoginActivity extends Activity implements OnClickListener {
 
 		private void process(String value) {
 			UserBean userBean = JsonUtil.parseJsonToBean(value, UserBean.class);
-			LogUtil.print("用户：" + userBean.headportrait);
-			// 保存用户名和密码到本地
-			SharedPreferencesUtil.putString(getBaseContext(),
-					Config.LAST_LOGIN_ACCOUNT, phoneEt.getText().toString());
-			SharedPreferencesUtil
-					.putString(getBaseContext(), Config.LAST_LOGIN_PASSWORD,
-							passwordEt.getText().toString());
-			// 保存用户信息
-			SharedPreferencesUtil.putString(LoginActivity.this,
-					LoginActivity.USER_INFO, value);
-			HeadmasterApplication.app.userInfo = userBean;
-			ApiHttpClient.setHeader(new String[] { "authorization",
-					HeadmasterApplication.app.userInfo.token });
-			System.out.println(HeadmasterApplication.app.userInfo.name);
-			// 转到主界面
-			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-			startActivity(intent);
-			finish();
+
+			if (userBean != null) {
+				// 保存用户信息
+				SharedPreferencesUtil.putString(LoginActivity.this,
+						LoginActivity.USER_INFO, value);
+				HeadmasterApplication.app.userInfo = userBean;
+				ApiHttpClient.setHeader(new String[] { "authorization",
+						HeadmasterApplication.app.userInfo.token });
+
+				// 登录环信
+				new UserLogin(LoginActivity.this).userLogin(
+						HeadmasterApplication.app.userInfo.userid,
+						MD5.Md5(passwordEt.getText().toString()),
+						HeadmasterApplication.app.userInfo.name);
+			}
 
 		}
 	}
@@ -234,5 +235,36 @@ public class LoginActivity extends Activity implements OnClickListener {
 		name.setSpan(new RelativeSizeSpan(2.5f), 0, name.length(),
 				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 		return name;
+	}
+
+	// 环信登录的回调方法
+	@Override
+	public void loginResult(boolean result, int code, String message) {
+
+		if (result) {
+			// 保存用户名和密码到本地
+			SharedPreferencesUtil.putString(getBaseContext(),
+					Config.LAST_LOGIN_ACCOUNT, phoneEt.getText().toString());
+			SharedPreferencesUtil
+					.putString(getBaseContext(), Config.LAST_LOGIN_PASSWORD,
+							passwordEt.getText().toString());
+
+			LogUtil.print("登录环信成功！");
+			HeadmasterApplication.app.isLogin = true;
+			// 转到主界面
+			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+			startActivity(intent);
+			finish();
+		} else {
+			LogUtil.print("登录环信失败！");
+			runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					ZProgressHUD.getInstance(LoginActivity.this).show();
+					ZProgressHUD.getInstance(LoginActivity.this)
+							.dismissWithFailure("初始化聊天失败");
+				}
+			});
+		}
 	}
 }

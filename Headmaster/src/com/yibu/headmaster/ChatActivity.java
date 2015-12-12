@@ -19,7 +19,6 @@ import android.graphics.drawable.Drawable;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.provider.MediaStore;
@@ -174,15 +173,6 @@ public class ChatActivity extends BaseActivity implements
 	private HeadmasterApplication app = HeadmasterApplication.app;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		addView(R.layout.activity_chat);
-		initView();
-		initData();
-		setListener();
-	}
-
-	@Override
 	protected void onResume() {
 		// register(getClass().getName());
 		if (adapter != null) {
@@ -193,6 +183,8 @@ public class ChatActivity extends BaseActivity implements
 
 	@Override
 	protected void initView() {
+		// view = View.inflate(getBaseContext(), R.layout.activity_chat, null);
+		addView(R.layout.activity_chat);
 		swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.chat_swipe_layout);
 		chatListView = (ListView) findViewById(R.id.chat_listview);
 		titleTv = (TextView) findViewById(R.id.chat_title_tv);
@@ -245,6 +237,9 @@ public class ChatActivity extends BaseActivity implements
 		conversation.markAllMessagesAsRead();
 		// 显示消息
 		adapter = new MessageAdapter(ChatActivity.this, chatId, chatUrl);
+		if (chatListView == null) {
+			LogUtil.print(adapter + "adapter");
+		}
 		chatListView.setAdapter(adapter);
 		adapter.refreshSelectLast();
 
@@ -299,11 +294,17 @@ public class ChatActivity extends BaseActivity implements
 		sendTextEt.setText("");
 	}
 
+	// @Override
+	// public void onClick(View v) {
+	//
+	// }
+
 	@Override
-	public void onClick(View v) {
+	public void otherOnclick(View v) {
 		// if (!onClickSingleView()) {
 		// return;
 		// }
+		LogUtil.print("点击事件");
 		switch (v.getId()) {
 		// case R.id.base_left_btn:
 		// finish();
@@ -1082,6 +1083,6 @@ public class ChatActivity extends BaseActivity implements
 
 	@Override
 	protected void initListener() {
-
+		setListener();
 	}
 }

@@ -60,9 +60,10 @@
         android:background="#2a2a2a"
         android:contentDescription="@string/app_name" />
 
-    <FrameLayout 
+    <LinearLayout 
         android:id="@+id/fl_base_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        ></FrameLayout>
+        android:orientation="vertical"
+        ></LinearLayout>
 </LinearLayout>

@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.loopj.android.http.RequestParams;
+import com.sft.api.UserLogin;
+import com.sft.listener.EMLoginListener;
 import com.yibu.common.Config;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.UserBean;
@@ -16,10 +18,13 @@ import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.MD5;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
+import com.yibu.headmaster.utils.ZProgressHUD;
 
-public class WelcomeActivity extends BaseActivity {
+public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 
 	private HeadmasterApplication app = HeadmasterApplication.app;
+	private String password;
+	private String lastLoginPhone;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +33,6 @@ public class WelcomeActivity extends BaseActivity {
 		setContentView(R.layout.activity_welcome);
 
 		ImageView image = (ImageView) findViewById(R.id.welcome_image);
-		if (image == null) {
-			System.out.println("----000000-9-89");
-		}
 		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) image
 				.getLayoutParams();
 		params.width = (int) (screenWidth * 5 / 12f);
@@ -56,9 +58,9 @@ public class WelcomeActivity extends BaseActivity {
 	protected void initData() {
 		app.userInfo = null;
 		app.isLogin = false;
-		String lastLoginPhone = SharedPreferencesUtil.getString(
-				getBaseContext(), Config.LAST_LOGIN_ACCOUNT, "");
-		String password = SharedPreferencesUtil.getString(getBaseContext(),
+		lastLoginPhone = SharedPreferencesUtil.getString(getBaseContext(),
+				Config.LAST_LOGIN_ACCOUNT, "");
+		password = SharedPreferencesUtil.getString(getBaseContext(),
 				Config.LAST_LOGIN_PASSWORD, "");
 
 		LogUtil.print("用户名：密码：" + lastLoginPhone + password);
@@ -99,6 +101,20 @@ public class WelcomeActivity extends BaseActivity {
 			app.userInfo = userBean;
 			ApiHttpClient.setHeader(new String[] { "authorization",
 					HeadmasterApplication.app.userInfo.token });
+
+			// 登录环信
+			new UserLogin(WelcomeActivity.this).userLogin(
+					HeadmasterApplication.app.userInfo.userid,
+					MD5.Md5(password), HeadmasterApplication.app.userInfo.name);
+		}
+
+		if (userBean != null) {
+			// 保存用户信息
+			SharedPreferencesUtil.putString(WelcomeActivity.this,
+					LoginActivity.USER_INFO, data);
+			app.userInfo = userBean;
+			ApiHttpClient.setHeader(new String[] { "authorization",
+					HeadmasterApplication.app.userInfo.token });
 			// 转到主界面
 			new Handler().postDelayed(new Runnable() {
 
@@ -121,6 +137,36 @@ public class WelcomeActivity extends BaseActivity {
 		startActivity(intent);
 		finish();
 
+	}
+
+	// 环信登录的回调方法
+	@Override
+	public void loginResult(boolean result, int code, String message) {
+
+		if (result) {
+			// 保存用户名和密码到本地
+			SharedPreferencesUtil.putString(getBaseContext(),
+					Config.LAST_LOGIN_ACCOUNT, lastLoginPhone);
+			SharedPreferencesUtil.putString(getBaseContext(),
+					Config.LAST_LOGIN_PASSWORD, password);
+
+			LogUtil.print("登录环信成功！");
+			HeadmasterApplication.app.isLogin = true;
+			// 转到主界面
+			Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+			startActivity(intent);
+			finish();
+		} else {
+			LogUtil.print("登录环信失败！");
+			runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					ZProgressHUD.getInstance(WelcomeActivity.this).show();
+					ZProgressHUD.getInstance(WelcomeActivity.this)
+							.dismissWithFailure("初始化聊天失败");
+				}
+			});
+		}
 	}
 
 }

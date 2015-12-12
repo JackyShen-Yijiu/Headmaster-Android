@@ -151,7 +151,7 @@
             android:layout_height="163dp"
             android:background="#ffffff"
             android:orientation="vertical"
-            android:visibility="visible" >
+            android:visibility="gone" >
 
             <ImageView
                 android:layout_width="match_parent"

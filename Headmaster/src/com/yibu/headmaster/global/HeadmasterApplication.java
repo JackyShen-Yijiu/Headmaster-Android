@@ -1,10 +1,16 @@
 package com.yibu.headmaster.global;
 
+import java.util.Iterator;
+import java.util.List;
+
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.sft.library.DemoHXSDKHelper;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.UserBean;
 
@@ -29,6 +35,9 @@ public class HeadmasterApplication extends Application {
 
 		app = new HeadmasterApplication();
 		init();
+
+		// 环信初始化
+		DemoHXSDKHelper.getInstance().onInit(this);
 	}
 
 	public static HeadmasterApplication getInstance() {
@@ -49,5 +58,24 @@ public class HeadmasterApplication extends Application {
 		AsyncHttpClient client = new AsyncHttpClient();
 		ApiHttpClient.setHttpClient(client);
 
+	}
+
+	protected String getAppName(int pID) {
+		String processName = null;
+		ActivityManager am = (ActivityManager) this
+				.getSystemService(ACTIVITY_SERVICE);
+		List<RunningAppProcessInfo> l = am.getRunningAppProcesses();
+		Iterator<RunningAppProcessInfo> i = l.iterator();
+		while (i.hasNext()) {
+			ActivityManager.RunningAppProcessInfo info = (i.next());
+			try {
+				if (info.pid == pID) {
+					processName = info.processName;
+					return processName;
+				}
+			} catch (Exception e) {
+			}
+		}
+		return processName;
 	}
 }

@@ -32,7 +32,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
 	public TextView baseRight;
 
-	public FrameLayout content;
+	public LinearLayout content;
 
 	protected String result = "";
 	protected String msg = "";
@@ -41,9 +41,6 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	protected static int screenHeight;
 	protected static float screenDensity;
 	protected static int densityDpi;
-
-	// 内容布局
-	private LinearLayout contentLayout;
 
 	protected AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler() {
 
@@ -119,15 +116,15 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 			densityDpi = metric.densityDpi;
 		}
 
-		content = (FrameLayout) findViewById(R.id.fl_base_content);
+		content = (LinearLayout) findViewById(R.id.fl_base_content);
 		arrowButton = (FrameLayout) findViewById(R.id.ib_base_arrow);
 		baseTitle = (TextView) findViewById(R.id.tv_base_title);
 		baseRight = (TextView) findViewById(R.id.tv_base_right);
 
-		arrowButton.setOnClickListener(this);
 		initView();
 		initListener();
 		initData();
+		arrowButton.setOnClickListener(this);
 		overridePendingTransition(R.anim.next_enter, R.anim.next_enter);
 	}
 
@@ -152,14 +149,11 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 
-		switch (v.getId()) {
-		case R.id.ib_base_arrow:
+		if (R.id.ib_base_arrow == v.getId()) {
 			finish();
-			break;
-
-		default:
-			break;
 		}
+
+		otherOnclick(v);
 	}
 
 	public void setSonsTitle(String title) {
@@ -171,7 +165,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 		LinearLayout.LayoutParams params = new LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		LayoutInflater inflater = getLayoutInflater();
-		contentLayout.addView(inflater.inflate(layoutId, null), params);
+		content.addView(inflater.inflate(layoutId, null), params);
 	}
 
 	protected SpannableString setHint(int stringId) {
@@ -190,5 +184,8 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	public abstract void processSuccess(String data);
 
 	public abstract void processFailure();
+
+	public void otherOnclick(View v) {
+	}
 
 }
