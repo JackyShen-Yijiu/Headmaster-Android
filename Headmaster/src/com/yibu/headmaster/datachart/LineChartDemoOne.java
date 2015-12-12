@@ -95,26 +95,6 @@ public class LineChartDemoOne extends DemoView {
 
 	// 竖向网格线
 
-	/**
-	 * 开放竖向网格线画笔
-	 * 
-	 * @return 画笔
-	 */
-	public Paint getVerticalLinePaint() {
-		initVerticalLinePaint();
-		return mPaintGridLineVertical;
-	}
-
-	private void initVerticalLinePaint() {
-		// TODO Auto-generated method stub
-		if (null == mPaintGridLineHorizontal) {
-			mPaintGridLineHorizontal = new Paint();
-			mPaintGridLineHorizontal.setAntiAlias(true);
-			mPaintGridLineHorizontal.setStrokeWidth(1);
-			mPaintGridLineHorizontal.setColor(Color.BLUE);
-		}
-	}
-
 	private void chartRenderLn() {
 		try {
 

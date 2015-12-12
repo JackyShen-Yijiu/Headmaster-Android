@@ -36,6 +36,9 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.yibu.headmaster.bean.AssessBean.Commentcount;
+import com.yibu.headmaster.utils.LogUtil;
+
 /**
  * @ClassName DountChart01View
  * @Description 环形图例子
@@ -49,10 +52,14 @@ public class DountChartDemo extends DemoView {
 
 	LinkedList<PieData> lPieData = new LinkedList<PieData>();
 
-	public DountChartDemo(Context context) {
+	// 评价比列的数据
+	private Commentcount commentcount;
+
+	public DountChartDemo(Context context, Commentcount commentcount) {
 		super(context);
-		// TODO Auto-generated constructor stub
+		this.commentcount = commentcount;
 		initView();
+
 	}
 
 	public DountChartDemo(Context context, AttributeSet attrs) {
@@ -65,10 +72,15 @@ public class DountChartDemo extends DemoView {
 		initView();
 	}
 
+	// 传数据
+	public void setData(Commentcount commentcount) {
+
+		this.commentcount = commentcount;
+	}
+
 	private void initView() {
 		chartDataSet();
 		chartRender();
-
 	}
 
 	@Override
@@ -134,38 +146,36 @@ public class DountChartDemo extends DemoView {
 	private void chartDataSet() {
 		// 设置图表数据源
 		// PieData(标签，百分比，在饼图中对应的颜色)
-		lPieData.add(new PieData("好评", "75%", 75, Color.rgb(1, 226, 182)));
-		lPieData.add(new PieData("中评", "20%", 20, Color.rgb(2, 171, 138)));
-		lPieData.add(new PieData("差评", "5%", 5, Color.rgb(4, 122, 100)));
+		// lPieData.add(new PieData("好评", "75%", 75, Color.rgb(1, 226, 182)));
+		// lPieData.add(new PieData("中评", "20%", 20, Color.rgb(2, 171, 138)));
+		// lPieData.add(new PieData("差评", "5%", 5, Color.rgb(4, 122, 100)));
+
+		if (commentcount == null) {
+			LogUtil.print("评论为" + commentcount);
+		}
+		int sum = commentcount.goodcommnent + commentcount.badcomment
+				+ commentcount.generalcomment;
+		if (sum == 0) {
+			lPieData.add(new PieData("差评", "5%", 5, Color.rgb(4, 122, 100)));
+		}
+		int good = (int) ((commentcount.goodcommnent) / (sum * 1.0f)) * 100;
+		int bad = (int) ((commentcount.badcomment) / (sum * 1.0f)) * 100;
+		int general = 100 - good - bad;
+
+		if (commentcount != null) {
+			lPieData.add(new PieData("好评", good + "%", good, Color.rgb(1, 226,
+					182)));
+			lPieData.add(new PieData("中评", bad + "%", bad, Color.rgb(2, 171,
+					138)));
+			lPieData.add(new PieData("差评", general + "%", general, Color.rgb(4,
+					122, 100)));
+		}
 	}
 
 	@Override
 	public void render(Canvas canvas) {
 		try {
 			chart.render(canvas);
-
-			/*
-			 * 
-			 * 在显示标签的位置显示图片:
-			 * 
-			 * 1.chart.saveLabelsPosition(XEnum.LabelSaveType.ONLYPOSITION); 2.
-			 * 返回各标签位置
-			 */
-
-			/*
-			 * 贴图的例子代码： Bitmap bmp =
-			 * BitmapFactory.decodeResource(getResources(), R.drawable.pieaa);
-			 * 
-			 * ArrayList<PlotArcLabelInfo> mLstLabels =
-			 * chart.getLabelsPosition(); for(PlotArcLabelInfo info: mLstLabels)
-			 * { PointF pos = info.getLabelPointF(); if(null == pos)continue;
-			 * //String posXY =
-			 * " x="+Float.toString(pos.x)+" y="+Float.toString(pos.y);
-			 * //Log.e("Pie","label="+lPieData.get(info.getID())+" "+posXY);
-			 * 
-			 * canvas.drawBitmap(bmp, pos.x, pos.y, null); }
-			 */
-
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
 		}

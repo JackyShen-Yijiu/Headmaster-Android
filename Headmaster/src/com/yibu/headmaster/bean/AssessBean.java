@@ -66,15 +66,15 @@ public class AssessBean {
 
 		}
 
-		public Commentcount commentcount;
+	}
 
-		public class Commentcount {
+	public Commentcount commentcount;
 
-			public int generalcomment;
-			public int goodcommnent;
-			public int badcomment;
+	public class Commentcount {
 
-		}
+		public int generalcomment;
+		public int goodcommnent;
+		public int badcomment;
 
 	}
 

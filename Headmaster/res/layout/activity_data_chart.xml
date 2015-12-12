@@ -1,4 +1,4 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.yibu.headmaster.view.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -49,10 +49,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="14dp" >  
-          <com.yibu.headmaster.datachart.LineChartDemoOne
-              android:id="@+id/data_encroll_student"
-              android:layout_width="match_parent"
-        	  android:layout_height="match_parent"/>            
+                      
     </RelativeLayout>
  
     <!-- 2 -->
@@ -92,9 +89,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="14dp" >  
-         <com.yibu.headmaster.datachart.LineChartDemoTwo
-             android:layout_width="match_parent"
-        	  android:layout_height="match_parent"/>
     </RelativeLayout>
     
     
@@ -140,9 +134,6 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="14dp" >
          
-         <com.yibu.headmaster.datachart.BarChartDemo
-             android:layout_width="match_parent"
-        	  android:layout_height="match_parent"/>
     </RelativeLayout>
   <!-- 4 -->
   <RelativeLayout
@@ -192,4 +183,4 @@
         	  android:layout_height="match_parent"/>
     </RelativeLayout>
 </RelativeLayout>
-</ScrollView>
+</com.yibu.headmaster.view.CustomScrollView>

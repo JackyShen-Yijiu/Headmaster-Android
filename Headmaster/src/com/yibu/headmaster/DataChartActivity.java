@@ -44,8 +44,8 @@ public class DataChartActivity extends BaseActivity {
 		slidingTab.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
-			public void onPageSelected(int arg0) {
-				baseTitle.setText(titles[arg0] + "数据");
+			public void onPageSelected(int position) {
+				baseTitle.setText(titles[position] + "数据");
 			}
 
 			@Override
@@ -67,7 +67,7 @@ public class DataChartActivity extends BaseActivity {
 		tabPagers = new ArrayList<MoreDataPager>();
 		titles = new String[] { "今天", "昨天", "本周", "本月", "本年" };
 		for (int i = 0; i < titles.length; i++) {
-			tabPagers.add(new MoreDataPager(getApplicationContext()));
+			tabPagers.add(new MoreDataPager(getApplicationContext(), i + 1));
 		}
 
 		viewPager.setAdapter(new MoreDataAdapter(titles, tabPagers));
