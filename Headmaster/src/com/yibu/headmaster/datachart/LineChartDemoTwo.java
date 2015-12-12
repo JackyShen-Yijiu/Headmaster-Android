@@ -1,6 +1,7 @@
 package com.yibu.headmaster.datachart;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.xclcharts.chart.AreaChart;
 import org.xclcharts.chart.AreaData;
@@ -16,6 +17,8 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.yibu.headmaster.bean.MoreDataBean.Reservationstudentlist;
+
 public class LineChartDemoTwo extends DemoView {
 	private String TAG = "MultiAxisChart03View";
 
@@ -30,9 +33,13 @@ public class LineChartDemoTwo extends DemoView {
 	private LineChart chartLn = new LineChart();
 	private LinkedList<LineData> chartData = new LinkedList<LineData>();
 
-	public LineChartDemoTwo(Context context) {
+	// 约课表的数据
+	private List<Reservationstudentlist> reservationstudentlist;
+
+	public LineChartDemoTwo(Context context,
+			List<Reservationstudentlist> reservationstudentlist) {
 		super(context);
-		// TODO Auto-generated constructor stub
+		this.reservationstudentlist = reservationstudentlist;
 		initView();
 	}
 
@@ -44,6 +51,12 @@ public class LineChartDemoTwo extends DemoView {
 	public LineChartDemoTwo(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		initView();
+	}
+
+	// 传数据
+	public void setData(List<Reservationstudentlist> reservationstudentlist) {
+
+		this.reservationstudentlist = reservationstudentlist;
 	}
 
 	private void initView() {
@@ -155,9 +168,15 @@ public class LineChartDemoTwo extends DemoView {
 	private void chartDataSetLn() {
 		// Line 1
 		LinkedList<Double> dataSeries1 = new LinkedList<Double>();
-		dataSeries1.add(5d);
-		dataSeries1.add(10d);
-		dataSeries1.add(12d);
+		// dataSeries1.add(5d);
+
+		if (reservationstudentlist != null) {
+			for (Reservationstudentlist reservationstudent : reservationstudentlist) {
+				dataSeries1.add((double) reservationstudent.studentcount);
+			}
+
+		}
+
 		LineData lineData1 = new LineData("直线", dataSeries1, Color.rgb(1, 226,
 				182));
 		lineData1.setDotStyle(XEnum.DotStyle.RING);
@@ -169,11 +188,13 @@ public class LineChartDemoTwo extends DemoView {
 
 		// Line 2
 		LinkedList<Double> dataSeries2 = new LinkedList<Double>();
-		dataSeries2.add((double) 0);
-		dataSeries2.add((double) 0);
-		dataSeries2.add((double) 15);
-		dataSeries2.add((double) 17);
-		dataSeries2.add((double) 18);
+		// dataSeries2.add((double) 0);
+
+		if (reservationstudentlist != null) {
+			for (Reservationstudentlist reservationstudent : reservationstudentlist) {
+				dataSeries2.add((double) reservationstudent.studentcount);
+			}
+		}
 		LineData lineData2 = new LineData("圆环", dataSeries2, Color.rgb(1, 226,
 				182));
 		lineData2.setDotStyle(XEnum.DotStyle.RING);
@@ -190,13 +211,13 @@ public class LineChartDemoTwo extends DemoView {
 
 	// X轴数据
 	private void chartLabels() {
-		mLabels.add("7:00");
-		mLabels.add("9:00");
-		mLabels.add("13:00");
-		mLabels.add("15:00");
-		mLabels.add("19:00");
-		mLabels.add("21:00");
+		// mLabels.add("7:00");
+		if (reservationstudentlist != null) {
+			for (Reservationstudentlist reservationstudent : reservationstudentlist) {
+				mLabels.add(reservationstudent.hour + ":00");
+			}
 
+		}
 	}
 
 	@Override

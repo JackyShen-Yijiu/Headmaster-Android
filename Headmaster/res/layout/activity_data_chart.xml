@@ -184,6 +184,7 @@
         android:layout_below="@+id/relativeLayout_textView_pingjia"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="14dp" >
          
          <com.yibu.headmaster.datachart.LineChartDemoThree

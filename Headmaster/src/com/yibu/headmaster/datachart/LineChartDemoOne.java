@@ -9,6 +9,7 @@ import org.xclcharts.chart.LineChart;
 import org.xclcharts.chart.LineData;
 import org.xclcharts.common.DensityUtil;
 import org.xclcharts.renderer.XEnum;
+import org.xclcharts.renderer.plot.PlotGrid;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -165,25 +166,25 @@ public class LineChartDemoOne extends DemoView {
 			chartLn.setCategoryAxisLocation(XEnum.AxisLocation.BOTTOM);
 
 			// 把轴线设成和横向网络线一样和大小和颜色,演示下定制性，这块问得人较多
-			// PlotGrid plot = chart.getPlotGrid();
-			// chartLn.getDataAxis()
-			// .getAxisPaint()
-			// .setStrokeWidth(
-			// plot.getHorizontalLinePaint().getStrokeWidth());
-			// chartLn.getCategoryAxis()
-			// .getAxisPaint()
-			// .setStrokeWidth(
-			// plot.getHorizontalLinePaint().getStrokeWidth());
-			//
-			// chartLn.getDataAxis().getAxisPaint()
-			// .setColor(plot.getHorizontalLinePaint().getColor());
-			// chartLn.getCategoryAxis().getAxisPaint()
-			// .setColor(plot.getHorizontalLinePaint().getColor());
-			//
-			// chartLn.getDataAxis().getTickMarksPaint()
-			// .setColor(plot.getHorizontalLinePaint().getColor());
-			// chartLn.getCategoryAxis().getTickMarksPaint()
-			// .setColor(plot.getHorizontalLinePaint().getColor());
+			PlotGrid plot = chart.getPlotGrid();
+			chartLn.getDataAxis()
+					.getAxisPaint()
+					.setStrokeWidth(
+							plot.getHorizontalLinePaint().getStrokeWidth());
+			chartLn.getCategoryAxis()
+					.getAxisPaint()
+					.setStrokeWidth(
+							plot.getHorizontalLinePaint().getStrokeWidth());
+
+			chartLn.getDataAxis().getAxisPaint()
+					.setColor(plot.getHorizontalLinePaint().getColor());
+			chartLn.getCategoryAxis().getAxisPaint()
+					.setColor(plot.getHorizontalLinePaint().getColor());
+
+			chartLn.getDataAxis().getTickMarksPaint()
+					.setColor(plot.getHorizontalLinePaint().getColor());
+			chartLn.getCategoryAxis().getTickMarksPaint()
+					.setColor(plot.getHorizontalLinePaint().getColor());
 
 			// 图例显示在正下方
 			// chartLn.getPlotLegend()
