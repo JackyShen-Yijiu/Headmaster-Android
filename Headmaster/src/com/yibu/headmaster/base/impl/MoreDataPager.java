@@ -35,8 +35,11 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 	private LineChartDemoTwo aboutClass;// 约课
 	private BarChartDemo giveLesoons;// 授课
 
-	public MoreDataPager(Context context) {
+	private int current = 0; // 当前的查询时间
+
+	public MoreDataPager(Context context, int i) {
 		super(context);
+		current = i;
 	}
 
 	@Override
@@ -68,6 +71,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 	private void loadDataFromWeb() {
 
+		searchtype = current;
 		String userId = HeadmasterApplication.app.userInfo.userid;
 		String schoolId = HeadmasterApplication.app.userInfo.driveschool.schoolid;
 		ApiHttpClient.get("statistics/getmoredata?userid=" + userId
@@ -82,15 +86,42 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		case R.id.relativeLayout_textView_shouke:
 			Intent shouke = new Intent(mContext, AssessActivity.class);
 			shouke.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			shouke.putExtra("title", searchtype);
 			mContext.startActivity(shouke);
 			break;
 		case R.id.relativeLayout_textView_pingjia:
 			Intent pingjia = new Intent(mContext, AssessActivity.class);
 			pingjia.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			pingjia.putExtra("title", searchtype);
 			mContext.startActivity(pingjia);
 			break;
 		}
 	}
+
+	// private String getTitle(int searchtype) {
+	// String title = null;
+	// switch (searchtype) {
+	// case 1:
+	// title = "今天";
+	// break;
+	// case 2:
+	// title = "昨天";
+	// break;
+	// case 3:
+	// title = "本周";
+	// break;
+	// case 4:
+	// title = "本月";
+	// break;
+	// case 5:
+	// title = "本年";
+	// break;
+	//
+	// default:
+	// break;
+	// }
+	// return title;
+	// }
 
 	@Override
 	public void process(String data) {
@@ -101,19 +132,6 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		if (moreDataBean != null) {
 
 			List<Applystuentlist> applystuentlist = moreDataBean.applystuentlist;
-			MoreDataBean m = new MoreDataBean();
-			Applystuentlist a = m.new Applystuentlist();
-			a.hour = 12;
-			a.applystudentcount = 23;
-			applystuentlist.add(a);
-			a = m.new Applystuentlist();
-			a.hour = 21;
-			a.applystudentcount = 15;
-			applystuentlist.add(a);
-			a = m.new Applystuentlist();
-			a.hour = 22;
-			a.applystudentcount = 16;
-			applystuentlist.add(a);
 
 			encrollStudent = new LineChartDemoOne(mContext, applystuentlist);
 			relativeLayout_chartone.addView(encrollStudent);
@@ -125,12 +143,6 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		// 约课------------------------
 		if (moreDataBean != null) {
 			List<Reservationstudentlist> reservationstudentlist = moreDataBean.reservationstudentlist;
-			MoreDataBean m = new MoreDataBean();
-			Reservationstudentlist a = m.new Reservationstudentlist();
-			// 数据《1》
-			a.hour = 12;
-			a.studentcount = 23;
-			reservationstudentlist.add(a);
 
 			aboutClass = new LineChartDemoTwo(mContext, reservationstudentlist);
 			relativeLayout_charttwo.addView(aboutClass);
@@ -142,11 +154,11 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		// 教练授课---------------------------
 		if (moreDataBean != null) {
 			List<Coachcourselist> coachcourselist = moreDataBean.coachcourselist;
-			MoreDataBean m = new MoreDataBean();
-			Coachcourselist a = m.new Coachcourselist();
-			a.coachcount = 12;
-			a.coursecount = 23;
-			coachcourselist.add(a);
+			// MoreDataBean m = new MoreDataBean();
+			// Coachcourselist a = m.new Coachcourselist();
+			// a.coachcount = 12;
+			// a.coursecount = 23；
+			// coachcourselist.add(a);
 
 			giveLesoons = new BarChartDemo(mContext, coachcourselist);
 			relativeLayout_chartbar.addView(giveLesoons);
@@ -155,6 +167,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 			params.width = LayoutParams.MATCH_PARENT;
 			giveLesoons.setLayoutParams(params);
 		}
+		// 评价---------------------
 
 	}
 }

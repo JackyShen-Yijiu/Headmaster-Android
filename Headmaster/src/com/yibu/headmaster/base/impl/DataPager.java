@@ -378,17 +378,12 @@ public class DataPager extends BasePager implements OnClickListener {
 
 	private void loadNetworkData() {
 		String userId = null;
+		String schoolId = null;
 		if (HeadmasterApplication.app != null) {
 
 			userId = HeadmasterApplication.app.userInfo.userid;
-			// String value = SharedPreferencesUtil.getString(mContext,
-			// LoginActivity.USER_INFO, "");
-			// if (!TextUtils.isEmpty(value)) {
-			// bean = JsonUtil.parseJsonToBean(value, UserBean.class);
-			// userId = bean.userid;
-			// }
+			schoolId = HeadmasterApplication.app.userInfo.driveschool.schoolid;
 		}
-		String schoolId = HeadmasterApplication.app.userInfo.driveschool.schoolid;
 		// String schoolId = bean.driveschool.schoolid;
 
 		ApiHttpClient.get("statistics/getmainpagedata?userid=" + userId

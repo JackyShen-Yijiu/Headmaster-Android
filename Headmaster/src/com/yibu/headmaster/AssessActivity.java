@@ -19,6 +19,8 @@ public class AssessActivity extends BaseActivity {
 	private String[] titles;
 	private List<AssessDetailPager> tabPagers;
 
+	private int currentTime = 1; // 当前时间
+
 	@Override
 	protected void initView() {
 		view = View.inflate(getBaseContext(), R.layout.activity_assess_detail,
@@ -29,8 +31,34 @@ public class AssessActivity extends BaseActivity {
 		viewPager = (ViewPager) view
 				.findViewById(R.id.assess_detail_view_pager);
 
-		baseTitle.setText("本周评价详情");
+		currentTime = getIntent().getIntExtra("title", 1);
+		baseTitle.setText(getTitle(currentTime) + "评价详情");
 
+	}
+
+	private String getTitle(int searchtype) {
+		String title = null;
+		switch (searchtype) {
+		case 1:
+			title = "今天";
+			break;
+		case 2:
+			title = "昨天";
+			break;
+		case 3:
+			title = "本周";
+			break;
+		case 4:
+			title = "本月";
+			break;
+		case 5:
+			title = "本年";
+			break;
+
+		default:
+			break;
+		}
+		return title;
 	}
 
 	@Override
@@ -43,13 +71,15 @@ public class AssessActivity extends BaseActivity {
 
 		// 初始化数据
 		tabPagers = new ArrayList<AssessDetailPager>();
-		titles = new String[] { "好评", "中评", "本周", "差评" };
+		titles = new String[] { "好评", "中评", "差评", "投诉" };
 		for (int i = 0; i < titles.length; i++) {
-			tabPagers.add(new AssessDetailPager(getApplicationContext()));
+			tabPagers.add(new AssessDetailPager(getApplicationContext(), i + 1,
+					currentTime));
 		}
 
 		viewPager.setAdapter(new AssessDetailAdapter(titles, tabPagers));
 		slidingTab.setViewPager(viewPager);
+
 	}
 
 	@Override

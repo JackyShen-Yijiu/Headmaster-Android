@@ -82,6 +82,7 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		ZProgressHUD.getInstance(this).show();
 		ZProgressHUD.getInstance(this).dismissWithSuccess("反馈成功");
+		callContent.setText("");
 
 	}
 
