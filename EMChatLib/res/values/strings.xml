@@ -43,10 +43,10 @@
     <string name="location_message">位置信息</string>
     <string name="recording_video">录制视频</string>
     <string name="location_prefix">[我的位置]</string>
-    <string name="picture">[图片]</string>
-    <string name="video">[视频]</string>
-    <string name="file">[文件]</string>
-    <string name="voice_call">[语音通话]</string>
+    <string name="picture">图片</string>
+    <string name="video">视频</string>
+    <string name="file">文件</string>
+    <string name="voice_call">语音通话</string>
     <string name="button_cancel">取消</string>
     <string name="button_save">保存</string>
     <string name="button_search">查找</string>
