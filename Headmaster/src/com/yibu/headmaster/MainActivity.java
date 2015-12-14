@@ -125,9 +125,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		pagers = new ArrayList<BasePager>();
 
-		pagers.add(new DataPager(getApplicationContext()));
-		pagers.add(new NewsPager(getApplicationContext()));
-		pagers.add(new ChatterPager(getApplicationContext()));
+		pagers.add(new DataPager(getBaseContext()));
+		pagers.add(new NewsPager(getBaseContext()));
+		pagers.add(new ChatterPager(getBaseContext()));
 		// 设置数据适配器
 		contentPager.setAdapter(new MainPagerAdapter(pagers));
 

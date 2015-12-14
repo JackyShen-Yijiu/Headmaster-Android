@@ -1,69 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/base_titlebar_layout"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_bg"
-    android:orientation="vertical" >
+    android:background="@drawable/main_bg" >
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/base_titlebar_layout"
         android:layout_width="match_parent"
-        android:layout_height="49dp" >
+        android:layout_height="49dp"
+        android:orientation="vertical" >
 
-        <FrameLayout 
-            android:id="@+id/ib_base_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:padding="10dp"
-            >
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:clickable="false"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/base_arrow" />
-	
-        </FrameLayout>
-        <TextView
-            android:id="@+id/tv_base_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/data_title"
-            android:textColor="#fefefe"
-            android:textSize="16sp"
-             />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp" >
 
-        <TextView
-            android:id="@+id/tv_base_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            <FrameLayout
+                android:id="@+id/ib_base_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:padding="10dp" >
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/base_arrow" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_base_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/data_title"
+                android:textColor="#fefefe"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_base_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:clickable="true"
+                android:text="@string/publish"
+                android:textColor="#fefefe"
+                android:textSize="16sp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/base_deviderline"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="@string/publish"
-            android:textColor="#fefefe"
-            android:clickable="true"
-            android:visibility="invisible"
-            android:textSize="16sp" />
-    </RelativeLayout>
+            android:background="#2a2a2a"
+            android:contentDescription="@string/app_name" />
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/base_deviderline"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="#2a2a2a"
-        android:contentDescription="@string/app_name" />
-
-    <LinearLayout 
+    <LinearLayout
         android:id="@+id/fl_base_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        ></LinearLayout>
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/base_titlebar_layout"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</RelativeLayout>
