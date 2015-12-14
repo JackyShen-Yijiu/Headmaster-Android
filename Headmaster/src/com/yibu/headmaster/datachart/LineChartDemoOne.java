@@ -169,7 +169,7 @@ public class LineChartDemoOne extends DemoView {
 			// 图例显示在正下方
 			// chartLn.getPlotLegend()
 			// .setVerticalAlign(XEnum.VerticalAlign.BOTTOM);
-
+			//
 			// chartLn.getPlotLegend().setHorizontalAlign(
 			// XEnum.HorizontalAlign.CENTER);
 
@@ -199,7 +199,7 @@ public class LineChartDemoOne extends DemoView {
 				182));
 		lineData1.setDotStyle(XEnum.DotStyle.RING);
 		lineData1.getDotLabelPaint().setColor(Color.rgb(1, 226, 182));
-		lineData1.setLabelVisible(true);
+		lineData1.setLabelVisible(false);
 		// lineData1.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
 		lineData1.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);
@@ -210,12 +210,6 @@ public class LineChartDemoOne extends DemoView {
 
 	// X轴数据
 	public void chartLabels() {
-		// mLabels.add("7:00");
-		// mLabels.add("9:00");
-		// mLabels.add("13:00");
-		// mLabels.add("15:00");
-		// mLabels.add("19:00");
-		// mLabels.add("21:00");
 		if (applystuentlist != null) {
 			for (Applystuentlist applystuent : applystuentlist) {
 				mLabels.add(applystuent.hour + ":00");

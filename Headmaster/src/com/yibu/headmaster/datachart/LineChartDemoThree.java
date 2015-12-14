@@ -1,6 +1,7 @@
 package com.yibu.headmaster.datachart;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.xclcharts.chart.AreaChart;
 import org.xclcharts.chart.AreaData;
@@ -16,6 +17,11 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.yibu.headmaster.bean.MoreDataBean.Badcommentlist;
+import com.yibu.headmaster.bean.MoreDataBean.Complaintlist;
+import com.yibu.headmaster.bean.MoreDataBean.Generalcommentlist;
+import com.yibu.headmaster.bean.MoreDataBean.Goodcommentlist;
+
 public class LineChartDemoThree extends DemoView {
 	private String TAG = "MultiAxisChart03View";
 
@@ -30,10 +36,23 @@ public class LineChartDemoThree extends DemoView {
 	private LineChart chartLn = new LineChart();
 	private LinkedList<LineData> chartData = new LinkedList<LineData>();
 
-	public LineChartDemoThree(Context context) {
+	private List<Goodcommentlist> goodcommentlist;
+	private List<Generalcommentlist> generalcommentlist;
+	private List<Badcommentlist> badcommentlist;
+	private List<Complaintlist> complaintlist;
+
+	public LineChartDemoThree(Context context,
+			List<Goodcommentlist> goodcommentlist,
+			List<Generalcommentlist> generalcommentlist,
+			List<Badcommentlist> badcommentlist,
+			List<Complaintlist> complaintlist) {
 		super(context);
-		// TODO Auto-generated constructor stub
+		this.goodcommentlist = goodcommentlist;
+		this.generalcommentlist = generalcommentlist;
+		this.badcommentlist = badcommentlist;
+		this.complaintlist = complaintlist;
 		initView();
+
 	}
 
 	public LineChartDemoThree(Context context, AttributeSet attrs) {
@@ -44,6 +63,18 @@ public class LineChartDemoThree extends DemoView {
 	public LineChartDemoThree(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		initView();
+	}
+
+	// 传数据
+	public void setData(List<Goodcommentlist> goodcommentlist,
+			List<Generalcommentlist> generalcommentlist,
+			List<Badcommentlist> badcommentlist,
+			List<Complaintlist> complaintlist) {
+
+		this.goodcommentlist = goodcommentlist;
+		this.generalcommentlist = generalcommentlist;
+		this.badcommentlist = badcommentlist;
+		this.complaintlist = complaintlist;
 	}
 
 	private void initView() {
@@ -64,7 +95,7 @@ public class LineChartDemoThree extends DemoView {
 		chartLn.setChartRange(w, h);
 		// chartLnAxes.setChartRange(w, h);
 
-		float left = DensityUtil.dip2px(getContext(), 42);
+		float left = DensityUtil.dip2px(getContext(), 52);
 		float top = DensityUtil.dip2px(getContext(), 62);
 
 		float piewidth = Math.min(w, h) / 4;// 1.5f;
@@ -104,6 +135,7 @@ public class LineChartDemoThree extends DemoView {
 			// 隐藏X,Y轴线
 			chartLn.getDataAxis().hideAxisLine();
 
+			chartLn.getCategoryAxis().hideTickMarks();
 			chartLn.getCategoryAxis().hideAxisLine();
 
 			chartLn.getDataAxis().setTickLabelRotateAngle(-90);
@@ -150,67 +182,68 @@ public class LineChartDemoThree extends DemoView {
 	}
 
 	private void chartDataSetLn() {
-		// Line 1
+		// 好评
 		LinkedList<Double> dataSeries1 = new LinkedList<Double>();
-		dataSeries1.add(5d);
-		dataSeries1.add(10d);
-		dataSeries1.add(12d);
+
+		if (goodcommentlist != null) {
+			for (Goodcommentlist good : goodcommentlist) {
+				dataSeries1.add((double) good.commnetcount);
+			}
+
+		}
 		LineData lineData1 = new LineData("好评", dataSeries1, Color.rgb(1, 226,
 				182));
 		lineData1.setDotStyle(XEnum.DotStyle.RING);
 		lineData1.getDotLabelPaint().setColor(Color.rgb(1, 226, 182));
-		lineData1.setLabelVisible(true);
-		// lineData1.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
+		lineData1.setLabelVisible(false);
 		lineData1.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);
 
-		// Line 2
+		// 中评
 		LinkedList<Double> dataSeries2 = new LinkedList<Double>();
-		dataSeries2.add((double) 0);
-		dataSeries2.add((double) 0);
-		dataSeries2.add((double) 15);
-		dataSeries2.add((double) 17);
-		dataSeries2.add((double) 18);
-		LineData lineData2 = new LineData("中评", dataSeries2, Color.rgb(1, 226,
-				182));
+		if (generalcommentlist != null) {
+			for (Generalcommentlist general : generalcommentlist) {
+				dataSeries1.add((double) general.commnetcount);
+			}
+
+		}
+		LineData lineData2 = new LineData("中评", dataSeries2, Color.rgb(2, 171,
+				138));
 		lineData2.setDotStyle(XEnum.DotStyle.RING);
-		lineData2.getPlotLine().getDotPaint().setColor(Color.rgb(1, 226, 182));
-		lineData2.setLabelVisible(true);
-		// lineData2.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
+		lineData2.getPlotLine().getDotPaint().setColor(Color.rgb(2, 171, 138));
+		lineData2.setLabelVisible(false);
 		lineData2.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);
 
-		// Line 3
+		// 差评
 		LinkedList<Double> dataSeries3 = new LinkedList<Double>();
-		dataSeries3.add((double) 0);
-		dataSeries3.add((double) 12);
-		dataSeries3.add((double) 14);
-		dataSeries3.add((double) 15);
-		dataSeries3.add((double) 16);
-		LineData lineData3 = new LineData("差评", dataSeries3, Color.rgb(199, 64,
-				219));
+		if (badcommentlist != null) {
+			for (Badcommentlist bad : badcommentlist) {
+				dataSeries1.add((double) bad.commnetcount);
+			}
+
+		}
+		LineData lineData3 = new LineData("差评", dataSeries3, Color.rgb(4, 122,
+				100));
 		lineData3.setDotStyle(XEnum.DotStyle.RING);
-		lineData3.getPlotLine().getDotPaint().setColor(Color.RED);
-		lineData3.setLabelVisible(true);
+		lineData3.setLabelVisible(false);
 		lineData3.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
 		lineData3.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);
 
-		// Line 4
+		// 投诉
 		LinkedList<Double> dataSeries4 = new LinkedList<Double>();
-		dataSeries4.add((double) 0);
-		dataSeries4.add((double) 12);
-		dataSeries4.add((double) 14);
-		dataSeries4.add((double) 15);
-		dataSeries4.add((double) 16);
-		LineData lineData4 = new LineData("投诉", dataSeries4, Color.rgb(199, 64,
-				219));
+		if (complaintlist != null) {
+			for (Complaintlist complaint : complaintlist) {
+				dataSeries1.add((double) complaint.complaintcount);
+			}
+
+		}
+		LineData lineData4 = new LineData("投诉", dataSeries4, Color.rgb(220, 20,
+				60));
 		lineData4.setDotStyle(XEnum.DotStyle.RING);
-		lineData4.getPlotLine().getDotPaint().setColor(Color.RED);
-		lineData4.setLabelVisible(true);
+		lineData4.setLabelVisible(false);
 		lineData4.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
-		lineData4.getLabelOptions().setLabelBoxStyle(
-				XEnum.LabelBoxStyle.CAPRECT);
 		chartData.add(lineData1);
 		chartData.add(lineData2);
 		chartData.add(lineData3);
@@ -219,12 +252,13 @@ public class LineChartDemoThree extends DemoView {
 
 	// X轴数据
 	private void chartLabels() {
-		mLabels.add("7:00");
-		mLabels.add("9:00");
-		mLabels.add("13:00");
-		mLabels.add("15:00");
-		mLabels.add("19:00");
-		mLabels.add("21:00");
+
+		if (badcommentlist != null) {
+			for (Badcommentlist badcomment : badcommentlist) {
+				mLabels.add(badcomment.hour + ":00");
+			}
+
+		}
 
 	}
 

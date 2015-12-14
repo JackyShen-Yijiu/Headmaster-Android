@@ -52,11 +52,12 @@ public class DemoView extends ChartView {
 
 	// Demo中bar chart�?使用的默认偏移�?��??
 	// 偏移出来的空间用于显示tick,axistitle....
+
 	protected int[] getBarLnDefaultSpadding() {
 		int[] ltrb = new int[4];
 		ltrb[0] = DensityUtil.dip2px(getContext(), 16); // left
 		ltrb[1] = DensityUtil.dip2px(getContext(), 10); // top
-		ltrb[2] = DensityUtil.dip2px(getContext(), 16); // right
+		ltrb[2] = DensityUtil.dip2px(getContext(), 40); // right
 		ltrb[3] = DensityUtil.dip2px(getContext(), 20); // bottom
 		return ltrb;
 	}

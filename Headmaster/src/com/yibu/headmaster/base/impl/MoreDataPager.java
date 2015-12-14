@@ -15,10 +15,15 @@ import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.MoreDataBean;
 import com.yibu.headmaster.bean.MoreDataBean.Applystuentlist;
+import com.yibu.headmaster.bean.MoreDataBean.Badcommentlist;
 import com.yibu.headmaster.bean.MoreDataBean.Coachcourselist;
+import com.yibu.headmaster.bean.MoreDataBean.Complaintlist;
+import com.yibu.headmaster.bean.MoreDataBean.Generalcommentlist;
+import com.yibu.headmaster.bean.MoreDataBean.Goodcommentlist;
 import com.yibu.headmaster.bean.MoreDataBean.Reservationstudentlist;
 import com.yibu.headmaster.datachart.BarChartDemo;
 import com.yibu.headmaster.datachart.LineChartDemoOne;
+import com.yibu.headmaster.datachart.LineChartDemoThree;
 import com.yibu.headmaster.datachart.LineChartDemoTwo;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
@@ -34,6 +39,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 	private LineChartDemoOne encrollStudent;// 招生
 	private LineChartDemoTwo aboutClass;// 约课
 	private BarChartDemo giveLesoons;// 授课
+	private LineChartDemoThree assess;// 评价
 
 	private int current = 0; // 当前的查询时间
 
@@ -125,14 +131,11 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 	@Override
 	public void process(String data) {
-		System.out.println("1111111111111" + data);
 		MoreDataBean moreDataBean = JsonUtil.parseJsonToBean(data,
 				MoreDataBean.class);
 		// 招生---------------------------
 		if (moreDataBean != null) {
-
 			List<Applystuentlist> applystuentlist = moreDataBean.applystuentlist;
-
 			encrollStudent = new LineChartDemoOne(mContext, applystuentlist);
 			relativeLayout_chartone.addView(encrollStudent);
 			LayoutParams params = encrollStudent.getLayoutParams();
@@ -143,7 +146,6 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		// 约课------------------------
 		if (moreDataBean != null) {
 			List<Reservationstudentlist> reservationstudentlist = moreDataBean.reservationstudentlist;
-
 			aboutClass = new LineChartDemoTwo(mContext, reservationstudentlist);
 			relativeLayout_charttwo.addView(aboutClass);
 			LayoutParams params = aboutClass.getLayoutParams();
@@ -154,12 +156,6 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		// 教练授课---------------------------
 		if (moreDataBean != null) {
 			List<Coachcourselist> coachcourselist = moreDataBean.coachcourselist;
-			// MoreDataBean m = new MoreDataBean();
-			// Coachcourselist a = m.new Coachcourselist();
-			// a.coachcount = 12;
-			// a.coursecount = 23；
-			// coachcourselist.add(a);
-
 			giveLesoons = new BarChartDemo(mContext, coachcourselist);
 			relativeLayout_chartbar.addView(giveLesoons);
 			LayoutParams params = giveLesoons.getLayoutParams();
@@ -168,6 +164,18 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 			giveLesoons.setLayoutParams(params);
 		}
 		// 评价---------------------
-
+		if (moreDataBean != null) {
+			List<Goodcommentlist> goodcommentlist = moreDataBean.goodcommentlist;
+			List<Badcommentlist> badcommentlist = moreDataBean.badcommentlist;
+			List<Generalcommentlist> generalcommentlist = moreDataBean.generalcommentlist;
+			List<Complaintlist> complaintlist = moreDataBean.complaintlist;
+			assess = new LineChartDemoThree(mContext, goodcommentlist,
+					generalcommentlist, badcommentlist, complaintlist);
+			relativeLayout_chartthree.addView(assess);
+			LayoutParams params = assess.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			assess.setLayoutParams(params);
+		}
 	}
 }

@@ -181,7 +181,7 @@ public class LineChartDemoTwo extends DemoView {
 				182));
 		lineData1.setDotStyle(XEnum.DotStyle.RING);
 		lineData1.getDotLabelPaint().setColor(Color.rgb(1, 226, 182));
-		lineData1.setLabelVisible(true);
+		lineData1.setLabelVisible(false);
 		// lineData1.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
 		lineData1.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);
@@ -199,7 +199,7 @@ public class LineChartDemoTwo extends DemoView {
 				182));
 		lineData2.setDotStyle(XEnum.DotStyle.RING);
 		lineData2.getPlotLine().getDotPaint().setColor(Color.rgb(1, 226, 182));
-		lineData2.setLabelVisible(true);
+		lineData2.setLabelVisible(false);
 		// lineData2.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
 		lineData2.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);
