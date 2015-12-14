@@ -268,6 +268,7 @@ public class ChatterPager extends BasePager implements EMEventListener,
 									""));
 				}
 			}
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			mContext.startActivity(intent);
 		}
 	}
