@@ -108,34 +108,21 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 					MD5.Md5(password), HeadmasterApplication.app.userInfo.name);
 		}
 
-		if (userBean != null) {
-			// 保存用户信息
-			SharedPreferencesUtil.putString(WelcomeActivity.this,
-					LoginActivity.USER_INFO, data);
-			app.userInfo = userBean;
-			ApiHttpClient.setHeader(new String[] { "authorization",
-					HeadmasterApplication.app.userInfo.token });
-			// 转到主界面
-			new Handler().postDelayed(new Runnable() {
-
-				@Override
-				public void run() {
-					Intent intent = new Intent(WelcomeActivity.this,
-							MainActivity.class);
-					startActivity(intent);
-					WelcomeActivity.this.finish();
-				}
-			}, 1000);
-		}
-
 	}
 
 	@Override
 	public void processFailure() {
 		// 登录失败后，转到登录界面手动登录
-		Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
-		startActivity(intent);
-		finish();
+		new Handler().postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				Intent intent = new Intent(WelcomeActivity.this,
+						LoginActivity.class);
+				startActivity(intent);
+				WelcomeActivity.this.finish();
+			}
+		}, 1000);
 
 	}
 
@@ -153,9 +140,16 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 			LogUtil.print("登录环信成功！");
 			HeadmasterApplication.app.isLogin = true;
 			// 转到主界面
-			Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-			startActivity(intent);
-			finish();
+			new Handler().postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+					Intent intent = new Intent(WelcomeActivity.this,
+							MainActivity.class);
+					startActivity(intent);
+					WelcomeActivity.this.finish();
+				}
+			}, 1000);
 		} else {
 			LogUtil.print("登录环信失败！");
 			runOnUiThread(new Runnable() {
@@ -166,6 +160,16 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 							.dismissWithFailure("初始化聊天失败");
 				}
 			});
+			new Handler().postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+					Intent intent = new Intent(WelcomeActivity.this,
+							LoginActivity.class);
+					startActivity(intent);
+					WelcomeActivity.this.finish();
+				}
+			}, 1000);
 		}
 	}
 

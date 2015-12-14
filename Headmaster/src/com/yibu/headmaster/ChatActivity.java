@@ -237,9 +237,6 @@ public class ChatActivity extends BaseActivity implements
 		conversation.markAllMessagesAsRead();
 		// 显示消息
 		adapter = new MessageAdapter(ChatActivity.this, chatId, chatUrl);
-		if (chatListView == null) {
-			LogUtil.print(adapter + "adapter");
-		}
 		chatListView.setAdapter(adapter);
 		adapter.refreshSelectLast();
 

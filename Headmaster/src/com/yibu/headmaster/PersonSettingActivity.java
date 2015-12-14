@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.easemob.chat.EMChatManager;
+import com.yibu.headmaster.utils.ZProgressHUD;
+
 public class PersonSettingActivity extends BaseActivity {
 
 	private View view;
@@ -40,9 +43,18 @@ public class PersonSettingActivity extends BaseActivity {
 	}
 
 	public void exit() {
+		ZProgressHUD.getInstance(this).setMessage("正在退出登录...");
+		ZProgressHUD.getInstance(this).show();
+		// 退出环信
+		EMChatManager.getInstance().logout(null);
+
+		ZProgressHUD.getInstance(PersonSettingActivity.this).dismiss();
+
 		PersonSettingActivity.this.finish();
 		Intent intent = new Intent(PersonSettingActivity.this,
 				LoginActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		PersonSettingActivity.this.startActivity(intent);
 	}
 
