@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.umeng.analytics.MobclickAgent;
 import com.yibu.headmaster.utils.ToastUtil;
 
 public abstract class BaseActivity extends Activity implements OnClickListener {
@@ -131,6 +132,24 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onStart() {
 		super.onStart();
+
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		// 友盟session统计
+		MobclickAgent.onResume(this);
+
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		// 友盟session统计
+		MobclickAgent.onPause(this);
 
 	}
 

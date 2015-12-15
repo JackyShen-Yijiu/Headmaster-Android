@@ -272,5 +272,8 @@
         <!-- </>值来自开发者平台取得的AppKey -->
         <!-- 推送 ======================================================================== -->
     </application>
+      <!-- 友盟统计================================================== -->
+        <meta-data android:value="56679ee567e58ef13a000661" android:name="UMENG_APPKEY"></meta-data>
+		<meta-data android:value="umeng" android:name="UMENG_CHANNEL"/>
 
 </manifest>

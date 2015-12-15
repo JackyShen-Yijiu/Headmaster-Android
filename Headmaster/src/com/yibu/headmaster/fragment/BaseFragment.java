@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.umeng.analytics.MobclickAgent;
+
 public abstract class BaseFragment extends Fragment {
 
 	public BaseFragment() {
@@ -46,11 +48,15 @@ public abstract class BaseFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
+		// 统计页面
+		MobclickAgent.onPageStart(this.getClass().getSimpleName());
 	}
 
 	@Override
 	public void onPause() {
 		super.onPause();
+		// 统计页面
+		MobclickAgent.onPageStart(this.getClass().getSimpleName());
 	}
 
 	@Override

@@ -131,9 +131,9 @@ public class LineChartDemoOne extends DemoView {
 			chartLn.getDataAxis().hideAxisLine();
 			chartLn.getCategoryAxis().hideAxisLine();
 			chartLn.getDataAxis().hideTickMarks();
-			chartLn.getCategoryAxis().hideTickMarks();
+			// chartLn.getCategoryAxis().hideTickMarks();
 
-			chartLn.getDataAxis().setTickLabelRotateAngle(-90);
+			// chartLn.getDataAxis().setTickLabelRotateAngle(-90);
 			chartLn.getDataAxis().getTickLabelPaint()
 					.setColor(Color.rgb(1, 226, 182));
 			chartLn.getCategoryAxis().getTickLabelPaint()

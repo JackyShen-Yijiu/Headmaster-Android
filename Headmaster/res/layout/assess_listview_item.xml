@@ -62,14 +62,6 @@
         android:layout_alignRight="@+id/assess_student_image"
         android:src="@drawable/assess_new" />
 
-    <ImageView
-        android:id="@+id/imageView_talk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView_student_id"
-        android:layout_alignLeft="@+id/assess_coach_image"
-        android:src="@drawable/assess_new" />
-
     <TextView
         android:id="@+id/textView_time"
         android:layout_width="wrap_content"
@@ -127,5 +119,13 @@
         android:layout_toRightOf="@+id/imageView_star"
         android:text="科2"
         android:textColor="#bfbfbf" />
+
+    <ImageView
+        android:id="@+id/imageView_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView_subject"
+        android:layout_alignLeft="@+id/assess_coach_image"
+        android:src="@drawable/assess_new" />
 
 </RelativeLayout>

@@ -41,13 +41,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView_change"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:layout_toLeftOf="@+id/imageView_change"
             android:drawableLeft="@drawable/xh48x46"
             android:drawablePadding="10dp"
             android:text="好评"
             android:textColor="#ffffff"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -55,12 +55,12 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView1"
             android:layout_below="@+id/textView1"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/xz48x46"
             android:drawablePadding="10dp"
             android:text="中评"
             android:textColor="#ffffff"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -68,12 +68,12 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView2"
             android:layout_below="@+id/textView2"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/xc48x46"
             android:drawablePadding="10dp"
             android:text="差评" 
             android:textColor="#ffffff"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
 
 
     </RelativeLayout>

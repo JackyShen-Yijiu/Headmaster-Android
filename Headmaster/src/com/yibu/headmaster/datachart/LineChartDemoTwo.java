@@ -119,10 +119,11 @@ public class LineChartDemoTwo extends DemoView {
 
 			// 隐藏X,Y轴线
 			chartLn.getDataAxis().hideAxisLine();
+			chartLn.getDataAxis().hideTickMarks();
 
 			chartLn.getCategoryAxis().hideAxisLine();
 
-			chartLn.getDataAxis().setTickLabelRotateAngle(-90);
+			// chartLn.getDataAxis().setTickLabelRotateAngle(-90);
 			chartLn.getDataAxis().getTickLabelPaint()
 					.setColor(Color.rgb(1, 226, 182));
 			chartLn.getCategoryAxis().getTickLabelPaint()
