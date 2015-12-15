@@ -1,12 +1,14 @@
 package com.yibu.headmaster;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -23,6 +25,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -57,6 +61,13 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView weatherDegree;
 	private ImageView weatherIcon;
 
+	// jpush自定义 receiver所用数据
+	public static boolean isForeground = false;
+	public static final String MESSAGE_RECEIVED_ACTION = "com.asher.testaddress.MESSAGE_RECEIVED_ACTION";
+	public static final String KEY_TITLE = "title";
+	public static final String KEY_MESSAGE = "message";
+	public static final String KEY_EXTRAS = "extras";
+
 	String currCity = null;
 	private ArrayList<BasePager> pagers;
 	public static String WEATHER_TEMPERATURE = "weather_temperature";
@@ -64,6 +75,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	public LocationClient mLocationClient = null;
 	public MyLocationListenner myListener = new MyLocationListenner();
+	Context mContext = this;
 
 	// Window window;
 
@@ -81,9 +93,23 @@ public class MainActivity extends Activity implements OnClickListener {
 		initView();
 		initListener();
 		initData();
-
+		initJpush();
 		initMyLocation();
 
+	}
+
+	private void initJpush() {
+		// TODO Auto-generated method stub
+		JPushInterface.setDebugMode(true); // 设置开发模式
+		JPushInterface.init(this); // 初始化 JPush
+		JPushInterface.setAlias(mContext, "Alias", new TagAliasCallback() {
+
+			@Override
+			public void gotResult(int arg0, String arg1, Set<String> arg2) {
+				// TODO Auto-generated method stub
+
+			}
+		});
 	}
 
 	protected void initView() {

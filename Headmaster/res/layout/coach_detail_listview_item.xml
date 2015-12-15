@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/coach_detail_image"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/assess_title" />
+
+    <View
+        android:id="@+id/iv_item_deviderline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/coach_detail_image"
+        android:layout_marginTop="39dp"
+        android:background="#2a2a2a" />
+
+    <TextView
+        android:id="@+id/textView_coach_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView_star"
+        android:layout_alignTop="@+id/coach_detail_image"
+        android:text="毛云娇"
+        android:textColor="#bfbfbf"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/imageView_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_coach_id"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/assess_star_null" />
+
+    <ImageView
+        android:id="@+id/imageView_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView_star"
+        android:layout_alignRight="@+id/coach_detail_image"
+        android:src="@drawable/assess_new" />
+  
+    <TextView
+        android:id="@+id/textView_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageView_star"
+        android:layout_marginRight="18dp"
+        android:text="课时"
+        android:textColor="#bfbfbf"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/textView_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_subject"
+        android:layout_toLeftOf="@+id/textView_subject"
+        android:text="19"
+        android:textSize="22sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView_star" >
+
+
+        <TextView
+            android:id="@+id/textView_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:text="好评0"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_toRightOf="@+id/textView_good"
+            android:text="中评0"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="50dp"
+            android:layout_toLeftOf="@+id/textView_complain"
+            android:text="差评0"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textView_complain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="18dp"
+            android:text="投诉0"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+  
+
+</RelativeLayout>
