@@ -168,6 +168,7 @@ public class LineChartDemoThree extends DemoView {
 			chartLn.getCategoryAxis().getTickMarksPaint()
 					.setColor(plot.getHorizontalLinePaint().getColor());
 
+			chartLn.setXCoordFirstTickmarksBegin(true);
 			// 图例显示在正下方
 			chartLn.getPlotLegend()
 					.setVerticalAlign(XEnum.VerticalAlign.BOTTOM);

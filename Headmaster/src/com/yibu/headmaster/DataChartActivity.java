@@ -72,6 +72,8 @@ public class DataChartActivity extends BaseActivity {
 
 		viewPager.setAdapter(new MoreDataAdapter(titles, tabPagers));
 		slidingTab.setViewPager(viewPager);
+		int searchtype = getIntent().getIntExtra("searchtype", 0);
+		viewPager.setCurrentItem(searchtype);
 	}
 
 	@Override

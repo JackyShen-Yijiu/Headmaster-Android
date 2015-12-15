@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.R;
@@ -50,6 +51,11 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 	private int current = 0; // 当前的查询时间
 	private List<MoreDataBean> lineDataList;
 	private MoreDataBean bean;
+	private TextView zhaoshengSumTextView;
+	private TextView yuekeSumTextView;
+
+	private int zhaoshengSum;
+	private int yuekeSum;
 
 	public MoreDataPager(Context context, int i) {
 		super(context);
@@ -72,6 +78,10 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 				.findViewById(R.id.RelativeLayout_chartthree);
 		relativeLayout_chartbar = (RelativeLayout) view
 				.findViewById(R.id.RelativeLayout_chartbar);
+
+		zhaoshengSumTextView = (TextView) view
+				.findViewById(R.id.textView_zhaosheng1);
+		yuekeSumTextView = (TextView) view.findViewById(R.id.textView_yueke1);
 
 		relativeLayout_textView_shouke.setOnClickListener(this);
 		relativeLayout_textView_pingjia.setOnClickListener(this);
@@ -118,6 +128,8 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 		lineDataList = new ArrayList<MoreDataBean>();
 
+		zhaoshengSum = 0;
+		yuekeSum = 0;
 		switch (searchtype) {
 		case 3:
 			setWeekData(data);
@@ -133,6 +145,9 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 			setTodayData(data);
 			break;
 		}
+
+		zhaoshengSumTextView.setText("共" + zhaoshengSum + "人");
+		yuekeSumTextView.setText("共" + yuekeSum + "人");
 	}
 
 	// 设置今天和昨天的数据
@@ -143,8 +158,10 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		if (moreDataBean != null) {
 
 			LogUtil.print("昨天" + searchtype + "-----" + moreDataBean);
+
 			lineDataList.clear();
 			for (Applystuentlist applystuent : moreDataBean.applystuentlist) {
+				zhaoshengSum += applystuent.applystudentcount;
 				bean = new MoreDataBean();
 				bean.timeX = applystuent.hour + ":00";
 				bean.countY = applystuent.applystudentcount;
@@ -165,6 +182,8 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 			lineDataList.clear();
 			for (Reservationstudentlist reservationstudent : moreDataBean.reservationstudentlist) {
+
+				yuekeSum += reservationstudent.studentcount;
 				bean = new MoreDataBean();
 				bean.timeX = reservationstudent.hour + ":00";
 				bean.countY = reservationstudent.studentcount;
@@ -261,6 +280,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 			lineDataList.clear();
 			for (Datalist datalist : moreDataBean.datalist) {
+				zhaoshengSum += datalist.applystudentcount;
 				bean = new MoreDataBean();
 				bean.timeX = switchWeek(datalist.day);
 				bean.countY = datalist.applystudentcount;
@@ -280,6 +300,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 			lineDataList.clear();
 			for (Datalist datalist : moreDataBean.datalist) {
+				yuekeSum += datalist.reservationcoursecount;
 				bean = new MoreDataBean();
 				bean.timeX = switchWeek(datalist.day);
 				bean.countY = datalist.reservationcoursecount;
@@ -374,6 +395,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 			lineDataList.clear();
 			for (Datalist datalist : moreDataBean.datalist) {
+				zhaoshengSum += datalist.applystudentcount;
 				bean = new MoreDataBean();
 				bean.timeX = switchMonth(datalist.weekindex);
 				bean.countY = datalist.applystudentcount;
@@ -393,6 +415,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 			lineDataList.clear();
 			for (Datalist datalist : moreDataBean.datalist) {
+				yuekeSum += datalist.reservationcoursecount;
 				bean = new MoreDataBean();
 				bean.timeX = switchMonth(datalist.weekindex);
 				bean.countY = datalist.reservationcoursecount;
@@ -487,6 +510,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 			lineDataList.clear();
 			for (Datalist datalist : moreDataBean.datalist) {
+				zhaoshengSum += datalist.applystudentcount;
 				bean = new MoreDataBean();
 				bean.timeX = switchYear(datalist.month);
 				bean.countY = datalist.applystudentcount;
@@ -506,6 +530,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 			lineDataList.clear();
 			for (Datalist datalist : moreDataBean.datalist) {
+				yuekeSum += datalist.reservationcoursecount;
 				bean = new MoreDataBean();
 				bean.timeX = switchYear(datalist.month);
 				bean.countY = datalist.reservationcoursecount;

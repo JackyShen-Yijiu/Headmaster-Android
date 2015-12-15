@@ -11,11 +11,13 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.lzyzsd.circleprogress.ArcProgress;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.DataChartActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
@@ -67,6 +69,8 @@ public class DataPager extends BasePager implements OnClickListener {
 	private ImageView rightLine;
 	@ViewInject(R.id.fl_data_circle)
 	private FrameLayout dataCircle;
+	@ViewInject(R.id.data_star_ll)
+	private LinearLayout datastars;
 
 	private int searchtype = 1;// 查询类型 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
 
@@ -100,6 +104,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		today.setOnClickListener(this);
 		thisWeek.setOnClickListener(this);
 		dataCircle.setOnClickListener(this);
+		datastars.setOnClickListener(this);
 		return view;
 	}
 
@@ -317,25 +322,25 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		progressInside.setMax(100);
 		progressInside.setProgress(0);
-		new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				for (int i = 0; i < 54; i++) {
-					try {
-						Thread.sleep(1000 / 54);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-
-					progressIn2++;
-					Message msg = Message.obtain();
-					msg.what = 3;
-					msg.obj = 54;
-					msgHandler.sendMessage(msg);
-				}
-			}
-		}).start();
+		// new Thread(new Runnable() {
+		//
+		// @Override
+		// public void run() {
+		// for (int i = 0; i < 54; i++) {
+		// try {
+		// Thread.sleep(1000 / 54);
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
+		//
+		// progressIn2++;
+		// Message msg = Message.obtain();
+		// msg.what = 3;
+		// msg.obj = 54;
+		// msgHandler.sendMessage(msg);
+		// }
+		// }
+		// }).start();
 	}
 
 	private int progressOut1 = 0;
@@ -460,7 +465,14 @@ public class DataPager extends BasePager implements OnClickListener {
 			LogUtil.print("更多数据");
 			Intent intent = new Intent(mContext, DataChartActivity.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent.putExtra("searchtype", searchtype - 1);
 			mContext.startActivity(intent);
+			break;
+		case R.id.data_star_ll:
+			Intent intent2 = new Intent(mContext, AssessActivity.class);
+			intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent2.putExtra("title", searchtype);
+			mContext.startActivity(intent2);
 			break;
 		default:
 			break;
