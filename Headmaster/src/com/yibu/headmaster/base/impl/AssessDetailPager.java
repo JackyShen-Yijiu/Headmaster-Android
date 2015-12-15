@@ -28,6 +28,7 @@ import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnRefreshListener
 import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshListView;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
+import com.yibu.headmaster.utils.ToastUtil;
 
 public class AssessDetailPager extends BasePager implements OnClickListener {
 
@@ -46,6 +47,7 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 	private DountChartDemo assessThan;// 评价比列
 
 	private int searchtype = 1; // 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
+	private boolean moreData = false;
 
 	public AssessDetailPager(Context context, int i, int searchtype) {
 		super(context);
@@ -88,8 +90,12 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
 					@Override
 					public void onLastItemVisible() {
-						curpage++;
-						loadNetworkData();
+						if (moreData) {
+							ToastUtil.showToast(mContext, "没有更多数据了");
+						} else {
+							curpage++;
+							loadNetworkData();
+						}
 					}
 				});
 		loadNetworkData();
@@ -105,6 +111,7 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 					+ "&index=" + curpage + "&count=10", handler);
 		} else {
 
+			LogUtil.print("评论详情：加载第几页：" + curpage);
 			ApiHttpClient.get("statistics/commentdetails?userid="
 					+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
 					+ HeadmasterApplication.app.userInfo.driveschool.schoolid
@@ -135,6 +142,9 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 	@Override
 	public void process(String data) {
 		// 加载
+		if (commentlevel == 4) {
+
+		}
 		AssessBean assessBean = JsonUtil
 				.parseJsonToBean(data, AssessBean.class);
 		List<Commentlist> commentlist = null;
@@ -143,33 +153,25 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 		}
 		if (curpage == 1) {
 			list.clear();
+		}
+		if (commentlist.size() == 0) {
+			moreData = true;
 		} else {
 			list.addAll(commentlist);
-			// adapter.reloadListView(newsBean, false);
-		}
-		if (adapter != null) {
-		}
-		list.addAll(commentlist);
-		adapter.notifyDataSetChanged();
-		progressBar_main.setVisibility(View.GONE);
-		// 评价比列--------------------------
-		if (assessBean != null) {
-			Commentcount commentcount = assessBean.commentcount;
-			// MoreDataBean m = new MoreDataBean();
-			// Coachcourselist a = m.new Coachcourselist();
-			// a.coachcount = 12;
-			// a.coursecount = 23；
-			// coachcourselist.add(a);
+			adapter.notifyDataSetChanged();
+			progressBar_main.setVisibility(View.GONE);
 
-			assessThan = new DountChartDemo(mContext, commentcount);
-			if (relativeLayout_ring == null) {
-				LogUtil.print("relativeLayout_ring" + relativeLayout_ring);
+			// 评价比列--------------------------
+			if (assessBean != null) {
+				Commentcount commentcount = assessBean.commentcount;
+
+				assessThan = new DountChartDemo(mContext, commentcount);
+				relativeLayout_ring.addView(assessThan);
+				LayoutParams params = assessThan.getLayoutParams();
+				params.height = LayoutParams.MATCH_PARENT;
+				params.width = LayoutParams.MATCH_PARENT;
+				assessThan.setLayoutParams(params);
 			}
-			relativeLayout_ring.addView(assessThan);
-			LayoutParams params = assessThan.getLayoutParams();
-			params.height = LayoutParams.MATCH_PARENT;
-			params.width = LayoutParams.MATCH_PARENT;
-			assessThan.setLayoutParams(params);
 		}
 	}
 }

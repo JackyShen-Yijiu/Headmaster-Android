@@ -17,10 +17,8 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import com.yibu.headmaster.bean.MoreDataBean.Badcommentlist;
-import com.yibu.headmaster.bean.MoreDataBean.Complaintlist;
-import com.yibu.headmaster.bean.MoreDataBean.Generalcommentlist;
-import com.yibu.headmaster.bean.MoreDataBean.Goodcommentlist;
+import com.yibu.headmaster.bean.MoreDataBean;
+import com.yibu.headmaster.utils.LogUtil;
 
 public class LineChartDemoThree extends DemoView {
 	private String TAG = "MultiAxisChart03View";
@@ -36,21 +34,22 @@ public class LineChartDemoThree extends DemoView {
 	private LineChart chartLn = new LineChart();
 	private LinkedList<LineData> chartData = new LinkedList<LineData>();
 
-	private List<Goodcommentlist> goodcommentlist;
-	private List<Generalcommentlist> generalcommentlist;
-	private List<Badcommentlist> badcommentlist;
-	private List<Complaintlist> complaintlist;
+	private List<MoreDataBean> goodcommentlist;
+	private List<MoreDataBean> generalcommentlist;
+	private List<MoreDataBean> badcommentlist;
+	private List<MoreDataBean> complaintlist;
 
 	public LineChartDemoThree(Context context,
-			List<Goodcommentlist> goodcommentlist,
-			List<Generalcommentlist> generalcommentlist,
-			List<Badcommentlist> badcommentlist,
-			List<Complaintlist> complaintlist) {
+			List<MoreDataBean> goodcommentlist,
+			List<MoreDataBean> generalcommentlist,
+			List<MoreDataBean> badcommentlist, List<MoreDataBean> complaintlist) {
 		super(context);
 		this.goodcommentlist = goodcommentlist;
 		this.generalcommentlist = generalcommentlist;
 		this.badcommentlist = badcommentlist;
 		this.complaintlist = complaintlist;
+
+		LogUtil.print("generalcommentlist" + generalcommentlist.size());
 		initView();
 
 	}
@@ -66,16 +65,16 @@ public class LineChartDemoThree extends DemoView {
 	}
 
 	// 传数据
-	public void setData(List<Goodcommentlist> goodcommentlist,
-			List<Generalcommentlist> generalcommentlist,
-			List<Badcommentlist> badcommentlist,
-			List<Complaintlist> complaintlist) {
-
-		this.goodcommentlist = goodcommentlist;
-		this.generalcommentlist = generalcommentlist;
-		this.badcommentlist = badcommentlist;
-		this.complaintlist = complaintlist;
-	}
+	// public void setData(List<Goodcommentlist> goodcommentlist,
+	// List<Generalcommentlist> generalcommentlist,
+	// List<Badcommentlist> badcommentlist,
+	// List<Complaintlist> complaintlist) {
+	//
+	// this.goodcommentlist = goodcommentlist;
+	// this.generalcommentlist = generalcommentlist;
+	// this.badcommentlist = badcommentlist;
+	// this.complaintlist = complaintlist;
+	// }
 
 	private void initView() {
 
@@ -109,8 +108,8 @@ public class LineChartDemoThree extends DemoView {
 			// 设置绘图区默认缩进px值,留置空间显示Axis,Axistitle....
 			int[] ltrb = getBarLnDefaultSpadding();
 
-			float left = DensityUtil.dip2px(getContext(), 40); // left 40
-			float right = DensityUtil.dip2px(getContext(), 40); // right 20
+			float left = DensityUtil.dip2px(getContext(), 20); // left 40
+			float right = DensityUtil.dip2px(getContext(), 10); // right 20
 			chartLn.setPadding(left, ltrb[1], right, ltrb[3]); // ltrb[2]
 
 			// 设定数据源
@@ -186,8 +185,8 @@ public class LineChartDemoThree extends DemoView {
 		LinkedList<Double> dataSeries1 = new LinkedList<Double>();
 
 		if (goodcommentlist != null) {
-			for (Goodcommentlist good : goodcommentlist) {
-				dataSeries1.add((double) good.commnetcount);
+			for (MoreDataBean good : goodcommentlist) {
+				dataSeries1.add((double) good.countY);
 			}
 
 		}
@@ -202,8 +201,8 @@ public class LineChartDemoThree extends DemoView {
 		// 中评
 		LinkedList<Double> dataSeries2 = new LinkedList<Double>();
 		if (generalcommentlist != null) {
-			for (Generalcommentlist general : generalcommentlist) {
-				dataSeries1.add((double) general.commnetcount);
+			for (MoreDataBean general : generalcommentlist) {
+				dataSeries2.add((double) general.countY);
 			}
 
 		}
@@ -218,8 +217,8 @@ public class LineChartDemoThree extends DemoView {
 		// 差评
 		LinkedList<Double> dataSeries3 = new LinkedList<Double>();
 		if (badcommentlist != null) {
-			for (Badcommentlist bad : badcommentlist) {
-				dataSeries1.add((double) bad.commnetcount);
+			for (MoreDataBean bad : badcommentlist) {
+				dataSeries3.add((double) bad.countY);
 			}
 
 		}
@@ -234,8 +233,8 @@ public class LineChartDemoThree extends DemoView {
 		// 投诉
 		LinkedList<Double> dataSeries4 = new LinkedList<Double>();
 		if (complaintlist != null) {
-			for (Complaintlist complaint : complaintlist) {
-				dataSeries1.add((double) complaint.complaintcount);
+			for (MoreDataBean complaint : complaintlist) {
+				dataSeries4.add((double) complaint.countY);
 			}
 
 		}
@@ -253,13 +252,66 @@ public class LineChartDemoThree extends DemoView {
 	// X轴数据
 	private void chartLabels() {
 
-		if (badcommentlist != null) {
-			for (Badcommentlist badcomment : badcommentlist) {
-				mLabels.add(badcomment.hour + ":00");
-			}
+		int flag = -1; // 1好评 2 中评 3 差评 4投诉
 
+		// 找出最大值
+		int[] temp = new int[4];
+		temp[0] = goodcommentlist.size();
+		temp[1] = generalcommentlist.size();
+		temp[2] = badcommentlist.size();
+		temp[3] = complaintlist.size();
+		int min = Integer.MIN_VALUE;
+		for (int i = 0; i < temp.length; i++) {
+
+			if (temp[i] > min) {
+				flag = i;
+				min = temp[i];
+			}
 		}
 
+		flag = 1;
+		switch (flag) {
+		case 0:
+
+			if (goodcommentlist != null) {
+				for (MoreDataBean goodcomment : goodcommentlist) {
+					mLabels.add(goodcomment.timeX);
+				}
+
+			}
+			break;
+		case 1:
+
+			if (generalcommentlist != null) {
+				for (MoreDataBean generalcomment : generalcommentlist) {
+					mLabels.add(generalcomment.timeX);
+				}
+
+			}
+			break;
+		case 2:
+			if (badcommentlist != null) {
+				for (MoreDataBean badcomment : badcommentlist) {
+					mLabels.add(badcomment.timeX);
+				}
+
+			}
+
+			break;
+		case 3:
+
+			if (complaintlist != null) {
+				for (MoreDataBean complaint : complaintlist) {
+					mLabels.add(complaint.timeX);
+				}
+
+			}
+			break;
+
+		default:
+			break;
+		}
+		LogUtil.print("temp---" + mLabels.size());
 	}
 
 	@Override

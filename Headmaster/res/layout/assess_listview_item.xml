@@ -33,15 +33,15 @@
         android:layout_marginTop="14dp"
         android:text="阿斯顿萨达萨达萨达撒旦撒大苏打飒飒打撒撒大苏打"
         android:textColor="#bfbfbf"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/assess_coach_image"
         android:layout_width="39dp"
         android:layout_height="39dp"
         android:layout_alignParentRight="true"
-		android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/assess_title" />
 
     <TextView
@@ -80,13 +80,26 @@
         android:textColor="#999"
         android:textSize="14sp" />
 
-    <ImageView
+    <!--
+         <ImageView
         android:id="@+id/imageView_star"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/assess_star_null" />
+    -->
+
+    <RatingBar
+        android:id="@+id/imageView_star"
+        style="@style/roomRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:isIndicator="true"
+        android:rating="0" />
 
     <TextView
         android:id="@+id/textView_class"

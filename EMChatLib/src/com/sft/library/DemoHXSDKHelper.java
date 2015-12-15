@@ -17,6 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
+import android.widget.Toast;
+
 import com.easemob.EMCallBack;
 import com.easemob.EMChatRoomChangeListener;
 import com.easemob.EMEventListener;
@@ -37,14 +45,6 @@ import com.sft.model.HXNotifier;
 import com.sft.model.HXNotifier.HXNotificationInfoProvider;
 import com.sft.model.HXSDKModel;
 import com.sft.receiver.CallReceiver;
-
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.util.Log;
-import android.widget.Toast;
 
 /**
  * Demo UI HX SDK helper class which subclass HXSDKHelper
@@ -103,13 +103,15 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 		super.initHXOptions();
 		// you can also get EMChatOptions to set related SDK options
 		EMChatOptions options = EMChatManager.getInstance().getChatOptions();
-		options.allowChatroomOwnerLeave(getModel().isChatroomOwnerLeaveAllowed());
+		options.allowChatroomOwnerLeave(getModel()
+				.isChatroomOwnerLeaveAllowed());
 	}
 
 	@Override
 	protected void initListener() {
 		super.initListener();
-		IntentFilter callFilter = new IntentFilter(EMChatManager.getInstance().getIncomingCallBroadcastAction());
+		IntentFilter callFilter = new IntentFilter(EMChatManager.getInstance()
+				.getIncomingCallBroadcastAction());
 		if (callReceiver == null) {
 			callReceiver = new CallReceiver();
 		}
@@ -133,22 +135,26 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 				EMMessage message = null;
 				if (event.getData() instanceof EMMessage) {
 					message = (EMMessage) event.getData();
-					EMLog.d(TAG, "receive the event : " + event.getEvent() + ",id : " + message.getMsgId());
+					EMLog.d(TAG, "receive the event : " + event.getEvent()
+							+ ",id : " + message.getMsgId());
 				}
 
 				switch (event.getEvent()) {
 				case EventNewMessage:
 					// 应用在后台，不需要刷新UI,通知栏提示新消息
 					if (activityList.size() <= 0) {
-						HXSDKHelper.getInstance().getNotifier().onNewMsg(message);
+						HXSDKHelper.getInstance().getNotifier()
+								.onNewMsg(message);
 					}
 					break;
 				case EventOfflineMessage:
 					if (activityList.size() <= 0) {
 						EMLog.d(TAG, "received offline messages");
 						@SuppressWarnings("unchecked")
-						List<EMMessage> messages = (List<EMMessage>) event.getData();
-						HXSDKHelper.getInstance().getNotifier().onNewMesg(messages);
+						List<EMMessage> messages = (List<EMMessage>) event
+								.getData();
+						HXSDKHelper.getInstance().getNotifier()
+								.onNewMesg(messages);
 					}
 					break;
 				// below is just giving a example to show a cmd toast, the app
@@ -158,29 +164,35 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 
 					EMLog.d(TAG, "收到透传消息");
 					// 获取消息body
-					CmdMessageBody cmdMsgBody = (CmdMessageBody) message.getBody();
+					CmdMessageBody cmdMsgBody = (CmdMessageBody) message
+							.getBody();
 					final String action = cmdMsgBody.action;// 获取自定义action
 
 					// 获取扩展属性 此处省略
 					// message.getStringAttribute("");
-					EMLog.d(TAG, String.format("透传消息：action:%s,message:%s", action, message.toString()));
-					final String str = appContext.getString(R.string.receive_the_passthrough);
+					EMLog.d(TAG, String.format("透传消息：action:%s,message:%s",
+							action, message.toString()));
+					final String str = appContext
+							.getString(R.string.receive_the_passthrough);
 
 					final String CMD_TOAST_BROADCAST = "easemob.demo.cmd.toast";
-					IntentFilter cmdFilter = new IntentFilter(CMD_TOAST_BROADCAST);
+					IntentFilter cmdFilter = new IntentFilter(
+							CMD_TOAST_BROADCAST);
 
 					if (broadCastReceiver == null) {
 						broadCastReceiver = new BroadcastReceiver() {
 							@Override
 							public void onReceive(Context context, Intent intent) {
 								// TODO Auto-generated method stub
-								Toast.makeText(appContext, intent.getStringExtra("cmd_value"), Toast.LENGTH_SHORT)
-										.show();
+								Toast.makeText(appContext,
+										intent.getStringExtra("cmd_value"),
+										Toast.LENGTH_SHORT).show();
 							}
 						};
 
 						// 注册广播接收者
-						appContext.registerReceiver(broadCastReceiver, cmdFilter);
+						appContext.registerReceiver(broadCastReceiver,
+								cmdFilter);
 					}
 					Intent broadcastIntent = new Intent(CMD_TOAST_BROADCAST);
 					broadcastIntent.putExtra("cmd_value", str + action);
@@ -204,60 +216,76 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 
 		EMChatManager.getInstance().registerEventListener(eventListener);
 
-		EMChatManager.getInstance().addChatRoomChangeListener(new EMChatRoomChangeListener() {
-			private final static String ROOM_CHANGE_BROADCAST = "easemob.demo.chatroom.changeevent.toast";
-			private final IntentFilter filter = new IntentFilter(ROOM_CHANGE_BROADCAST);
-			private boolean registered = false;
+		EMChatManager.getInstance().addChatRoomChangeListener(
+				new EMChatRoomChangeListener() {
+					private final static String ROOM_CHANGE_BROADCAST = "easemob.demo.chatroom.changeevent.toast";
+					private final IntentFilter filter = new IntentFilter(
+							ROOM_CHANGE_BROADCAST);
+					private boolean registered = false;
 
-			private void showToast(String value) {
-				if (!registered) {
-					// 注册广播接收者
-					appContext.registerReceiver(new BroadcastReceiver() {
+					private void showToast(String value) {
+						if (!registered) {
+							// 注册广播接收者
+							appContext.registerReceiver(
+									new BroadcastReceiver() {
 
-						@Override
-						public void onReceive(Context context, Intent intent) {
-							Toast.makeText(appContext, intent.getStringExtra("value"), Toast.LENGTH_SHORT).show();
+										@Override
+										public void onReceive(Context context,
+												Intent intent) {
+											Toast.makeText(
+													appContext,
+													intent.getStringExtra("value"),
+													Toast.LENGTH_SHORT).show();
+										}
+
+									}, filter);
+
+							registered = true;
 						}
 
-					}, filter);
+						Intent broadcastIntent = new Intent(
+								ROOM_CHANGE_BROADCAST);
+						broadcastIntent.putExtra("value", value);
+						appContext.sendBroadcast(broadcastIntent, null);
+					}
 
-					registered = true;
-				}
+					@Override
+					public void onChatRoomDestroyed(String roomId,
+							String roomName) {
+						showToast(" room : " + roomId + " with room name : "
+								+ roomName + " was destroyed");
+						Log.i("info", "onChatRoomDestroyed=" + roomName);
+					}
 
-				Intent broadcastIntent = new Intent(ROOM_CHANGE_BROADCAST);
-				broadcastIntent.putExtra("value", value);
-				appContext.sendBroadcast(broadcastIntent, null);
-			}
+					@Override
+					public void onMemberJoined(String roomId, String participant) {
+						showToast("member : " + participant
+								+ " join the room : " + roomId);
+						Log.i("info", "onmemberjoined=" + participant);
 
-			@Override
-			public void onChatRoomDestroyed(String roomId, String roomName) {
-				showToast(" room : " + roomId + " with room name : " + roomName + " was destroyed");
-				Log.i("info", "onChatRoomDestroyed=" + roomName);
-			}
+					}
 
-			@Override
-			public void onMemberJoined(String roomId, String participant) {
-				showToast("member : " + participant + " join the room : " + roomId);
-				Log.i("info", "onmemberjoined=" + participant);
+					@Override
+					public void onMemberExited(String roomId, String roomName,
+							String participant) {
+						showToast("member : " + participant
+								+ " leave the room : " + roomId
+								+ " room name : " + roomName);
+						Log.i("info", "onMemberExited=" + participant);
 
-			}
+					}
 
-			@Override
-			public void onMemberExited(String roomId, String roomName, String participant) {
-				showToast("member : " + participant + " leave the room : " + roomId + " room name : " + roomName);
-				Log.i("info", "onMemberExited=" + participant);
+					@Override
+					public void onMemberKicked(String roomId, String roomName,
+							String participant) {
+						showToast("member : " + participant
+								+ " was kicked from the room : " + roomId
+								+ " room name : " + roomName);
+						Log.i("info", "onMemberKicked=" + participant);
 
-			}
+					}
 
-			@Override
-			public void onMemberKicked(String roomId, String roomName, String participant) {
-				showToast("member : " + participant + " was kicked from the room : " + roomId + " room name : "
-						+ roomName);
-				Log.i("info", "onMemberKicked=" + participant);
-
-			}
-
-		});
+				});
 	}
 
 	/**
@@ -285,7 +313,8 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 			@Override
 			public String getDisplayedText(EMMessage message) {
 				// 设置状态栏的消息提示，可以根据message的类型做相应提示
-				String ticker = CommonUtils.getMessageDigest(message, appContext);
+				String ticker = CommonUtils.getMessageDigest(message,
+						appContext);
 				if (message.getType() == Type.TXT) {
 					ticker = ticker.replaceAll("\\[.{2,3}\\]", "[表情]");
 				}
@@ -294,7 +323,8 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 			}
 
 			@Override
-			public String getLatestText(EMMessage message, int fromUsersNum, int messageNum) {
+			public String getLatestText(EMMessage message, int fromUsersNum,
+					int messageNum) {
 				return null;
 				// return fromUsersNum + "个基友，发来了" + messageNum + "条消息";
 			}
@@ -349,6 +379,7 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 	@Override
 	public HXNotifier createNotifier() {
 		return new HXNotifier() {
+			@Override
 			public synchronized void onNewMsg(final EMMessage message) {
 				if (EMChatManager.getInstance().isSlientMessage(message)) {
 					return;
@@ -359,7 +390,8 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 				// 获取设置的不提示新消息的用户或者群组ids
 				if (message.getChatType() == ChatType.Chat) {
 					chatUsename = message.getFrom();
-					notNotifyIds = ((DemoHXSDKModel) hxModel).getDisabledGroups();
+					notNotifyIds = ((DemoHXSDKModel) hxModel)
+							.getDisabledGroups();
 				} else {
 					chatUsename = message.getTo();
 					notNotifyIds = ((DemoHXSDKModel) hxModel).getDisabledIds();
@@ -382,6 +414,7 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 	/**
 	 * get demo HX SDK Model
 	 */
+	@Override
 	public DemoHXSDKModel getModel() {
 		return (DemoHXSDKModel) hxModel;
 	}
@@ -393,7 +426,7 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 	 */
 	public Map<String, User> getContactList() {
 		if (getHXId() != null && contactList == null) {
-			contactList = ((DemoHXSDKModel) getModel()).getContactList();
+			contactList = getModel().getContactList();
 		}
 		return contactList;
 	}

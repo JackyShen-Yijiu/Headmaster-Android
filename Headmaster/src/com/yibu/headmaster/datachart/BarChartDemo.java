@@ -39,7 +39,7 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import com.yibu.headmaster.bean.MoreDataBean.Coachcourselist;
+import com.yibu.headmaster.bean.MoreDataBean;
 
 /**
  * @ClassName BarChart02View
@@ -58,11 +58,11 @@ public class BarChartDemo extends DemoView {
 
 	// 教练授课 的数据
 
-	private List<Coachcourselist> coachcourselist;
+	private List<MoreDataBean> lineDataList;
 
-	public BarChartDemo(Context context, List<Coachcourselist> coachcourselist) {
+	public BarChartDemo(Context context, List<MoreDataBean> lineDataList) {
 		super(context);
-		this.coachcourselist = coachcourselist;
+		this.lineDataList = lineDataList;
 		initView();
 	}
 
@@ -97,8 +97,8 @@ public class BarChartDemo extends DemoView {
 		try {
 			// 设置绘图区默认缩进px值,留置空间显示Axis,Axistitle....
 			int[] ltrb = getBarLnDefaultSpadding();
-			chart.setPadding(DensityUtil.dip2px(getContext(), 50), ltrb[1],
-					ltrb[2], ltrb[3]);
+			chart.setPadding(DensityUtil.dip2px(getContext(), 40), ltrb[1],
+					DensityUtil.dip2px(getContext(), 10), ltrb[3]);
 
 			// 数据源
 			chart.setDataSource(chartData);
@@ -134,7 +134,6 @@ public class BarChartDemo extends DemoView {
 
 				@Override
 				public String textFormatter(String value) {
-					// TODO Auto-generated method stub
 					String tmp = value + "节";
 					return tmp;
 				}
@@ -182,9 +181,9 @@ public class BarChartDemo extends DemoView {
 		// dataSeriesA.add((double) 18);
 		// dataSeriesA.add((double) 16);
 
-		if (coachcourselist != null) {
-			for (Coachcourselist coachcourse : coachcourselist) {
-				dataSeriesA.add((double) coachcourse.coursecount);
+		if (lineDataList != null) {
+			for (MoreDataBean data : lineDataList) {
+				dataSeriesA.add((double) data.countY);
 			}
 
 		}
@@ -201,9 +200,9 @@ public class BarChartDemo extends DemoView {
 		// chartLabels.add("2");
 		// chartLabels.add("1");
 		// chartLabels.add("2");
-		if (coachcourselist != null) {
-			for (Coachcourselist coachcourse : coachcourselist) {
-				chartLabels.add(coachcourse.coachcount + "");
+		if (lineDataList != null) {
+			for (MoreDataBean data : lineDataList) {
+				chartLabels.add(data.timeX);
 			}
 
 		}

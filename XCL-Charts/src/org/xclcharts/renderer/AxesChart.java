@@ -281,7 +281,8 @@ public class AxesChart extends EventChart {
 	 */
 	public float getVerticalXSteps(int tickCount) {
 		// 柱形图为了让柱形显示在tick的中间，会多出一个步长即(dataSet.size()+1)
-		return (div(getPlotScreenWidth(), tickCount));
+		// return (div(getPlotScreenWidth(), tickCount));
+		return 75;
 	}
 
 	/**

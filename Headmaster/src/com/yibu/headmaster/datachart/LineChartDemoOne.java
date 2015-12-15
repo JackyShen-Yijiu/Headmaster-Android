@@ -18,7 +18,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import com.yibu.headmaster.bean.MoreDataBean.Applystuentlist;
+import com.yibu.headmaster.bean.MoreDataBean;
 
 public class LineChartDemoOne extends DemoView {
 	private String TAG = "MultiAxisChart03View";
@@ -39,12 +39,11 @@ public class LineChartDemoOne extends DemoView {
 	private LinkedList<LineData> chartData = new LinkedList<LineData>();
 
 	// 招生表的数据
-	private List<Applystuentlist> applystuentlist;
+	private List<MoreDataBean> lineData;
 
-	public LineChartDemoOne(Context context,
-			List<Applystuentlist> applystuentlist) {
+	public LineChartDemoOne(Context context, List<MoreDataBean> lineData) {
 		super(context);
-		this.applystuentlist = applystuentlist;
+		this.lineData = lineData;
 		initView();
 
 	}
@@ -60,10 +59,10 @@ public class LineChartDemoOne extends DemoView {
 	}
 
 	// 传数据
-	public void setData(List<Applystuentlist> applystuentlist) {
-
-		this.applystuentlist = applystuentlist;
-	}
+	// public void setData(List<Applystuentlist> applystuentlist) {
+	//
+	// this.applystuentlist = applystuentlist;
+	// }
 
 	public void initView() {
 
@@ -101,8 +100,8 @@ public class LineChartDemoOne extends DemoView {
 			// 设置绘图区默认缩进px值,留置空间显示Axis,Axistitle....
 			int[] ltrb = getBarLnDefaultSpadding();
 
-			float left = DensityUtil.dip2px(getContext(), 40); // left 40
-			float right = DensityUtil.dip2px(getContext(), 40); // right 20
+			float left = DensityUtil.dip2px(getContext(), 20); // left 40
+			float right = DensityUtil.dip2px(getContext(), 10); // right 20
 			chartLn.setPadding(left, ltrb[1], right, ltrb[3]); // ltrb[2]
 
 			// 设定数据源
@@ -165,7 +164,7 @@ public class LineChartDemoOne extends DemoView {
 					.setColor(plot.getHorizontalLinePaint().getColor());
 			chartLn.getCategoryAxis().getTickMarksPaint()
 					.setColor(plot.getHorizontalLinePaint().getColor());
-
+			chartLn.setXCoordFirstTickmarksBegin(true);
 			// 图例显示在正下方
 			// chartLn.getPlotLegend()
 			// .setVerticalAlign(XEnum.VerticalAlign.BOTTOM);
@@ -186,14 +185,12 @@ public class LineChartDemoOne extends DemoView {
 		// dataSeries1.add(10d);
 		// dataSeries1.add(12d);
 
-		if (applystuentlist != null) {
-			for (Applystuentlist applystuent : applystuentlist) {
-				dataSeries1.add((double) applystuent.applystudentcount);
+		if (lineData != null) {
+			for (MoreDataBean data : lineData) {
+				dataSeries1.add((double) data.countY);
 			}
 
 		}
-
-		System.out.println(dataSeries1.size() + "qwqwqw");
 
 		LineData lineData1 = new LineData("直线", dataSeries1, Color.rgb(1, 226,
 				182));
@@ -210,9 +207,10 @@ public class LineChartDemoOne extends DemoView {
 
 	// X轴数据
 	public void chartLabels() {
-		if (applystuentlist != null) {
-			for (Applystuentlist applystuent : applystuentlist) {
-				mLabels.add(applystuent.hour + ":00");
+
+		if (lineData != null) {
+			for (MoreDataBean data : lineData) {
+				mLabels.add(data.timeX);
 			}
 
 		}

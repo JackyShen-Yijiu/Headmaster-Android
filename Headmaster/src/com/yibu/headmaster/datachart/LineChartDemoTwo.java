@@ -17,7 +17,7 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import com.yibu.headmaster.bean.MoreDataBean.Reservationstudentlist;
+import com.yibu.headmaster.bean.MoreDataBean;
 
 public class LineChartDemoTwo extends DemoView {
 	private String TAG = "MultiAxisChart03View";
@@ -34,12 +34,11 @@ public class LineChartDemoTwo extends DemoView {
 	private LinkedList<LineData> chartData = new LinkedList<LineData>();
 
 	// 约课表的数据
-	private List<Reservationstudentlist> reservationstudentlist;
+	private List<MoreDataBean> lineDataList;
 
-	public LineChartDemoTwo(Context context,
-			List<Reservationstudentlist> reservationstudentlist) {
+	public LineChartDemoTwo(Context context, List<MoreDataBean> lineDataList) {
 		super(context);
-		this.reservationstudentlist = reservationstudentlist;
+		this.lineDataList = lineDataList;
 		initView();
 	}
 
@@ -54,10 +53,11 @@ public class LineChartDemoTwo extends DemoView {
 	}
 
 	// 传数据
-	public void setData(List<Reservationstudentlist> reservationstudentlist) {
-
-		this.reservationstudentlist = reservationstudentlist;
-	}
+	// public void setData(List<Reservationstudentlist> reservationstudentlist)
+	// {
+	//
+	// this.reservationstudentlist = reservationstudentlist;
+	// }
 
 	private void initView() {
 
@@ -91,8 +91,8 @@ public class LineChartDemoTwo extends DemoView {
 			// 设置绘图区默认缩进px值,留置空间显示Axis,Axistitle....
 			int[] ltrb = getBarLnDefaultSpadding();
 
-			float left = DensityUtil.dip2px(getContext(), 40); // left 40
-			float right = DensityUtil.dip2px(getContext(), 40); // right 20
+			float left = DensityUtil.dip2px(getContext(), 20); // left 40
+			float right = DensityUtil.dip2px(getContext(), 10); // right 20
 			chartLn.setPadding(left, ltrb[1], right, ltrb[3]); // ltrb[2]
 
 			// 设定数据源
@@ -170,9 +170,9 @@ public class LineChartDemoTwo extends DemoView {
 		LinkedList<Double> dataSeries1 = new LinkedList<Double>();
 		// dataSeries1.add(5d);
 
-		if (reservationstudentlist != null) {
-			for (Reservationstudentlist reservationstudent : reservationstudentlist) {
-				dataSeries1.add((double) reservationstudent.studentcount);
+		if (lineDataList != null) {
+			for (MoreDataBean data : lineDataList) {
+				dataSeries1.add((double) data.countY);
 			}
 
 		}
@@ -186,35 +186,16 @@ public class LineChartDemoTwo extends DemoView {
 		lineData1.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);
 
-		// Line 2
-		LinkedList<Double> dataSeries2 = new LinkedList<Double>();
-		// dataSeries2.add((double) 0);
-
-		if (reservationstudentlist != null) {
-			for (Reservationstudentlist reservationstudent : reservationstudentlist) {
-				dataSeries2.add((double) reservationstudent.studentcount);
-			}
-		}
-		LineData lineData2 = new LineData("圆环", dataSeries2, Color.rgb(1, 226,
-				182));
-		lineData2.setDotStyle(XEnum.DotStyle.RING);
-		lineData2.getPlotLine().getDotPaint().setColor(Color.rgb(1, 226, 182));
-		lineData2.setLabelVisible(false);
-		// lineData2.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
-		lineData2.getLabelOptions().setLabelBoxStyle(
-				XEnum.LabelBoxStyle.CAPRECT);
-
 		chartData.add(lineData1);
-		chartData.add(lineData2);
 
 	}
 
 	// X轴数据
 	private void chartLabels() {
 		// mLabels.add("7:00");
-		if (reservationstudentlist != null) {
-			for (Reservationstudentlist reservationstudent : reservationstudentlist) {
-				mLabels.add(reservationstudent.hour + ":00");
+		if (lineDataList != null) {
+			for (MoreDataBean data : lineDataList) {
+				mLabels.add(data.timeX);
 			}
 
 		}

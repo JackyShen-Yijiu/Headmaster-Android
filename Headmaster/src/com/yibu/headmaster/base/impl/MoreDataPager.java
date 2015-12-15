@@ -1,5 +1,6 @@
 package com.yibu.headmaster.base.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -14,19 +15,24 @@ import com.yibu.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.MoreDataBean;
-import com.yibu.headmaster.bean.MoreDataBean.Applystuentlist;
-import com.yibu.headmaster.bean.MoreDataBean.Badcommentlist;
-import com.yibu.headmaster.bean.MoreDataBean.Coachcourselist;
-import com.yibu.headmaster.bean.MoreDataBean.Complaintlist;
-import com.yibu.headmaster.bean.MoreDataBean.Generalcommentlist;
-import com.yibu.headmaster.bean.MoreDataBean.Goodcommentlist;
-import com.yibu.headmaster.bean.MoreDataBean.Reservationstudentlist;
+import com.yibu.headmaster.bean.MoreDataOfTodayBean;
+import com.yibu.headmaster.bean.MoreDataOfTodayBean.Applystuentlist;
+import com.yibu.headmaster.bean.MoreDataOfTodayBean.Badcommentlist;
+import com.yibu.headmaster.bean.MoreDataOfTodayBean.Coachcourselist;
+import com.yibu.headmaster.bean.MoreDataOfTodayBean.Complaintlist;
+import com.yibu.headmaster.bean.MoreDataOfTodayBean.Generalcommentlist;
+import com.yibu.headmaster.bean.MoreDataOfTodayBean.Goodcommentlist;
+import com.yibu.headmaster.bean.MoreDataOfTodayBean.Reservationstudentlist;
+import com.yibu.headmaster.bean.MoreDataOfWeekBean;
+import com.yibu.headmaster.bean.MoreDataOfWeekBean.Coursedata;
+import com.yibu.headmaster.bean.MoreDataOfWeekBean.Datalist;
 import com.yibu.headmaster.datachart.BarChartDemo;
 import com.yibu.headmaster.datachart.LineChartDemoOne;
 import com.yibu.headmaster.datachart.LineChartDemoThree;
 import com.yibu.headmaster.datachart.LineChartDemoTwo;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
+import com.yibu.headmaster.utils.LogUtil;
 
 public class MoreDataPager extends BasePager implements OnClickListener {
 
@@ -42,6 +48,8 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 	private LineChartDemoThree assess;// 评价
 
 	private int current = 0; // 当前的查询时间
+	private List<MoreDataBean> lineDataList;
+	private MoreDataBean bean;
 
 	public MoreDataPager(Context context, int i) {
 		super(context);
@@ -85,6 +93,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 				handler);
 	}
 
+	@Override
 	public void onClick(View v) {
 
 		switch (v.getId()) {
@@ -104,39 +113,46 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		}
 	}
 
-	// private String getTitle(int searchtype) {
-	// String title = null;
-	// switch (searchtype) {
-	// case 1:
-	// title = "今天";
-	// break;
-	// case 2:
-	// title = "昨天";
-	// break;
-	// case 3:
-	// title = "本周";
-	// break;
-	// case 4:
-	// title = "本月";
-	// break;
-	// case 5:
-	// title = "本年";
-	// break;
-	//
-	// default:
-	// break;
-	// }
-	// return title;
-	// }
-
 	@Override
 	public void process(String data) {
-		MoreDataBean moreDataBean = JsonUtil.parseJsonToBean(data,
-				MoreDataBean.class);
+
+		lineDataList = new ArrayList<MoreDataBean>();
+
+		switch (searchtype) {
+		case 3:
+			setWeekData(data);
+			break;
+		case 4:
+			setMonthData(data);
+			break;
+		case 5:
+			setYearData(data);
+			break;
+
+		default:
+			setTodayData(data);
+			break;
+		}
+	}
+
+	// 设置今天和昨天的数据
+	private void setTodayData(String data) {
+		MoreDataOfTodayBean moreDataBean = JsonUtil.parseJsonToBean(data,
+				MoreDataOfTodayBean.class);
 		// 招生---------------------------
 		if (moreDataBean != null) {
-			List<Applystuentlist> applystuentlist = moreDataBean.applystuentlist;
-			encrollStudent = new LineChartDemoOne(mContext, applystuentlist);
+
+			LogUtil.print("昨天" + searchtype + "-----" + moreDataBean);
+			lineDataList.clear();
+			for (Applystuentlist applystuent : moreDataBean.applystuentlist) {
+				bean = new MoreDataBean();
+				bean.timeX = applystuent.hour + ":00";
+				bean.countY = applystuent.applystudentcount;
+				lineDataList.add(bean);
+			}
+
+			encrollStudent = new LineChartDemoOne(mContext, lineDataList);
+			relativeLayout_chartone.removeAllViews();
 			relativeLayout_chartone.addView(encrollStudent);
 			LayoutParams params = encrollStudent.getLayoutParams();
 			params.height = LayoutParams.MATCH_PARENT;
@@ -146,7 +162,18 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		// 约课------------------------
 		if (moreDataBean != null) {
 			List<Reservationstudentlist> reservationstudentlist = moreDataBean.reservationstudentlist;
-			aboutClass = new LineChartDemoTwo(mContext, reservationstudentlist);
+
+			lineDataList.clear();
+			for (Reservationstudentlist reservationstudent : moreDataBean.reservationstudentlist) {
+				bean = new MoreDataBean();
+				bean.timeX = reservationstudent.hour + ":00";
+				bean.countY = reservationstudent.studentcount;
+
+				lineDataList.add(bean);
+			}
+
+			aboutClass = new LineChartDemoTwo(mContext, lineDataList);
+			relativeLayout_charttwo.removeAllViews();
 			relativeLayout_charttwo.addView(aboutClass);
 			LayoutParams params = aboutClass.getLayoutParams();
 			params.height = LayoutParams.MATCH_PARENT;
@@ -156,7 +183,18 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		// 教练授课---------------------------
 		if (moreDataBean != null) {
 			List<Coachcourselist> coachcourselist = moreDataBean.coachcourselist;
-			giveLesoons = new BarChartDemo(mContext, coachcourselist);
+
+			lineDataList.clear();
+			for (Coachcourselist coachcourse : moreDataBean.coachcourselist) {
+				bean = new MoreDataBean();
+				bean.timeX = coachcourse.coachcount + "";
+				bean.countY = coachcourse.coursecount;
+
+				lineDataList.add(bean);
+			}
+
+			giveLesoons = new BarChartDemo(mContext, lineDataList);
+			relativeLayout_chartbar.removeAllViews();
 			relativeLayout_chartbar.addView(giveLesoons);
 			LayoutParams params = giveLesoons.getLayoutParams();
 			params.height = LayoutParams.MATCH_PARENT;
@@ -165,17 +203,493 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		}
 		// 评价---------------------
 		if (moreDataBean != null) {
-			List<Goodcommentlist> goodcommentlist = moreDataBean.goodcommentlist;
-			List<Badcommentlist> badcommentlist = moreDataBean.badcommentlist;
-			List<Generalcommentlist> generalcommentlist = moreDataBean.generalcommentlist;
-			List<Complaintlist> complaintlist = moreDataBean.complaintlist;
+
+			// 好评
+			List<MoreDataBean> goodcommentlist = new ArrayList<MoreDataBean>();
+			for (Goodcommentlist goodcomment : moreDataBean.goodcommentlist) {
+				bean = new MoreDataBean();
+				bean.timeX = goodcomment.hour + ":00";
+				bean.countY = goodcomment.commnetcount;
+
+				goodcommentlist.add(bean);
+			}
+			// 中评
+			List<MoreDataBean> generalcommentlist = new ArrayList<MoreDataBean>();
+			for (Generalcommentlist generalcomment : moreDataBean.generalcommentlist) {
+				bean = new MoreDataBean();
+				bean.timeX = generalcomment.hour + ":00";
+				bean.countY = generalcomment.commnetcount;
+
+				generalcommentlist.add(bean);
+			}
+			// 差评
+			List<MoreDataBean> badcommentlist = new ArrayList<MoreDataBean>();
+			for (Badcommentlist badcomment : moreDataBean.badcommentlist) {
+				bean = new MoreDataBean();
+				bean.timeX = badcomment.hour + ":00";
+				bean.countY = badcomment.commnetcount;
+
+				badcommentlist.add(bean);
+			}
+			// 投诉
+			List<MoreDataBean> complaintlist = new ArrayList<MoreDataBean>();
+			for (Complaintlist complaint : moreDataBean.complaintlist) {
+				bean = new MoreDataBean();
+				bean.timeX = complaint.hour + ":00";
+				bean.countY = complaint.complaintcount;
+
+				complaintlist.add(bean);
+			}
+
 			assess = new LineChartDemoThree(mContext, goodcommentlist,
 					generalcommentlist, badcommentlist, complaintlist);
+			relativeLayout_chartthree.removeAllViews();
 			relativeLayout_chartthree.addView(assess);
 			LayoutParams params = assess.getLayoutParams();
 			params.height = LayoutParams.MATCH_PARENT;
 			params.width = LayoutParams.MATCH_PARENT;
 			assess.setLayoutParams(params);
 		}
+	}
+
+	// 设置本周的数据
+	private void setWeekData(String data) {
+		MoreDataOfWeekBean moreDataBean = JsonUtil.parseJsonToBean(data,
+				MoreDataOfWeekBean.class);
+		// 招生---------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			for (Datalist datalist : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchWeek(datalist.day);
+				bean.countY = datalist.applystudentcount;
+				lineDataList.add(bean);
+			}
+
+			encrollStudent = new LineChartDemoOne(mContext, lineDataList);
+			relativeLayout_chartone.removeAllViews();
+			relativeLayout_chartone.addView(encrollStudent);
+			LayoutParams params = encrollStudent.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			encrollStudent.setLayoutParams(params);
+		}
+		// 约课------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			for (Datalist datalist : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchWeek(datalist.day);
+				bean.countY = datalist.reservationcoursecount;
+				lineDataList.add(bean);
+			}
+
+			aboutClass = new LineChartDemoTwo(mContext, lineDataList);
+			relativeLayout_charttwo.removeAllViews();
+			relativeLayout_charttwo.addView(aboutClass);
+			LayoutParams params = aboutClass.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			aboutClass.setLayoutParams(params);
+		}
+		// 教练授课---------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			lineDataList.clear();
+			for (Coursedata datalist : moreDataBean.coursedata) {
+				bean = new MoreDataBean();
+				bean.timeX = datalist.coachcount + "";
+				bean.countY = datalist.coursecount;
+				lineDataList.add(bean);
+			}
+
+			giveLesoons = new BarChartDemo(mContext, lineDataList);
+			relativeLayout_chartbar.removeAllViews();
+			relativeLayout_chartbar.addView(giveLesoons);
+			LayoutParams params = giveLesoons.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			giveLesoons.setLayoutParams(params);
+		}
+		// 评价---------------------
+		if (moreDataBean != null) {
+
+			// 好评
+			List<MoreDataBean> goodcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist goodcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchWeek(goodcomment.day);
+				bean.countY = goodcomment.goodcommentcount;
+
+				goodcommentlist.add(bean);
+			}
+			// 中评
+			List<MoreDataBean> generalcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist generalcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchWeek(generalcomment.day);
+				bean.countY = generalcomment.generalcomment;
+
+				generalcommentlist.add(bean);
+			}
+			// 差评
+			List<MoreDataBean> badcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist badcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchWeek(badcomment.day);
+				bean.countY = badcomment.badcommentcount;
+
+				badcommentlist.add(bean);
+			}
+			// 投诉
+			List<MoreDataBean> complaintlist = new ArrayList<MoreDataBean>();
+			for (Datalist complaint : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchWeek(complaint.day);
+				bean.countY = complaint.complaintcount;
+
+				complaintlist.add(bean);
+			}
+
+			assess = new LineChartDemoThree(mContext, goodcommentlist,
+					generalcommentlist, badcommentlist, complaintlist);
+			relativeLayout_chartthree.removeAllViews();
+			relativeLayout_chartthree.addView(assess);
+			LayoutParams params = assess.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			assess.setLayoutParams(params);
+		}
+	}
+
+	// 设置本月的数据
+	private void setMonthData(String data) {
+		MoreDataOfWeekBean moreDataBean = JsonUtil.parseJsonToBean(data,
+				MoreDataOfWeekBean.class);
+		// 招生---------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			for (Datalist datalist : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchMonth(datalist.weekindex);
+				bean.countY = datalist.applystudentcount;
+				lineDataList.add(bean);
+			}
+
+			encrollStudent = new LineChartDemoOne(mContext, lineDataList);
+			relativeLayout_chartone.removeAllViews();
+			relativeLayout_chartone.addView(encrollStudent);
+			LayoutParams params = encrollStudent.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			encrollStudent.setLayoutParams(params);
+		}
+		// 约课------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			for (Datalist datalist : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchMonth(datalist.weekindex);
+				bean.countY = datalist.reservationcoursecount;
+				lineDataList.add(bean);
+			}
+
+			aboutClass = new LineChartDemoTwo(mContext, lineDataList);
+			relativeLayout_charttwo.removeAllViews();
+			relativeLayout_charttwo.addView(aboutClass);
+			LayoutParams params = aboutClass.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			aboutClass.setLayoutParams(params);
+		}
+		// 教练授课---------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			lineDataList.clear();
+			for (Coursedata datalist : moreDataBean.coursedata) {
+				bean = new MoreDataBean();
+				bean.timeX = datalist.coachcount + "";
+				bean.countY = datalist.coursecount;
+				lineDataList.add(bean);
+			}
+
+			giveLesoons = new BarChartDemo(mContext, lineDataList);
+			relativeLayout_chartbar.removeAllViews();
+			relativeLayout_chartbar.addView(giveLesoons);
+			LayoutParams params = giveLesoons.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			giveLesoons.setLayoutParams(params);
+		}
+		// 评价---------------------
+		if (moreDataBean != null) {
+
+			// 好评
+			List<MoreDataBean> goodcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist goodcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchMonth(goodcomment.weekindex);
+				bean.countY = goodcomment.goodcommentcount;
+
+				goodcommentlist.add(bean);
+			}
+			// 中评
+			List<MoreDataBean> generalcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist generalcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchMonth(generalcomment.weekindex);
+				bean.countY = generalcomment.generalcomment;
+
+				generalcommentlist.add(bean);
+			}
+			// 差评
+			List<MoreDataBean> badcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist badcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchMonth(badcomment.weekindex);
+				bean.countY = badcomment.badcommentcount;
+
+				badcommentlist.add(bean);
+			}
+			// 投诉
+			List<MoreDataBean> complaintlist = new ArrayList<MoreDataBean>();
+			for (Datalist complaint : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchMonth(complaint.weekindex);
+				bean.countY = complaint.complaintcount;
+
+				complaintlist.add(bean);
+			}
+
+			assess = new LineChartDemoThree(mContext, goodcommentlist,
+					generalcommentlist, badcommentlist, complaintlist);
+			relativeLayout_chartthree.removeAllViews();
+			relativeLayout_chartthree.addView(assess);
+			LayoutParams params = assess.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			assess.setLayoutParams(params);
+		}
+	}
+
+	// 设置本年的数据
+	private void setYearData(String data) {
+		MoreDataOfWeekBean moreDataBean = JsonUtil.parseJsonToBean(data,
+				MoreDataOfWeekBean.class);
+		// 招生---------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			for (Datalist datalist : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchYear(datalist.month);
+				bean.countY = datalist.applystudentcount;
+				lineDataList.add(bean);
+			}
+
+			encrollStudent = new LineChartDemoOne(mContext, lineDataList);
+			relativeLayout_chartone.removeAllViews();
+			relativeLayout_chartone.addView(encrollStudent);
+			LayoutParams params = encrollStudent.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			encrollStudent.setLayoutParams(params);
+		}
+		// 约课------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			for (Datalist datalist : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchYear(datalist.month);
+				bean.countY = datalist.reservationcoursecount;
+				lineDataList.add(bean);
+			}
+
+			aboutClass = new LineChartDemoTwo(mContext, lineDataList);
+			relativeLayout_charttwo.removeAllViews();
+			relativeLayout_charttwo.addView(aboutClass);
+			LayoutParams params = aboutClass.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			aboutClass.setLayoutParams(params);
+		}
+		// 教练授课---------------------------
+		if (moreDataBean != null) {
+
+			lineDataList.clear();
+			lineDataList.clear();
+			for (Coursedata datalist : moreDataBean.coursedata) {
+				bean = new MoreDataBean();
+				bean.timeX = datalist.coachcount + "";
+				bean.countY = datalist.coursecount;
+				lineDataList.add(bean);
+			}
+
+			giveLesoons = new BarChartDemo(mContext, lineDataList);
+			relativeLayout_chartbar.removeAllViews();
+			relativeLayout_chartbar.addView(giveLesoons);
+			LayoutParams params = giveLesoons.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			giveLesoons.setLayoutParams(params);
+		}
+		// 评价---------------------
+		if (moreDataBean != null) {
+
+			// 好评
+			List<MoreDataBean> goodcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist goodcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchYear(goodcomment.month);
+				bean.countY = goodcomment.goodcommentcount;
+
+				goodcommentlist.add(bean);
+			}
+			// 中评
+			List<MoreDataBean> generalcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist generalcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchYear(generalcomment.month);
+				bean.countY = generalcomment.generalcomment;
+
+				generalcommentlist.add(bean);
+			}
+			// 差评
+			List<MoreDataBean> badcommentlist = new ArrayList<MoreDataBean>();
+			for (Datalist badcomment : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchYear(badcomment.month);
+				bean.countY = badcomment.badcommentcount;
+
+				badcommentlist.add(bean);
+			}
+			// 投诉
+			List<MoreDataBean> complaintlist = new ArrayList<MoreDataBean>();
+			for (Datalist complaint : moreDataBean.datalist) {
+				bean = new MoreDataBean();
+				bean.timeX = switchYear(complaint.month);
+				bean.countY = complaint.complaintcount;
+
+				complaintlist.add(bean);
+			}
+
+			assess = new LineChartDemoThree(mContext, goodcommentlist,
+					generalcommentlist, badcommentlist, complaintlist);
+			relativeLayout_chartthree.removeAllViews();
+			relativeLayout_chartthree.addView(assess);
+			LayoutParams params = assess.getLayoutParams();
+			params.height = LayoutParams.MATCH_PARENT;
+			params.width = LayoutParams.MATCH_PARENT;
+			assess.setLayoutParams(params);
+		}
+	}
+
+	private String switchWeek(int day) {
+		String dayString = "";
+		switch (day) {
+		case 1:
+			dayString = "周一";
+			break;
+		case 2:
+			dayString = "周二";
+			break;
+		case 3:
+			dayString = "周三";
+			break;
+		case 4:
+			dayString = "周四";
+			break;
+		case 5:
+			dayString = "周五";
+			break;
+		case 6:
+			dayString = "周六";
+			break;
+		case 7:
+			dayString = "周天";
+			break;
+
+		default:
+			break;
+
+		}
+		return dayString;
+	}
+
+	private String switchMonth(int weekindex) {
+		String dayString = "";
+		switch (weekindex) {
+		case 1:
+			dayString = "第一周";
+			break;
+		case 2:
+			dayString = "第二周";
+			break;
+		case 3:
+			dayString = "第三周";
+			break;
+		case 4:
+			dayString = "第四周";
+			break;
+		case 5:
+			dayString = "第五周";
+			break;
+
+		default:
+			break;
+
+		}
+		return dayString;
+	}
+
+	private String switchYear(int month) {
+		String dayString = "";
+		switch (month) {
+		case 1:
+			dayString = "第1月";
+			break;
+		case 2:
+			dayString = "第2月";
+			break;
+		case 3:
+			dayString = "第3月";
+			break;
+		case 4:
+			dayString = "第4月";
+			break;
+		case 6:
+			dayString = "第6月";
+			break;
+		case 7:
+			dayString = "第7月";
+			break;
+		case 8:
+			dayString = "第8月";
+			break;
+		case 9:
+			dayString = "第9月";
+			break;
+		case 10:
+			dayString = "第10月";
+			break;
+		case 11:
+			dayString = "第11月";
+			break;
+		case 12:
+			dayString = "第12月";
+			break;
+
+		default:
+			break;
+
+		}
+		return dayString;
 	}
 }

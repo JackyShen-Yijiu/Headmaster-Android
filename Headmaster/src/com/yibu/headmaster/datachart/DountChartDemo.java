@@ -153,22 +153,25 @@ public class DountChartDemo extends DemoView {
 		if (commentcount == null) {
 			LogUtil.print("评论为" + commentcount);
 		}
-		int sum = commentcount.goodcommnent + commentcount.badcomment
-				+ commentcount.generalcomment;
-		if (sum == 0) {
-			lPieData.add(new PieData("差评", "5%", 5, Color.rgb(4, 122, 100)));
-		}
-		int good = (int) ((commentcount.goodcommnent) / (sum * 1.0f)) * 100;
-		int bad = (int) ((commentcount.badcomment) / (sum * 1.0f)) * 100;
-		int general = 100 - good - bad;
-
 		if (commentcount != null) {
-			lPieData.add(new PieData("好评", good + "%", good, Color.rgb(1, 226,
-					182)));
-			lPieData.add(new PieData("中评", bad + "%", bad, Color.rgb(2, 171,
-					138)));
-			lPieData.add(new PieData("差评", general + "%", general, Color.rgb(4,
-					122, 100)));
+			int sum = commentcount.goodcommnent + commentcount.badcomment
+					+ commentcount.generalcomment;
+			if (sum == 0) {
+				lPieData.add(new PieData("差评", "100%", 100, Color.rgb(4, 122,
+						100)));
+			} else {
+
+				int good = (int) ((commentcount.goodcommnent) / (sum * 1.0f)) * 100;
+				int bad = (int) ((commentcount.badcomment) / (sum * 1.0f)) * 100;
+				int general = 100 - good - bad;
+
+				lPieData.add(new PieData("好评", good + "%", good, Color.rgb(1,
+						226, 182)));
+				lPieData.add(new PieData("中评", bad + "%", bad, Color.rgb(2,
+						171, 138)));
+				lPieData.add(new PieData("差评", general + "%", general, Color
+						.rgb(4, 122, 100)));
+			}
 		}
 	}
 

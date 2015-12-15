@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -51,6 +52,8 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 					.findViewById(R.id.assess_coach_image);
 			holder.talk = (ImageView) convertView
 					.findViewById(R.id.imageView_talk);
+			holder.startLevel = (RatingBar) convertView
+					.findViewById(R.id.imageView_star);
 			// ViewUtils.inject(holder, convertView);
 			convertView.setTag(holder);
 		} else {
@@ -64,6 +67,7 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 		holder.coachname.setText(commentlist.coachinfo.name);
 		holder.subjectname.setText(commentlist.subject.name);
 		holder.classid.setText(commentlist.studentinfo.classtype.name);
+		holder.startLevel.setRating(commentlist.commentstarlevel);
 
 		if (!TextUtils
 				.isEmpty(commentlist.studentinfo.headportrait.originalpic)) {
@@ -107,6 +111,7 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 		ImageView studenthead;
 		ImageView coachhead;
 		ImageView talk;
+		RatingBar startLevel;
 	}
 
 	class DeleteOnClickListener implements OnClickListener {
