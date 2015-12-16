@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yibu.headmaster.AssessActivity;
+import com.yibu.headmaster.GiveClassActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
@@ -109,7 +110,7 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 		switch (v.getId()) {
 
 		case R.id.relativeLayout_textView_shouke:
-			Intent shouke = new Intent(mContext, AssessActivity.class);
+			Intent shouke = new Intent(mContext, GiveClassActivity.class);
 			shouke.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			shouke.putExtra("title", searchtype);
 			mContext.startActivity(shouke);

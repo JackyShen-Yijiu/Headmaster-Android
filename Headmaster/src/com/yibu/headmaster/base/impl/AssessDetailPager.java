@@ -4,16 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.adapter.AssessAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
@@ -30,7 +27,7 @@ import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public class AssessDetailPager extends BasePager implements OnClickListener {
+public class AssessDetailPager extends BasePager {
 
 	private View view;
 	private ArrayList<Commentlist> list = new ArrayList<Commentlist>();
@@ -47,11 +44,23 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 	private DountChartDemo assessThan;// 评价比列
 
 	private int searchtype = 1; // 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
-	private boolean moreData = false;
+	private boolean hasMoreData = true;
 
 	public AssessDetailPager(Context context, int i, int searchtype) {
 		super(context);
-		commentlevel = i;
+
+		switch (i) {
+		case 1:
+			this.commentlevel = 3;
+			break;
+		case 3:
+			this.commentlevel = 1;
+			break;
+
+		default:
+			commentlevel = i;
+			break;
+		}
 		this.searchtype = searchtype;
 	}
 
@@ -65,6 +74,8 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 		list_assess = pullToRefreshListView.getRefreshableView();
 		list_assess.setCacheColorHint(Color.TRANSPARENT);
 		list_assess.setDividerHeight(0);
+		list_assess.setSelector(R.drawable.listview_selector);
+
 		viewHeader = View.inflate(mContext, R.layout.assess_head_view, null);
 		relativeLayout_ring = (RelativeLayout) viewHeader
 				.findViewById(R.id.RelativeLayout_ring);
@@ -86,15 +97,17 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 				pullToRefreshListView.onRefreshComplete();
 			}
 		});
+
 		pullToRefreshListView
 				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
 					@Override
 					public void onLastItemVisible() {
-						if (moreData) {
+
+						if (!hasMoreData) {
 							ToastUtil.showToast(mContext, "没有更多数据了");
 						} else {
-							curpage++;
 							loadNetworkData();
+							curpage++;
 						}
 					}
 				});
@@ -122,24 +135,6 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 	}
 
 	@Override
-	public void onClick(View v) {
-
-		switch (v.getId()) {
-
-		case R.id.relativeLayout_textView_shouke:
-			Intent shouke = new Intent(mContext, AssessActivity.class);
-			shouke.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			mContext.startActivity(shouke);
-			break;
-		case R.id.relativeLayout_textView_pingjia:
-			Intent pingjia = new Intent(mContext, AssessActivity.class);
-			pingjia.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			mContext.startActivity(pingjia);
-			break;
-		}
-	}
-
-	@Override
 	public void process(String data) {
 		// 加载
 		if (commentlevel == 4) {
@@ -155,7 +150,7 @@ public class AssessDetailPager extends BasePager implements OnClickListener {
 			list.clear();
 		}
 		if (commentlist.size() == 0) {
-			moreData = true;
+			hasMoreData = false;
 		} else {
 			list.addAll(commentlist);
 			adapter.notifyDataSetChanged();

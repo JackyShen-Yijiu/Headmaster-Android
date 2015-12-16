@@ -41,6 +41,7 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView>
 
 	abstract public ContextMenuInfo getContextMenuInfo();
 
+	@Override
 	public final void onScroll(final AbsListView view,
 			final int firstVisibleItem, final int visibleItemCount,
 			final int totalItemCount) {

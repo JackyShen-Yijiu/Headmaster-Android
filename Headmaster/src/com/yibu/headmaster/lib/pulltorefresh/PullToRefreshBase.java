@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 
 import com.yibu.headmaster.R;
 
-
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
 
 	final class SmoothScrollRunnable implements Runnable {
@@ -154,6 +153,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
 	 * @deprecated
 	 * @return The Refreshable View which is currently wrapped
 	 */
+	@Deprecated
 	public final T getAdapterView() {
 		return refreshableView;
 	}
