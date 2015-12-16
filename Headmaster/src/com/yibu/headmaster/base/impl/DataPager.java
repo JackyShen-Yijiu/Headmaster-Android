@@ -190,93 +190,18 @@ public class DataPager extends BasePager implements OnClickListener {
 	}
 
 	// 设置圆盘的值
-	// private void setCircleData(final MainOfTodayBean todayBean) {
-	//
-	// progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
-	// progressOutsideForcast.setProgress(0);
-	// // 动画效果
-	// new Thread(new Runnable() {
-	//
-	// @Override
-	// public void run() {
-	// for (int i = 0; i < todayBean.reservationcoursecountday; i++) {
-	// try {
-	// Thread.sleep(1000 / todayBean.reservationcoursecountday);
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	// }
-	//
-	// progressOut1++;
-	// Message msg = Message.obtain();
-	// msg.what = 1;
-	// msgHandler.sendMessage(msg);
-	// }
-	// }
-	// }).start();
-	// progressOutside.setMax(todayBean.coachstotalcoursecount);
-	// progressOutside.setProgress(0);
-	// // 动画效果
-	// new Thread(new Runnable() {
-	//
-	// @Override
-	// public void run() {
-	// for (int i = 0; i < todayBean.finishreservationnow; i++) {
-	// try {
-	// Thread.sleep(1000 / todayBean.finishreservationnow);
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	// }
-	//
-	// progressOut2++;
-	// Message msg = Message.obtain();
-	// msg.what = 2;
-	// msgHandler.sendMessage(msg);
-	// }
-	// }
-	// }).start();
-	//
-	// progressInsideForcast.setMax(todayBean.coachcoursenow);
-	// progressInsideForcast.setProgress(todayBean.coachcoursenow);
-	// if (todayBean.coachcoursenow == 0) {
-	//
-	// progressInsideForcast.setMax(100);
-	// progressInsideForcast.setProgress(100);
-	// }
-	//
-	// progressInside.setMax(todayBean.coachcoursenow);
-	// progressInside.setProgress(0);
-	// new Thread(new Runnable() {
-	//
-	// @Override
-	// public void run() {
-	// for (int i = 0; i < todayBean.finishreservationnow; i++) {
-	// try {
-	// Thread.sleep(1000 / todayBean.finishreservationnow);
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	// }
-	//
-	// progressIn2++;
-	// Message msg = Message.obtain();
-	// msg.what = 3;
-	// msgHandler.sendMessage(msg);
-	// }
-	// }
-	// }).start();
-	// }
-
 	private void setCircleData(final MainOfTodayBean todayBean) {
 
-		progressOutsideForcast.setMax(100);
+		progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
 		progressOutsideForcast.setProgress(0);
 		// 动画效果
 		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				for (int i = 0; i < 0; i++) {
+				for (int i = 0; i < todayBean.reservationcoursecountday; i++) {
 					try {
-						Thread.sleep(1000 / 98);
+						Thread.sleep(700 / todayBean.reservationcoursecountday);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -284,21 +209,21 @@ public class DataPager extends BasePager implements OnClickListener {
 					progressOut1++;
 					Message msg = Message.obtain();
 					msg.what = 1;
-					msg.obj = 0;
+					msg.obj = todayBean.reservationcoursecountday;
 					msgHandler.sendMessage(msg);
 				}
 			}
 		}).start();
-		progressOutside.setMax(100);
+		progressOutside.setMax(todayBean.coachstotalcoursecount);
 		progressOutside.setProgress(0);
 		// 动画效果
 		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				for (int i = 0; i < 76; i++) {
+				for (int i = 0; i < todayBean.finishreservationnow; i++) {
 					try {
-						Thread.sleep(1000 / 76);
+						Thread.sleep(700 / todayBean.finishreservationnow);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -306,41 +231,42 @@ public class DataPager extends BasePager implements OnClickListener {
 					progressOut2++;
 					Message msg = Message.obtain();
 					msg.what = 2;
-					msg.obj = 76;
+					msg.obj = todayBean.finishreservationnow;
 					msgHandler.sendMessage(msg);
 				}
 			}
 		}).start();
 
-		progressInsideForcast.setMax(todayBean.coachcoursenow);
-		progressInsideForcast.setProgress(todayBean.coachcoursenow);
 		if (todayBean.coachcoursenow == 0) {
 
 			progressInsideForcast.setMax(100);
 			progressInsideForcast.setProgress(100);
+		} else {
+			progressInsideForcast.setMax(todayBean.coachcoursenow);
+			progressInsideForcast.setProgress(todayBean.coachcoursenow);
 		}
 
-		progressInside.setMax(100);
+		progressInside.setMax(todayBean.coachcoursenow);
 		progressInside.setProgress(0);
-		// new Thread(new Runnable() {
-		//
-		// @Override
-		// public void run() {
-		// for (int i = 0; i < 54; i++) {
-		// try {
-		// Thread.sleep(1000 / 54);
-		// } catch (InterruptedException e) {
-		// e.printStackTrace();
-		// }
-		//
-		// progressIn2++;
-		// Message msg = Message.obtain();
-		// msg.what = 3;
-		// msg.obj = 54;
-		// msgHandler.sendMessage(msg);
-		// }
-		// }
-		// }).start();
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (int i = 0; i < todayBean.coursestudentnow; i++) {
+					try {
+						Thread.sleep(700 / todayBean.coursestudentnow);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+					progressIn2++;
+					Message msg = Message.obtain();
+					msg.what = 3;
+					msg.obj = todayBean.coursestudentnow;
+					msgHandler.sendMessage(msg);
+				}
+			}
+		}).start();
 	}
 
 	private int progressOut1 = 0;

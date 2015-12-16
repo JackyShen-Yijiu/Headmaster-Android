@@ -41,7 +41,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#333333"
+            android:textColor="#bfbfbf"
             android:textSize="16dp" />
 
         <LinearLayout
@@ -78,5 +78,11 @@
         android:textColor="#999999"
         android:layout_marginRight="15dp"
         android:textSize="12sp" />
+    <View
+        android:id="@+id/iv_item_deviderline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#2a2a2a" />
 
 </RelativeLayout>

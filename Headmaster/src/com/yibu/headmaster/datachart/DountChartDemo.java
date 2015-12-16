@@ -161,10 +161,12 @@ public class DountChartDemo extends DemoView {
 						100)));
 			} else {
 
-				int good = (int) ((commentcount.goodcommnent) / (sum * 1.0f)) * 100;
-				int bad = (int) ((commentcount.badcomment) / (sum * 1.0f)) * 100;
+				int good = (int) (((commentcount.goodcommnent) / (sum * 1.0f)) * 100);
+				int bad = (int) (((commentcount.badcomment) / (sum * 1.0f)) * 100);
 				int general = 100 - good - bad;
 
+				LogUtil.print("总评论---" + (commentcount.goodcommnent)
+						/ (sum * 1.0f) * 100);
 				lPieData.add(new PieData("好评", good + "%", good, Color.rgb(1,
 						226, 182)));
 				lPieData.add(new PieData("中评", bad + "%", bad, Color.rgb(2,

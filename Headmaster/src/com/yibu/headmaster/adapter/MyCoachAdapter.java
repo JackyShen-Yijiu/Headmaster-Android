@@ -29,8 +29,6 @@ public class MyCoachAdapter extends BasicAdapter<CoachBean> {
 		this.context = context;
 	}
 
-	private int index = -1;
-
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		CoachHolder mHolder = null;

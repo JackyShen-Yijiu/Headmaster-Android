@@ -79,16 +79,16 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void processSuccess(String data) {
-		// TODO Auto-generated method stub
 		ZProgressHUD.getInstance(this).show();
-		ZProgressHUD.getInstance(this).dismissWithSuccess("反馈成功");
+		ZProgressHUD.getInstance(this).dismissWithSuccess("反馈成功！");
 		callContent.setText("");
 
 	}
 
 	@Override
 	public void processFailure() {
-		// TODO Auto-generated method stub
+		ZProgressHUD.getInstance(this).show();
+		ZProgressHUD.getInstance(this).dismissWithSuccess("反馈失败！");
 	}
 
 }

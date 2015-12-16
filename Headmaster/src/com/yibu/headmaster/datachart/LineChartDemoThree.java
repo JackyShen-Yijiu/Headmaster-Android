@@ -135,7 +135,7 @@ public class LineChartDemoThree extends DemoView {
 			chartLn.getDataAxis().hideAxisLine();
 			chartLn.getDataAxis().hideTickMarks();
 
-			// chartLn.getCategoryAxis().hideTickMarks();
+			chartLn.getCategoryAxis().hideTickMarks();
 			chartLn.getCategoryAxis().hideAxisLine();
 
 			// chartLn.getDataAxis().setTickLabelRotateAngle(-90);

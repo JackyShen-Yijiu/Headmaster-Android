@@ -11,6 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/assess_title" />
 
     <TextView
@@ -19,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/assess_student_image"
         android:layout_below="@id/assess_student_image"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="18dp"
         android:text="我叫车"
         android:textColor="#bfbfbf"
         android:textSize="15sp" />
@@ -51,16 +52,9 @@
         android:layout_above="@id/textView_content"
         android:layout_alignRight="@id/assess_coach_image"
         android:text="李教练"
+        android:layout_marginTop="18dp"
         android:textColor="#bfbfbf"
         android:textSize="15sp" />
-
-    <ImageView
-        android:id="@+id/imageView_assess_talk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView_student_id"
-        android:layout_alignRight="@+id/assess_student_image"
-        android:src="@drawable/assess_new" />
 
     <TextView
         android:id="@+id/textView_time"
@@ -89,17 +83,26 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:isIndicator="true"
         android:rating="0" />
+    <CheckBox 
+            android:id="@+id/checkBox_assess_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+			android:button="@null"
+			android:visibility="gone"
+            android:background="@drawable/switch_bkground" />
 
     <TextView
         android:id="@+id/textView_class"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/assess_student_image"
         android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@id/textView_student_id"
+        android:layout_marginTop="45dp"
+        android:layout_toRightOf="@id/assess_student_image"
         android:text="经济班"
         android:textColor="#bfbfbf" />
 
@@ -107,6 +110,7 @@
         android:id="@+id/iv_item_deviderline"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="3dp"
         android:layout_below="@id/textView_time"
         android:background="#2a2a2a" />
 
@@ -114,9 +118,9 @@
         android:id="@+id/textView_subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView_class"
         android:layout_alignBottom="@+id/textView_class"
-        android:layout_toRightOf="@+id/imageView_star"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/imageView_talk"
         android:text="科2"
         android:textColor="#bfbfbf" />
 
@@ -124,8 +128,18 @@
         android:id="@+id/imageView_talk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView_subject"
-        android:layout_alignLeft="@+id/assess_coach_image"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="45dp"
+        android:layout_alignTop="@+id/textView_subject"
+        android:src="@drawable/assess_new" />
+
+    <ImageView
+        android:id="@+id/imageView_assess_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="45dp"
+        android:layout_alignTop="@+id/textView_class"
         android:src="@drawable/assess_new" />
 
 </RelativeLayout>

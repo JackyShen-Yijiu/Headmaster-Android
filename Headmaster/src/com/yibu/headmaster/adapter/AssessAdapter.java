@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -54,6 +55,11 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 					.findViewById(R.id.imageView_talk);
 			holder.startLevel = (RatingBar) convertView
 					.findViewById(R.id.imageView_star);
+			holder.complaintSwitch = (CheckBox) convertView
+					.findViewById(R.id.checkBox_assess_switch);
+			holder.complaintSwitch.setVisibility(View.GONE);
+			holder.startLevel.setVisibility(View.VISIBLE);
+
 			// ViewUtils.inject(holder, convertView);
 			convertView.setTag(holder);
 		} else {
@@ -112,6 +118,7 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 		ImageView coachhead;
 		ImageView talk;
 		RatingBar startLevel;
+		CheckBox complaintSwitch;
 	}
 
 	class DeleteOnClickListener implements OnClickListener {

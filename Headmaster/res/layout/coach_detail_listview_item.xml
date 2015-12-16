@@ -3,23 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
-    <ImageView
-        android:id="@+id/coach_detail_image"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/assess_title" />
+    <RelativeLayout
+        android:id="@+id/coach_icon_talk_rl"
+        android:layout_width="48dp"
+        android:layout_height="48dp" 
+         android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            >
+
+        <ImageView
+            android:id="@+id/coach_detail_image"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:src="@drawable/assess_title" />
+
+        <ImageView
+            android:id="@+id/imageView_talk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/assess_new" />
+    </RelativeLayout>
 
     <View
         android:id="@+id/iv_item_deviderline"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/coach_detail_image"
-        android:layout_marginTop="39dp"
+        android:layout_below="@+id/coach_icon_talk_rl"
+        android:layout_marginTop="40dp"
         android:background="#2a2a2a" />
 
     <TextView
@@ -27,10 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageView__coach_star"
-        android:layout_alignTop="@+id/coach_detail_image"
+        android:layout_alignTop="@+id/coach_icon_talk_rl"
         android:text="毛云娇"
         android:textColor="#bfbfbf"
-        android:textSize="15sp" />
+        android:textSize="16sp" />
 
     <RatingBar
         android:id="@+id/imageView__coach_star"
@@ -42,14 +57,6 @@
         android:isIndicator="true"
         android:rating="0" />
 
-    <ImageView
-        android:id="@+id/imageView_talk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView__coach_star"
-        android:layout_alignRight="@+id/coach_detail_image"
-        android:src="@drawable/assess_new" />
-
     <TextView
         android:id="@+id/textView_subject"
         android:layout_width="wrap_content"
@@ -59,7 +66,7 @@
         android:layout_marginRight="18dp"
         android:text="课时"
         android:textColor="#bfbfbf"
-        android:textSize="12sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textView_hour"
@@ -69,9 +76,10 @@
         android:layout_toLeftOf="@+id/textView_subject"
         android:text="19"
         android:textColor="#bfbfbf"
-        android:textSize="22sp" />
+        android:textSize="24sp" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -87,7 +95,7 @@
             android:layout_marginLeft="16dp"
             android:text="好评0"
             android:textColor="#bfbfbf"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textView_general"
@@ -98,7 +106,7 @@
             android:layout_toRightOf="@+id/textView_good"
             android:text="中评0"
             android:textColor="#bfbfbf"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textView_bad"
@@ -109,7 +117,7 @@
             android:layout_toLeftOf="@+id/textView_complain"
             android:text="差评0"
             android:textColor="#bfbfbf"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textView_complain"
@@ -120,7 +128,7 @@
             android:layout_marginRight="18dp"
             android:text="投诉0"
             android:textColor="#bfbfbf"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
     </RelativeLayout>
 
 </RelativeLayout>

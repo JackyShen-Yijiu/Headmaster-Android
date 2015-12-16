@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#00000000"
+        android:background="@drawable/main_bg"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="14dp"
-                android:background="#f7f9fb"
+                android:background="@android:color/transparent"
                 android:cacheColorHint="#00000000"
                 android:divider="@android:color/transparent"
                 android:fadingEdge="none"

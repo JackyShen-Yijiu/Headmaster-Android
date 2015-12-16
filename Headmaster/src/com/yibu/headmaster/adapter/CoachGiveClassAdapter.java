@@ -3,17 +3,23 @@ package com.yibu.headmaster.adapter;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.yibu.common.Config.UserType;
+import com.yibu.headmaster.ChatActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.bean.CoachGiveClassBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
+import com.yibu.headmaster.utils.ZProgressHUD;
 
 public class CoachGiveClassAdapter extends BasicAdapter<CoachGiveClassBean> {
 
@@ -47,7 +53,12 @@ public class CoachGiveClassAdapter extends BasicAdapter<CoachGiveClassBean> {
 					.findViewById(R.id.textView_complain);
 			holder.coachStar = (RatingBar) convertView
 					.findViewById(R.id.imageView__coach_star);
-
+			holder.relativeLayoutTalk = (RelativeLayout) convertView
+					.findViewById(R.id.coach_icon_talk_rl);
+			System.out.println("-------" + position);
+			// 进入聊天界面
+			holder.relativeLayoutTalk
+					.setOnClickListener(new TalkOnClickListener(position));
 			convertView.setTag(holder);
 		} else {
 			holder = (CoachGiveClassHolder) convertView.getTag();
@@ -82,6 +93,35 @@ public class CoachGiveClassAdapter extends BasicAdapter<CoachGiveClassBean> {
 		TextView coachBad;
 		TextView coachComplain;
 		RatingBar coachStar;
+		RelativeLayout relativeLayoutTalk;
 	}
 
+	class TalkOnClickListener implements OnClickListener {
+
+		private int index = -1;
+
+		public TalkOnClickListener(int position) {
+			index = position;
+		}
+
+		@Override
+		public void onClick(View v) {
+			CoachGiveClassBean coachBean = list.get(index);
+			String chatId = coachBean.coachid;
+			if (!TextUtils.isEmpty(chatId)) {
+				Intent intent = new Intent(context, ChatActivity.class);
+				intent.putExtra("chatId", chatId);
+				intent.putExtra("chatName", coachBean.name);
+				intent.putExtra("chatUrl", coachBean.headportrait.originalpic);
+				intent.putExtra("userTypeNoAnswer", UserType.COACH.getValue());
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				context.startActivity(intent);
+			} else {
+				ZProgressHUD.getInstance(context).show();
+				ZProgressHUD.getInstance(context)
+						.dismissWithFailure("无法获取对方信息");
+			}
+		}
+
+	}
 }

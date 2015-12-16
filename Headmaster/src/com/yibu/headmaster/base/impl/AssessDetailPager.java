@@ -11,13 +11,16 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.google.gson.reflect.TypeToken;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.adapter.AssessAdapter;
+import com.yibu.headmaster.adapter.ComplaintAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.AssessBean;
 import com.yibu.headmaster.bean.AssessBean.Commentcount;
 import com.yibu.headmaster.bean.AssessBean.Commentlist;
+import com.yibu.headmaster.bean.ComplaintBean;
 import com.yibu.headmaster.datachart.DountChartDemo;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnLastItemVisibleListener;
@@ -30,8 +33,10 @@ import com.yibu.headmaster.utils.ToastUtil;
 public class AssessDetailPager extends BasePager {
 
 	private View view;
-	private ArrayList<Commentlist> list = new ArrayList<Commentlist>();
-	private AssessAdapter adapter;
+	private ArrayList<Commentlist> listAssess = new ArrayList<Commentlist>();
+	private ArrayList<ComplaintBean> listComplaint = new ArrayList<ComplaintBean>();
+	private AssessAdapter adapterAssess;
+	private ComplaintAdapter adapterComplaint;
 	private int curpage = 1;
 	private int commentlevel = 1; // 评价等级 1 差评2 中评 3 好评
 	private View viewHeader;
@@ -48,19 +53,19 @@ public class AssessDetailPager extends BasePager {
 
 	public AssessDetailPager(Context context, int i, int searchtype) {
 		super(context);
-
-		switch (i) {
-		case 1:
-			this.commentlevel = 3;
-			break;
-		case 3:
-			this.commentlevel = 1;
-			break;
-
-		default:
-			commentlevel = i;
-			break;
-		}
+		commentlevel = i;
+		// switch (i) {
+		// case 1:
+		// this.commentlevel = 3;
+		// break;
+		// case 3:
+		// this.commentlevel = 1;
+		// break;
+		//
+		// default:
+		// commentlevel = i;
+		// break;
+		// }
 		this.searchtype = searchtype;
 	}
 
@@ -80,13 +85,26 @@ public class AssessDetailPager extends BasePager {
 		relativeLayout_ring = (RelativeLayout) viewHeader
 				.findViewById(R.id.RelativeLayout_ring);
 		list_assess.addHeaderView(viewHeader);
+
 		return view;
 	}
 
 	@Override
 	public void initData() {
-		adapter = new AssessAdapter(mContext, list);
-		list_assess.setAdapter(adapter);
+		if (commentlevel == 4) {
+			adapterComplaint = new ComplaintAdapter(mContext, listComplaint);
+			list_assess.setAdapter(adapterComplaint);
+		} else {
+
+			adapterAssess = new AssessAdapter(mContext, listAssess);
+			list_assess.setAdapter(adapterAssess);
+		}
+		if (commentlevel == 4) {
+			list_assess.removeHeaderView(viewHeader);
+		} else {
+			// list_assess.removeHeaderView(viewHeader);
+
+		}
 
 		// 给PullToRefreshListView设置监听器
 		pullToRefreshListView.setOnRefreshListener(new OnRefreshListener() {
@@ -118,7 +136,7 @@ public class AssessDetailPager extends BasePager {
 
 		if (commentlevel == 4) {
 
-			ApiHttpClient.get("statistics/commentdetails?userid="
+			ApiHttpClient.get("statistics/complaintdetails?userid="
 					+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
 					+ HeadmasterApplication.app.userInfo.driveschool.schoolid
 					+ "&index=" + curpage + "&count=10", handler);
@@ -139,23 +157,48 @@ public class AssessDetailPager extends BasePager {
 		// 加载
 		if (commentlevel == 4) {
 
-		}
-		AssessBean assessBean = JsonUtil
-				.parseJsonToBean(data, AssessBean.class);
-		List<Commentlist> commentlist = null;
-		if (assessBean != null) {
-			commentlist = assessBean.commentlist;
-		}
-		if (curpage == 1) {
-			list.clear();
-		}
-		if (commentlist.size() == 0) {
-			hasMoreData = false;
-		} else {
-			list.addAll(commentlist);
-			adapter.notifyDataSetChanged();
-			progressBar_main.setVisibility(View.GONE);
+			List<ComplaintBean> comList = (List<ComplaintBean>) JsonUtil
+					.parseJsonToList(data,
+							new TypeToken<List<ComplaintBean>>() {
+							}.getType());
+			if (comList != null) {
 
+				if (curpage == 1) {
+					listComplaint.clear();
+				}
+				if (comList.size() == 0 && curpage != 1) {
+					hasMoreData = false;
+				} else {
+					listComplaint.addAll(comList);
+					adapterComplaint.notifyDataSetChanged();
+					progressBar_main.setVisibility(View.GONE);
+
+				}
+			}
+		} else {
+			AssessBean assessBean = JsonUtil.parseJsonToBean(data,
+					AssessBean.class);
+			List<Commentlist> commentlist = null;
+
+			if (assessBean != null) {
+				commentlist = assessBean.commentlist;
+			}
+			if (curpage == 1) {
+				listAssess.clear();
+			}
+			if (commentlist.size() == 0) {
+				if (curpage == 1) {
+					System.out.println("没有数据了。。。。。。");
+					ToastUtil.showToast(mContext, "没有数据");
+				} else {
+					hasMoreData = false;
+
+				}
+			} else {
+				listAssess.addAll(commentlist);
+				adapterAssess.notifyDataSetChanged();
+
+			}
 			// 评价比列--------------------------
 			if (assessBean != null) {
 				Commentcount commentcount = assessBean.commentcount;
@@ -167,6 +210,8 @@ public class AssessDetailPager extends BasePager {
 				params.width = LayoutParams.MATCH_PARENT;
 				assessThan.setLayoutParams(params);
 			}
+			progressBar_main.setVisibility(View.GONE);
 		}
+
 	}
 }

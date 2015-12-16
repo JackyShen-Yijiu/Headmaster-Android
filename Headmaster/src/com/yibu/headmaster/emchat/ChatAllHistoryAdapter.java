@@ -91,13 +91,13 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
 					.findViewById(R.id.list_item_layout);
 			convertView.setTag(holder);
 		}
-		if (position % 2 == 0) {
-			holder.list_item_layout
-					.setBackgroundResource(R.drawable.mm_listitem);
-		} else {
-			holder.list_item_layout
-					.setBackgroundResource(R.drawable.mm_listitem_grey);
-		}
+		// if (position % 2 == 0) {
+		// holder.list_item_layout
+		// .setBackgroundResource(R.drawable.mm_listitem);
+		// } else {
+		// holder.list_item_layout
+		// .setBackgroundResource(R.drawable.mm_listitem_grey);
+		// }
 
 		// 获取与此用户/群组的会话
 		EMConversation conversation = getItem(position);
