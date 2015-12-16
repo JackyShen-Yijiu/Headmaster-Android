@@ -37,7 +37,7 @@
     <EditText
         android:id="@+id/et_publish_bulletin_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_below="@+id/rg_publish_bulletin_select"
         android:hint="@string/max_300_word"
         android:gravity="left|top"
@@ -46,9 +46,11 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
-        android:textColor="#bfbfbf"
+        android:textColor="#ffffff"
         android:background="@null"
-        android:minLines="7" >
+        android:scrollbars="vertical"
+		android:clickable="true"
+        android:maxLines="7" >
 
     </EditText>
 
