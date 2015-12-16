@@ -81,7 +81,7 @@ public class Axis {
 			mPaintTickLabels = new Paint();
 			mPaintTickLabels.setColor(Color.BLACK);
 			mPaintTickLabels.setTextAlign(Align.RIGHT);
-			mPaintTickLabels.setTextSize(20);
+			mPaintTickLabels.setTextSize(28);
 			mPaintTickLabels.setAntiAlias(true);
 		}
 	}

@@ -28,19 +28,6 @@
         android:textSize="14sp"
          />
 
-    <TextView
-        android:id="@+id/textView_item_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/imageView_item_cover"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:text="content"
-        android:textColor="#bfbfbf"
-        android:textSize="14sp" />
-
     <View
         android:id="@+id/iv_item_deviderline"
         android:layout_width="match_parent"
@@ -48,5 +35,18 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageView_item_cover"
         android:background="#2a2a2a" />
+
+    <TextView
+        android:id="@+id/textView_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView_item_cover"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/imageView_item_cover"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="content"
+        android:textColor="#bfbfbf"
+        android:textSize="14sp" />
 
 </RelativeLayout>

@@ -13,36 +13,6 @@
         android:layout_height="match_parent" >
 
         <RelativeLayout
-            android:id="@+id/my_rl_xingxi"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <ImageView
-                android:id="@+id/iv_left_head_portrait"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/left_title" />
-
-            <FrameLayout 
-                android:id="@+id/iv_left_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:padding="21dp"
-                android:layout_alignParentTop="true"
-                >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/left_menu" />
-            </FrameLayout>
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/my_rl_notice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,6 +73,33 @@
                 android:textSize="16sp"
                 android:textColor="#bfbfbf" />
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_rl_xingxi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="58dp" >
+
+            <ImageView
+                android:id="@+id/iv_left_head_portrait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/left_title" />
+
+            <FrameLayout
+                android:id="@+id/iv_left_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:padding="21dp" >
+            </FrameLayout>
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

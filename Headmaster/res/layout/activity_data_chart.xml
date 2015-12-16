@@ -37,7 +37,7 @@
               android:layout_marginRight="16dp"
               android:text="共107人"
               android:textColor="#01e2b6"
-              android:textSize="16sp" />
+              android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -78,7 +78,7 @@
               android:layout_marginRight="16dp"
               android:text="共27人"
               android:textColor="#01e2b6"
-              android:textSize="16sp" />
+              android:textSize="14sp" />
     </RelativeLayout>  
     <RelativeLayout
         android:id="@+id/RelativeLayout_charttwo"
@@ -106,7 +106,7 @@
               android:layout_height="wrap_content"
               android:layout_centerHorizontal="true"
               android:gravity="center"
-              android:text="教授授课"
+              android:text="教练授课"
               android:textColor="#01e2b6"
               android:textSize="16sp" />
        
@@ -120,8 +120,8 @@
               android:layout_marginRight="16dp"
               android:text="详情"
               android:textColor="#01e2b6"
-              android:drawableRight="@drawable/assess_into"
-              android:textSize="16sp" />         
+              android:drawableRight="@drawable/xq"
+              android:textSize="14sp" />         
     </RelativeLayout>
        
        <RelativeLayout
@@ -163,8 +163,8 @@
               android:layout_marginRight="16dp"
               android:text="详情"
               android:textColor="#01e2b6"
-              android:drawableRight="@drawable/assess_into"
-              android:textSize="16sp" />         
+              android:drawableRight="@drawable/xq"
+              android:textSize="14sp" />         
     </RelativeLayout>
        
        <RelativeLayout

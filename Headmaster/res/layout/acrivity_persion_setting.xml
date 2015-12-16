@@ -30,12 +30,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/persion_head_iv"
-        android:layout_marginTop="12dp"
-        android:background="#555555" 
-        android:textColor="#b4b4b4"
-        android:paddingTop="5dp"
+        android:layout_marginTop="400dp"
+        android:background="#555555"
         android:paddingBottom="5dp"
-        android:text="@string/exit_login" />
+        android:paddingTop="5dp"
+        android:text="@string/exit_login"
+        android:textColor="#b4b4b4" />
 
 </RelativeLayout>

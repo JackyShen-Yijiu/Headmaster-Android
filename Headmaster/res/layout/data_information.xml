@@ -117,7 +117,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/xh48x46" />
+                android:src="@drawable/good_assess" />
         </LinearLayout>
         <!-- 第二个星 -->
 
@@ -139,7 +139,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/xz48x46" />
+                android:src="@drawable/middle_assess" />
         </LinearLayout>
         <!-- 第三个星 -->
 
@@ -161,7 +161,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/xc48x46" />
+                android:src="@drawable/low_assess" />
         </LinearLayout>
         <!-- 第四个星 -->
 

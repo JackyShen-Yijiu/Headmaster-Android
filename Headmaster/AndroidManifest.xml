@@ -75,7 +75,7 @@
     <application
         android:name="com.yibu.headmaster.global.HeadmasterApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/aboutUsIcon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity

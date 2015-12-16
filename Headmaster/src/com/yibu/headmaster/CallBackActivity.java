@@ -55,7 +55,7 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 	private void callBack() {
 		String content = callContent.getText().toString();
 		if (TextUtils.isEmpty(content)) {
-			ToastUtil.showToast(mContext, "请输入信息");
+			ToastUtil.showToast(mContext, "请输入您的反馈信息！");
 
 		} else {
 			// 发布公告

@@ -152,7 +152,7 @@ public class BarChartDemo extends DemoView {
 			// 横向显示柱形
 			chart.setChartDirection(XEnum.Direction.VERTICAL);
 			// 在柱形顶部显示值
-			chart.getBar().setItemLabelVisible(true);
+			// chart.getBar().setItemLabelVisible(true);
 			chart.getBar().getItemLabelPaint().setTextSize(22);
 
 			chart.setItemLabelFormatter(new IFormatterDoubleCallBack() {
