@@ -194,6 +194,7 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
 		progressOutsideForcast.setProgress(0);
+
 		// 动画效果
 		new Thread(new Runnable() {
 
@@ -214,8 +215,10 @@ public class DataPager extends BasePager implements OnClickListener {
 				}
 			}
 		}).start();
+
 		progressOutside.setMax(todayBean.coachstotalcoursecount);
 		progressOutside.setProgress(0);
+
 		// 动画效果
 		new Thread(new Runnable() {
 
@@ -248,6 +251,7 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		progressInside.setMax(todayBean.coachcoursenow);
 		progressInside.setProgress(0);
+
 		new Thread(new Runnable() {
 
 			@Override

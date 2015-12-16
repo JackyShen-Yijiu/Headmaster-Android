@@ -93,20 +93,18 @@ public class MainActivity extends Activity implements OnClickListener {
 		initView();
 		initListener();
 		initData();
-		initJpush();
 		initMyLocation();
+		initJpush();
 
 	}
 
 	private void initJpush() {
-		// TODO Auto-generated method stub
 		JPushInterface.setDebugMode(true); // 设置开发模式
 		JPushInterface.init(this); // 初始化 JPush
 		JPushInterface.setAlias(mContext, "Alias", new TagAliasCallback() {
 
 			@Override
 			public void gotResult(int arg0, String arg1, Set<String> arg2) {
-				// TODO Auto-generated method stub
 
 			}
 		});
