@@ -97,6 +97,9 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter> </activity> 
+            
+        <activity android:name="com.yibu.headmaster.GuideActivity"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".AboutUsActivity"
             android:screenOrientation="portrait" ></activity>
          <activity  android:name=".TermsActivity"
