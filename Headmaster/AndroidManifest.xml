@@ -100,6 +100,8 @@
             
         <activity android:name="com.yibu.headmaster.GuideActivity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name="com.yibu.headmaster.HomeGuideActivity"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".AboutUsActivity"
             android:screenOrientation="portrait" ></activity>
          <activity  android:name=".TermsActivity"

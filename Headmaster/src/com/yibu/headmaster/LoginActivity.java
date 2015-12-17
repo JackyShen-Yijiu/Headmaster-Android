@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -31,6 +33,7 @@ import com.yibu.common.Config;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.UserBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
+import com.yibu.headmaster.utils.CommonUtils;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.MD5;
@@ -51,6 +54,8 @@ public class LoginActivity extends Activity implements OnClickListener,
 	private Button loginBtn;
 	@ViewInject(R.id.login_rootview_rl)
 	RelativeLayout rootView;
+	@ViewInject(R.id.login_service_phone)
+	TextView servicePhone;
 
 	public static final String USER_INFO = "userInfo";
 
@@ -75,6 +80,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 	private void initListener() {
 		loginBtn.setOnClickListener(this);
 		rootView.setOnClickListener(this);
+		servicePhone.setOnClickListener(this);
 		phoneEt.setOnFocusChangeListener(new OnFocusChangeListener() {
 
 			@Override
@@ -119,10 +125,21 @@ public class LoginActivity extends Activity implements OnClickListener,
 		// getSystemService(Context.INPUT_METHOD_SERVICE);
 		// imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 		// break;
+		case R.id.login_service_phone:
+			callPhone();
 
 		default:
 			break;
 		}
+	}
+
+	private void callPhone() {
+		String phonenum = CommonUtils.getString(R.string.service_phone_number);
+
+		Intent intent = new Intent();
+		intent.setAction(Intent.ACTION_CALL);
+		intent.setData(Uri.parse("tel:" + phonenum));
+		startActivity(intent);
 	}
 
 	private void login() {
@@ -199,7 +216,6 @@ public class LoginActivity extends Activity implements OnClickListener,
 				value = dataString;
 			}
 			if (!TextUtils.isEmpty(msg)) {
-				// 加载失败，弹出失败对话框
 			} else if (value != null) {
 				process(value);
 			} else {
@@ -250,9 +266,23 @@ public class LoginActivity extends Activity implements OnClickListener,
 
 			LogUtil.print("登录环信成功！");
 			HeadmasterApplication.app.isLogin = true;
-			// 转到主界面
-			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-			startActivity(intent);
+
+			boolean isFirstOpen = SharedPreferencesUtil.getBoolean(
+					getApplicationContext(),
+					HomeGuideActivity.IS_HELP_PAGE_OPENED, false);
+			if (isFirstOpen) {
+				// 转到主界面
+				Intent intent = new Intent(LoginActivity.this,
+						MainActivity.class);
+				startActivity(intent);
+
+			} else {
+				// 转到帮助页
+				Intent intent = new Intent(LoginActivity.this,
+						HomeGuideActivity.class);
+				startActivity(intent);
+			}
+
 			finish();
 		} else {
 			LogUtil.print("登录环信失败！");

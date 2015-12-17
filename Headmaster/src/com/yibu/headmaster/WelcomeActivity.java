@@ -26,6 +26,8 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 	private String password;
 	private String lastLoginPhone;
 
+	public static String IS_APP_FIRST_OPEN = "is_app_first_open";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -58,27 +60,47 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 	protected void initData() {
 		app.userInfo = null;
 		app.isLogin = false;
-		lastLoginPhone = SharedPreferencesUtil.getString(getBaseContext(),
-				Config.LAST_LOGIN_ACCOUNT, "");
-		password = SharedPreferencesUtil.getString(getBaseContext(),
-				Config.LAST_LOGIN_PASSWORD, "");
 
-		LogUtil.print("用户名：密码：" + lastLoginPhone + password);
-		if (!TextUtils.isEmpty(lastLoginPhone) && !TextUtils.isEmpty(password)) {
-			login(lastLoginPhone, password);
-		} else {
-			// 转到主界面
+		boolean isFirstOpen = SharedPreferencesUtil.getBoolean(
+				getApplicationContext(), IS_APP_FIRST_OPEN, true);
+		if (isFirstOpen) {
 			new Handler().postDelayed(new Runnable() {
 
 				@Override
 				public void run() {
 					Intent intent = new Intent(WelcomeActivity.this,
-							LoginActivity.class);
+							GuideActivity.class);
 					startActivity(intent);
 					WelcomeActivity.this.finish();
 				}
 			}, 1000);
+			// startActivity(new Intent(WelcomeActivity.this,
+			// GuideActivity.class));
+		} else {
+			lastLoginPhone = SharedPreferencesUtil.getString(getBaseContext(),
+					Config.LAST_LOGIN_ACCOUNT, "");
+			password = SharedPreferencesUtil.getString(getBaseContext(),
+					Config.LAST_LOGIN_PASSWORD, "");
+
+			LogUtil.print("用户名：密码：" + lastLoginPhone + password);
+			if (!TextUtils.isEmpty(lastLoginPhone)
+					&& !TextUtils.isEmpty(password)) {
+				login(lastLoginPhone, password);
+			} else {
+				// 转到主界面
+				new Handler().postDelayed(new Runnable() {
+
+					@Override
+					public void run() {
+						Intent intent = new Intent(WelcomeActivity.this,
+								LoginActivity.class);
+						startActivity(intent);
+						WelcomeActivity.this.finish();
+					}
+				}, 1000);
+			}
 		}
+
 	}
 
 	private void login(String phone, String password) {

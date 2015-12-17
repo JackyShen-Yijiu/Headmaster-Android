@@ -24,7 +24,8 @@
     <string name="pull_to_refresh_release_label">释放刷新...</string>
     <string name="pull_to_refresh_refreshing_label">正在加载...</string>
     <string name="pull_to_refresh_tap_label">点击刷新</string>
-    <string name="contact_customer_service">联系客服</string>
+    <string name="contact_customer_service">如需使用请致电:010-53658566</string>
+    <string name="service_phone_number">010-53658566</string>
     <string name="publish_bulletin">发布公告</string>
     <string name="publish">发布</string>
     <string name="coach">教练</string>
@@ -58,4 +59,5 @@
     </string-array>
         <string name="exit_login">退出登入</string>
         <string name="search">搜索</string>
+        <string name="enter_app">点击进入</string>
 </resources>

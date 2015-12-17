@@ -91,6 +91,7 @@
             android:layout_marginTop="20sp"
             android:text="@string/contact_customer_service"
             android:textColor="#d7d7d7"
+            android:clickable="true"
             android:textSize="12sp" />
     </LinearLayout>
 
