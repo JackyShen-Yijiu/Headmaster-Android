@@ -232,10 +232,18 @@ public class PublishBulletinActivity extends BaseActivity {
 					}
 					// 发布公告
 					if (!TextUtils.isEmpty(msg2)) {
-						ToastUtil.showToast(mContext, msg2);
+						// ToastUtil.showToast(mContext, msg2);
+						ZProgressHUD.getInstance(PublishBulletinActivity.this)
+								.show();
+						ZProgressHUD.getInstance(PublishBulletinActivity.this)
+								.dismissWithSuccess(msg2);
 					}
 					if (!TextUtils.isEmpty(data)) {
-						ToastUtil.showToast(mContext, data);
+						ZProgressHUD.getInstance(PublishBulletinActivity.this)
+								.show();
+						ZProgressHUD.getInstance(PublishBulletinActivity.this)
+								.dismissWithSuccess(data);
+						// ToastUtil.showToast(mContext, data);
 
 						// 发布成功后，刷新列表
 						BulletinBean bean = new BulletinBean();
