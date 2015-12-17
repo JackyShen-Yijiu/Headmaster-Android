@@ -235,11 +235,18 @@ public class LoginActivity extends Activity implements OnClickListener,
 				ApiHttpClient.setHeader(new String[] { "authorization",
 						HeadmasterApplication.app.userInfo.token });
 
-				// 登录环信
-				new UserLogin(LoginActivity.this).userLogin(
-						HeadmasterApplication.app.userInfo.userid,
-						MD5.Md5(passwordEt.getText().toString()),
-						HeadmasterApplication.app.userInfo.name);
+				new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						// 登录环信
+						new UserLogin(LoginActivity.this).userLogin(
+								HeadmasterApplication.app.userInfo.userid,
+								MD5.Md5(passwordEt.getText().toString()),
+								HeadmasterApplication.app.userInfo.name);
+
+					}
+				}).start();
 			}
 
 		}
