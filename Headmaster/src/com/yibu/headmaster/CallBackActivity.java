@@ -9,7 +9,6 @@ import android.widget.EditText;
 
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.api.ApiHttpClient;
-import com.yibu.headmaster.utils.ToastUtil;
 import com.yibu.headmaster.utils.ZProgressHUD;
 
 public class CallBackActivity extends BaseActivity implements OnClickListener {
@@ -55,7 +54,9 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 	private void callBack() {
 		String content = callContent.getText().toString();
 		if (TextUtils.isEmpty(content)) {
-			ToastUtil.showToast(mContext, "请输入您的反馈信息！");
+			ZProgressHUD.getInstance(this).show();
+			ZProgressHUD.getInstance(this).dismissWithSuccess("请输入您的反馈信息！");
+			// ToastUtil.showToast(mContext, "请输入您的反馈信息！");
 
 		} else {
 			// 发布公告

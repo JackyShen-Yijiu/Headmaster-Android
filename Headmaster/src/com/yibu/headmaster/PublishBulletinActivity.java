@@ -30,6 +30,7 @@ import com.yibu.headmaster.listener.OnRefreshListener;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
+import com.yibu.headmaster.utils.ZProgressHUD;
 import com.yibu.headmaster.view.QuickReturnListView;
 
 public class PublishBulletinActivity extends BaseActivity {
@@ -195,7 +196,9 @@ public class PublishBulletinActivity extends BaseActivity {
 
 		String content = pulishContent.getText().toString();
 		if (TextUtils.isEmpty(content)) {
-			ToastUtil.showToast(mContext, "请输入公告");
+
+			ZProgressHUD.getInstance(this).show();
+			ZProgressHUD.getInstance(this).dismissWithSuccess("请输入公告！");
 
 		} else {
 			// 发布公告

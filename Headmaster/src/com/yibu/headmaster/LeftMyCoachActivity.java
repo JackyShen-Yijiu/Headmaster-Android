@@ -125,6 +125,7 @@ public class LeftMyCoachActivity extends BaseActivity {
 								+ HeadmasterApplication.app.userInfo.driveschool.schoolid
 								+ "/" + curpage + "?name="
 								+ searchText.getText().toString(), handler);
+
 	}
 
 	@Override
