@@ -33,7 +33,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
 	public TextView baseRight;
 
-	public LinearLayout content;
+	public FrameLayout content;
 
 	protected String result = "";
 	protected String msg = "";
@@ -117,7 +117,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 			densityDpi = metric.densityDpi;
 		}
 
-		content = (LinearLayout) findViewById(R.id.fl_base_content);
+		content = (FrameLayout) findViewById(R.id.fl_base_content);
 		arrowButton = (FrameLayout) findViewById(R.id.ib_base_arrow);
 		baseTitle = (TextView) findViewById(R.id.tv_base_title);
 		baseRight = (TextView) findViewById(R.id.tv_base_right);

@@ -66,7 +66,7 @@
             android:contentDescription="@string/app_name" />
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/fl_base_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -74,6 +74,6 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/base_titlebar_layout"
         android:orientation="vertical" >
-    </LinearLayout>
+    </FrameLayout>
 
 </RelativeLayout>

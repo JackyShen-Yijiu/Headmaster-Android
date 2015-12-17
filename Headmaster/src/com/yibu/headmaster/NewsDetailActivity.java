@@ -42,12 +42,10 @@ public class NewsDetailActivity extends BaseActivity {
 			}
 		});
 
-		// 配置webview
-
 		settings = webview.getSettings();
-		settings.setBuiltInZoomControls(true);// 打开缩放按钮
-		settings.setUseWideViewPort(true); // 打开双击缩放功能
-		settings.setJavaScriptEnabled(true);// 打开JavaScript脚本
+		settings.setBuiltInZoomControls(true);
+		settings.setUseWideViewPort(true);
+		settings.setJavaScriptEnabled(true);
 
 		String url = getIntent().getStringExtra("url");
 
