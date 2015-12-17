@@ -39,11 +39,12 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>  
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
   
 <!--     极光推送权限 -->
-    	<permission
-        android:name="com.yibu.headmaster.permission.JPUSH_MESSAGE"
+    	<permission android:name="com.yibu.headmaster.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.yibu.headmaster.permission.JPUSH_MESSAGE" />
@@ -173,24 +174,7 @@
     	
     	
     	<!-- 极光推送 ======================================================================== -->
-        <!-- Required SDK核心功能 -->
-        <activity
-            android:name="cn.jpush.android.ui.PushActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" 
-            android:exported="false">
-            <intent-filter>
-                <action android:name="cn.jpush.android.ui.PushActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.yibu.headmaster" />
-            </intent-filter>
-        </activity>
-        <!-- Required  SDK核心功能 -->
-        <service
-            android:name="cn.jpush.android.service.DownloadService"
-            android:enabled="true"
-            android:exported="false" >
-        </service>
+    
 
         <!-- Required SDK 核心功能 -->
           <!-- option since 2.0.5 可配置PushService，DaemonService,PushReceiver,AlarmReceiver的android:process参数 将JPush相关组件设置为一个独立进程 -->
@@ -207,6 +191,7 @@
 
              </intent-filter>
          </service>
+         
               <!-- Required SDK 核心功能 since 1.8.0 -->
          <service
              android:name="cn.jpush.android.service.DaemonService"
@@ -214,19 +199,18 @@
              android:exported="true">
              <intent-filter >
                  <action android:name="cn.jpush.android.intent.DaemonService" />
-                 <category android:name="com.asher.testaddress"/>
+                 <category android:name="com.yibu.headmaster"/>
              </intent-filter>
          </service>
+              <!-- Required  SDK核心功能-->
+              
          
               <!-- Required SDK核心功能-->
          <receiver
              android:name="cn.jpush.android.service.PushReceiver"
-             android:enabled="true"
-             android:exported="false">
+             android:enabled="true">
              <intent-filter android:priority="1000">
                  <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> 
-                
-                 <!--Required 显示通知栏 -->
                  <category android:name="com.yibu.headmaster" />
              </intent-filter>
              <intent-filter>
@@ -240,7 +224,25 @@
                  <data android:scheme="package" />
              </intent-filter>
          </receiver>
-
+         
+    <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.yibu.headmaster" />
+            </intent-filter>
+        </activity>
+            <!-- Required  SDK核心功能-->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+    
         <!-- Required SDK核心功能 -->
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
 
@@ -249,23 +251,25 @@
             android:name="com.yibu.headmaster.jpush.JpushReceiver"
             android:enabled="true">
                          <intent-filter>
+                             <!-- Required  用户注册SDK的intent -->
                 <action android:name="cn.jpush.android.intent.REGISTRATION" />
-                <!-- Required  用户注册SDK的intent -->
                 <action android:name="cn.jpush.android.intent.UNREGISTRATION" />
-                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                
                 <!-- Required  用户接收SDK消息的intent -->
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
                 <!-- Required  用户接收SDK通知栏信息的intent -->
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
                 <!-- Required  用户打开自定义通知栏的intent -->
-                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
                 <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
-                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
                 <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
                 <category android:name="com.yibu.headmaster" />
             </intent-filter>
         </receiver> 
 
+        
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data
             android:name="JPUSH_CHANNEL"
@@ -276,9 +280,10 @@
             android:value="ad6f3ad01c2fad2ead8f9b08" />
         <!-- </>值来自开发者平台取得的AppKey -->
         <!-- 推送 ======================================================================== -->
-    </application>
+   
       <!-- 友盟统计================================================== -->
         <meta-data android:value="56679ee567e58ef13a000661" android:name="UMENG_APPKEY"></meta-data>
 		<meta-data android:value="umeng" android:name="UMENG_CHANNEL"/>
+    </application>
 
 </manifest>

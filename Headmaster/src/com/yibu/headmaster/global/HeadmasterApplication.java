@@ -8,6 +8,7 @@ import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
+import cn.jpush.android.api.JPushInterface;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.sft.library.DemoHXSDKHelper;
@@ -20,7 +21,6 @@ public class HeadmasterApplication extends Application {
 	private static Context mContext;
 	// 全局handler
 	private static Handler mHandler;
-
 	public static HeadmasterApplication app;
 	public boolean isLogin;
 
@@ -38,6 +38,10 @@ public class HeadmasterApplication extends Application {
 
 		// 环信初始化
 		DemoHXSDKHelper.getInstance().onInit(this);
+
+		// 极光
+		JPushInterface.setDebugMode(true);// 设置开发模式
+		JPushInterface.init(this);// 极光初始化
 	}
 
 	public static HeadmasterApplication getInstance() {

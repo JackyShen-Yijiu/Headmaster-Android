@@ -28,32 +28,32 @@ public class JpushReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Bundle bundle = intent.getExtras();
-		Log.d(TAG, "[MyReceiver] onReceive - " + intent.getAction()
+		Log.d(TAG, "[JpushReceiver] onReceive - " + intent.getAction()
 				+ ", extras: " + printBundle(bundle));
 
 		if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
 			String regId = bundle
 					.getString(JPushInterface.EXTRA_REGISTRATION_ID);
-			Log.d(TAG, "[MyReceiver] 接收Registration Id : " + regId);
+			Log.d(TAG, "[JpushReceiver] 接收Registration Id : " + regId);
 			// send the Registration Id to your server...
 
 		} else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent
 				.getAction())) {
 			Log.d(TAG,
-					"[MyReceiver] 接收到推送下来的自定义消�? "
+					"[JpushReceiver] 接收到推送下来的自定义消�? "
 							+ bundle.getString(JPushInterface.EXTRA_MESSAGE));
 			processCustomMessage(context, bundle);
 
 		} else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent
 				.getAction())) {
-			Log.d(TAG, "[MyReceiver] 接收到推送下来的通知");
+			Log.d(TAG, "[JpushReceiver] 接收到推送下来的通知");
 			int notifactionId = bundle
 					.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
-			Log.d(TAG, "[MyReceiver] 接收到推送下来的通知的ID: " + notifactionId);
+			Log.d(TAG, "[JpushReceiver] 接收到推送下来的通知的ID: " + notifactionId);
 
 		} else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent
 				.getAction())) {
-			Log.d(TAG, "[MyReceiver] 用户点击打开了通知");
+			Log.d(TAG, "[JpushReceiver] 用户点击打开了通知");
 
 			// //打开自定义的Activity
 			// Intent i = new Intent(context, TestActivity.class);
@@ -81,7 +81,7 @@ public class JpushReceiver extends BroadcastReceiver {
 		} else if (JPushInterface.ACTION_RICHPUSH_CALLBACK.equals(intent
 				.getAction())) {
 			Log.d(TAG,
-					"[MyReceiver] 用户收到到RICH PUSH CALLBACK: "
+					"[JpushReceiver] 用户收到到RICH PUSH CALLBACK: "
 							+ bundle.getString(JPushInterface.EXTRA_EXTRA));
 			// 在这里根�?JPushInterface.EXTRA_EXTRA
 			// 的内容处理代码，比如打开新的Activity�?打开�?��网页�?.
@@ -90,10 +90,11 @@ public class JpushReceiver extends BroadcastReceiver {
 				.getAction())) {
 			boolean connected = intent.getBooleanExtra(
 					JPushInterface.EXTRA_CONNECTION_CHANGE, false);
-			Log.w(TAG, "[MyReceiver]" + intent.getAction()
+			Log.w(TAG, "[JpushReceiver]" + intent.getAction()
 					+ " connected state change to " + connected);
 		} else {
-			Log.d(TAG, "[MyReceiver] Unhandled intent - " + intent.getAction());
+			Log.d(TAG,
+					"[JpushReceiver] Unhandled intent - " + intent.getAction());
 		}
 	}
 

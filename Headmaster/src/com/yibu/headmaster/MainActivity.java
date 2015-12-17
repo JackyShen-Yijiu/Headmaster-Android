@@ -1,7 +1,6 @@
 package com.yibu.headmaster;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -25,8 +24,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -102,20 +99,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		initListener();
 		initData();
 		initMyLocation();
-		initJpush();
 
-	}
-
-	private void initJpush() {
-		JPushInterface.setDebugMode(true); // 设置开发模式
-		JPushInterface.init(this); // 初始化 JPush
-		JPushInterface.setAlias(mContext, "Alias", new TagAliasCallback() {
-
-			@Override
-			public void gotResult(int arg0, String arg1, Set<String> arg2) {
-
-			}
-		});
 	}
 
 	protected void initView() {

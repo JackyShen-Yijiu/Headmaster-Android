@@ -19,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+import cn.jpush.android.api.JPushInterface;
 
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -141,6 +142,8 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
 		// 友盟session统计
 		MobclickAgent.onResume(this);
+		// 极光统计
+		JPushInterface.onResume(this);
 
 	}
 
@@ -150,6 +153,8 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
 		// 友盟session统计
 		MobclickAgent.onPause(this);
+		// 极光统计
+		JPushInterface.onPause(this);
 
 	}
 
