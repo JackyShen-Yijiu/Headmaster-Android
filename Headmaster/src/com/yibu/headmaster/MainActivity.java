@@ -77,6 +77,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	public MyLocationListenner myListener = new MyLocationListenner();
 	Context mContext = this;
 
+	private String[] weatherStrings = new String[] { "晴", "大雪", "大雨", "多云",
+			"霾", "雾", "晴转多云", "小雪", "小雨", "雪", "中雨" };
+	private int[] weatherIconLocal = new int[] { R.drawable.clear,
+			R.drawable.heavy_snow, R.drawable.heavy_rain, R.drawable.cloudy,
+			R.drawable.haze, R.drawable.fog, R.drawable.clear_to_overcast,
+			R.drawable.flurry, R.drawable.little_rain, R.drawable.snow,
+			R.drawable.moderate_rain };
+
 	// Window window;
 
 	@Override
@@ -277,6 +285,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		mLocationClient.setLocOption(option);
 	}
 
+	private boolean isHasWeatherIconInlocal = false;
+
 	private void getWeatherInfo() {
 
 		AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler() {
@@ -294,8 +304,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 					if (weatherBean != null) {
 						weather_temp = weatherBean.now.temperature;
-						weather_pic = weatherBean.now.weather_pic;
-
+						weather_pic = weatherBean.now.weather;
+						LogUtil.print("weather:" + weather_pic);
 						// 保存天气
 						SharedPreferencesUtil.putString(
 								HeadmasterApplication.getContext(),
@@ -309,8 +319,25 @@ public class MainActivity extends Activity implements OnClickListener {
 				}
 				if (weather_pic != null && weather_temp != null) {
 					weatherDegree.setText(weather_temp + "°C");
-					Picasso.with(getApplicationContext()).load(weather_pic)
-							.into(weatherIcon);
+					// Picasso.with(getApplicationContext()).load(weather_pic)
+					// .into(weatherIcon);
+					for (int i = 0; i < weatherStrings.length; i++) {
+						if (weatherStrings[i].equals(weather_pic)) {
+							isHasWeatherIconInlocal = true;
+							// Picasso.with(getApplicationContext())
+							// .load(weatherIconLocal[i])
+							// .into(weatherIcon);
+							LogUtil.print("weatherIconLocal"
+									+ weatherIconLocal[i]);
+							weatherIcon
+									.setBackgroundResource(weatherIconLocal[i]);
+						}
+					}
+					if (!isHasWeatherIconInlocal) {
+						Picasso.with(getApplicationContext()).load(weather_pic)
+								.into(weatherIcon);
+
+					}
 
 				}
 			}
@@ -326,8 +353,21 @@ public class MainActivity extends Activity implements OnClickListener {
 						HeadmasterApplication.getContext(), WEATHER_PIC, "");
 				if (weather_pic != null && weather_temp != null) {
 					weatherDegree.setText(weather_temp + "°C");
-					Picasso.with(getApplicationContext()).load(weather_pic)
-							.into(weatherIcon);
+					for (int i = 0; i < weatherStrings.length; i++) {
+						if (weatherStrings.equals(weather_pic)) {
+							isHasWeatherIconInlocal = true;
+							// Picasso.with(getApplicationContext())
+							// .load(weatherIconLocal[i])
+							// .into(weatherIcon);
+							weatherIcon
+									.setBackgroundResource(weatherIconLocal[i]);
+						}
+					}
+					if (!isHasWeatherIconInlocal) {
+						Picasso.with(getApplicationContext()).load(weather_pic)
+								.into(weatherIcon);
+
+					}
 
 				}
 

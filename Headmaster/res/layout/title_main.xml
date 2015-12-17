@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textColor="#fefefe" 
-                android:textSize="12sp"
+                android:textSize="14sp"
                 />
             <ImageView
                 android:id="@+id/weather_icon"
@@ -62,6 +62,7 @@
                 android:layout_height="@dimen/weather_icon_height"
                 android:scaleType="centerCrop"
                 android:layout_marginRight="15dp"
+                android:layout_marginLeft="7dp"
                 android:contentDescription="@string/app_name" />
                 
             </LinearLayout>
