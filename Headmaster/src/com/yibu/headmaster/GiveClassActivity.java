@@ -9,13 +9,14 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.google.gson.reflect.TypeToken;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.yibu.headmaster.adapter.CoachGiveClassAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.CoachGiveClassBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
-import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnLastItemVisibleListener;
-import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnRefreshListener;
-import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshListView;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
@@ -42,6 +43,7 @@ public class GiveClassActivity extends BaseActivity {
 
 		pullToRefreshListView = (PullToRefreshListView) view
 				.findViewById(R.id.coach_pullToRefreshListView);
+		pullToRefreshListView.setMode(Mode.BOTH);
 		progressBar_main = (ProgressBar) view
 				.findViewById(R.id.coach_progressBar_main);
 		list_coach = pullToRefreshListView.getRefreshableView();
@@ -93,38 +95,46 @@ public class GiveClassActivity extends BaseActivity {
 		list_coach.setAdapter(adapter);
 
 		// 给PullToRefreshListView设置监听器
-		pullToRefreshListView.setOnRefreshListener(new OnRefreshListener() {
-			@Override
-			public void onRefresh() {
-				curpage = 1;
-				loadNetworkData();
-				pullToRefreshListView.onRefreshComplete();
-			}
-		});
 		pullToRefreshListView
-				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
-					@Override
-					public void onLastItemVisible() {
-						if (isLoadingMore) {
+				.setOnRefreshListener(new OnRefreshListener<ListView>() {
 
+					@Override
+					public void onRefresh(
+							PullToRefreshBase<ListView> refreshView) {
+						// curpage = 1;
+						// loadNetworkData();
+						// pullToRefreshListView.onRefreshComplete();
+						if (pullToRefreshListView.isHeaderShown()) {
+							curpage = 1;
+							loadNetworkData();
+
+						} else {
 							if (!hasMoreData) {
-								ToastUtil
-										.showToast(getBaseContext(), "没有更多数据了");
+								ToastUtil.showToast(GiveClassActivity.this,
+										"没有更多数据了");
 							} else {
 								curpage++;
-								loadNetworkData();
 							}
-						} else {
-							isLoadingMore = true;
+							loadNetworkData();
 						}
 					}
 				});
+
 		loadNetworkData();
 
 	}
 
 	private void loadNetworkData() {
 
+		if (!hasMoreData) {
+			pullToRefreshListView.postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+					pullToRefreshListView.onRefreshComplete();
+				}
+			}, 100);
+		}
 		LogUtil.print(curpage + "initData" + searchtype);
 		ApiHttpClient.get("statistics/coachcoursedetails?userid="
 				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
@@ -153,6 +163,7 @@ public class GiveClassActivity extends BaseActivity {
 				progressBar_main.setVisibility(View.GONE);
 			}
 		}
+		pullToRefreshListView.onRefreshComplete();
 	}
 
 	@Override

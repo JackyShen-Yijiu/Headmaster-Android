@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.yibu.headmaster.lib.pulltorefresh.PullToRefreshListView
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/pullToRefreshListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

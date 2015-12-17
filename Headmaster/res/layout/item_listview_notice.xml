@@ -34,7 +34,7 @@
         android:layout_height="1dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageView_item_cover"
-        android:background="#2a2a2a" />
+        android:background="@drawable/line" />
 
     <TextView
         android:id="@+id/textView_item_content"

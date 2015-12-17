@@ -26,12 +26,12 @@ import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.BulletinBean;
 import com.yibu.headmaster.bean.UserBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
-import com.yibu.headmaster.listener.OnRefreshListener;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 import com.yibu.headmaster.utils.ZProgressHUD;
 import com.yibu.headmaster.view.QuickReturnListView;
+import com.yibu.headmaster.view.QuickReturnListView.OnRefreshListener;
 
 public class PublishBulletinActivity extends BaseActivity {
 
@@ -136,6 +136,11 @@ public class PublishBulletinActivity extends BaseActivity {
 					mListView.loadMoreFinished();
 					ToastUtil.showToast(mContext, "没有更多数据了");
 				}
+			}
+
+			@Override
+			public void onRefreshing() {
+
 			}
 		});
 

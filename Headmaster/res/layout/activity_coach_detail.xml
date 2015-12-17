@@ -5,7 +5,9 @@
     android:background="@drawable/main_bg"
     android:orientation="vertical" >
 
-    <com.yibu.headmaster.lib.pulltorefresh.PullToRefreshListView
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        ptr:ptrHeaderTextColor="#fefefe"
         android:id="@+id/coach_pullToRefreshListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

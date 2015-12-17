@@ -12,6 +12,10 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.google.gson.reflect.TypeToken;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.adapter.AssessAdapter;
 import com.yibu.headmaster.adapter.ComplaintAdapter;
@@ -23,9 +27,6 @@ import com.yibu.headmaster.bean.AssessBean.Commentlist;
 import com.yibu.headmaster.bean.ComplaintBean;
 import com.yibu.headmaster.datachart.DountChartDemo;
 import com.yibu.headmaster.global.HeadmasterApplication;
-import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnLastItemVisibleListener;
-import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshBase.OnRefreshListener;
-import com.yibu.headmaster.lib.pulltorefresh.PullToRefreshListView;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
@@ -74,6 +75,7 @@ public class AssessDetailPager extends BasePager {
 		view = View.inflate(mContext, R.layout.assess_main, null);
 		pullToRefreshListView = (PullToRefreshListView) view
 				.findViewById(R.id.assess_pullToRefreshListView);
+		pullToRefreshListView.setMode(Mode.BOTH);
 		progressBar_main = (ProgressBar) view
 				.findViewById(R.id.assess_progressBar_main);
 		list_assess = pullToRefreshListView.getRefreshableView();
@@ -107,25 +109,24 @@ public class AssessDetailPager extends BasePager {
 		}
 
 		// 给PullToRefreshListView设置监听器
-		pullToRefreshListView.setOnRefreshListener(new OnRefreshListener() {
-			@Override
-			public void onRefresh() {
-				curpage = 1;
-				loadNetworkData();
-				pullToRefreshListView.onRefreshComplete();
-			}
-		});
-
 		pullToRefreshListView
-				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
-					@Override
-					public void onLastItemVisible() {
+				.setOnRefreshListener(new OnRefreshListener<ListView>() {
 
-						if (!hasMoreData) {
-							ToastUtil.showToast(mContext, "没有更多数据了");
-						} else {
+					@Override
+					public void onRefresh(
+							PullToRefreshBase<ListView> refreshView) {
+						if (pullToRefreshListView.isHeaderShown()) {
+							curpage = 1;
 							loadNetworkData();
-							curpage++;
+
+						} else {
+							if (!hasMoreData) {
+								// ToastUtil.showToast(mContext, "没有更多数据了");
+								// // hasMoreData = false;
+							} else {
+								curpage++;
+							}
+							loadNetworkData();
 						}
 					}
 				});
@@ -134,6 +135,16 @@ public class AssessDetailPager extends BasePager {
 
 	private void loadNetworkData() {
 
+		if (!hasMoreData) {
+			ToastUtil.showToast(mContext, "没有更多数据了");
+			pullToRefreshListView.postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+					pullToRefreshListView.onRefreshComplete();
+				}
+			}, 100);
+		}
 		if (commentlevel == 4) {
 
 			ApiHttpClient.get("statistics/complaintdetails?userid="
@@ -168,6 +179,7 @@ public class AssessDetailPager extends BasePager {
 				}
 				if (comList.size() == 0 && curpage != 1) {
 					hasMoreData = false;
+
 				} else {
 					listComplaint.addAll(comList);
 					adapterComplaint.notifyDataSetChanged();
@@ -212,6 +224,7 @@ public class AssessDetailPager extends BasePager {
 			}
 			progressBar_main.setVisibility(View.GONE);
 		}
+		pullToRefreshListView.onRefreshComplete();
 
 	}
 }

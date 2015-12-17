@@ -22,6 +22,7 @@ import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
+import com.yibu.headmaster.utils.ZProgressHUD;
 
 public class LeftMyCoachActivity extends BaseActivity {
 
@@ -106,6 +107,8 @@ public class LeftMyCoachActivity extends BaseActivity {
 		loadNetworkData();
 	}
 
+	private boolean isSearch = false;
+
 	private void loadNetworkData() {
 
 		ApiHttpClient.getWithFullPath("api/v1/getschoolcoach/"
@@ -119,6 +122,7 @@ public class LeftMyCoachActivity extends BaseActivity {
 	}
 
 	private void searchCoach() {
+		isSearch = true;
 		ApiHttpClient
 				.getWithFullPath(
 						"api/v1/getschoolcoach/"
@@ -126,6 +130,7 @@ public class LeftMyCoachActivity extends BaseActivity {
 								+ "/" + curpage + "?name="
 								+ searchText.getText().toString(), handler);
 
+		searchText.setText("");
 	}
 
 	@Override
@@ -136,6 +141,15 @@ public class LeftMyCoachActivity extends BaseActivity {
 				}.getType());
 
 		if (coachBeans != null) {
+			if (coachBeans.size() == 0) {
+				if (isSearch) {
+					ZProgressHUD.getInstance(LeftMyCoachActivity.this).show();
+					ZProgressHUD.getInstance(LeftMyCoachActivity.this)
+							.dismissWithSuccess("没有搜索到您要找的教练");
+					isSearch = false;
+				}
+			}
+
 			list.clear();
 			list.addAll(coachBeans);
 			adapter.notifyDataSetChanged();
