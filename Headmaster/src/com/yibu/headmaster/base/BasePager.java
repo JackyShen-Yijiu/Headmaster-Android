@@ -4,8 +4,8 @@ import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.app.Fragment;
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.View;
 

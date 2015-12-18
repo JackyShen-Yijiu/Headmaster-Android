@@ -87,7 +87,7 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 					&& !TextUtils.isEmpty(password)) {
 				login(lastLoginPhone, password);
 			} else {
-				// 转到主界面
+				// 转到登录界面
 				new Handler().postDelayed(new Runnable() {
 
 					@Override
@@ -148,6 +148,15 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 
 	}
 
+	private Handler myHandler = new Handler() {
+		@Override
+		public void handleMessage(android.os.Message msg) {
+			Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+			startActivity(intent);
+			WelcomeActivity.this.finish();
+		};
+	};
+
 	// 环信登录的回调方法
 	@Override
 	public void loginResult(boolean result, int code, String message) {
@@ -162,16 +171,29 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 			LogUtil.print("登录环信成功！");
 			HeadmasterApplication.app.isLogin = true;
 			// 转到主界面
-			new Handler().postDelayed(new Runnable() {
+			new Thread(new Runnable() {
 
 				@Override
 				public void run() {
-					Intent intent = new Intent(WelcomeActivity.this,
-							MainActivity.class);
-					startActivity(intent);
-					WelcomeActivity.this.finish();
+					try {
+						Thread.sleep(1000);
+						myHandler.sendMessage(myHandler.obtainMessage());
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 				}
-			}, 1000);
+			}).start();
+			// new Handler().postDelayed(new Runnable() {
+			//
+			// @Override
+			// public void run() {
+			// Intent intent = new Intent(WelcomeActivity.this,
+			// MainActivity.class);
+			// startActivity(intent);
+			// WelcomeActivity.this.finish();
+			// }
+			// }, 1000);
+
 		} else {
 			LogUtil.print("登录环信失败！");
 			runOnUiThread(new Runnable() {

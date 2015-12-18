@@ -45,7 +45,7 @@ public class BulletinAdapter extends BasicAdapter<BulletinBean> {
 		// 设值
 
 		holder.content.setText(bulletinBean.content);
-		if (bulletinBean.bulletobject == 1) {
+		if (bulletinBean.bulletobject == 2) {
 			holder.bulletinObject
 					.setText(CommonUtils.getString(R.string.coach));
 		} else {

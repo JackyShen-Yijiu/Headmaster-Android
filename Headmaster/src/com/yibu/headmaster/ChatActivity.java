@@ -69,6 +69,8 @@ import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
+//import com.ypy.eventbus.EventBus;
+
 /**
  * 聊天
  * 
@@ -887,6 +889,7 @@ public class ChatActivity extends BaseActivity implements
 			}
 		} catch (Exception e) {
 		}
+		// EventBus.getDefault().post(new NewMessageReceiveEvent());
 	}
 
 	@Override
@@ -1081,5 +1084,11 @@ public class ChatActivity extends BaseActivity implements
 	@Override
 	protected void initListener() {
 		setListener();
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		// EventBus.getDefault().post(new NewMessageReceiveEvent());
 	}
 }

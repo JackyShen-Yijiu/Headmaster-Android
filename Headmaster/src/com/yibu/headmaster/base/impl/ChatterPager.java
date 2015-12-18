@@ -8,6 +8,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +33,8 @@ import com.yibu.headmaster.utils.CommonUtils;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
+//import com.ypy.eventbus.EventBus;
+
 public class ChatterPager extends BasePager implements EMEventListener,
 		OnItemClickListener {
 
@@ -41,10 +44,18 @@ public class ChatterPager extends BasePager implements EMEventListener,
 
 	public ChatterPager(Context context) {
 		super(context);
+		// refresh();
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// EventBus.getDefault().register(this);
 	}
 
 	@Override
 	public void onResume() {
+		LogUtil.print("onResumechatS抽屉vity");
 		refresh();
 		EMChatManager.getInstance().registerEventListener(
 				this,
@@ -281,9 +292,21 @@ public class ChatterPager extends BasePager implements EMEventListener,
 		}
 	}
 
+	// public void onEvent(NewMessageReceiveEvent msg) {
+	// LogUtil.print("获取聊天消息");
+	// CommonUtils.runOnUIThread(new Runnable() {
+	//
+	// @Override
+	// public void run() {
+	// refresh();
+	// }
+	// });
+	// }
+
 	@Override
 	public void onPause() {
 		EMChatManager.getInstance().unregisterEventListener(this);
+		// EventBus.getDefault().unregister(this);
 		super.onPause();
 	}
 }

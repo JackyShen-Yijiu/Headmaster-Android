@@ -42,6 +42,7 @@ import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
+import com.yibu.headmaster.utils.ToastUtil;
 
 public class MainActivity extends Activity implements OnClickListener {
 	private DrawerLayout drawerLayout;
@@ -196,18 +197,20 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	}
 
+	long pressedTime = 0;
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			moveTaskToBack(true);// 相当于home键的效果
+			// moveTaskToBack(true);// 相当于home键的效果
 
-			// if(pressedTime!=0 &&
-			// (System.currentTimeMillis()-pressedTime)<2000){
-			// System.exit(0);
-			// }else {
-			// ToastUtil.showToast(this, "再按一次退出程序");
-			// pressedTime = System.currentTimeMillis();
-			// }
+			if (pressedTime != 0
+					&& (System.currentTimeMillis() - pressedTime) < 2000) {
+				System.exit(0);
+			} else {
+				ToastUtil.showToast(this, "再按一次退出程序");
+				pressedTime = System.currentTimeMillis();
+			}
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
