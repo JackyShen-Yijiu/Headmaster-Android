@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/rl_new_three"
         android:clickable="true"
-        android:layout_marginTop="40dp" >
+        android:layout_marginTop="80dp" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,26 +96,10 @@
             android:textSize="14sp" />
     </RelativeLayout>
          <RelativeLayout
-        android:id="@+id/setting_rate_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       android:layout_below="@+id/setting_aboutus_tv"
-        android:layout_marginTop="40dp" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="29dp"
-            android:text="去评分"
-            android:textColor="#bfbfbf"
-            android:textSize="14sp" />
-    </RelativeLayout>
-         <RelativeLayout
         android:id="@+id/setting_callback_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_below="@+id/setting_rate_tv"
+       android:layout_below="@+id/setting_aboutus_tv"
         android:layout_marginTop="40dp" >
         <TextView
             android:layout_width="wrap_content"

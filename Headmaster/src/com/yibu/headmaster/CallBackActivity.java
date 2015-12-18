@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import cn.sft.baseactivity.util.MyHandler;
 
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.api.ApiHttpClient;
@@ -83,7 +84,12 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 		ZProgressHUD.getInstance(this).show();
 		ZProgressHUD.getInstance(this).dismissWithSuccess("反馈成功！");
 		callContent.setText("");
-
+		new MyHandler(1000) {
+			@Override
+			public void run() {
+				finish();
+			}
+		};
 	}
 
 	@Override

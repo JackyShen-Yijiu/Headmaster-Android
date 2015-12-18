@@ -27,7 +27,6 @@ public class LeftSettingActivity extends BaseActivity implements
 				.findViewById(R.id.setting_aboutus_tv);
 		setting_callback = (RelativeLayout) view
 				.findViewById(R.id.setting_callback_tv);
-		setting_rate = (RelativeLayout) view.findViewById(R.id.setting_rate_tv);
 
 		appointmentCk = (CheckBox) findViewById(R.id.imageView_open);
 		messageCk = (CheckBox) findViewById(R.id.imageView_open1);
@@ -50,7 +49,7 @@ public class LeftSettingActivity extends BaseActivity implements
 					CallBackActivity.class);
 			startActivity(callback);
 			break;
-		case R.id.setting_rate_tv:
+		default:
 			break;
 		}
 	}
@@ -60,7 +59,6 @@ public class LeftSettingActivity extends BaseActivity implements
 
 		setting_aboutus.setOnClickListener(this);
 		setting_callback.setOnClickListener(this);
-		setting_rate.setOnClickListener(this);
 	}
 
 	@Override
