@@ -363,6 +363,7 @@ public abstract class HXSDKHelper {
 		connectionListener = new EMConnectionListener() {
 			@Override
 			public void onDisconnected(int error) {
+				System.out.println("--------木有链接了");
 				if (error == EMError.USER_REMOVED) {
 					onCurrentAccountRemoved();
 				} else if (error == EMError.CONNECTION_CONFLICT) {
@@ -375,6 +376,7 @@ public abstract class HXSDKHelper {
 			@Override
 			public void onConnected() {
 				onConnectionConnected();
+				System.out.println("--------链接了");
 			}
 		};
 

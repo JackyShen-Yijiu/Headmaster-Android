@@ -58,10 +58,18 @@ public class ChatterPager extends BasePager implements EMEventListener,
 		super.onResume();
 	}
 
+	public void checkChatterPagerHasMessage() {
+		if (conversationList.size() == 0) {
+			ToastUtil.showToast(mContext, "您现在还没有与您的教练聊天的记录");
+		}
+	}
+
 	@Override
 	public void initData() {
 		messageListView.setOnItemClickListener(this);
 
+		messageListView.setCacheColorHint(android.R.color.transparent);
+		messageListView.setDividerHeight(0);
 		if (loadConversationsWithRecentChat() != null) {
 			conversationList.addAll(loadConversationsWithRecentChat());
 

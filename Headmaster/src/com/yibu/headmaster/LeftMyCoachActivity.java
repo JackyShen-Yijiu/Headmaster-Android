@@ -54,6 +54,8 @@ public class LeftMyCoachActivity extends BaseActivity {
 		// e.printStackTrace();
 		// }
 		// }
+		mListView.setCacheColorHint(android.R.color.transparent);
+		mListView.setDividerHeight(0);
 		setSonsTitle(getString(R.string.coach_title));
 	}
 

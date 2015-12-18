@@ -811,7 +811,7 @@ public class ChatActivity extends BaseActivity implements
 				// 如果消息不是和当前聊天ID的消息
 				HXSDKHelper.getInstance().getNotifier().onNewMsg(message);
 			}
-
+			refreshUI();
 			break;
 		}
 		case EventDeliveryAck: {

@@ -175,6 +175,9 @@ public class MainActivity extends Activity implements OnClickListener {
 				title.setText(getString(R.string.my_chat_messages));
 				raButton3.setBackgroundResource(R.drawable.bottom_3);
 				weather.setVisibility(View.INVISIBLE);
+
+				ChatterPager chatterPager = (ChatterPager) pagers.get(2);
+				chatterPager.checkChatterPagerHasMessage();
 				break;
 
 			default:

@@ -60,6 +60,8 @@ public class PublishBulletinActivity extends BaseActivity {
 		mListView = (QuickReturnListView) view
 				.findViewById(R.id.lv_publish_bulletin_list);
 
+		mListView.setCacheColorHint(android.R.color.transparent);
+		mListView.setDividerHeight(0);
 		viewHeader = View.inflate(getBaseContext(), R.layout.bulletin_header,
 				null);
 

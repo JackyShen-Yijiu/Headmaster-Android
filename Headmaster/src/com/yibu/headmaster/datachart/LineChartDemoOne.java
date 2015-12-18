@@ -119,10 +119,24 @@ public class LineChartDemoOne extends DemoView {
 			chartLn.getPlotGrid().getVerticalLinePaint();
 			// chartLn.getPlotGrid().setEvenRowsFillVisible(true);
 
+			int max = Integer.MIN_VALUE;
+			for (int i = 0; i < lineData.size(); i++) {
+				if (lineData.get(i).countY > max) {
+					max = lineData.get(i).countY;
+				}
+			}
+
+			int axisMax = 8;
+			if ((max % 4 == 0) && (max != 0)) {
+				axisMax = max;
+			} else {
+				axisMax = max + 4 - max % 4;
+			}
+
 			// 数据轴最大值
-			chartLn.getDataAxis().setAxisMax(28);
+			chartLn.getDataAxis().setAxisMax(axisMax);
 			// 数据轴刻度间隔
-			chartLn.getDataAxis().setAxisSteps(7);
+			chartLn.getDataAxis().setAxisSteps(axisMax / 4);
 
 			// 仅横向平移
 			chartLn.setPlotPanMode(XEnum.PanMode.HORIZONTAL);
@@ -213,6 +227,11 @@ public class LineChartDemoOne extends DemoView {
 				mLabels.add(data.timeX);
 			}
 
+		}
+		if (mLabels.size() < 6) {
+			for (int j = 0; j < 6 - mLabels.size(); j++) {
+				mLabels.add("");
+			}
 		}
 
 	}

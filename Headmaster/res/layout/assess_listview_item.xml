@@ -109,10 +109,12 @@
     <View
         android:id="@+id/iv_item_deviderline"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="3dp"
         android:layout_marginTop="3dp"
         android:layout_below="@id/textView_time"
-        android:background="#2a2a2a" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/line" />
 
     <TextView
         android:id="@+id/textView_subject"

@@ -97,7 +97,7 @@ public class BarChartDemo extends DemoView {
 		try {
 			// 设置绘图区默认缩进px值,留置空间显示Axis,Axistitle....
 			int[] ltrb = getBarLnDefaultSpadding();
-			chart.setPadding(DensityUtil.dip2px(getContext(), 40), ltrb[1],
+			chart.setPadding(DensityUtil.dip2px(getContext(), 20), ltrb[1],
 					DensityUtil.dip2px(getContext(), 10), ltrb[3]);
 
 			// 数据源
@@ -120,10 +120,24 @@ public class BarChartDemo extends DemoView {
 			// 隐藏Key
 			chart.getPlotLegend().hide();
 
+			int max = Integer.MIN_VALUE;
+			for (int i = 0; i < lineDataList.size(); i++) {
+				if (lineDataList.get(i).countY > max) {
+					max = lineDataList.get(i).countY;
+				}
+			}
+
+			int axisMax = 8;
+			if ((max % 4 == 0) && (max != 0)) {
+				axisMax = max;
+			} else {
+				axisMax = max + 4 - max % 4;
+			}
+
 			// 数据轴
-			chart.getDataAxis().setAxisMax(28);
+			chart.getDataAxis().setAxisMax(axisMax);
 			chart.getDataAxis().setAxisMin(0);
-			chart.getDataAxis().setAxisSteps(7);
+			chart.getDataAxis().setAxisSteps(axisMax / 4);
 
 			chart.getDataAxis().getTickLabelPaint()
 					.setColor(Color.rgb(1, 226, 182));
@@ -134,7 +148,7 @@ public class BarChartDemo extends DemoView {
 
 				@Override
 				public String textFormatter(String value) {
-					String tmp = value + "节";
+					String tmp = value.substring(0, value.length() - 2);
 					return tmp;
 				}
 
@@ -205,6 +219,11 @@ public class BarChartDemo extends DemoView {
 				chartLabels.add(data.timeX);
 			}
 
+		}
+		if (chartLabels.size() < 6) {
+			for (int j = 0; j < 6 - chartLabels.size(); j++) {
+				chartLabels.add("");
+			}
 		}
 	}
 

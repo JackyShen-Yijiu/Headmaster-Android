@@ -81,8 +81,10 @@
     <View
         android:id="@+id/iv_item_deviderline"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="3dp"
         android:layout_alignParentBottom="true"
-        android:background="#2a2a2a" />
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/line" />
 
 </RelativeLayout>

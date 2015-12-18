@@ -23,8 +23,8 @@
             android:layout_marginBottom="5dp"
             android:textColor="#bfbfbf"
             android:hint="@string/search"
-            android:drawableLeft="@drawable/failure"
-            android:drawableRight="@drawable/failure"
+            android:drawableLeft="@drawable/search"
+            android:drawableRight="@drawable/search_del"
              />
         <ImageView
             android:id="@+id/base_deviderline_down"
