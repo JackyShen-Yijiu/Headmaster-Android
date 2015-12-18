@@ -202,7 +202,7 @@ public class PublishBulletinActivity extends BaseActivity {
 	private void PublishBulletin() {
 
 		String content = pulishContent.getText().toString();
-		if (TextUtils.isEmpty(content)) {
+		if (TextUtils.isEmpty(content.trim())) {
 
 			ZProgressHUD.getInstance(this).show();
 			ZProgressHUD.getInstance(this).dismissWithSuccess("请输入公告！");

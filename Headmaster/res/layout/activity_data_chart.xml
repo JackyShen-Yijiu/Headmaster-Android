@@ -175,9 +175,66 @@
         android:layout_below="@+id/relativeLayout_textView_pingjia"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="30dp"
         android:layout_marginTop="14dp" >
-         
     </RelativeLayout>
+    
+       
+       
+       <RelativeLayout
+        android:id="@+id/relativeLayout_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RelativeLayout_chartthree"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_alignParentLeft="true">
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/sh_good"
+            android:text="好评"
+            android:textColor="#00FFCC" />
+   <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:drawablePadding="8dp"
+                android:layout_toRightOf="@+id/textView1"
+                android:drawableLeft="@drawable/sh_mid"
+                android:text="中评"
+                android:textColor="#F3AD54" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_centerVertical="true"
+                android:drawablePadding="8dp"
+                android:layout_toRightOf="@+id/textView2"
+                android:drawableLeft="@drawable/sh_bad"
+                android:text="差评"
+                android:textColor="#FF663A" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+           		android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/textView3"
+                android:drawableLeft="@drawable/sh_com"
+                android:text="投诉"
+                android:textColor="#ED1C24" />
+
+    </RelativeLayout>
+    
 </RelativeLayout>
 </com.yibu.headmaster.view.CustomScrollView>

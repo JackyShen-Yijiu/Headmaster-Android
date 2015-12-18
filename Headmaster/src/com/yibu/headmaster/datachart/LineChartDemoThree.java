@@ -165,7 +165,7 @@ public class LineChartDemoThree extends DemoView {
 			chartLn.getDataAxis().hideAxisLine();
 			chartLn.getDataAxis().hideTickMarks();
 
-			chartLn.getCategoryAxis().hideTickMarks();
+			// chartLn.getCategoryAxis().hideTickMarks();
 			chartLn.getCategoryAxis().hideAxisLine();
 
 			// chartLn.getDataAxis().setTickLabelRotateAngle(-90);
@@ -200,11 +200,11 @@ public class LineChartDemoThree extends DemoView {
 					.setColor(plot.getHorizontalLinePaint().getColor());
 
 			chartLn.setXCoordFirstTickmarksBegin(true);
-			// 图例显示在正下方
-			chartLn.getPlotLegend()
-					.setVerticalAlign(XEnum.VerticalAlign.BOTTOM);
-			chartLn.getPlotLegend().setHorizontalAlign(
-					XEnum.HorizontalAlign.CENTER);
+			// 图例隐藏
+			chartLn.getPlotLegend().hide();
+			// .setVerticalAlign(XEnum.VerticalAlign.BOTTOM);
+			// chartLn.getPlotLegend().setHorizontalAlign(
+			// XEnum.HorizontalAlign.CENTER);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -222,13 +222,13 @@ public class LineChartDemoThree extends DemoView {
 			}
 
 		}
-		LineData lineData1 = new LineData("好评", dataSeries1, Color.rgb(1, 226,
-				182));
-		lineData1.setDotStyle(XEnum.DotStyle.RING);
-		lineData1.getDotLabelPaint().setColor(Color.rgb(1, 226, 182));
+		LineData lineData1 = new LineData("好评", dataSeries1, Color.rgb(0, 255,
+				204));
+		lineData1.setDotStyle(XEnum.DotStyle.DOT);
+		lineData1.getDotLabelPaint().setColor(Color.rgb(0, 255, 204));
 		lineData1.setLabelVisible(false);
-		lineData1.getLabelOptions().setLabelBoxStyle(
-				XEnum.LabelBoxStyle.CAPRECT);
+		// lineData1.getLabelOptions().setLabelBoxStyle(
+		// XEnum.LabelBoxStyle.CAPROUNDRECT);
 
 		// 中评
 		LinkedList<Double> dataSeries2 = new LinkedList<Double>();
@@ -238,13 +238,13 @@ public class LineChartDemoThree extends DemoView {
 			}
 
 		}
-		LineData lineData2 = new LineData("中评", dataSeries2, Color.rgb(2, 171,
-				138));
-		lineData2.setDotStyle(XEnum.DotStyle.RING);
-		lineData2.getPlotLine().getDotPaint().setColor(Color.rgb(2, 171, 138));
+		LineData lineData2 = new LineData("中评", dataSeries2, Color.rgb(243,
+				173, 84));
+		lineData2.setDotStyle(XEnum.DotStyle.DOT);
+		lineData2.getPlotLine().getDotPaint().setColor(Color.rgb(243, 173, 84));
 		lineData2.setLabelVisible(false);
-		lineData2.getLabelOptions().setLabelBoxStyle(
-				XEnum.LabelBoxStyle.CAPRECT);
+		// lineData2.getLabelOptions().setLabelBoxStyle(
+		// XEnum.LabelBoxStyle.CAPRECT);
 
 		// 差评
 		LinkedList<Double> dataSeries3 = new LinkedList<Double>();
@@ -254,13 +254,14 @@ public class LineChartDemoThree extends DemoView {
 			}
 
 		}
-		LineData lineData3 = new LineData("差评", dataSeries3, Color.rgb(4, 122,
-				100));
-		lineData3.setDotStyle(XEnum.DotStyle.RING);
+		LineData lineData3 = new LineData("差评", dataSeries3, Color.rgb(255,
+				102, 58));
+		lineData3.setDotStyle(XEnum.DotStyle.DOT);
 		lineData3.setLabelVisible(false);
-		lineData3.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
-		lineData3.getLabelOptions().setLabelBoxStyle(
-				XEnum.LabelBoxStyle.CAPRECT);
+		lineData3.getPlotLine().getPlotDot()
+				.setRingInnerColor(Color.rgb(255, 102, 58));
+		// lineData3.getLabelOptions().setLabelBoxStyle(
+		// XEnum.LabelBoxStyle.CAPRECT);
 
 		// 投诉
 		LinkedList<Double> dataSeries4 = new LinkedList<Double>();
@@ -270,11 +271,13 @@ public class LineChartDemoThree extends DemoView {
 			}
 
 		}
-		LineData lineData4 = new LineData("投诉", dataSeries4, Color.rgb(220, 20,
-				60));
-		lineData4.setDotStyle(XEnum.DotStyle.RING);
+		LineData lineData4 = new LineData("投诉", dataSeries4, Color.rgb(237, 28,
+				36));
+		lineData4.setDotStyle(XEnum.DotStyle.DOT);
 		lineData4.setLabelVisible(false);
-		lineData4.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
+		lineData4.getPlotLine().getPlotDot()
+				.setRingInnerColor(Color.rgb(237, 28, 36));
+
 		chartData.add(lineData1);
 		chartData.add(lineData2);
 		chartData.add(lineData3);
