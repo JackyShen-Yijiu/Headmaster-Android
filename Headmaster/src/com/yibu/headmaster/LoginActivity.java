@@ -69,12 +69,19 @@ public class LoginActivity extends Activity implements OnClickListener,
 		setContentView(R.layout.activity_login);
 		ViewUtils.inject(this);
 
-		initView();
+		initData();
 		initListener();
 	}
 
-	private void initView() {
-		// phoneEt.setHint("男");
+	private void initData() {
+		String username = SharedPreferencesUtil.getString(getBaseContext(),
+				Config.LAST_LOGIN_ACCOUNT, "");
+		String password = SharedPreferencesUtil.getString(getBaseContext(),
+				Config.LAST_LOGIN_PASSWORD, "");
+		if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+			phoneEt.setText(username);
+			passwordEt.setText(password);
+		}
 	}
 
 	private void initListener() {

@@ -347,8 +347,9 @@ public class LineChartDemoThree extends DemoView {
 			break;
 		}
 
-		if (mLabels.size() < 6) {
-			for (int j = 0; j < 6 - mLabels.size(); j++) {
+		if (mLabels.size() < 7) {
+			int temp2 = (7 - mLabels.size());
+			for (int j = 0; j < temp2; j++) {
 				mLabels.add("");
 			}
 		}

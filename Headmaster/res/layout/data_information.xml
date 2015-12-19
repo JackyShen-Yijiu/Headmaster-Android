@@ -100,6 +100,7 @@
         <!-- 第一个星 -->
 
         <LinearLayout
+            android:id="@+id/data_star_1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -122,6 +123,7 @@
         <!-- 第二个星 -->
 
         <LinearLayout
+            android:id="@+id/data_star_2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -144,6 +146,7 @@
         <!-- 第三个星 -->
 
         <LinearLayout
+            android:id="@+id/data_star_3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -166,6 +169,7 @@
         <!-- 第四个星 -->
 
         <LinearLayout
+            android:id="@+id/data_star_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

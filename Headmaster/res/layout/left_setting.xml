@@ -19,7 +19,7 @@
             android:textColor="#bfbfbf"
             android:textSize="14sp" />
        <CheckBox
-            android:id="@+id/imageView_open"
+            android:id="@+id/setting_every_day_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -44,7 +44,7 @@
             android:textColor="#bfbfbf"
             android:textSize="14sp" />
         <CheckBox 
-            android:id="@+id/imageView_open1"
+            android:id="@+id/setting_commplaint_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -69,7 +69,7 @@
             android:textColor="#bfbfbf"
             android:textSize="14sp" />
         <CheckBox 
-            android:id="@+id/imageView_open2"
+            android:id="@+id/setting_new_student_enroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

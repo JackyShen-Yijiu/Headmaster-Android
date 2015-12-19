@@ -144,7 +144,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		pagers.add(new DataPager(getBaseContext()));
 		pagers.add(new NewsPager(getBaseContext()));
-		pagers.add(new ChatterPager(getBaseContext()));
+		pagers.add(new ChatterPager(this));
 		// 设置数据适配器
 		contentPager.setAdapter(new MainPagerAdapter(pagers));
 
@@ -177,8 +177,8 @@ public class MainActivity extends Activity implements OnClickListener {
 				raButton3.setBackgroundResource(R.drawable.bottom_3);
 				weather.setVisibility(View.INVISIBLE);
 
-				ChatterPager chatterPager = (ChatterPager) pagers.get(2);
-				chatterPager.checkChatterPagerHasMessage();
+				// ChatterPager chatterPager = (ChatterPager) pagers.get(2);
+				// chatterPager.checkChatterPagerHasMessage();
 				break;
 
 			default:

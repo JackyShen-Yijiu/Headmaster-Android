@@ -2,6 +2,7 @@ package com.yibu.headmaster.adapter;
 
 import java.util.List;
 
+import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import com.yibu.headmaster.base.BasePager;
 public class MainPagerAdapter extends PagerAdapter {
 
 	private List<BasePager> pagers;
+	Context context;
 
 	public MainPagerAdapter(List<BasePager> pagers) {
 		super();

@@ -20,6 +20,7 @@ public class AssessActivity extends BaseActivity {
 	private List<AssessDetailPager> tabPagers;
 
 	private int currentTime = 1; // 当前时间
+	private int commentlevel = 1;
 
 	@Override
 	protected void initView() {
@@ -32,6 +33,7 @@ public class AssessActivity extends BaseActivity {
 				.findViewById(R.id.assess_detail_view_pager);
 
 		currentTime = getIntent().getIntExtra("title", 1);
+		commentlevel = getIntent().getIntExtra("commentlevel", 1);
 		baseTitle.setText(getTitle(currentTime) + "评价详情");
 
 	}
@@ -78,6 +80,7 @@ public class AssessActivity extends BaseActivity {
 		}
 
 		viewPager.setAdapter(new AssessDetailAdapter(titles, tabPagers));
+		viewPager.setCurrentItem(commentlevel - 1);
 		slidingTab.setViewPager(viewPager);
 
 	}

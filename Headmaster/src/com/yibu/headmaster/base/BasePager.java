@@ -4,16 +4,14 @@ import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.umeng.analytics.MobclickAgent;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public abstract class BasePager extends Fragment {
+public abstract class BasePager {
 
 	public View rootView;
 	protected Context mContext;
@@ -77,19 +75,19 @@ public abstract class BasePager extends Fragment {
 		}
 	};
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		// 统计页面
-		MobclickAgent.onPageStart(this.getClass().getSimpleName());
-	}
-
-	@Override
-	public void onPause() {
-		super.onPause();
-		// 统计页面
-		MobclickAgent.onPageStart(this.getClass().getSimpleName());
-	}
+	// @Override
+	// public void onResume() {
+	// super.onResume();
+	// // 统计页面
+	// MobclickAgent.onPageStart(this.getClass().getSimpleName());
+	// }
+	//
+	// @Override
+	// public void onPause() {
+	// super.onPause();
+	// // 统计页面
+	// MobclickAgent.onPageStart(this.getClass().getSimpleName());
+	// }
 
 	public BasePager(Context context) {
 		mContext = context;

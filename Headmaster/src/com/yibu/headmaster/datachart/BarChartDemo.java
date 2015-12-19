@@ -220,8 +220,9 @@ public class BarChartDemo extends DemoView {
 			}
 
 		}
-		if (chartLabels.size() < 6) {
-			for (int j = 0; j < 6 - chartLabels.size(); j++) {
+		if (chartLabels.size() < 7) {
+			int temp = (7 - chartLabels.size());
+			for (int j = 0; j < temp; j++) {
 				chartLabels.add("");
 			}
 		}

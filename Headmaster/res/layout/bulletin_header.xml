@@ -34,7 +34,7 @@
             android:textSize="14sp"  />
     </RadioGroup>
 
-    <EditText
+    <com.yibu.headmaster.view.BulleinEditText
         android:id="@+id/et_publish_bulletin_content"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
@@ -53,7 +53,7 @@
 		android:clickable="true"
         android:maxLines="7" >
 
-    </EditText>
+    </com.yibu.headmaster.view.BulleinEditText>
 
 </RelativeLayout>
 

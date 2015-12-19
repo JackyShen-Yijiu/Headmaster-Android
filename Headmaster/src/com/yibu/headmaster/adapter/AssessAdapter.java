@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,10 +17,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.yibu.common.Config.UserType;
+import com.yibu.headmaster.ChatActivity;
 import com.yibu.headmaster.R;
 import com.yibu.headmaster.bean.AssessBean.Commentlist;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
+import com.yibu.headmaster.utils.ZProgressHUD;
 
 public class AssessAdapter extends BasicAdapter<Commentlist> {
 
@@ -102,6 +106,10 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 
 		holder.time.setText(format1.format(date));
 
+		holder.coachhead
+				.setOnClickListener(new DeleteOnClickListener(position));
+		holder.studenthead.setOnClickListener(new DeleteOnClickListener(
+				position));
 		// holder.talk.setOnClickListener(new DeleteOnClickListener());
 		return convertView;
 
@@ -123,11 +131,45 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 
 	class DeleteOnClickListener implements OnClickListener {
 
+		private int index = -1;
+
+		public DeleteOnClickListener(int position) {
+			index = position;
+		}
+
 		@Override
 		public void onClick(View v) {
 
 			LogUtil.print("进入聊天");
+			Commentlist commentBean = list.get(index);
+			String chatId = "";
+			String name = "";
+			String url = "";
+
+			if (v.getId() == R.id.assess_student_image) {
+				chatId = commentBean.studentinfo.userid;
+				name = commentBean.studentinfo.name;
+				url = commentBean.studentinfo.headportrait.originalpic;
+			} else if (v.getId() == R.id.assess_coach_image) {
+				chatId = commentBean.coachinfo.coachid;
+				name = commentBean.coachinfo.name;
+				url = commentBean.coachinfo.headportrait.originalpic;
+			}
+			if (!TextUtils.isEmpty(chatId)) {
+				Intent intent = new Intent(context, ChatActivity.class);
+				intent.putExtra("chatId", chatId);
+				intent.putExtra("chatName", name);
+				intent.putExtra("chatUrl", url);
+				intent.putExtra("userTypeNoAnswer", UserType.COACH.getValue());
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				context.startActivity(intent);
+			} else {
+				ZProgressHUD.getInstance(context).show();
+				ZProgressHUD.getInstance(context)
+						.dismissWithFailure("无法获取对方信息");
+			}
 		}
 
 	}
+
 }

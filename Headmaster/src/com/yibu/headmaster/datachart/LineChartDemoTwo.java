@@ -196,7 +196,7 @@ public class LineChartDemoTwo extends DemoView {
 
 		LineData lineData1 = new LineData("直线", dataSeries1, Color.rgb(1, 226,
 				182));
-		lineData1.setDotStyle(XEnum.DotStyle.RING);
+		lineData1.setDotStyle(XEnum.DotStyle.DOT);
 		lineData1.getDotLabelPaint().setColor(Color.rgb(1, 226, 182));
 		lineData1.setLabelVisible(false);
 		// lineData1.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
@@ -216,8 +216,9 @@ public class LineChartDemoTwo extends DemoView {
 			}
 
 		}
-		if (mLabels.size() < 6) {
-			for (int j = 0; j < 6 - mLabels.size(); j++) {
+		if (mLabels.size() < 7) {
+			int temp = (7 - mLabels.size());
+			for (int j = 0; j < temp; j++) {
 				mLabels.add("");
 			}
 		}

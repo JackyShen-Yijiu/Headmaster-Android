@@ -69,10 +69,17 @@ public class DataPager extends BasePager implements OnClickListener {
 	private ImageView rightLine;
 	@ViewInject(R.id.fl_data_circle)
 	private FrameLayout dataCircle;
-	@ViewInject(R.id.data_star_ll)
-	private LinearLayout datastars;
+	@ViewInject(R.id.data_star_1)
+	private LinearLayout datastar1;
+	@ViewInject(R.id.data_star_2)
+	private LinearLayout datastar2;
+	@ViewInject(R.id.data_star_3)
+	private LinearLayout datastar3;
+	@ViewInject(R.id.data_star_4)
+	private LinearLayout datastar4;
 
 	private int searchtype = 1;// 查询类型 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
+	private int commentlevel = 1;// 评价等级 3 差评2 中评1 好评
 
 	private enum DayButton {
 		TODAY, YESTERDAY, THISWEEK;
@@ -104,7 +111,10 @@ public class DataPager extends BasePager implements OnClickListener {
 		today.setOnClickListener(this);
 		thisWeek.setOnClickListener(this);
 		dataCircle.setOnClickListener(this);
-		datastars.setOnClickListener(this);
+		datastar1.setOnClickListener(this);
+		datastar2.setOnClickListener(this);
+		datastar3.setOnClickListener(this);
+		datastar4.setOnClickListener(this);
 		return view;
 	}
 
@@ -120,9 +130,12 @@ public class DataPager extends BasePager implements OnClickListener {
 
 				LogUtil.print(todayBean.coachstotalcoursecount + "-------");
 
-				List<Schoolstudentcount> schoolstudentcount = todayBean.schoolstudentcount;
-				setSchoolStudentCount(schoolstudentcount);
-				currentNum.setText(todayBean.applystudentcount + "");
+				if (searchtype == 1) {
+					List<Schoolstudentcount> schoolstudentcount = todayBean.schoolstudentcount;
+					setSchoolStudentCount(schoolstudentcount);
+					currentNum.setText(todayBean.applystudentcount + "");
+
+				}
 
 				setCircleData(todayBean);
 				setCommnent(todayBean);
@@ -218,6 +231,8 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		progressOutside.setMax(todayBean.coachstotalcoursecount);
 		progressOutside.setProgress(0);
+		// progressOutside.setMax(3);
+		// progressOutside.setProgress(0);
 
 		// 动画效果
 		new Thread(new Runnable() {
@@ -398,11 +413,33 @@ public class DataPager extends BasePager implements OnClickListener {
 			intent.putExtra("searchtype", searchtype - 1);
 			mContext.startActivity(intent);
 			break;
-		case R.id.data_star_ll:
+		case R.id.data_star_1:
 			Intent intent2 = new Intent(mContext, AssessActivity.class);
 			intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent2.putExtra("title", searchtype);
+			intent2.putExtra("commentlevel", 1);
 			mContext.startActivity(intent2);
+			break;
+		case R.id.data_star_2:
+			Intent intent3 = new Intent(mContext, AssessActivity.class);
+			intent3.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent3.putExtra("title", searchtype);
+			intent3.putExtra("commentlevel", 2);
+			mContext.startActivity(intent3);
+			break;
+		case R.id.data_star_3:
+			Intent intent4 = new Intent(mContext, AssessActivity.class);
+			intent4.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent4.putExtra("title", searchtype);
+			intent4.putExtra("commentlevel", 3);
+			mContext.startActivity(intent4);
+			break;
+		case R.id.data_star_4:
+			Intent intent5 = new Intent(mContext, AssessActivity.class);
+			intent5.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent5.putExtra("title", searchtype);
+			intent5.putExtra("commentlevel", 4);
+			mContext.startActivity(intent5);
 			break;
 		default:
 			break;

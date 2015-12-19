@@ -259,7 +259,7 @@ public class PublishBulletinActivity extends BaseActivity {
 								"yyyy-MM-dd'T'HH:mm:ss");
 						bean.createtime = format.format(new Date());
 						if (radioGroup.getCheckedRadioButtonId() == R.id.rb_publish_bulletin_coach) {
-							bean.bulletobject = 1;
+							bean.bulletobject = 2;
 						} else {
 							bean.bulletobject = 1;
 

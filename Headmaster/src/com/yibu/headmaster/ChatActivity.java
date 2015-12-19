@@ -504,8 +504,12 @@ public class ChatActivity extends BaseActivity implements
 			return;
 		}
 
+		if (HeadmasterApplication.app.userInfo == null) {
+			System.out.println("HeadmasterApplication.app.userInfo");
+		}
 		cameraFile = new File(PathUtil.getInstance().getImagePath(),
-				app.userInfo.userid + System.currentTimeMillis() + ".jpg");
+				HeadmasterApplication.app.userInfo.userid
+						+ System.currentTimeMillis() + ".jpg");
 		cameraFile.getParentFile().mkdirs();
 		startActivityForResult(
 				new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(
@@ -949,6 +953,7 @@ public class ChatActivity extends BaseActivity implements
 			final EMMessage message = EMMessage
 					.createSendMessage(EMMessage.Type.IMAGE);
 			message.setReceipt(chatId);
+			System.out.println("chatId" + chatId);
 			ImageMessageBody body = new ImageMessageBody(new File(filePath));
 			// 默认超过100k的图片会压缩后发给对方，可以设置成发送原图
 			// body.setSendOriginalImage(true);

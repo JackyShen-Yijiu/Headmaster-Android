@@ -118,7 +118,6 @@ public class AssessDetailPager extends BasePager {
 						if (pullToRefreshListView.isHeaderShown()) {
 							curpage = 1;
 							loadNetworkData();
-
 						} else {
 							if (!hasMoreData) {
 								// ToastUtil.showToast(mContext, "没有更多数据了");
@@ -200,8 +199,9 @@ public class AssessDetailPager extends BasePager {
 			}
 			if (commentlist.size() == 0) {
 				if (curpage == 1) {
-					System.out.println("没有数据了。。。。。。");
-					ToastUtil.showToast(mContext, "没有数据");
+					// if(v)
+					// System.out.println("没有数据了。。。。。。");
+					// ToastUtil.showToast(mContext, "没有数据");
 				} else {
 					hasMoreData = false;
 
