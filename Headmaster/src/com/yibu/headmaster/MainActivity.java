@@ -206,7 +206,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 			if (pressedTime != 0
 					&& (System.currentTimeMillis() - pressedTime) < 2000) {
-				System.exit(0);
+				// System.exit(0);
+				finish();
 			} else {
 				ToastUtil.showToast(this, "再按一次退出程序");
 				pressedTime = System.currentTimeMillis();
