@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ImageView
+    <com.joooonho.SelectableRoundedImageView
         android:id="@+id/persion_head_iv"
         android:layout_width="45dp"
         android:layout_height="45dp"
