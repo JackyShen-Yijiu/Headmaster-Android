@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.text.TextUtils;
@@ -29,6 +30,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.jzjf.headmaster.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.adapter.MainPagerAdapter;
@@ -44,7 +46,7 @@ import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends FragmentActivity implements OnClickListener {
 	private DrawerLayout drawerLayout;
 	ViewPager contentPager;
 	RadioGroup contentBottom;
@@ -146,7 +148,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		pagers.add(new NewsPager(getBaseContext()));
 		pagers.add(new ChatterPager(this));
 		// 设置数据适配器
-		contentPager.setAdapter(new MainPagerAdapter(pagers));
+		contentPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(),pagers));
 
 		// 监听单选按钮
 		contentBottom

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yibu.headmaster"
+    package="com.jzjf.headmaster"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -82,18 +82,18 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".DataChartActivity"
+            android:name="com.yibu.headmaster.DataChartActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.yibu.headmaster.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"            
             android:windowSoftInputMode="stateHidden|adjustResize" > 
                          
         </activity>       
-        <activity  android:name=".WelcomeActivity"
+        <activity  android:name="com.yibu.headmaster.WelcomeActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait" >  
              <intent-filter>
@@ -105,16 +105,16 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name="com.yibu.headmaster.HomeGuideActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".AboutUsActivity"
+        <activity android:name="com.yibu.headmaster.AboutUsActivity"
             android:screenOrientation="portrait" ></activity>
-         <activity  android:name=".TermsActivity"
+         <activity  android:name="com.yibu.headmaster.TermsActivity"
              android:screenOrientation="portrait" ></activity>
-         <activity  android:name=".CallBackActivity"
+         <activity  android:name="com.yibu.headmaster.CallBackActivity"
              android:screenOrientation="portrait" ></activity>
-         <activity  android:name=".AssessActivity"
+         <activity  android:name="com.yibu.headmaster.AssessActivity"
              android:screenOrientation="portrait" ></activity>
         <activity 
-            android:name=".PublishBulletinActivity" 
+            android:name="com.yibu.headmaster.PublishBulletinActivity" 
             android:screenOrientation="portrait"> 
         </activity>     
          <activity 
@@ -126,11 +126,11 @@
             android:screenOrientation="portrait"> 
         </activity>         
         <activity 
-            android:name=".MainActivity" 
+            android:name="com.yibu.headmaster.MainActivity" 
             android:screenOrientation="portrait">
        
             </activity>
-            <activity android:name=".NewsDetailActivity"
+            <activity android:name="com.yibu.headmaster.NewsDetailActivity"
                 android:screenOrientation="portrait"></activity>
        
             <activity android:name="com.yibu.headmaster.ChatActivity"
@@ -169,8 +169,9 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="f3hXtPGo7WT01hiBmKI75QdR" />
                   
-          <!-- 设置环信应用的appkey  测试：black-cat#yibuxuechetest   上线：black-cat#yibuxuecheprod-->
-    	<meta-data android:name="EASEMOB_APPKEY"  android:value="black-cat#yibuxuecheprod" />
+          <!-- 一步学车=====设置环信应用的appkey  测试：black-cat#yibuxuechetest   上线：black-cat#yibuxuecheprod-->
+          <!-- 极致驾服==== black-cat#jizhijaifu-->
+    	<meta-data android:name="EASEMOB_APPKEY"  android:value="black-cat#jizhijaifu" />
     	<!-- 声明sdk所需的service SDK核心功能-->
     	<service android:name="com.easemob.chat.EMChatService" />
     	
@@ -276,15 +277,18 @@
         <meta-data
             android:name="JPUSH_CHANNEL"
             android:value="developer-default" />
-        <!-- 设置推送应用的appkey ad6f3ad01c2fad2ead8f9b08 test:a9d3780a093c23df7e3e2402 -->
+        <!--一步==== 设置推送应用的appkey ad6f3ad01c2fad2ead8f9b08 test:a9d3780a093c23df7e3e2402 -->
+        <!-- 极致驾服====735aae789d2c47772abdd395 -->
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="ad6f3ad01c2fad2ead8f9b08" />
+            android:value="735aae789d2c47772abdd395" />
         <!-- </>值来自开发者平台取得的AppKey -->
         <!-- 推送 ======================================================================== -->
    
       <!-- 友盟统计================================================== -->
-        <meta-data android:value="56679ee567e58ef13a000661" android:name="UMENG_APPKEY"></meta-data>
+      <!-- 一步学车56679ee567e58ef13a000661 -->
+      <!-- 极致驾服56d7e700e0f55a05d900185a -->
+        <meta-data android:value="56d7e700e0f55a05d900185a" android:name="UMENG_APPKEY"></meta-data>
 		<meta-data android:value="umeng" android:name="UMENG_CHANNEL"/>
     </application>
 

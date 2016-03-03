@@ -13,6 +13,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.adapter.CoachGiveClassAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.CoachGiveClassBean;

@@ -82,10 +82,10 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="58dp" >
 
-            <ImageView
+            <com.joooonho.SelectableRoundedImageView
                 android:id="@+id/iv_left_head_portrait"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/left_title" />

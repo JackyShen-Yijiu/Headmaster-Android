@@ -10,10 +10,10 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
 
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 /**
- * µ¯´°¸¨ÖúÀà
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @ClassName WindowUtils
  * 
@@ -29,7 +29,7 @@ public class WindowUtils {
 	public static Boolean isShown = false;
 
 	/**
-	 * ÏÔÊ¾µ¯³ö¿ò
+	 * ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param context
 	 * @param view
@@ -43,9 +43,9 @@ public class WindowUtils {
 		isShown = true;
 		// LogUtil.i(LOG_TAG, "showPopupWindow");
 
-		// »ñÈ¡Ó¦ÓÃµÄContext
+		// ï¿½ï¿½È¡Ó¦ï¿½Ãµï¿½Context
 		mContext = context.getApplicationContext();
-		// »ñÈ¡WindowManager
+		// ï¿½ï¿½È¡WindowManager
 		mWindowManager = (WindowManager) mContext
 				.getSystemService(Context.WINDOW_SERVICE);
 
@@ -53,22 +53,22 @@ public class WindowUtils {
 
 		final WindowManager.LayoutParams params = new WindowManager.LayoutParams();
 
-		// ÀàÐÍ
+		// ï¿½ï¿½ï¿½ï¿½
 		params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
 
 		// WindowManager.LayoutParams.TYPE_SYSTEM_ALERT
 
-		// ÉèÖÃflag
+		// ï¿½ï¿½ï¿½ï¿½flag
 
 		int flags = WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
 		// | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-		// Èç¹ûÉèÖÃÁËWindowManager.LayoutParams.FLAG_NOT_FOCUSABLE£¬µ¯³öµÄViewÊÕ²»µ½Back¼üµÄÊÂ¼þ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WindowManager.LayoutParams.FLAG_NOT_FOCUSABLEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Viewï¿½Õ²ï¿½ï¿½ï¿½Backï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 		params.flags = flags;
-		// ²»ÉèÖÃÕâ¸öµ¯³ö¿òµÄÍ¸Ã÷ÕÚÕÖÏÔÊ¾ÎªºÚÉ«
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Îªï¿½ï¿½É«
 		params.format = PixelFormat.TRANSLUCENT;
-		// FLAG_NOT_TOUCH_MODAL²»×èÈûÊÂ¼þ´«µÝµ½ºóÃæµÄ´°¿Ú
-		// ÉèÖÃ FLAG_NOT_FOCUSABLE Ðü¸¡´°¿Ú½ÏÐ¡Ê±£¬ºóÃæµÄÓ¦ÓÃÍ¼±êÓÉ²»¿É³¤°´±äÎª¿É³¤°´
-		// ²»ÉèÖÃÕâ¸öflagµÄ»°£¬homeÒ³µÄ»®ÆÁ»áÓÐÎÊÌâ
+		// FLAG_NOT_TOUCH_MODALï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ FLAG_NOT_FOCUSABLE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Í¼ï¿½ï¿½ï¿½É²ï¿½ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½É³ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½flagï¿½Ä»ï¿½ï¿½ï¿½homeÒ³ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		params.width = LayoutParams.MATCH_PARENT;
 		params.height = LayoutParams.MATCH_PARENT;
@@ -82,7 +82,7 @@ public class WindowUtils {
 	}
 
 	/**
-	 * Òþ²Øµ¯³ö¿ò
+	 * ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static void hidePopupWindow() {
 		// LogUtil.i(LOG_TAG, "hide " + isShown + ", " + mView);
@@ -94,7 +94,7 @@ public class WindowUtils {
 
 	}
 
-	// ¼ÓÔØµ¯´°view²¢ÉèÖÃÊ±¼ä¼àÌý
+	// ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½viewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½
 	private static View setUpView(final Context context) {
 
 		// LogUtil.i(LOG_TAG, "setUp view");
@@ -108,8 +108,8 @@ public class WindowUtils {
 			public void onClick(View v) {
 
 				// LogUtil.i(LOG_TAG, "ok on click");
-				// ´ò¿ª°²×°°ü
-				// Òþ²Øµ¯´°
+				// ï¿½ò¿ª°ï¿½×°ï¿½ï¿½
+				// ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½
 				WindowUtils.hidePopupWindow();
 
 			}
@@ -126,11 +126,11 @@ public class WindowUtils {
 			}
 		});
 
-		// µã»÷´°¿ÚÍâ²¿ÇøÓò¿ÉÏû³ý
-		// ÕâµãµÄÊµÏÖÖ÷Òª½«Ðü¸¡´°ÉèÖÃÎªÈ«ÆÁ´óÐ¡£¬Íâ²ãÓÐ¸öÍ¸Ã÷±³¾°£¬ÖÐ¼äÒ»²¿·ÖÊÓÎªÄÚÈÝÇøÓò
-		// ËùÒÔµã»÷ÄÚÈÝÇøÓòÍâ²¿ÊÓÎªµã»÷Ðü¸¡´°Íâ²¿
-		final View popupWindowView = view.findViewById(R.id.popup_window);// ·ÇÍ¸Ã÷µÄÄÚÈÝÇøÓò
-		// ×¢Ïú´ÎÁ½¸ö¼àÌý£¬²»ÔÊÐíµã»÷ÖÜÎ§ÒÔ¼°»ØÍË¼üÍË³ö
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÈ«ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¿
+		final View popupWindowView = view.findViewById(R.id.popup_window);// ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½Ë³ï¿½
 		/*
 		 * view.setOnTouchListener(new OnTouchListener() {
 		 * 
@@ -144,7 +144,7 @@ public class WindowUtils {
 		 * // LogUtil.i(LOG_TAG, "onTouch : " + x + ", " + y + ", rect: " // +
 		 * rect); return false; } });
 		 * 
-		 * // µã»÷back¼ü¿ÉÏû³ý view.setOnKeyListener(new OnKeyListener() {
+		 * // ï¿½ï¿½ï¿½backï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ view.setOnKeyListener(new OnKeyListener() {
 		 * 
 		 * @Override public boolean onKey(View v, int keyCode, KeyEvent event) {
 		 * switch (keyCode) { case KeyEvent.KEYCODE_BACK:

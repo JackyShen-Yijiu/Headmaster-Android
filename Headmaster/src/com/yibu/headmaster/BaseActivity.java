@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -21,12 +22,13 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import cn.jpush.android.api.JPushInterface;
 
+import com.jzjf.headmaster.R;
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.umeng.analytics.MobclickAgent;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public abstract class BaseActivity extends Activity implements OnClickListener {
+public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
 
 	private FrameLayout arrowButton;
 

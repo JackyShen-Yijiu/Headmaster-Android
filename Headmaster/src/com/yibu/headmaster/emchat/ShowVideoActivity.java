@@ -20,7 +20,7 @@ import com.easemob.chat.EMChatManager;
 import com.easemob.util.EMLog;
 import com.easemob.util.PathUtil;
 import com.yibu.headmaster.BaseActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 /**
  * 展示视频内容

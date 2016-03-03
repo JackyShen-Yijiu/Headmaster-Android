@@ -5,6 +5,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import com.jzjf.headmaster.R;
 
 public class NewsDetailActivity extends BaseActivity {
 

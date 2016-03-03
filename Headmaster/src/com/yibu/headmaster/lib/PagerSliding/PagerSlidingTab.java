@@ -41,7 +41,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class PagerSlidingTab extends HorizontalScrollView {
 

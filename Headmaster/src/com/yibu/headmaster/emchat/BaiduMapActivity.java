@@ -48,7 +48,7 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.CoordinateConverter;
 import com.yibu.headmaster.BaseActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class BaiduMapActivity extends BaseActivity {
 

@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.jzjf.headmaster.R;
 
 public class TermsActivity extends BaseActivity implements OnClickListener {
 
@@ -24,7 +25,7 @@ public class TermsActivity extends BaseActivity implements OnClickListener {
 	@Override
 	protected void initListener() {
 		setSonsTitle(getString(R.string.allow_protocol));
-		String url = "http://www.ifanying.com/userAgreement.html";
+		String url = "http://www.yibuxueche.com/jzjfheadmastergreement.htm";
 		WebSettings webSettings = webView.getSettings();
 		webView.setWebViewClient(new WebViewClient() {
 			@Override
@@ -48,19 +49,16 @@ public class TermsActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void initData() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void processSuccess(String data) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void processFailure() {
-		// TODO Auto-generated method stub
 
 	}
 

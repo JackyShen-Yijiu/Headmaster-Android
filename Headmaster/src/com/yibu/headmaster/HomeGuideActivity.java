@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
 
 public class HomeGuideActivity extends Activity {

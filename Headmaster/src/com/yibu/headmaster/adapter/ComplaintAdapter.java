@@ -25,7 +25,7 @@ import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 import com.yibu.common.Config.UserType;
 import com.yibu.headmaster.ChatActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.ComplaintBean;
 import com.yibu.headmaster.global.HeadmasterApplication;

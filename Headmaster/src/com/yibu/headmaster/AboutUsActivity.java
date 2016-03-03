@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import com.jzjf.headmaster.R;
 
 public class AboutUsActivity extends BaseActivity implements OnClickListener {
 
@@ -25,7 +26,6 @@ public class AboutUsActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void initListener() {
-		// TODO Auto-generated method stub
 		protocalTv.setOnClickListener(this);
 
 	}
@@ -45,19 +45,16 @@ public class AboutUsActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void initData() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void processSuccess(String data) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void processFailure() {
-		// TODO Auto-generated method stub
 
 	}
 

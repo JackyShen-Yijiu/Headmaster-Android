@@ -21,7 +21,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="14dp"
         android:layout_toRightOf="@+id/persion_head_iv"
-        android:text="李教练"
         android:textColor="#b4b4b4"
         android:textSize="14sp" />
 

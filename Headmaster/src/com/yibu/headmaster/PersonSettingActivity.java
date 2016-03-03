@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.easemob.chat.EMChatManager;
+import com.jzjf.headmaster.R;
+import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.ZProgressHUD;
 
 public class PersonSettingActivity extends BaseActivity {
@@ -61,7 +63,7 @@ public class PersonSettingActivity extends BaseActivity {
 	@Override
 	protected void initData() {
 		baseTitle.setText("个人信息");
-
+		name.setText(HeadmasterApplication.app.userInfo.name);
 	}
 
 	@Override

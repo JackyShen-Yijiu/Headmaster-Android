@@ -27244,13 +27244,106 @@ com.handmark.pulltorefresh.library.internal.RotateLoadingLayout -> com.handmark.
     107:107:int getDefaultDrawableResId() -> e
 com.handmark.pulltorefresh.library.internal.Utils -> com.handmark.pulltorefresh.library.a.f:
     10:11:void warnDeprecation(java.lang.String,java.lang.String) -> a
-com.lidroid.xutils.ViewUtils -> com.b.a.a:
+com.joooonho.R -> com.joooonho.a:
+com.joooonho.R$styleable -> com.joooonho.b:
+    int[] SelectableRoundedImageView -> a
+    int SelectableRoundedImageView_android_scaleType -> b
+    int SelectableRoundedImageView_sriv_border_color -> c
+    int SelectableRoundedImageView_sriv_border_width -> d
+    int SelectableRoundedImageView_sriv_left_bottom_corner_radius -> e
+    int SelectableRoundedImageView_sriv_left_top_corner_radius -> f
+    int SelectableRoundedImageView_sriv_oval -> g
+    int SelectableRoundedImageView_sriv_right_bottom_corner_radius -> h
+    int SelectableRoundedImageView_sriv_right_top_corner_radius -> i
+    20:28:void <clinit>() -> <clinit>
+com.joooonho.SelectableRoundedImageView -> com.joooonho.SelectableRoundedImageView:
+    int mResource -> a
+    android.widget.ImageView$ScaleType[] sScaleTypeArray -> b
+    android.widget.ImageView$ScaleType mScaleType -> c
+    float mLeftTopCornerRadius -> d
+    float mRightTopCornerRadius -> e
+    float mLeftBottomCornerRadius -> f
+    float mRightBottomCornerRadius -> g
+    float mBorderWidth -> h
+    android.content.res.ColorStateList mBorderColor -> i
+    boolean isOval -> j
+    android.graphics.drawable.Drawable mDrawable -> k
+    float[] mRadii -> l
+    37:58:void <clinit>() -> <clinit>
+    35:69:void <init>(android.content.Context) -> <init>
+    72:73:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    35:122:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    126:128:void drawableStateChanged() -> drawableStateChanged
+    132:132:android.widget.ImageView$ScaleType getScaleType() -> getScaleType
+    137:140:void setScaleType(android.widget.ImageView$ScaleType) -> setScaleType
+    144:148:void setImageDrawable(android.graphics.drawable.Drawable) -> setImageDrawable
+    152:156:void setImageBitmap(android.graphics.Bitmap) -> setImageBitmap
+    160:166:void setImageResource(int) -> setImageResource
+    170:172:void setImageURI(android.net.Uri) -> setImageURI
+    175:191:android.graphics.drawable.Drawable resolveResource() -> b
+    195:204:void updateDrawable() -> c
+    282:285:void setOval$1385ff() -> a
+com.joooonho.SelectableRoundedImageView$SelectableRoundedCornerDrawable -> com.joooonho.c:
+    android.graphics.RectF mBounds -> a
+    android.graphics.RectF mBorderBounds -> b
+    android.graphics.RectF mBitmapRect -> c
+    int mBitmapWidth -> d
+    int mBitmapHeight -> e
+    android.graphics.Paint mBitmapPaint -> f
+    android.graphics.Paint mBorderPaint -> g
+    android.graphics.BitmapShader mBitmapShader -> h
+    float[] mRadii -> i
+    float[] mBorderRadii -> j
+    boolean mOval -> k
+    float mBorderWidth -> l
+    android.content.res.ColorStateList mBorderColor -> m
+    android.widget.ImageView$ScaleType mScaleType -> n
+    android.graphics.Path mPath -> o
+    android.graphics.Bitmap mBitmap -> p
+    boolean mBoundsConfigured -> q
+    292:340:void <init>(android.graphics.Bitmap,android.content.res.Resources) -> <init>
+    343:346:com.joooonho.SelectableRoundedImageView$SelectableRoundedCornerDrawable fromBitmap(android.graphics.Bitmap,android.content.res.Resources) -> a
+    351:371:android.graphics.drawable.Drawable fromDrawable(android.graphics.drawable.Drawable,android.content.res.Resources) -> a
+    375:395:android.graphics.Bitmap drawableToBitmap(android.graphics.drawable.Drawable) -> a
+    400:400:boolean isStateful() -> isStateful
+    405:410:boolean onStateChange(int[]) -> onStateChange
+    443:448:void applyScaleToRadii(android.graphics.Matrix) -> a
+    451:478:void adjustCanvasForBorder(android.graphics.Canvas) -> a
+    496:502:void setBorderRadii() -> a
+    506:542:void draw(android.graphics.Canvas) -> draw
+    1419:1440:void configureBounds(android.graphics.Canvas):419:440 -> draw
+    1419:1440:void draw(android.graphics.Canvas):508 -> draw
+    1481:1493:void adjustBorderWidthAndBorderBounds(android.graphics.Canvas):481:493 -> draw
+    1481:1493:void draw(android.graphics.Canvas):510 -> draw
+    545:555:void setCornerRadii(float[]) -> a
+    559:560:int getOpacity() -> getOpacity
+    565:567:void setAlpha(int) -> setAlpha
+    571:573:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
+    577:579:void setDither(boolean) -> setDither
+    583:585:void setFilterBitmap(boolean) -> setFilterBitmap
+    589:589:int getIntrinsicWidth() -> getIntrinsicWidth
+    594:594:int getIntrinsicHeight() -> getIntrinsicHeight
+    602:604:void setBorderWidth(float) -> a
+    627:636:void setBorderColor(android.content.res.ColorStateList) -> a
+    643:644:void setOval(boolean) -> a
+    651:655:void setScaleType(android.widget.ImageView$ScaleType) -> a
+com.jzjf.headmaster.R -> com.b.a.a:
+com.jzjf.headmaster.R$styleable -> com.b.a.b:
+    int[] ArcProgress -> a
+    int[] CircleProgress -> b
+    int[] DonutProgress -> c
+    int[] PagerSlidingTab -> d
+    int[] PullToRefresh -> e
+    int[] SelectableRoundedImageView -> f
+    int[] Themes -> g
+    1830:3246:void <clinit>() -> <clinit>
+com.lidroid.xutils.ViewUtils -> com.c.a.a:
     49:50:void inject(android.app.Activity) -> a
     57:58:void inject(java.lang.Object,android.view.View) -> a
     75:170:void injectObject(java.lang.Object,com.lidroid.xutils.view.ViewFinder) -> a
-com.lidroid.xutils.http.callback.RequestCallBackHandler -> com.b.a.a.a.a:
+com.lidroid.xutils.http.callback.RequestCallBackHandler -> com.c.a.a.a.a:
     boolean updateProgress$48779ec3() -> a
-com.lidroid.xutils.http.client.entity.DecompressingEntity -> com.b.a.a.b.a.a:
+com.lidroid.xutils.http.client.entity.DecompressingEntity -> com.c.a.a.b.a.a:
     java.io.InputStream content -> a
     long uploadedSize -> b
     com.lidroid.xutils.http.callback.RequestCallBackHandler callBackHandler -> c
@@ -27259,14 +27352,14 @@ com.lidroid.xutils.http.client.entity.DecompressingEntity -> com.b.a.a.b.a.a:
     69:75:java.io.InputStream getContent() -> getContent
     84:84:long getContentLength() -> getContentLength
     94:119:void writeTo(java.io.OutputStream) -> writeTo
-com.lidroid.xutils.util.DoubleKeyValueMap -> com.b.a.b.a:
+com.lidroid.xutils.util.DoubleKeyValueMap -> com.c.a.b.a:
     java.util.concurrent.ConcurrentHashMap k1_k2V_map -> a
     33:35:void <init>() -> <init>
     38:53:void put(java.lang.Object,java.lang.Object,java.lang.Object) -> a
     64:65:java.lang.Object get(java.lang.Object,java.lang.Object) -> a
-com.lidroid.xutils.util.IOUtils -> com.b.a.b.b:
+com.lidroid.xutils.util.IOUtils -> com.c.a.b.b:
     33:39:void closeQuietly(java.io.Closeable) -> a
-com.lidroid.xutils.util.LogUtils -> com.b.a.b.c:
+com.lidroid.xutils.util.LogUtils -> com.c.a.b.c:
     java.lang.String customTagPrefix -> a
     boolean allowD -> b
     boolean allowE -> c
@@ -27281,25 +27374,25 @@ com.lidroid.xutils.util.LogUtils -> com.b.a.b.c:
     1225:1225:void e(java.lang.String,java.lang.Throwable):123 -> a
     2045:2050:java.lang.String generateTag(java.lang.StackTraceElement):45:50 -> a
     2045:2050:void e(java.lang.String,java.lang.Throwable):124 -> a
-com.lidroid.xutils.util.LogUtils$CustomLogger -> com.b.a.b.d:
-com.lidroid.xutils.view.EventListenerManager -> com.b.a.c.a:
+com.lidroid.xutils.util.LogUtils$CustomLogger -> com.c.a.b.d:
+com.lidroid.xutils.view.EventListenerManager -> com.c.a.c.a:
     com.lidroid.xutils.util.DoubleKeyValueMap listenerCache -> a
     40:41:void <clinit>() -> <clinit>
     50:84:void addEventMethod(com.lidroid.xutils.view.ViewFinder,com.lidroid.xutils.view.ViewInjectInfo,java.lang.annotation.Annotation,java.lang.Object,java.lang.reflect.Method) -> a
     1044:1044:android.view.View com.lidroid.xutils.view.ViewFinder.findViewByInfo(com.lidroid.xutils.view.ViewInjectInfo):44:44 -> a
     1044:1044:void addEventMethod(com.lidroid.xutils.view.ViewFinder,com.lidroid.xutils.view.ViewInjectInfo,java.lang.annotation.Annotation,java.lang.Object,java.lang.reflect.Method):50 -> a
-com.lidroid.xutils.view.EventListenerManager$DynamicHandler -> com.b.a.c.b:
+com.lidroid.xutils.view.EventListenerManager$DynamicHandler -> com.c.a.c.b:
     java.lang.ref.WeakReference handlerRef -> a
     java.util.HashMap methodMap -> b
     88:92:void <init>(java.lang.Object) -> <init>
     95:96:void addMethod(java.lang.String,java.lang.reflect.Method) -> a
     99:99:java.lang.Object getHandler() -> a
     108:116:java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> invoke
-com.lidroid.xutils.view.ResLoader -> com.b.a.c.c:
+com.lidroid.xutils.view.ResLoader -> com.c.a.c.c:
     int[] $SWITCH_TABLE$com$lidroid$xutils$view$ResType -> a
     14:52:java.lang.Object loadRes(com.lidroid.xutils.view.ResType,android.content.Context,int) -> a
     11:11:int[] $SWITCH_TABLE$com$lidroid$xutils$view$ResType() -> a
-com.lidroid.xutils.view.ResType -> com.b.a.c.d:
+com.lidroid.xutils.view.ResType -> com.c.a.c.d:
     com.lidroid.xutils.view.ResType Animation -> a
     com.lidroid.xutils.view.ResType Boolean -> b
     com.lidroid.xutils.view.ResType Color -> c
@@ -27321,7 +27414,7 @@ com.lidroid.xutils.view.ResType -> com.b.a.c.d:
     8:8:void <init>(java.lang.String,int) -> <init>
     1:1:com.lidroid.xutils.view.ResType[] values() -> values
     1:1:com.lidroid.xutils.view.ResType valueOf(java.lang.String) -> valueOf
-com.lidroid.xutils.view.ViewFinder -> com.b.a.c.e:
+com.lidroid.xutils.view.ViewFinder -> com.c.a.c.e:
     android.view.View view -> a
     android.app.Activity activity -> b
     android.preference.PreferenceGroup preferenceGroup -> c
@@ -27332,29 +27425,29 @@ com.lidroid.xutils.view.ViewFinder -> com.b.a.c.e:
     48:59:android.view.View findViewById(int,int) -> a
     64:64:android.preference.Preference findPreference(java.lang.CharSequence) -> a
     68:71:android.content.Context getContext() -> a
-com.lidroid.xutils.view.ViewInjectInfo -> com.b.a.c.f:
+com.lidroid.xutils.view.ViewInjectInfo -> com.c.a.c.f:
     java.lang.Object value -> a
     int parentId -> b
     8:8:void <init>() -> <init>
     14:22:boolean equals(java.lang.Object) -> equals
     27:29:int hashCode() -> hashCode
-com.lidroid.xutils.view.annotation.ContentView -> com.b.a.c.a.a:
+com.lidroid.xutils.view.annotation.ContentView -> com.c.a.c.a.a:
     int value() -> a
-com.lidroid.xutils.view.annotation.PreferenceInject -> com.b.a.c.a.b:
+com.lidroid.xutils.view.annotation.PreferenceInject -> com.c.a.c.a.b:
     java.lang.String value() -> a
-com.lidroid.xutils.view.annotation.ResInject -> com.b.a.c.a.c:
+com.lidroid.xutils.view.annotation.ResInject -> com.c.a.c.a.c:
     int id() -> a
     com.lidroid.xutils.view.ResType type() -> b
-com.lidroid.xutils.view.annotation.ViewInject -> com.b.a.c.a.d:
+com.lidroid.xutils.view.annotation.ViewInject -> com.c.a.c.a.d:
     int value() -> a
     int parentId() -> b
-com.lidroid.xutils.view.annotation.event.EventBase -> com.b.a.c.a.a.a:
+com.lidroid.xutils.view.annotation.event.EventBase -> com.c.a.c.a.a.a:
     java.lang.Class listenerType() -> a
     java.lang.String listenerSetter() -> b
     java.lang.String methodName() -> c
-com.loopj.android.http.AssertUtils -> com.c.a.a.a:
+com.loopj.android.http.AssertUtils -> com.d.a.a.a:
     30:33:void asserts(boolean,java.lang.String) -> a
-com.loopj.android.http.AsyncHttpClient -> com.c.a.a.b:
+com.loopj.android.http.AsyncHttpClient -> com.d.a.a.b:
     int maxConnections -> a
     int connectTimeout -> b
     int responseTimeout -> c
@@ -27398,19 +27491,19 @@ com.loopj.android.http.AsyncHttpClient -> com.c.a.a.b:
     1306:1320:org.apache.http.HttpEntity paramsToEntity(com.loopj.android.http.RequestParams,com.loopj.android.http.ResponseHandlerInterface) -> a
     1349:1370:void endEntityViaReflection(org.apache.http.HttpEntity) -> a
     115:115:java.util.Map access$000(com.loopj.android.http.AsyncHttpClient) -> a
-com.loopj.android.http.AsyncHttpClient$1 -> com.c.a.a.c:
+com.loopj.android.http.AsyncHttpClient$1 -> com.d.a.a.c:
     com.loopj.android.http.AsyncHttpClient this$0 -> a
     246:246:void <init>(com.loopj.android.http.AsyncHttpClient) -> <init>
     249:266:void process(org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext) -> process
-com.loopj.android.http.AsyncHttpClient$2 -> com.c.a.a.d:
+com.loopj.android.http.AsyncHttpClient$2 -> com.d.a.a.d:
     com.loopj.android.http.AsyncHttpClient this$0 -> a
     269:269:void <init>(com.loopj.android.http.AsyncHttpClient) -> <init>
     272:285:void process(org.apache.http.HttpResponse,org.apache.http.protocol.HttpContext) -> process
-com.loopj.android.http.AsyncHttpClient$3 -> com.c.a.a.e:
+com.loopj.android.http.AsyncHttpClient$3 -> com.d.a.a.e:
     com.loopj.android.http.AsyncHttpClient this$0 -> a
     288:288:void <init>(com.loopj.android.http.AsyncHttpClient) -> <init>
     291:304:void process(org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext) -> process
-com.loopj.android.http.AsyncHttpClient$InflatingEntity -> com.c.a.a.f:
+com.loopj.android.http.AsyncHttpClient$InflatingEntity -> com.d.a.a.f:
     java.io.InputStream wrappedStream -> a
     java.io.PushbackInputStream pushbackStream -> b
     java.util.zip.GZIPInputStream gzippedStream -> c
@@ -27420,7 +27513,7 @@ com.loopj.android.http.AsyncHttpClient$InflatingEntity -> com.c.a.a.f:
     2258:2265:java.io.InputStream getContent():1389 -> getContent
     1399:1399:long getContentLength() -> getContentLength
     1404:1408:void consumeContent() -> consumeContent
-com.loopj.android.http.AsyncHttpRequest -> com.c.a.a.g:
+com.loopj.android.http.AsyncHttpRequest -> com.d.a.a.g:
     org.apache.http.impl.client.AbstractHttpClient client -> a
     org.apache.http.protocol.HttpContext context -> b
     org.apache.http.client.methods.HttpUriRequest request -> c
@@ -27441,7 +27534,7 @@ com.loopj.android.http.AsyncHttpRequest -> com.c.a.a.g:
     222:227:void sendCancelNotification() -> c
     230:230:boolean isDone() -> b
     234:236:boolean cancel(boolean) -> cancel
-com.loopj.android.http.AsyncHttpResponseHandler -> com.c.a.a.h:
+com.loopj.android.http.AsyncHttpResponseHandler -> com.d.a.a.h:
     java.lang.String responseCharset -> a
     android.os.Handler handler -> b
     boolean useSynchronousMode -> c
@@ -27481,18 +27574,18 @@ com.loopj.android.http.AsyncHttpResponseHandler -> com.c.a.a.h:
     391:391:android.os.Message obtainMessage(int,java.lang.Object) -> a
     397:410:void sendResponseMessage(org.apache.http.HttpResponse) -> a
     420:451:byte[] getResponseData(org.apache.http.HttpEntity) -> a
-com.loopj.android.http.AsyncHttpResponseHandler$ResponderHandler -> com.c.a.a.i:
+com.loopj.android.http.AsyncHttpResponseHandler$ResponderHandler -> com.d.a.a.i:
     com.loopj.android.http.AsyncHttpResponseHandler mResponder -> a
     132:134:void <init>(com.loopj.android.http.AsyncHttpResponseHandler,android.os.Looper) -> <init>
     138:139:void handleMessage(android.os.Message) -> handleMessage
-com.loopj.android.http.Base64 -> com.c.a.a.j:
-com.loopj.android.http.Base64$Coder -> com.c.a.a.k:
+com.loopj.android.http.Base64 -> com.d.a.a.j:
+com.loopj.android.http.Base64$Coder -> com.d.a.a.k:
     byte[] output -> a
     int op -> b
     64:64:void <init>() -> <init>
     boolean process(byte[],int,int,boolean) -> a
     int maxOutputSize(int) -> a
-com.loopj.android.http.Base64$Encoder -> com.c.a.a.l:
+com.loopj.android.http.Base64$Encoder -> com.d.a.a.l:
     byte[] ENCODE -> g
     byte[] ENCODE_WEBSAFE -> h
     byte[] tail -> i
@@ -27506,7 +27599,7 @@ com.loopj.android.http.Base64$Encoder -> com.c.a.a.l:
     575:575:int maxOutputSize(int) -> a
     580:712:boolean process(byte[],int,int,boolean) -> a
     531:541:void <clinit>() -> <clinit>
-com.loopj.android.http.Base64OutputStream -> com.c.a.a.m:
+com.loopj.android.http.Base64OutputStream -> com.d.a.a.m:
     com.loopj.android.http.Base64$Coder coder -> a
     int flags -> b
     byte[] buffer -> c
@@ -27522,28 +27615,28 @@ com.loopj.android.http.Base64OutputStream -> com.c.a.a.m:
     1142:1145:byte[] embiggen(byte[],int):142:145 -> a
     1142:1145:void internalWrite(byte[],int,int,boolean):131 -> a
     30:30:void <clinit>() -> <clinit>
-com.loopj.android.http.BaseJsonHttpResponseHandler -> com.c.a.a.n:
+com.loopj.android.http.BaseJsonHttpResponseHandler -> com.d.a.a.n:
     77:109:void onSuccess(int,org.apache.http.Header[],java.lang.String) -> a
     113:145:void onFailure(int,org.apache.http.Header[],java.lang.String,java.lang.Throwable) -> a
     java.lang.Object parseResponse$b1f48e3() -> f
-com.loopj.android.http.BaseJsonHttpResponseHandler$1 -> com.c.a.a.o:
+com.loopj.android.http.BaseJsonHttpResponseHandler$1 -> com.d.a.a.o:
     java.lang.String val$responseString -> a
     int val$statusCode -> b
     org.apache.http.Header[] val$headers -> c
     com.loopj.android.http.BaseJsonHttpResponseHandler this$0 -> d
     78:78:void <init>(com.loopj.android.http.BaseJsonHttpResponseHandler,java.lang.String,int,org.apache.http.Header[]) -> <init>
     82:98:void run() -> run
-com.loopj.android.http.BaseJsonHttpResponseHandler$1$1 -> com.c.a.a.p:
+com.loopj.android.http.BaseJsonHttpResponseHandler$1$1 -> com.d.a.a.p:
     java.lang.Object val$jsonResponse -> a
     com.loopj.android.http.BaseJsonHttpResponseHandler$1 this$1 -> b
     83:83:void <init>(com.loopj.android.http.BaseJsonHttpResponseHandler$1,java.lang.Object) -> <init>
     86:87:void run() -> run
-com.loopj.android.http.BaseJsonHttpResponseHandler$1$2 -> com.c.a.a.q:
+com.loopj.android.http.BaseJsonHttpResponseHandler$1$2 -> com.d.a.a.q:
     java.lang.Throwable val$t -> a
     com.loopj.android.http.BaseJsonHttpResponseHandler$1 this$1 -> b
     91:91:void <init>(com.loopj.android.http.BaseJsonHttpResponseHandler$1,java.lang.Throwable) -> <init>
     94:95:void run() -> run
-com.loopj.android.http.BaseJsonHttpResponseHandler$2 -> com.c.a.a.r:
+com.loopj.android.http.BaseJsonHttpResponseHandler$2 -> com.d.a.a.r:
     java.lang.String val$responseString -> a
     int val$statusCode -> b
     org.apache.http.Header[] val$headers -> c
@@ -27551,21 +27644,21 @@ com.loopj.android.http.BaseJsonHttpResponseHandler$2 -> com.c.a.a.r:
     com.loopj.android.http.BaseJsonHttpResponseHandler this$0 -> e
     114:114:void <init>(com.loopj.android.http.BaseJsonHttpResponseHandler,java.lang.String,int,org.apache.http.Header[],java.lang.Throwable) -> <init>
     118:134:void run() -> run
-com.loopj.android.http.BaseJsonHttpResponseHandler$2$1 -> com.c.a.a.s:
+com.loopj.android.http.BaseJsonHttpResponseHandler$2$1 -> com.d.a.a.s:
     java.lang.Object val$jsonResponse -> a
     com.loopj.android.http.BaseJsonHttpResponseHandler$2 this$1 -> b
     119:119:void <init>(com.loopj.android.http.BaseJsonHttpResponseHandler$2,java.lang.Object) -> <init>
     122:123:void run() -> run
-com.loopj.android.http.BaseJsonHttpResponseHandler$2$2 -> com.c.a.a.t:
+com.loopj.android.http.BaseJsonHttpResponseHandler$2$2 -> com.d.a.a.t:
     com.loopj.android.http.BaseJsonHttpResponseHandler$2 this$1 -> a
     127:127:void <init>(com.loopj.android.http.BaseJsonHttpResponseHandler$2) -> <init>
     130:131:void run() -> run
-com.loopj.android.http.BinaryHttpResponseHandler -> com.c.a.a.u:
+com.loopj.android.http.BinaryHttpResponseHandler -> com.d.a.a.u:
     java.lang.String[] mAllowedContentTypes -> a
     103:143:void sendResponseMessage(org.apache.http.HttpResponse) -> a
     1070:1070:java.lang.String[] getAllowedContentTypes():70:70 -> a
     1070:1070:void sendResponseMessage(org.apache.http.HttpResponse):120 -> a
-com.loopj.android.http.DataAsyncHttpResponseHandler -> com.c.a.a.v:
+com.loopj.android.http.DataAsyncHttpResponseHandler -> com.d.a.a.v:
     59:76:void handleMessage(android.os.Message) -> a
     1048:1049:void onProgressData$25e06fc():48:49 -> a
     1048:1049:void handleMessage(android.os.Message):67 -> a
@@ -27574,7 +27667,7 @@ com.loopj.android.http.DataAsyncHttpResponseHandler -> com.c.a.a.v:
     1138:1149:byte[] getResponseData(org.apache.http.HttpEntity):107 -> a
     2053:2054:void sendProgressDataMessage(byte[]):53:54 -> a
     2053:2054:byte[] getResponseData(org.apache.http.HttpEntity):107 -> a
-com.loopj.android.http.FileAsyncHttpResponseHandler -> com.c.a.a.w:
+com.loopj.android.http.FileAsyncHttpResponseHandler -> com.d.a.a.w:
     java.io.File mFile -> a
     boolean append -> b
     boolean $assertionsDisabled -> c
@@ -27583,7 +27676,7 @@ com.loopj.android.http.FileAsyncHttpResponseHandler -> com.c.a.a.w:
     126:127:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
     140:161:byte[] getResponseData(org.apache.http.HttpEntity) -> a
     32:32:void <clinit>() -> <clinit>
-com.loopj.android.http.JsonStreamerEntity -> com.c.a.a.x:
+com.loopj.android.http.JsonStreamerEntity -> com.d.a.a.x:
     java.lang.UnsupportedOperationException ERR_UNSUPPORTED -> a
     byte[] buffer -> b
     java.lang.StringBuilder BUILDER -> c
@@ -27619,15 +27712,15 @@ com.loopj.android.http.JsonStreamerEntity -> com.c.a.a.x:
     295:310:void writeMetaData(java.io.OutputStream,java.lang.String,java.lang.String) -> a
     320:377:byte[] escape(java.lang.String) -> a
     45:72:void <clinit>() -> <clinit>
-com.loopj.android.http.JsonValueInterface -> com.c.a.a.y:
+com.loopj.android.http.JsonValueInterface -> com.d.a.a.y:
     byte[] getEscapedJsonValue() -> a
-com.loopj.android.http.RangeFileAsyncHttpResponseHandler -> com.c.a.a.z:
+com.loopj.android.http.RangeFileAsyncHttpResponseHandler -> com.d.a.a.z:
     long current -> d
     boolean append -> e
     54:76:void sendResponseMessage(org.apache.http.HttpResponse) -> a
     80:100:byte[] getResponseData(org.apache.http.HttpEntity) -> a
     104:110:void updateRequestHeaders(org.apache.http.client.methods.HttpUriRequest) -> a
-com.loopj.android.http.RequestHandle -> com.c.a.a.aa:
+com.loopj.android.http.RequestHandle -> com.d.a.a.aa:
     java.lang.ref.WeakReference request -> a
     29:31:void <init>(com.loopj.android.http.AsyncHttpRequest) -> <init>
     49:50:boolean cancel(boolean) -> cancel
@@ -27636,7 +27729,7 @@ com.loopj.android.http.RequestHandle -> com.c.a.a.aa:
     1070:1071:boolean shouldBeGarbageCollected():75 -> a
     2060:2061:boolean isFinished():60:61 -> a
     2060:2061:boolean shouldBeGarbageCollected():75 -> a
-com.loopj.android.http.RequestParams -> com.c.a.a.ab:
+com.loopj.android.http.RequestParams -> com.d.a.a.ab:
     boolean isRepeatable -> a
     boolean useJsonStreamer -> b
     java.util.concurrent.ConcurrentHashMap urlParams -> c
@@ -27661,17 +27754,17 @@ com.loopj.android.http.RequestParams -> com.c.a.a.ab:
     530:538:java.util.List getParamsList() -> c
     542:579:java.util.List getParamsList(java.lang.String,java.lang.Object) -> a
     583:583:java.lang.String getParamString() -> a
-com.loopj.android.http.RequestParams$FileWrapper -> com.c.a.a.ac:
+com.loopj.android.http.RequestParams$FileWrapper -> com.d.a.a.ac:
     java.io.File file -> a
     java.lang.String contentType -> b
     java.lang.String customFileName -> c
-com.loopj.android.http.RequestParams$StreamWrapper -> com.c.a.a.ad:
+com.loopj.android.http.RequestParams$StreamWrapper -> com.d.a.a.ad:
     java.io.InputStream inputStream -> a
     java.lang.String name -> b
     java.lang.String contentType -> c
     boolean autoClose -> d
     604:609:void <init>(java.io.InputStream,java.lang.String,java.lang.String,boolean) -> <init>
-com.loopj.android.http.ResponseHandlerInterface -> com.c.a.a.ae:
+com.loopj.android.http.ResponseHandlerInterface -> com.d.a.a.ae:
     void sendResponseMessage(org.apache.http.HttpResponse) -> a
     void sendStartMessage() -> c
     void sendFinishMessage() -> d
@@ -27682,7 +27775,7 @@ com.loopj.android.http.ResponseHandlerInterface -> com.c.a.a.ae:
     void setRequestURI(java.net.URI) -> a
     void setRequestHeaders(org.apache.http.Header[]) -> a
     boolean getUseSynchronousMode() -> a
-com.loopj.android.http.RetryHandler -> com.c.a.a.af:
+com.loopj.android.http.RetryHandler -> com.d.a.a.af:
     java.util.HashSet exceptionWhitelist -> a
     java.util.HashSet exceptionBlacklist -> b
     int maxRetries -> c
@@ -27691,12 +27784,12 @@ com.loopj.android.http.RetryHandler -> com.c.a.a.af:
     70:103:boolean retryRequest(java.io.IOException,int,org.apache.http.protocol.HttpContext) -> retryRequest
     115:120:boolean isInList(java.util.HashSet,java.lang.Throwable) -> a
     43:58:void <clinit>() -> <clinit>
-com.loopj.android.http.SaxAsyncHttpResponseHandler -> com.c.a.a.ag:
+com.loopj.android.http.SaxAsyncHttpResponseHandler -> com.d.a.a.ag:
     org.xml.sax.helpers.DefaultHandler handler -> a
     93:118:byte[] getResponseData(org.apache.http.HttpEntity) -> a
     132:133:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
     147:148:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
-com.loopj.android.http.SimpleMultipartEntity -> com.c.a.a.ah:
+com.loopj.android.http.SimpleMultipartEntity -> com.d.a.a.ah:
     byte[] CR_LF -> a
     byte[] TRANSFER_ENCODING_BINARY -> b
     char[] MULTIPART_CHARS -> c
@@ -27760,19 +27853,19 @@ com.loopj.android.http.SimpleMultipartEntity -> com.c.a.a.ah:
     47:47:byte[] access$300() -> a
     47:47:byte[] access$400() -> b
     52:56:void <clinit>() -> <clinit>
-com.loopj.android.http.SimpleMultipartEntity$FilePart -> com.c.a.a.ai:
+com.loopj.android.http.SimpleMultipartEntity$FilePart -> com.d.a.a.ai:
     java.io.File file -> a
     byte[] header -> b
     com.loopj.android.http.SimpleMultipartEntity this$0 -> c
     179:182:void <init>(com.loopj.android.http.SimpleMultipartEntity,java.lang.String,java.io.File,java.lang.String,java.lang.String) -> <init>
     190:203:byte[] createHeader(java.lang.String,java.lang.String,java.lang.String) -> a
-com.loopj.android.http.TextHttpResponseHandler -> com.c.a.a.aj:
+com.loopj.android.http.TextHttpResponseHandler -> com.d.a.a.aj:
     void onFailure(int,org.apache.http.Header[],java.lang.String,java.lang.Throwable) -> a
     void onSuccess(int,org.apache.http.Header[],java.lang.String) -> a
     100:101:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
     105:106:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
     117:124:java.lang.String getResponseString(byte[],java.lang.String) -> a
-com.novell.sasl.client.DigestChallenge -> com.d.a.a.a:
+com.novell.sasl.client.DigestChallenge -> com.e.a.a.a:
     java.util.ArrayList m_realms -> a
     java.lang.String m_nonce -> b
     int m_qop -> c
@@ -27802,7 +27895,7 @@ com.novell.sasl.client.DigestChallenge -> com.d.a.a.a:
     java.lang.String getNonce() -> b
     int getQop() -> c
     java.lang.String getAlgorithm() -> d
-com.novell.sasl.client.DigestMD5SaslClient -> com.d.a.a.b:
+com.novell.sasl.client.DigestMD5SaslClient -> com.e.a.a.b:
     java.lang.String m_authorizationId -> a
     java.lang.String m_protocol -> b
     java.lang.String m_serverName -> c
@@ -27834,7 +27927,7 @@ com.novell.sasl.client.DigestMD5SaslClient -> com.d.a.a.b:
     char getHexChar(byte) -> a
     java.lang.String getClientNonce() -> a
     java.lang.String getMechanismName() -> getMechanismName
-com.novell.sasl.client.DirectiveList -> com.d.a.a.c:
+com.novell.sasl.client.DirectiveList -> com.e.a.a.c:
     int m_curPos -> a
     int m_errorPos -> b
     java.lang.String m_directives -> c
@@ -27847,7 +27940,7 @@ com.novell.sasl.client.DirectiveList -> com.d.a.a.c:
     boolean isWhiteSpace(char) -> b
     void addDirective(java.lang.String,boolean) -> a
     java.util.Iterator getIterator() -> b
-com.novell.sasl.client.ExternalSaslClient -> com.d.a.a.d:
+com.novell.sasl.client.ExternalSaslClient -> com.e.a.a.d:
     java.lang.String m_authorizationId -> a
     java.lang.String m_protocol -> b
     java.lang.String m_serverName -> c
@@ -27864,19 +27957,19 @@ com.novell.sasl.client.ExternalSaslClient -> com.d.a.a.d:
     void dispose() -> dispose
     byte[] evaluateChallenge(byte[]) -> evaluateChallenge
     java.lang.String getMechanismName() -> getMechanismName
-com.novell.sasl.client.ParsedDirective -> com.d.a.a.e:
+com.novell.sasl.client.ParsedDirective -> com.e.a.a.e:
     int m_valueType -> a
     java.lang.String m_name -> b
     java.lang.String m_value -> c
     void <init>(java.lang.String,java.lang.String,int) -> <init>
     java.lang.String getValue() -> a
     java.lang.String getName() -> b
-com.novell.sasl.client.ResponseAuth -> com.d.a.a.f:
+com.novell.sasl.client.ResponseAuth -> com.e.a.a.f:
     java.lang.String m_responseValue -> a
     void <init>(byte[]) -> <init>
     void checkSemantics(com.novell.sasl.client.DirectiveList) -> a
     java.lang.String getResponseValue() -> a
-com.novell.sasl.client.TokenParser -> com.d.a.a.g:
+com.novell.sasl.client.TokenParser -> com.e.a.a.g:
     int m_curPos -> a
     int m_scanStart -> b
     int m_state -> c
@@ -28168,7 +28261,7 @@ com.sft.model.HXSDKModel -> com.sft.g.f:
 com.sft.receiver.CallReceiver -> com.sft.receiver.CallReceiver:
     24:24:void <init>() -> <init>
     28:44:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.squareup.picasso.Action -> com.e.a.a:
+com.squareup.picasso.Action -> com.f.a.a:
     com.squareup.picasso.Picasso picasso -> a
     com.squareup.picasso.Request request -> b
     java.lang.ref.WeakReference target -> c
@@ -28185,10 +28278,10 @@ com.squareup.picasso.Action -> com.e.a.a:
     void error() -> a
     67:68:void cancel() -> cancel
     75:75:java.lang.Object getTarget() -> b
-com.squareup.picasso.Action$RequestWeakReference -> com.e.a.b:
+com.squareup.picasso.Action$RequestWeakReference -> com.f.a.b:
     com.squareup.picasso.Action action -> a
     30:32:void <init>(com.squareup.picasso.Action,java.lang.Object,java.lang.ref.ReferenceQueue) -> <init>
-com.squareup.picasso.AssetRequestHandler -> com.e.a.c:
+com.squareup.picasso.AssetRequestHandler -> com.f.a.c:
     int ASSET_PREFIX_LENGTH -> a
     android.content.res.AssetManager assetManager -> b
     36:38:void <init>(android.content.Context) -> <init>
@@ -28196,7 +28289,7 @@ com.squareup.picasso.AssetRequestHandler -> com.e.a.c:
     47:48:com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request) -> b
     52:67:android.graphics.Bitmap decodeAsset(com.squareup.picasso.Request,java.lang.String) -> a
     31:32:void <clinit>() -> <clinit>
-com.squareup.picasso.BitmapHunter -> com.e.a.d:
+com.squareup.picasso.BitmapHunter -> com.f.a.d:
     java.lang.Object DECODE_LOCK -> s
     java.lang.ThreadLocal NAME_BUILDER -> t
     java.util.concurrent.atomic.AtomicInteger SEQUENCE_GENERATOR -> u
@@ -28263,47 +28356,47 @@ com.squareup.picasso.BitmapHunter -> com.e.a.d:
     10071:10071:com.squareup.picasso.BitmapHunter forRequest(com.squareup.picasso.Picasso,com.squareup.picasso.Dispatcher,com.squareup.picasso.Cache,com.squareup.picasso.Stats,com.squareup.picasso.Action):345 -> a
     361:419:android.graphics.Bitmap applyCustomTransformations(java.util.List,android.graphics.Bitmap) -> a
     47:57:void <clinit>() -> <clinit>
-com.squareup.picasso.BitmapHunter$1 -> com.e.a.e:
+com.squareup.picasso.BitmapHunter$1 -> com.f.a.e:
     49:49:void <init>() -> <init>
     49:49:java.lang.Object initialValue() -> initialValue
     1051:1051:java.lang.StringBuilder initialValue():51:51 -> initialValue
     1051:1051:java.lang.Object initialValue():49 -> initialValue
-com.squareup.picasso.BitmapHunter$2 -> com.e.a.f:
+com.squareup.picasso.BitmapHunter$2 -> com.f.a.f:
     57:57:void <init>() -> <init>
     59:59:boolean canHandleRequest(com.squareup.picasso.Request) -> a
     63:63:com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request) -> b
-com.squareup.picasso.BitmapHunter$3 -> com.e.a.g:
+com.squareup.picasso.BitmapHunter$3 -> com.f.a.g:
     com.squareup.picasso.Transformation val$transformation -> a
     java.lang.RuntimeException val$e -> b
     367:367:void <init>(com.squareup.picasso.Transformation,java.lang.RuntimeException) -> <init>
     369:370:void run() -> run
-com.squareup.picasso.BitmapHunter$4 -> com.e.a.h:
+com.squareup.picasso.BitmapHunter$4 -> com.f.a.h:
     java.lang.StringBuilder val$builder -> a
     386:386:void <init>(java.lang.StringBuilder) -> <init>
     388:388:void run() -> run
-com.squareup.picasso.BitmapHunter$5 -> com.e.a.i:
+com.squareup.picasso.BitmapHunter$5 -> com.f.a.i:
     com.squareup.picasso.Transformation val$transformation -> a
     395:395:void <init>(com.squareup.picasso.Transformation) -> <init>
     397:398:void run() -> run
-com.squareup.picasso.BitmapHunter$6 -> com.e.a.j:
+com.squareup.picasso.BitmapHunter$6 -> com.f.a.j:
     com.squareup.picasso.Transformation val$transformation -> a
     407:407:void <init>(com.squareup.picasso.Transformation) -> <init>
     409:410:void run() -> run
-com.squareup.picasso.Cache -> com.e.a.k:
+com.squareup.picasso.Cache -> com.f.a.k:
     com.squareup.picasso.Cache NONE -> a
     android.graphics.Bitmap get(java.lang.String) -> a
     void set(java.lang.String,android.graphics.Bitmap) -> a
     int size() -> a
     int maxSize() -> b
     44:44:void <clinit>() -> <clinit>
-com.squareup.picasso.Cache$1 -> com.e.a.l:
+com.squareup.picasso.Cache$1 -> com.f.a.l:
     44:44:void <init>() -> <init>
     46:46:android.graphics.Bitmap get(java.lang.String) -> a
     51:51:void set(java.lang.String,android.graphics.Bitmap) -> a
     54:54:int size() -> a
     58:58:int maxSize() -> b
-com.squareup.picasso.Callback -> com.e.a.m:
-com.squareup.picasso.ContactsPhotoRequestHandler -> com.e.a.n:
+com.squareup.picasso.Callback -> com.f.a.m:
+com.squareup.picasso.ContactsPhotoRequestHandler -> com.f.a.n:
     android.content.UriMatcher matcher -> b
     android.content.Context context -> a
     62:64:void <init>(android.content.Context) -> <init>
@@ -28314,20 +28407,20 @@ com.squareup.picasso.ContactsPhotoRequestHandler -> com.e.a.n:
     1127:1127:java.io.InputStream getInputStream(com.squareup.picasso.Request):97 -> c
     108:121:android.graphics.Bitmap decodeStream(java.io.InputStream,com.squareup.picasso.Request) -> a
     52:58:void <clinit>() -> <clinit>
-com.squareup.picasso.ContentStreamRequestHandler -> com.e.a.o:
+com.squareup.picasso.ContentStreamRequestHandler -> com.f.a.o:
     android.content.Context context -> a
     31:33:void <init>(android.content.Context) -> <init>
     36:36:boolean canHandleRequest(com.squareup.picasso.Request) -> a
     40:40:com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request) -> b
     44:60:android.graphics.Bitmap decodeContentStream(com.squareup.picasso.Request) -> c
-com.squareup.picasso.DeferredRequestCreator -> com.e.a.p:
+com.squareup.picasso.DeferredRequestCreator -> com.f.a.p:
     com.squareup.picasso.RequestCreator creator -> a
     java.lang.ref.WeakReference target -> b
     com.squareup.picasso.Callback callback -> c
     33:38:void <init>(com.squareup.picasso.RequestCreator,android.widget.ImageView,com.squareup.picasso.Callback) -> <init>
     41:60:boolean onPreDraw() -> onPreDraw
     64:74:void cancel() -> cancel
-com.squareup.picasso.Dispatcher -> com.e.a.q:
+com.squareup.picasso.Dispatcher -> com.f.a.q:
     com.squareup.picasso.Dispatcher$DispatcherThread dispatcherThread -> a
     android.content.Context context -> b
     java.util.concurrent.ExecutorService service -> c
@@ -28414,7 +28507,7 @@ com.squareup.picasso.Dispatcher -> com.e.a.q:
     451:462:void logBatch(java.util.List) -> a
     14314:14314:com.squareup.picasso.Picasso com.squareup.picasso.BitmapHunter.getPicasso():314:314 -> a
     14314:14314:void logBatch(java.util.List):453 -> a
-com.squareup.picasso.Dispatcher$DispatcherHandler -> com.e.a.r:
+com.squareup.picasso.Dispatcher$DispatcherHandler -> com.f.a.r:
     com.squareup.picasso.Dispatcher dispatcher -> a
     468:470:void <init>(android.os.Looper,com.squareup.picasso.Dispatcher) -> <init>
     473:529:void handleMessage(android.os.Message) -> handleMessage
@@ -28465,14 +28558,14 @@ com.squareup.picasso.Dispatcher$DispatcherHandler -> com.e.a.r:
     9099:9099:void handleMessage(android.os.Message):486 -> handleMessage
     9390:9391:void com.squareup.picasso.Dispatcher.performAirplaneModeChange(boolean):390:391 -> handleMessage
     9390:9391:void handleMessage(android.os.Message):519 -> handleMessage
-com.squareup.picasso.Dispatcher$DispatcherHandler$1 -> com.e.a.s:
+com.squareup.picasso.Dispatcher$DispatcherHandler$1 -> com.f.a.s:
     android.os.Message val$msg -> a
     com.squareup.picasso.Dispatcher$DispatcherHandler this$0 -> b
     523:523:void <init>(com.squareup.picasso.Dispatcher$DispatcherHandler,android.os.Message) -> <init>
     525:525:void run() -> run
-com.squareup.picasso.Dispatcher$DispatcherThread -> com.e.a.t:
+com.squareup.picasso.Dispatcher$DispatcherThread -> com.f.a.t:
     534:535:void <init>() -> <init>
-com.squareup.picasso.Dispatcher$NetworkBroadcastReceiver -> com.e.a.u:
+com.squareup.picasso.Dispatcher$NetworkBroadcastReceiver -> com.f.a.u:
     com.squareup.picasso.Dispatcher dispatcher -> a
     543:545:void <init>(com.squareup.picasso.Dispatcher) -> <init>
     548:554:void register() -> a
@@ -28481,29 +28574,29 @@ com.squareup.picasso.Dispatcher$NetworkBroadcastReceiver -> com.e.a.u:
     1168:1170:void onReceive(android.content.Context,android.content.Intent):571 -> onReceive
     2164:2165:void com.squareup.picasso.Dispatcher.dispatchNetworkStateChange(android.net.NetworkInfo):164:165 -> onReceive
     2164:2165:void onReceive(android.content.Context,android.content.Intent):574 -> onReceive
-com.squareup.picasso.Downloader -> com.e.a.v:
+com.squareup.picasso.Downloader -> com.f.a.v:
     com.squareup.picasso.Downloader$Response load(android.net.Uri,boolean) -> a
-com.squareup.picasso.Downloader$Response -> com.e.a.w:
+com.squareup.picasso.Downloader$Response -> com.f.a.w:
     java.io.InputStream stream -> a
     android.graphics.Bitmap bitmap -> b
     boolean cached -> c
     long contentLength -> d
     109:117:void <init>(java.io.InputStream,boolean,long) -> <init>
-com.squareup.picasso.Downloader$ResponseException -> com.e.a.x:
+com.squareup.picasso.Downloader$ResponseException -> com.f.a.x:
     47:48:void <init>(java.lang.String) -> <init>
-com.squareup.picasso.FileRequestHandler -> com.e.a.y:
+com.squareup.picasso.FileRequestHandler -> com.f.a.y:
     34:35:void <init>(android.content.Context) -> <init>
     38:38:boolean canHandleRequest(com.squareup.picasso.Request) -> a
     42:42:com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request) -> b
     1046:1056:int getFileExifRotation(android.net.Uri):46:56 -> b
     1046:1056:com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request):42 -> b
-com.squareup.picasso.ImageViewAction -> com.e.a.z:
+com.squareup.picasso.ImageViewAction -> com.f.a.z:
     com.squareup.picasso.Callback callback -> l
     30:32:void <init>(com.squareup.picasso.Picasso,android.widget.ImageView,com.squareup.picasso.Request,boolean,boolean,int,android.graphics.drawable.Drawable,java.lang.String,java.lang.Object,com.squareup.picasso.Callback) -> <init>
     35:52:void complete(android.graphics.Bitmap,com.squareup.picasso.Picasso$LoadedFrom) -> a
     55:68:void error() -> a
     71:75:void cancel() -> cancel
-com.squareup.picasso.LruCache -> com.e.a.aa:
+com.squareup.picasso.LruCache -> com.f.a.aa:
     java.util.LinkedHashMap map -> b
     int maxSize -> c
     int size -> d
@@ -28518,7 +28611,7 @@ com.squareup.picasso.LruCache -> com.e.a.aa:
     88:106:void trimToSize(int) -> a
     115:115:int size() -> a
     120:120:int maxSize() -> b
-com.squareup.picasso.MarkableInputStream -> com.e.a.ab:
+com.squareup.picasso.MarkableInputStream -> com.f.a.ab:
     java.io.InputStream in -> a
     long offset -> b
     long reset -> c
@@ -28540,7 +28633,7 @@ com.squareup.picasso.MarkableInputStream -> com.e.a.ab:
     152:152:int available() -> available
     156:157:void close() -> close
     160:160:boolean markSupported() -> markSupported
-com.squareup.picasso.MediaStoreRequestHandler -> com.e.a.ac:
+com.squareup.picasso.MediaStoreRequestHandler -> com.f.a.ac:
     java.lang.String[] CONTENT_ORIENTATION -> b
     45:46:void <init>(android.content.Context) -> <init>
     49:51:boolean canHandleRequest(com.squareup.picasso.Request) -> a
@@ -28549,7 +28642,7 @@ com.squareup.picasso.MediaStoreRequestHandler -> com.e.a.ac:
     1096:1101:com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request):62 -> b
     105:117:int getExifOrientation(android.content.ContentResolver,android.net.Uri) -> a
     40:40:void <clinit>() -> <clinit>
-com.squareup.picasso.MediaStoreRequestHandler$PicassoKind -> com.e.a.ad:
+com.squareup.picasso.MediaStoreRequestHandler$PicassoKind -> com.f.a.ad:
     com.squareup.picasso.MediaStoreRequestHandler$PicassoKind MICRO -> a
     com.squareup.picasso.MediaStoreRequestHandler$PicassoKind MINI -> b
     com.squareup.picasso.MediaStoreRequestHandler$PicassoKind FULL -> c
@@ -28561,7 +28654,7 @@ com.squareup.picasso.MediaStoreRequestHandler$PicassoKind -> com.e.a.ad:
     122:122:com.squareup.picasso.MediaStoreRequestHandler$PicassoKind valueOf(java.lang.String) -> valueOf
     131:135:void <init>(java.lang.String,int,int,int,int) -> <init>
     122:125:void <clinit>() -> <clinit>
-com.squareup.picasso.NetworkRequestHandler -> com.e.a.ae:
+com.squareup.picasso.NetworkRequestHandler -> com.f.a.ae:
     com.squareup.picasso.Downloader downloader -> a
     com.squareup.picasso.Stats stats -> b
     38:41:void <init>(com.squareup.picasso.Downloader,com.squareup.picasso.Stats) -> <init>
@@ -28584,7 +28677,7 @@ com.squareup.picasso.NetworkRequestHandler -> com.e.a.ae:
     82:82:int getRetryCount() -> a
     86:86:boolean shouldRetry$552f0f64(android.net.NetworkInfo) -> a
     90:90:boolean supportsReplay() -> b
-com.squareup.picasso.OkHttpDownloader -> com.e.a.af:
+com.squareup.picasso.OkHttpDownloader -> com.f.a.af:
     com.squareup.okhttp.OkUrlFactory urlFactory -> a
     41:42:void <init>(android.content.Context) -> <init>
     51:52:void <init>(java.io.File) -> <init>
@@ -28593,7 +28686,7 @@ com.squareup.picasso.OkHttpDownloader -> com.e.a.af:
     99:119:com.squareup.picasso.Downloader$Response load(android.net.Uri,boolean) -> a
     1088:1091:java.net.HttpURLConnection openConnection(android.net.Uri):88:91 -> a
     1088:1091:com.squareup.picasso.Downloader$Response load(android.net.Uri,boolean):99 -> a
-com.squareup.picasso.Picasso -> com.e.a.ag:
+com.squareup.picasso.Picasso -> com.f.a.ag:
     android.os.Handler HANDLER -> a
     com.squareup.picasso.Picasso singleton -> b
     com.squareup.picasso.Picasso$Listener listener -> m
@@ -28654,12 +28747,12 @@ com.squareup.picasso.Picasso -> com.e.a.ag:
     594:601:com.squareup.picasso.Picasso with(android.content.Context) -> a
     58:58:void access$000(com.squareup.picasso.Picasso,java.lang.Object) -> a
     107:140:void <clinit>() -> <clinit>
-com.squareup.picasso.Picasso$1 -> com.e.a.ah:
+com.squareup.picasso.Picasso$1 -> com.f.a.ah:
     107:107:void <init>(android.os.Looper) -> <init>
     109:137:void handleMessage(android.os.Message) -> handleMessage
     1091:1091:com.squareup.picasso.Picasso com.squareup.picasso.Action.getPicasso():91:91 -> handleMessage
     1091:1091:void handleMessage(android.os.Message):121 -> handleMessage
-com.squareup.picasso.Picasso$Builder -> com.e.a.ai:
+com.squareup.picasso.Picasso$Builder -> com.f.a.ai:
     android.content.Context context -> a
     com.squareup.picasso.Downloader downloader -> b
     java.util.concurrent.ExecutorService service -> c
@@ -28671,18 +28764,18 @@ com.squareup.picasso.Picasso$Builder -> com.e.a.ai:
     boolean loggingEnabled -> i
     633:638:void <init>(android.content.Context) -> <init>
     751:770:com.squareup.picasso.Picasso build() -> a
-com.squareup.picasso.Picasso$CleanupThread -> com.e.a.aj:
+com.squareup.picasso.Picasso$CleanupThread -> com.f.a.aj:
     java.lang.ref.ReferenceQueue referenceQueue -> a
     android.os.Handler handler -> b
     544:549:void <init>(java.lang.ref.ReferenceQueue,android.os.Handler) -> <init>
     552:568:void run() -> run
-com.squareup.picasso.Picasso$CleanupThread$1 -> com.e.a.ak:
+com.squareup.picasso.Picasso$CleanupThread$1 -> com.f.a.ak:
     java.lang.Exception val$e -> a
     com.squareup.picasso.Picasso$CleanupThread this$0 -> b
     560:560:void <init>(com.squareup.picasso.Picasso$CleanupThread,java.lang.Exception) -> <init>
     562:562:void run() -> run
-com.squareup.picasso.Picasso$Listener -> com.e.a.al:
-com.squareup.picasso.Picasso$LoadedFrom -> com.e.a.am:
+com.squareup.picasso.Picasso$Listener -> com.f.a.al:
+com.squareup.picasso.Picasso$LoadedFrom -> com.f.a.am:
     com.squareup.picasso.Picasso$LoadedFrom MEMORY -> a
     com.squareup.picasso.Picasso$LoadedFrom DISK -> b
     com.squareup.picasso.Picasso$LoadedFrom NETWORK -> c
@@ -28692,20 +28785,20 @@ com.squareup.picasso.Picasso$LoadedFrom -> com.e.a.am:
     776:776:com.squareup.picasso.Picasso$LoadedFrom valueOf(java.lang.String) -> valueOf
     783:785:void <init>(java.lang.String,int,int) -> <init>
     776:779:void <clinit>() -> <clinit>
-com.squareup.picasso.Picasso$Priority -> com.e.a.an:
+com.squareup.picasso.Picasso$Priority -> com.f.a.an:
     int LOW$159b5429 -> a
     int NORMAL$159b5429 -> b
     int HIGH$159b5429 -> c
     int[] $VALUES$1df6b4e4 -> d
     100:103:void <clinit>() -> <clinit>
-com.squareup.picasso.Picasso$RequestTransformer -> com.e.a.ao:
+com.squareup.picasso.Picasso$RequestTransformer -> com.f.a.ao:
     com.squareup.picasso.Picasso$RequestTransformer IDENTITY -> a
     com.squareup.picasso.Request transformRequest(com.squareup.picasso.Request) -> a
     88:88:void <clinit>() -> <clinit>
-com.squareup.picasso.Picasso$RequestTransformer$1 -> com.e.a.ap:
+com.squareup.picasso.Picasso$RequestTransformer$1 -> com.f.a.ap:
     88:88:void <init>() -> <init>
     90:90:com.squareup.picasso.Request transformRequest(com.squareup.picasso.Request) -> a
-com.squareup.picasso.PicassoDrawable -> com.e.a.aq:
+com.squareup.picasso.PicassoDrawable -> com.f.a.aq:
     android.graphics.Paint DEBUG_PAINT -> e
     boolean debugging -> f
     float density -> g
@@ -28725,12 +28818,12 @@ com.squareup.picasso.PicassoDrawable -> com.e.a.aq:
     139:143:void onBoundsChange(android.graphics.Rect) -> onBoundsChange
     156:164:android.graphics.Path getTrianglePath(android.graphics.Point,int) -> a
     38:38:void <clinit>() -> <clinit>
-com.squareup.picasso.PicassoExecutorService -> com.e.a.ar:
+com.squareup.picasso.PicassoExecutorService -> com.f.a.ar:
     38:40:void <init>() -> <init>
     43:78:void adjustThreadCount(android.net.NetworkInfo) -> a
     81:83:void setThreadCount(int) -> a
     87:89:java.util.concurrent.Future submit(java.lang.Runnable) -> submit
-com.squareup.picasso.PicassoExecutorService$PicassoFutureTask -> com.e.a.as:
+com.squareup.picasso.PicassoExecutorService$PicassoFutureTask -> com.f.a.as:
     com.squareup.picasso.BitmapHunter hunter -> a
     97:99:void <init>(com.squareup.picasso.BitmapHunter) -> <init>
     92:92:int compareTo(java.lang.Object) -> compareTo
@@ -28742,7 +28835,7 @@ com.squareup.picasso.PicassoExecutorService$PicassoFutureTask -> com.e.a.as:
     2330:2330:int com.squareup.picasso.BitmapHunter.getPriority$28c9084a():330:330 -> compareTo
     2330:2330:int compareTo(com.squareup.picasso.PicassoExecutorService$PicassoFutureTask):104 -> compareTo
     2330:2330:int compareTo(java.lang.Object):92 -> compareTo
-com.squareup.picasso.RemoteViewsAction -> com.e.a.at:
+com.squareup.picasso.RemoteViewsAction -> com.f.a.at:
     android.widget.RemoteViews remoteViews -> l
     int viewId -> m
     com.squareup.picasso.RemoteViewsAction$RemoteViewsTarget target -> n
@@ -28753,13 +28846,13 @@ com.squareup.picasso.RemoteViewsAction -> com.e.a.at:
     27:27:java.lang.Object getTarget() -> b
     2053:2056:com.squareup.picasso.RemoteViewsAction$RemoteViewsTarget getTarget():53:56 -> b
     2053:2056:java.lang.Object getTarget():27 -> b
-com.squareup.picasso.RemoteViewsAction$RemoteViewsTarget -> com.e.a.au:
+com.squareup.picasso.RemoteViewsAction$RemoteViewsTarget -> com.f.a.au:
     android.widget.RemoteViews remoteViews -> a
     int viewId -> b
     70:73:void <init>(android.widget.RemoteViews,int) -> <init>
     76:79:boolean equals(java.lang.Object) -> equals
     84:84:int hashCode() -> hashCode
-com.squareup.picasso.Request -> com.e.a.av:
+com.squareup.picasso.Request -> com.f.a.av:
     long TOO_LONG_LOG -> r
     int id -> a
     long started -> b
@@ -28787,7 +28880,7 @@ com.squareup.picasso.Request -> com.e.a.av:
     181:181:boolean hasCustomTransformations() -> e
     28:28:void <init>(android.net.Uri,int,java.lang.String,java.util.List,int,int,boolean,boolean,float,float,float,boolean,android.graphics.Bitmap$Config,int,byte) -> <init>
     29:29:void <clinit>() -> <clinit>
-com.squareup.picasso.Request$Builder -> com.e.a.aw:
+com.squareup.picasso.Request$Builder -> com.f.a.aw:
     android.net.Uri uri -> a
     int resourceId -> b
     java.lang.String stableKey -> c
@@ -28807,7 +28900,7 @@ com.squareup.picasso.Request$Builder -> com.e.a.aw:
     244:244:boolean hasSize() -> b
     293:304:com.squareup.picasso.Request$Builder resize(int,int) -> a
     416:430:com.squareup.picasso.Request build() -> c
-com.squareup.picasso.RequestCreator -> com.e.a.ax:
+com.squareup.picasso.RequestCreator -> com.f.a.ax:
     int nextId -> a
     com.squareup.picasso.Picasso picasso -> b
     com.squareup.picasso.Request$Builder data -> c
@@ -28835,12 +28928,12 @@ com.squareup.picasso.RequestCreator -> com.e.a.ax:
     610:613:android.graphics.drawable.Drawable getPlaceholderDrawable() -> d
     51:51:int access$000() -> b
     52:52:void <clinit>() -> <clinit>
-com.squareup.picasso.RequestCreator$1 -> com.e.a.ay:
+com.squareup.picasso.RequestCreator$1 -> com.f.a.ay:
     java.util.concurrent.atomic.AtomicInteger val$id -> a
     java.util.concurrent.CountDownLatch val$latch -> b
     61:61:void <init>(java.util.concurrent.atomic.AtomicInteger,java.util.concurrent.CountDownLatch) -> <init>
     63:65:void run() -> run
-com.squareup.picasso.RequestHandler -> com.e.a.az:
+com.squareup.picasso.RequestHandler -> com.f.a.az:
     41:49:void <init>() -> <init>
     boolean canHandleRequest(com.squareup.picasso.Request) -> a
     com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request) -> b
@@ -28851,7 +28944,7 @@ com.squareup.picasso.RequestHandler -> com.e.a.az:
     135:135:boolean requiresInSampleSize(android.graphics.BitmapFactory$Options) -> a
     140:142:void calculateInSampleSize(int,int,android.graphics.BitmapFactory$Options,com.squareup.picasso.Request) -> a
     146:164:void calculateInSampleSize(int,int,int,int,android.graphics.BitmapFactory$Options,com.squareup.picasso.Request) -> a
-com.squareup.picasso.RequestHandler$Result -> com.e.a.ba:
+com.squareup.picasso.RequestHandler$Result -> com.f.a.ba:
     com.squareup.picasso.Picasso$LoadedFrom loadedFrom -> a
     android.graphics.Bitmap bitmap -> b
     int exifOrientation -> c
@@ -28860,14 +28953,14 @@ com.squareup.picasso.RequestHandler$Result -> com.e.a.ba:
     69:69:android.graphics.Bitmap getBitmap() -> a
     77:77:com.squareup.picasso.Picasso$LoadedFrom getLoadedFrom() -> b
     86:86:int getExifOrientation() -> c
-com.squareup.picasso.ResourceRequestHandler -> com.e.a.bb:
+com.squareup.picasso.ResourceRequestHandler -> com.f.a.bb:
     android.content.Context context -> a
     30:32:void <init>(android.content.Context) -> <init>
     35:39:boolean canHandleRequest(com.squareup.picasso.Request) -> a
     43:45:com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request) -> b
     1049:1054:android.graphics.Bitmap decodeResource(android.content.res.Resources,int,com.squareup.picasso.Request):49:54 -> b
     1049:1054:com.squareup.picasso.RequestHandler$Result load(com.squareup.picasso.Request):45 -> b
-com.squareup.picasso.Stats -> com.e.a.bc:
+com.squareup.picasso.Stats -> com.f.a.bc:
     android.os.HandlerThread statsThread -> a
     com.squareup.picasso.Cache cache -> b
     android.os.Handler handler -> c
@@ -28887,7 +28980,7 @@ com.squareup.picasso.Stats -> com.e.a.bc:
     63:64:void dispatchBitmapTransformed(android.graphics.Bitmap) -> b
     71:72:void dispatchCacheHit() -> a
     117:119:void processBitmap(android.graphics.Bitmap,int) -> a
-com.squareup.picasso.Stats$StatsHandler -> com.e.a.bd:
+com.squareup.picasso.Stats$StatsHandler -> com.f.a.bd:
     com.squareup.picasso.Stats stats -> a
     130:132:void <init>(android.os.Looper,com.squareup.picasso.Stats) -> <init>
     135:158:void handleMessage(android.os.Message) -> handleMessage
@@ -28910,12 +29003,12 @@ com.squareup.picasso.Stats$StatsHandler -> com.e.a.bd:
     3122:3122:long com.squareup.picasso.Stats.getAverage(int,long):122:122 -> handleMessage
     3122:3122:void com.squareup.picasso.Stats.performDownloadFinished(java.lang.Long):93 -> handleMessage
     3122:3122:void handleMessage(android.os.Message):149 -> handleMessage
-com.squareup.picasso.Stats$StatsHandler$1 -> com.e.a.be:
+com.squareup.picasso.Stats$StatsHandler$1 -> com.f.a.be:
     android.os.Message val$msg -> a
     com.squareup.picasso.Stats$StatsHandler this$0 -> b
     152:152:void <init>(com.squareup.picasso.Stats$StatsHandler,android.os.Message) -> <init>
     154:154:void run() -> run
-com.squareup.picasso.StatsSnapshot -> com.e.a.bf:
+com.squareup.picasso.StatsSnapshot -> com.f.a.bf:
     int maxSize -> a
     int size -> b
     long cacheHits -> c
@@ -28932,10 +29025,10 @@ com.squareup.picasso.StatsSnapshot -> com.e.a.bf:
     long timeStamp -> n
     45:60:void <init>(int,int,long,long,long,long,long,long,long,long,int,int,int,long) -> <init>
     108:108:java.lang.String toString() -> toString
-com.squareup.picasso.Transformation -> com.e.a.bg:
+com.squareup.picasso.Transformation -> com.f.a.bg:
     android.graphics.Bitmap transform$34dbf037() -> a
     java.lang.String key() -> b
-com.squareup.picasso.UrlConnectionDownloader -> com.e.a.bh:
+com.squareup.picasso.UrlConnectionDownloader -> com.f.a.bh:
     java.lang.Object lock -> b
     java.lang.Object cache -> a
     android.content.Context context -> c
@@ -28949,7 +29042,7 @@ com.squareup.picasso.UrlConnectionDownloader -> com.e.a.bh:
     2047:2050:java.net.HttpURLConnection openConnection(android.net.Uri):47:50 -> a
     2047:2050:com.squareup.picasso.Downloader$Response load(android.net.Uri,boolean):58 -> a
     37:37:void <clinit>() -> <clinit>
-com.squareup.picasso.Utils -> com.e.a.bi:
+com.squareup.picasso.Utils -> com.f.a.bi:
     java.lang.StringBuilder MAIN_THREAD_KEY_BUILDER -> a
     105:113:int getBitmapBytes(android.graphics.Bitmap) -> a
     1415:1415:int com.squareup.picasso.Utils$BitmapHoneycombMR1.getByteCount(android.graphics.Bitmap):415:415 -> a
@@ -28990,13 +29083,13 @@ com.squareup.picasso.Utils -> com.e.a.bi:
     344:369:int getResourceId(android.content.res.Resources,com.squareup.picasso.Request) -> a
     373:383:android.content.res.Resources getResources(android.content.Context,com.squareup.picasso.Request) -> a
     59:59:void <clinit>() -> <clinit>
-com.squareup.picasso.Utils$PicassoThread -> com.e.a.bj:
+com.squareup.picasso.Utils$PicassoThread -> com.f.a.bj:
     403:404:void <init>(java.lang.Runnable) -> <init>
     407:409:void run() -> run
-com.squareup.picasso.Utils$PicassoThreadFactory -> com.e.a.bk:
+com.squareup.picasso.Utils$PicassoThreadFactory -> com.f.a.bk:
     394:394:void <init>() -> <init>
     397:397:java.lang.Thread newThread(java.lang.Runnable) -> newThread
-com.umeng.analytics.AnalyticsConfig -> com.f.a.a:
+com.umeng.analytics.AnalyticsConfig -> com.g.a.a:
     java.lang.String a -> o
     java.lang.String b -> p
     java.lang.String mWrapperType -> a
@@ -29022,7 +29115,7 @@ com.umeng.analytics.AnalyticsConfig -> com.f.a.a:
     1102:1112:int[] com.umeng.analytics.f.a():102:112 -> c
     1102:1112:int[] getReportPolicy(android.content.Context):78 -> c
     8:88:void <clinit>() -> <clinit>
-com.umeng.analytics.Gender -> com.f.a.b:
+com.umeng.analytics.Gender -> com.g.a.b:
     com.umeng.analytics.Gender Male -> a
     com.umeng.analytics.Gender Female -> b
     com.umeng.analytics.Gender Unknown -> c
@@ -29034,56 +29127,56 @@ com.umeng.analytics.Gender -> com.f.a.b:
     54:61:u.aly.ap transGender(com.umeng.analytics.Gender) -> a
     9:9:void <init>(java.lang.String,int,int,byte) -> <init>
     9:20:void <clinit>() -> <clinit>
-com.umeng.analytics.Gender$1 -> com.f.a.c:
+com.umeng.analytics.Gender$1 -> com.g.a.c:
     10:10:void <init>(java.lang.String) -> <init>
     12:12:java.lang.String toString() -> toString
-com.umeng.analytics.Gender$2 -> com.f.a.d:
+com.umeng.analytics.Gender$2 -> com.g.a.d:
     15:15:void <init>(java.lang.String) -> <init>
     17:17:java.lang.String toString() -> toString
-com.umeng.analytics.Gender$3 -> com.f.a.e:
+com.umeng.analytics.Gender$3 -> com.g.a.e:
     20:20:void <init>(java.lang.String) -> <init>
     22:22:java.lang.String toString() -> toString
-com.umeng.analytics.Gender$4 -> com.f.a.f:
+com.umeng.analytics.Gender$4 -> com.g.a.f:
     int[] a -> a
     54:54:void <clinit>() -> <clinit>
-com.umeng.analytics.MobclickAgent -> com.f.a.g:
+com.umeng.analytics.MobclickAgent -> com.g.a.g:
     com.umeng.analytics.c b -> a
     101:106:void onPageStart(java.lang.String) -> a
     131:132:void onPause(android.content.Context) -> a
     139:145:void onResume(android.content.Context) -> b
     26:26:void <clinit>() -> <clinit>
-com.umeng.analytics.ReportPolicy -> com.f.a.h:
-com.umeng.analytics.ReportPolicy$a -> com.f.a.i:
+com.umeng.analytics.ReportPolicy -> com.g.a.h:
+com.umeng.analytics.ReportPolicy$a -> com.g.a.i:
     57:58:void <init>() -> <init>
     61:61:boolean a(boolean) -> a
-com.umeng.analytics.ReportPolicy$b -> com.f.a.j:
+com.umeng.analytics.ReportPolicy$b -> com.g.a.j:
     long a -> a
     long b -> b
     u.aly.w c -> c
     66:74:void <init>(u.aly.w,long) -> <init>
     77:81:boolean a(boolean) -> a
-com.umeng.analytics.ReportPolicy$c -> com.f.a.k:
+com.umeng.analytics.ReportPolicy$c -> com.g.a.k:
     int a -> a
     u.aly.q b -> b
     122:125:void <init>(u.aly.q,int) -> <init>
     128:128:boolean a(boolean) -> a
-com.umeng.analytics.ReportPolicy$d -> com.f.a.l:
+com.umeng.analytics.ReportPolicy$d -> com.g.a.l:
     long a -> a
     u.aly.w b -> b
     90:95:void <init>(u.aly.w) -> <init>
     98:102:boolean a(boolean) -> a
-com.umeng.analytics.ReportPolicy$e -> com.f.a.m:
+com.umeng.analytics.ReportPolicy$e -> com.g.a.m:
     47:48:void <init>() -> <init>
     51:51:boolean a(boolean) -> a
-com.umeng.analytics.ReportPolicy$f -> com.f.a.n:
+com.umeng.analytics.ReportPolicy$f -> com.g.a.n:
     android.content.Context a -> a
     107:111:void <init>(android.content.Context) -> <init>
     114:114:boolean a(boolean) -> a
-com.umeng.analytics.a -> com.f.a.o:
+com.umeng.analytics.a -> com.g.a.o:
     java.lang.String[] f -> a
     java.lang.String[] g -> b
     15:16:void <clinit>() -> <clinit>
-com.umeng.analytics.c -> com.f.a.p:
+com.umeng.analytics.c -> com.g.a.p:
     com.umeng.analytics.onlineconfig.a a -> a
     android.content.Context b -> b
     u.aly.m d -> c
@@ -29107,7 +29200,7 @@ com.umeng.analytics.c -> com.f.a.p:
     3018:3018:android.content.SharedPreferences u.aly.u.a(android.content.Context):18:18 -> a
     3018:3018:void a(java.lang.Throwable):302 -> a
     25:25:void b(com.umeng.analytics.c,android.content.Context) -> a
-com.umeng.analytics.c$1 -> com.f.a.q:
+com.umeng.analytics.c$1 -> com.g.a.q:
     android.content.Context a -> a
     com.umeng.analytics.c b -> b
     114:114:void <init>(com.umeng.analytics.c,android.content.Context) -> <init>
@@ -29218,12 +29311,12 @@ com.umeng.analytics.c$1 -> com.f.a.q:
     8085:8096:void com.umeng.analytics.c.g(android.content.Context):191 -> a
     8085:8096:void com.umeng.analytics.c.a(com.umeng.analytics.c,android.content.Context):25 -> a
     8085:8096:void a():116 -> a
-com.umeng.analytics.c$2 -> com.f.a.r:
+com.umeng.analytics.c$2 -> com.g.a.r:
     android.content.Context a -> a
     com.umeng.analytics.c b -> b
     139:139:void <init>(com.umeng.analytics.c,android.content.Context) -> <init>
     141:142:void a() -> a
-com.umeng.analytics.d -> com.f.a.s:
+com.umeng.analytics.d -> com.g.a.s:
     java.util.concurrent.ExecutorService a -> a
     long b -> b
     java.util.concurrent.ExecutorService c -> c
@@ -29231,11 +29324,11 @@ com.umeng.analytics.d -> com.f.a.s:
     25:31:void a() -> a
     41:45:void b(java.lang.Runnable) -> b
     8:33:void <clinit>() -> <clinit>
-com.umeng.analytics.e -> com.f.a.t:
+com.umeng.analytics.e -> com.g.a.t:
     3:3:void <init>() -> <init>
     8:12:void run() -> run
     void a() -> a
-com.umeng.analytics.f -> com.f.a.u:
+com.umeng.analytics.f -> com.g.a.u:
     com.umeng.analytics.f a -> a
     android.content.Context b -> b
     java.lang.String c -> c
@@ -29258,8 +29351,8 @@ com.umeng.analytics.f -> com.f.a.u:
     268:268:java.lang.String m() -> g
     272:272:java.lang.String n() -> h
     20:39:void <clinit>() -> <clinit>
-com.umeng.analytics.onlineconfig.UmengOnlineConfigureListener -> com.f.a.a.a:
-com.umeng.analytics.onlineconfig.a -> com.f.a.a.b:
+com.umeng.analytics.onlineconfig.UmengOnlineConfigureListener -> com.g.a.a.a:
+com.umeng.analytics.onlineconfig.a -> com.g.a.a.b:
     java.lang.String h -> a
     java.lang.String i -> b
     java.lang.String j -> c
@@ -29267,7 +29360,7 @@ com.umeng.analytics.onlineconfig.a -> com.f.a.a.b:
     com.umeng.analytics.onlineconfig.c l -> e
     long m -> f
     26:44:void <init>() -> <init>
-com.umeng.analytics.onlineconfig.c -> com.f.a.a.c:
+com.umeng.analytics.onlineconfig.c -> com.g.a.a.c:
 com.yibu.common.Config -> com.yibu.a.a:
     java.lang.String path -> a
     java.lang.String PICPATH -> b
@@ -29289,13 +29382,13 @@ com.yibu.headmaster.AboutUsActivity -> com.yibu.headmaster.AboutUsActivity:
     android.view.View view -> k
     android.widget.TextView versionTv -> l
     android.widget.TextView protocalTv -> m
-    8:8:void <init>() -> <init>
-    16:24:void initView() -> a
+    9:9:void <init>() -> <init>
+    17:25:void initView() -> a
     29:31:void initListener() -> b
     35:44:void onClick(android.view.View) -> onClick
-    50:50:void initData() -> c
-    56:56:void processSuccess(java.lang.String) -> a
-    62:62:void processFailure() -> d
+    49:49:void initData() -> c
+    54:54:void processSuccess(java.lang.String) -> a
+    59:59:void processFailure() -> d
 com.yibu.headmaster.AssessActivity -> com.yibu.headmaster.AssessActivity:
     com.yibu.headmaster.lib.PagerSliding.PagerSlidingTab slidingTab -> k
     android.support.v4.view.ViewPager viewPager -> l
@@ -29304,14 +29397,14 @@ com.yibu.headmaster.AssessActivity -> com.yibu.headmaster.AssessActivity:
     java.util.List tabPagers -> o
     int currentTime -> p
     int commentlevel -> q
-    13:23:void <init>() -> <init>
-    27:39:void initView() -> a
-    1042:1063:java.lang.String getTitle(int):42:63 -> a
-    1042:1063:void initView():37 -> a
-    69:69:void initListener() -> b
-    75:86:void initData() -> c
-    91:91:void processSuccess(java.lang.String) -> a
-    96:96:void processFailure() -> d
+    14:24:void <init>() -> <init>
+    28:40:void initView() -> a
+    1043:1064:java.lang.String getTitle(int):43:64 -> a
+    1043:1064:void initView():38 -> a
+    70:70:void initListener() -> b
+    76:87:void initData() -> c
+    92:92:void processSuccess(java.lang.String) -> a
+    97:97:void processFailure() -> d
 com.yibu.headmaster.BaseActivity -> com.yibu.headmaster.BaseActivity:
     android.widget.FrameLayout arrowButton -> k
     android.widget.TextView baseTitle -> a
@@ -29324,48 +29417,48 @@ com.yibu.headmaster.BaseActivity -> com.yibu.headmaster.BaseActivity:
     float screenDensity -> h
     int densityDpi -> i
     com.loopj.android.http.AsyncHttpResponseHandler handler -> j
-    29:47:void <init>() -> <init>
-    107:131:void onCreate(android.os.Bundle) -> onCreate
-    135:137:void onStart() -> onStart
-    141:148:void onResume() -> onResume
-    152:159:void onPause() -> onPause
-    163:166:void onStop() -> onStop
-    170:171:void onDestroy() -> onDestroy
-    176:181:void onClick(android.view.View) -> onClick
-    184:185:void setSonsTitle(java.lang.String) -> b
+    31:49:void <init>() -> <init>
+    109:133:void onCreate(android.os.Bundle) -> onCreate
+    137:139:void onStart() -> onStart
+    143:150:void onResume() -> onResume
+    154:161:void onPause() -> onPause
+    165:168:void onStop() -> onStop
+    172:173:void onDestroy() -> onDestroy
+    178:183:void onClick(android.view.View) -> onClick
+    186:187:void setSonsTitle(java.lang.String) -> b
     void initView() -> a
     void initListener() -> b
     void initData() -> c
     void processSuccess(java.lang.String) -> a
     void processFailure() -> d
-    213:213:void otherOnclick(android.view.View) -> a
+    215:215:void otherOnclick(android.view.View) -> a
 com.yibu.headmaster.BaseActivity$1 -> com.yibu.headmaster.a:
     com.yibu.headmaster.BaseActivity this$0 -> a
-    1:47:void <init>(com.yibu.headmaster.BaseActivity) -> <init>
-    52:61:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
-    64:95:java.lang.String parseJson(byte[]) -> a
-    101:102:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
+    1:49:void <init>(com.yibu.headmaster.BaseActivity) -> <init>
+    54:63:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
+    66:97:java.lang.String parseJson(byte[]) -> a
+    103:104:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
 com.yibu.headmaster.CallBackActivity -> com.yibu.headmaster.CallBackActivity:
     android.view.View view -> k
     android.widget.Button btn -> l
     android.widget.EditText callContent -> m
     android.content.Context mContext -> n
     int bulletinObject -> o
-    15:21:void <init>() -> <init>
-    25:35:void initView() -> a
-    1196:1199:android.text.SpannableString com.yibu.headmaster.BaseActivity.setHint(int):196:199 -> a
-    1196:1199:void initView():34 -> a
-    39:40:void initListener() -> b
-    44:53:void onClick(android.view.View) -> onClick
-    2056:2075:void callBack():56:75 -> onClick
-    2056:2075:void onClick(android.view.View):49 -> onClick
-    80:80:void initData() -> c
-    84:93:void processSuccess(java.lang.String) -> a
-    97:99:void processFailure() -> d
+    16:22:void <init>() -> <init>
+    26:36:void initView() -> a
+    1198:1201:android.text.SpannableString com.yibu.headmaster.BaseActivity.setHint(int):198:201 -> a
+    1198:1201:void initView():35 -> a
+    40:41:void initListener() -> b
+    45:54:void onClick(android.view.View) -> onClick
+    2057:2076:void callBack():57:76 -> onClick
+    2057:2076:void onClick(android.view.View):50 -> onClick
+    81:81:void initData() -> c
+    85:94:void processSuccess(java.lang.String) -> a
+    98:100:void processFailure() -> d
 com.yibu.headmaster.CallBackActivity$1 -> com.yibu.headmaster.b:
     com.yibu.headmaster.CallBackActivity this$0 -> a
-    1:87:void <init>(com.yibu.headmaster.CallBackActivity) -> <init>
-    90:91:void run() -> a
+    1:88:void <init>(com.yibu.headmaster.CallBackActivity) -> <init>
+    91:92:void run() -> a
 com.yibu.headmaster.ChatActivity -> com.yibu.headmaster.ChatActivity:
     android.support.v4.widget.SwipeRefreshLayout swipeRefreshLayout -> m
     android.widget.ListView chatListView -> n
@@ -29402,142 +29495,142 @@ com.yibu.headmaster.ChatActivity -> com.yibu.headmaster.ChatActivity:
     android.os.PowerManager$WakeLock wakeLock -> Q
     com.yibu.headmaster.global.HeadmasterApplication app -> R
     int[] $SWITCH_TABLE$com$easemob$EMNotifierEvent$Event -> S
-    82:175:void <init>() -> <init>
-    180:184:void onResume() -> onResume
-    189:213:void initView() -> a
-    1189:1193:void com.yibu.headmaster.BaseActivity.addView(int):189:193 -> a
-    1189:1193:void initView():189 -> a
-    217:271:void initData() -> c
-    274:274:android.widget.ListView getListView() -> e
-    306:339:void otherOnclick(android.view.View) -> a
-    1378:1380:void sendText():378:380 -> a
-    1378:1380:void otherOnclick(android.view.View):312 -> a
-    1918:1928:void sendText(java.lang.String):918:928 -> a
-    1918:1928:void sendText():378 -> a
-    1918:1928:void otherOnclick(android.view.View):312 -> a
-    2526:2538:void selectPicFromLocal():526:538 -> a
-    2526:2538:void otherOnclick(android.view.View):316 -> a
-    3501:3518:void selectPicFromCamera():501:518 -> a
-    3501:3518:void otherOnclick(android.view.View):319 -> a
+    83:176:void <init>() -> <init>
+    181:185:void onResume() -> onResume
+    190:214:void initView() -> a
+    1191:1195:void com.yibu.headmaster.BaseActivity.addView(int):191:195 -> a
+    1191:1195:void initView():190 -> a
+    218:272:void initData() -> c
+    275:275:android.widget.ListView getListView() -> e
+    307:340:void otherOnclick(android.view.View) -> a
+    1379:1381:void sendText():379:381 -> a
+    1379:1381:void otherOnclick(android.view.View):313 -> a
+    1919:1929:void sendText(java.lang.String):919:929 -> a
+    1919:1929:void sendText():379 -> a
+    1919:1929:void otherOnclick(android.view.View):313 -> a
+    2527:2539:void selectPicFromLocal():527:539 -> a
+    2527:2539:void otherOnclick(android.view.View):317 -> a
+    3502:3519:void selectPicFromCamera():502:519 -> a
+    3502:3519:void otherOnclick(android.view.View):320 -> a
     4059:4062:boolean com.sft.Utils.CommonUtils.isExitsSdcard():59:62 -> a
-    4059:4062:void selectPicFromCamera():501 -> a
-    4059:4062:void otherOnclick(android.view.View):319 -> a
-    343:352:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-    358:358:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    362:370:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
-    375:375:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    582:703:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    4975:4993:void sendVideo(java.lang.String,java.lang.String,int):975:993 -> onActivityResult
-    4975:4993:void onActivityResult(int,int,android.content.Intent):646 -> onActivityResult
-    5547:5579:void sendPicByUri(android.net.Uri):546:578 -> onActivityResult
-    5547:5579:void onActivityResult(int,int,android.content.Intent):652 -> onActivityResult
+    4059:4062:void selectPicFromCamera():502 -> a
+    4059:4062:void otherOnclick(android.view.View):320 -> a
+    344:353:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+    359:359:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    363:371:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    376:376:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    583:704:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    4976:4994:void sendVideo(java.lang.String,java.lang.String,int):976:994 -> onActivityResult
+    4976:4994:void onActivityResult(int,int,android.content.Intent):647 -> onActivityResult
+    5548:5580:void sendPicByUri(android.net.Uri):547:579 -> onActivityResult
+    5548:5580:void onActivityResult(int,int,android.content.Intent):653 -> onActivityResult
     6017:6080:java.lang.String com.yibu.headmaster.utils.PathUtil.getPath(android.content.Context,android.net.Uri):17:80 -> onActivityResult
-    6017:6080:void sendPicByUri(android.net.Uri):546 -> onActivityResult
-    6017:6080:void onActivityResult(int,int,android.content.Intent):652 -> onActivityResult
+    6017:6080:void sendPicByUri(android.net.Uri):547 -> onActivityResult
+    6017:6080:void onActivityResult(int,int,android.content.Intent):653 -> onActivityResult
     6124:6125:boolean com.yibu.headmaster.utils.PathUtil.isExternalStorageDocument(android.net.Uri):124:125 -> onActivityResult
     6124:6125:java.lang.String com.yibu.headmaster.utils.PathUtil.getPath(android.content.Context,android.net.Uri):22 -> onActivityResult
-    6124:6125:void sendPicByUri(android.net.Uri):546 -> onActivityResult
-    6124:6125:void onActivityResult(int,int,android.content.Intent):652 -> onActivityResult
+    6124:6125:void sendPicByUri(android.net.Uri):547 -> onActivityResult
+    6124:6125:void onActivityResult(int,int,android.content.Intent):653 -> onActivityResult
     6134:6135:boolean com.yibu.headmaster.utils.PathUtil.isDownloadsDocument(android.net.Uri):134:135 -> onActivityResult
     6134:6135:java.lang.String com.yibu.headmaster.utils.PathUtil.getPath(android.content.Context,android.net.Uri):35 -> onActivityResult
-    6134:6135:void sendPicByUri(android.net.Uri):546 -> onActivityResult
-    6134:6135:void onActivityResult(int,int,android.content.Intent):652 -> onActivityResult
+    6134:6135:void sendPicByUri(android.net.Uri):547 -> onActivityResult
+    6134:6135:void onActivityResult(int,int,android.content.Intent):653 -> onActivityResult
     6144:6145:boolean com.yibu.headmaster.utils.PathUtil.isMediaDocument(android.net.Uri):144:145 -> onActivityResult
     6144:6145:java.lang.String com.yibu.headmaster.utils.PathUtil.getPath(android.content.Context,android.net.Uri):45 -> onActivityResult
-    6144:6145:void sendPicByUri(android.net.Uri):546 -> onActivityResult
-    6144:6145:void onActivityResult(int,int,android.content.Intent):652 -> onActivityResult
+    6144:6145:void sendPicByUri(android.net.Uri):547 -> onActivityResult
+    6144:6145:void onActivityResult(int,int,android.content.Intent):653 -> onActivityResult
     6154:6155:boolean com.yibu.headmaster.utils.PathUtil.isGooglePhotosUri(android.net.Uri):154:155 -> onActivityResult
     6154:6155:java.lang.String com.yibu.headmaster.utils.PathUtil.getPath(android.content.Context,android.net.Uri):70 -> onActivityResult
-    6154:6155:void sendPicByUri(android.net.Uri):546 -> onActivityResult
-    6154:6155:void onActivityResult(int,int,android.content.Intent):652 -> onActivityResult
-    7001:7042:void sendFile(android.net.Uri):1001:1042 -> onActivityResult
-    7001:7042:void onActivityResult(int,int,android.content.Intent):659 -> onActivityResult
-    7055:7064:void sendLocationMsg$23bb889(double,double,java.lang.String):1054:1063 -> onActivityResult
-    7055:7064:void onActivityResult(int,int,android.content.Intent):668 -> onActivityResult
-    7744:7748:void resendMessage():744:748 -> onActivityResult
-    7744:7748:void onActivityResult(int,int,android.content.Intent):681 -> onActivityResult
-    7756:7791:void addUserToBlacklist(java.lang.String):756:791 -> onActivityResult
-    7756:7791:void onActivityResult(int,int,android.content.Intent):695 -> onActivityResult
-    707:738:void onRefresh() -> onRefresh
-    795:849:void onEvent(com.easemob.EMNotifierEvent) -> onEvent
-    7852:7862:void refreshUIWithNewMessage():852:862 -> onEvent
-    7852:7862:void onEvent(com.easemob.EMNotifierEvent):812 -> onEvent
-    865:875:void refreshUI() -> f
-    879:897:void onPause() -> onPause
-    901:903:void onDestroy() -> onDestroy
-    906:914:void setExt(com.easemob.chat.EMMessage) -> a
-    8066:8076:java.lang.String getChatNickName():1066:1076 -> a
-    8066:8076:void setExt(com.easemob.chat.EMMessage):907 -> a
-    931:949:void sendVoice$14e1ec6d(java.lang.String,java.lang.String) -> a
-    953:968:void sendPicture(java.lang.String) -> c
-    1082:1082:void processSuccess(java.lang.String) -> a
-    1087:1087:void processFailure() -> d
-    1091:1092:void initListener() -> b
-    8278:8294:void setListener():278:294 -> b
-    8278:8294:void initListener():1091 -> b
-    1096:1098:void onStop() -> onStop
-    174:174:android.os.PowerManager$WakeLock access$0(com.yibu.headmaster.ChatActivity) -> a
-    156:156:android.view.View access$1(com.yibu.headmaster.ChatActivity) -> b
-    160:160:android.widget.TextView access$2(com.yibu.headmaster.ChatActivity) -> c
-    162:162:com.easemob.util.VoiceRecorder access$3(com.yibu.headmaster.ChatActivity) -> d
-    144:144:java.lang.String access$4(com.yibu.headmaster.ChatActivity) -> e
-    864:864:void access$5(com.yibu.headmaster.ChatActivity) -> f
-    158:158:android.widget.ImageView access$6(com.yibu.headmaster.ChatActivity) -> g
-    171:171:boolean access$7(com.yibu.headmaster.ChatActivity) -> h
-    149:149:com.easemob.chat.EMConversation access$8(com.yibu.headmaster.ChatActivity) -> i
-    169:169:com.yibu.headmaster.emchat.MessageAdapter access$9(com.yibu.headmaster.ChatActivity) -> j
-    165:165:int access$10(com.yibu.headmaster.ChatActivity) -> k
-    171:171:void access$11$2917145a(com.yibu.headmaster.ChatActivity) -> l
-    124:124:android.support.v4.widget.SwipeRefreshLayout access$12(com.yibu.headmaster.ChatActivity) -> m
-    82:82:int[] $SWITCH_TABLE$com$easemob$EMNotifierEvent$Event() -> g
+    6154:6155:void sendPicByUri(android.net.Uri):547 -> onActivityResult
+    6154:6155:void onActivityResult(int,int,android.content.Intent):653 -> onActivityResult
+    7002:7043:void sendFile(android.net.Uri):1002:1043 -> onActivityResult
+    7002:7043:void onActivityResult(int,int,android.content.Intent):660 -> onActivityResult
+    7056:7065:void sendLocationMsg$23bb889(double,double,java.lang.String):1055:1064 -> onActivityResult
+    7056:7065:void onActivityResult(int,int,android.content.Intent):669 -> onActivityResult
+    7745:7749:void resendMessage():745:749 -> onActivityResult
+    7745:7749:void onActivityResult(int,int,android.content.Intent):682 -> onActivityResult
+    7757:7792:void addUserToBlacklist(java.lang.String):757:792 -> onActivityResult
+    7757:7792:void onActivityResult(int,int,android.content.Intent):696 -> onActivityResult
+    708:739:void onRefresh() -> onRefresh
+    796:850:void onEvent(com.easemob.EMNotifierEvent) -> onEvent
+    7853:7863:void refreshUIWithNewMessage():853:863 -> onEvent
+    7853:7863:void onEvent(com.easemob.EMNotifierEvent):813 -> onEvent
+    866:876:void refreshUI() -> f
+    880:898:void onPause() -> onPause
+    902:904:void onDestroy() -> onDestroy
+    907:915:void setExt(com.easemob.chat.EMMessage) -> a
+    8067:8077:java.lang.String getChatNickName():1067:1077 -> a
+    8067:8077:void setExt(com.easemob.chat.EMMessage):908 -> a
+    932:950:void sendVoice$14e1ec6d(java.lang.String,java.lang.String) -> a
+    954:969:void sendPicture(java.lang.String) -> c
+    1083:1083:void processSuccess(java.lang.String) -> a
+    1088:1088:void processFailure() -> d
+    1092:1093:void initListener() -> b
+    8279:8295:void setListener():279:295 -> b
+    8279:8295:void initListener():1092 -> b
+    1097:1099:void onStop() -> onStop
+    175:175:android.os.PowerManager$WakeLock access$0(com.yibu.headmaster.ChatActivity) -> a
+    157:157:android.view.View access$1(com.yibu.headmaster.ChatActivity) -> b
+    161:161:android.widget.TextView access$2(com.yibu.headmaster.ChatActivity) -> c
+    163:163:com.easemob.util.VoiceRecorder access$3(com.yibu.headmaster.ChatActivity) -> d
+    145:145:java.lang.String access$4(com.yibu.headmaster.ChatActivity) -> e
+    865:865:void access$5(com.yibu.headmaster.ChatActivity) -> f
+    159:159:android.widget.ImageView access$6(com.yibu.headmaster.ChatActivity) -> g
+    172:172:boolean access$7(com.yibu.headmaster.ChatActivity) -> h
+    150:150:com.easemob.chat.EMConversation access$8(com.yibu.headmaster.ChatActivity) -> i
+    170:170:com.yibu.headmaster.emchat.MessageAdapter access$9(com.yibu.headmaster.ChatActivity) -> j
+    166:166:int access$10(com.yibu.headmaster.ChatActivity) -> k
+    172:172:void access$11$2917145a(com.yibu.headmaster.ChatActivity) -> l
+    125:125:android.support.v4.widget.SwipeRefreshLayout access$12(com.yibu.headmaster.ChatActivity) -> m
+    83:83:int[] $SWITCH_TABLE$com$easemob$EMNotifierEvent$Event() -> g
 com.yibu.headmaster.ChatActivity$1 -> com.yibu.headmaster.c:
     com.yibu.headmaster.ChatActivity this$0 -> a
     android.graphics.drawable.Drawable[] val$micImages -> b
-    1:262:void <init>(com.yibu.headmaster.ChatActivity,android.graphics.drawable.Drawable[]) -> <init>
-    266:267:void handleMessage(android.os.Message) -> handleMessage
+    1:263:void <init>(com.yibu.headmaster.ChatActivity,android.graphics.drawable.Drawable[]) -> <init>
+    267:268:void handleMessage(android.os.Message) -> handleMessage
 com.yibu.headmaster.ChatActivity$2 -> com.yibu.headmaster.d:
     com.yibu.headmaster.ChatActivity this$0 -> a
-    1:707:void <init>(com.yibu.headmaster.ChatActivity) -> <init>
-    710:736:void run() -> run
+    1:708:void <init>(com.yibu.headmaster.ChatActivity) -> <init>
+    711:737:void run() -> run
 com.yibu.headmaster.ChatActivity$3 -> com.yibu.headmaster.e:
     com.yibu.headmaster.ChatActivity this$0 -> a
     java.lang.String val$username -> b
     android.app.ProgressDialog val$pd -> c
-    1:760:void <init>(com.yibu.headmaster.ChatActivity,java.lang.String,android.app.ProgressDialog) -> <init>
-    764:789:void run() -> run
+    1:761:void <init>(com.yibu.headmaster.ChatActivity,java.lang.String,android.app.ProgressDialog) -> <init>
+    765:790:void run() -> run
 com.yibu.headmaster.ChatActivity$3$1 -> com.yibu.headmaster.f:
     com.yibu.headmaster.ChatActivity$3 this$1 -> a
     android.app.ProgressDialog val$pd -> b
-    1:766:void <init>(com.yibu.headmaster.ChatActivity$3,android.app.ProgressDialog) -> <init>
-    769:774:void run() -> run
-    1760:1760:com.yibu.headmaster.ChatActivity com.yibu.headmaster.ChatActivity$3.access$0(com.yibu.headmaster.ChatActivity$3):760:760 -> run
-    1760:1760:void run():772 -> run
-    2760:2760:com.yibu.headmaster.ChatActivity com.yibu.headmaster.ChatActivity$3.access$0(com.yibu.headmaster.ChatActivity$3):760:760 -> run
-    2760:2760:void run():773 -> run
+    1:767:void <init>(com.yibu.headmaster.ChatActivity$3,android.app.ProgressDialog) -> <init>
+    770:775:void run() -> run
+    1761:1761:com.yibu.headmaster.ChatActivity com.yibu.headmaster.ChatActivity$3.access$0(com.yibu.headmaster.ChatActivity$3):761:761 -> run
+    1761:1761:void run():773 -> run
+    2761:2761:com.yibu.headmaster.ChatActivity com.yibu.headmaster.ChatActivity$3.access$0(com.yibu.headmaster.ChatActivity$3):761:761 -> run
+    2761:2761:void run():774 -> run
 com.yibu.headmaster.ChatActivity$3$2 -> com.yibu.headmaster.g:
     com.yibu.headmaster.ChatActivity$3 this$1 -> a
     android.app.ProgressDialog val$pd -> b
-    1:778:void <init>(com.yibu.headmaster.ChatActivity$3,android.app.ProgressDialog) -> <init>
-    781:786:void run() -> run
-    1760:1760:com.yibu.headmaster.ChatActivity com.yibu.headmaster.ChatActivity$3.access$0(com.yibu.headmaster.ChatActivity$3):760:760 -> run
-    1760:1760:void run():784 -> run
-    2760:2760:com.yibu.headmaster.ChatActivity com.yibu.headmaster.ChatActivity$3.access$0(com.yibu.headmaster.ChatActivity$3):760:760 -> run
-    2760:2760:void run():785 -> run
+    1:779:void <init>(com.yibu.headmaster.ChatActivity$3,android.app.ProgressDialog) -> <init>
+    782:787:void run() -> run
+    1761:1761:com.yibu.headmaster.ChatActivity com.yibu.headmaster.ChatActivity$3.access$0(com.yibu.headmaster.ChatActivity$3):761:761 -> run
+    1761:1761:void run():785 -> run
+    2761:2761:com.yibu.headmaster.ChatActivity com.yibu.headmaster.ChatActivity$3.access$0(com.yibu.headmaster.ChatActivity$3):761:761 -> run
+    2761:2761:void run():786 -> run
 com.yibu.headmaster.ChatActivity$4 -> com.yibu.headmaster.h:
     com.yibu.headmaster.ChatActivity this$0 -> a
-    1:856:void <init>(com.yibu.headmaster.ChatActivity) -> <init>
-    859:860:void run() -> run
+    1:857:void <init>(com.yibu.headmaster.ChatActivity) -> <init>
+    860:861:void run() -> run
 com.yibu.headmaster.ChatActivity$5 -> com.yibu.headmaster.i:
     com.yibu.headmaster.ChatActivity this$0 -> a
-    1:869:void <init>(com.yibu.headmaster.ChatActivity) -> <init>
-    872:873:void run() -> run
+    1:870:void <init>(com.yibu.headmaster.ChatActivity) -> <init>
+    873:874:void run() -> run
 com.yibu.headmaster.ChatActivity$PressToSpeakListen -> com.yibu.headmaster.j:
     com.yibu.headmaster.ChatActivity this$0 -> a
-    386:386:void <init>(com.yibu.headmaster.ChatActivity) -> <init>
-    399:492:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-    1389:1393:boolean isExitsSdcard():389:393 -> onTouch
-    1389:1393:boolean onTouch(android.view.View,android.view.MotionEvent):401 -> onTouch
-    386:386:void <init>(com.yibu.headmaster.ChatActivity,byte) -> <init>
+    387:387:void <init>(com.yibu.headmaster.ChatActivity) -> <init>
+    400:493:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    1390:1394:boolean isExitsSdcard():390:394 -> onTouch
+    1390:1394:boolean onTouch(android.view.View,android.view.MotionEvent):402 -> onTouch
+    387:387:void <init>(com.yibu.headmaster.ChatActivity,byte) -> <init>
 com.yibu.headmaster.DataChartActivity -> com.yibu.headmaster.DataChartActivity:
     android.view.View view -> k
     java.util.List tabPagers -> l
@@ -29545,22 +29638,22 @@ com.yibu.headmaster.DataChartActivity -> com.yibu.headmaster.DataChartActivity:
     android.support.v4.view.ViewPager viewPager -> n
     java.lang.String[] titles -> o
     android.widget.RelativeLayout relativeLayout_textView_shouke -> p
-    15:15:void <init>() -> <init>
-    27:39:void initView() -> a
-    44:61:void initListener() -> b
+    16:16:void <init>() -> <init>
+    28:40:void initView() -> a
+    45:62:void initListener() -> b
     1209:1210:void com.yibu.headmaster.lib.PagerSliding.PagerSlidingTab.setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener):209:210 -> b
-    1209:1210:void initListener():44 -> b
-    67:77:void initData() -> c
-    82:87:void onClick(android.view.View) -> onClick
-    92:92:void processSuccess(java.lang.String) -> a
-    97:97:void processFailure() -> d
-    21:21:java.lang.String[] access$0(com.yibu.headmaster.DataChartActivity) -> a
+    1209:1210:void initListener():45 -> b
+    68:78:void initData() -> c
+    83:88:void onClick(android.view.View) -> onClick
+    93:93:void processSuccess(java.lang.String) -> a
+    98:98:void processFailure() -> d
+    22:22:java.lang.String[] access$0(com.yibu.headmaster.DataChartActivity) -> a
 com.yibu.headmaster.DataChartActivity$1 -> com.yibu.headmaster.k:
     com.yibu.headmaster.DataChartActivity this$0 -> a
-    1:44:void <init>(com.yibu.headmaster.DataChartActivity) -> <init>
-    48:49:void onPageSelected(int) -> onPageSelected
-    54:54:void onPageScrolled(int,float,int) -> onPageScrolled
-    59:59:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    1:45:void <init>(com.yibu.headmaster.DataChartActivity) -> <init>
+    49:50:void onPageSelected(int) -> onPageSelected
+    55:55:void onPageScrolled(int,float,int) -> onPageScrolled
+    60:60:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.yibu.headmaster.GiveClassActivity -> com.yibu.headmaster.GiveClassActivity:
     android.view.View view -> k
     android.widget.ProgressBar progressBar_main -> l
@@ -29572,90 +29665,90 @@ com.yibu.headmaster.GiveClassActivity -> com.yibu.headmaster.GiveClassActivity:
     int searchtype -> r
     boolean hasMoreData -> s
     boolean isLoadingMore -> t
-    24:89:void <init>() -> <init>
-    40:56:void initView() -> a
-    1059:1080:java.lang.String getTitle(int):59:80 -> a
-    1059:1080:void initView():55 -> a
-    87:87:void initListener() -> b
-    94:125:void initData() -> c
-    129:144:void loadNetworkData() -> e
-    149:167:void processSuccess(java.lang.String) -> a
-    172:173:void processFailure() -> d
-    29:29:com.handmark.pulltorefresh.library.PullToRefreshListView access$0(com.yibu.headmaster.GiveClassActivity) -> a
-    34:34:void access$1(com.yibu.headmaster.GiveClassActivity,int) -> a
-    127:127:void access$2(com.yibu.headmaster.GiveClassActivity) -> b
-    36:36:boolean access$3(com.yibu.headmaster.GiveClassActivity) -> c
-    34:34:int access$4(com.yibu.headmaster.GiveClassActivity) -> d
+    25:90:void <init>() -> <init>
+    41:57:void initView() -> a
+    1060:1081:java.lang.String getTitle(int):60:81 -> a
+    1060:1081:void initView():56 -> a
+    88:88:void initListener() -> b
+    95:126:void initData() -> c
+    130:145:void loadNetworkData() -> e
+    150:168:void processSuccess(java.lang.String) -> a
+    173:174:void processFailure() -> d
+    30:30:com.handmark.pulltorefresh.library.PullToRefreshListView access$0(com.yibu.headmaster.GiveClassActivity) -> a
+    35:35:void access$1(com.yibu.headmaster.GiveClassActivity,int) -> a
+    128:128:void access$2(com.yibu.headmaster.GiveClassActivity) -> b
+    37:37:boolean access$3(com.yibu.headmaster.GiveClassActivity) -> c
+    35:35:int access$4(com.yibu.headmaster.GiveClassActivity) -> d
 com.yibu.headmaster.GiveClassActivity$1 -> com.yibu.headmaster.l:
     com.yibu.headmaster.GiveClassActivity this$0 -> a
-    1:99:void <init>(com.yibu.headmaster.GiveClassActivity) -> <init>
-    107:120:void onRefresh$4d958ae5() -> a
+    1:100:void <init>(com.yibu.headmaster.GiveClassActivity) -> <init>
+    108:121:void onRefresh$4d958ae5() -> a
 com.yibu.headmaster.GiveClassActivity$2 -> com.yibu.headmaster.m:
     com.yibu.headmaster.GiveClassActivity this$0 -> a
-    1:130:void <init>(com.yibu.headmaster.GiveClassActivity) -> <init>
-    134:135:void run() -> run
+    1:131:void <init>(com.yibu.headmaster.GiveClassActivity) -> <init>
+    135:136:void run() -> run
 com.yibu.headmaster.GiveClassActivity$3 -> com.yibu.headmaster.n:
     com.yibu.headmaster.GiveClassActivity this$0 -> d
-    1:151:void <init>(com.yibu.headmaster.GiveClassActivity) -> <init>
+    1:152:void <init>(com.yibu.headmaster.GiveClassActivity) -> <init>
 com.yibu.headmaster.GuideActivity -> com.yibu.headmaster.GuideActivity:
     java.util.List images -> a
     android.widget.LinearLayout ll_guide_points -> b
     android.widget.ImageView iv_guide_redPoint -> c
     android.widget.Button bt_guide_start -> d
-    23:23:void <init>() -> <init>
-    31:36:void onCreate(android.os.Bundle) -> onCreate
-    1039:1048:void init():39:48 -> onCreate
-    1039:1048:void onCreate(android.os.Bundle):35 -> onCreate
-    1079:1100:void initData():79:100 -> onCreate
-    1079:1100:void init():44 -> onCreate
-    1079:1100:void onCreate(android.os.Bundle):35 -> onCreate
-    103:104:int dp2px(int) -> a
-    134:138:void onClick(android.view.View) -> onClick
-    26:26:android.widget.ImageView access$0(com.yibu.headmaster.GuideActivity) -> a
-    24:24:java.util.List access$1(com.yibu.headmaster.GuideActivity) -> b
-    27:27:android.widget.Button access$2(com.yibu.headmaster.GuideActivity) -> c
+    24:24:void <init>() -> <init>
+    32:37:void onCreate(android.os.Bundle) -> onCreate
+    1040:1049:void init():40:49 -> onCreate
+    1040:1049:void onCreate(android.os.Bundle):36 -> onCreate
+    1080:1101:void initData():80:101 -> onCreate
+    1080:1101:void init():45 -> onCreate
+    1080:1101:void onCreate(android.os.Bundle):36 -> onCreate
+    104:105:int dp2px(int) -> a
+    135:139:void onClick(android.view.View) -> onClick
+    27:27:android.widget.ImageView access$0(com.yibu.headmaster.GuideActivity) -> a
+    25:25:java.util.List access$1(com.yibu.headmaster.GuideActivity) -> b
+    28:28:android.widget.Button access$2(com.yibu.headmaster.GuideActivity) -> c
 com.yibu.headmaster.GuideActivity$MyAdapter -> com.yibu.headmaster.o:
     com.yibu.headmaster.GuideActivity this$0 -> a
-    107:107:void <init>(com.yibu.headmaster.GuideActivity) -> <init>
-    111:111:int getCount() -> getCount
-    116:116:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    121:122:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    127:128:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    108:108:void <init>(com.yibu.headmaster.GuideActivity) -> <init>
+    112:112:int getCount() -> getCount
+    117:117:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    122:123:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    128:129:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
 com.yibu.headmaster.GuideActivity$MyOnPageChangeListener -> com.yibu.headmaster.p:
     com.yibu.headmaster.GuideActivity this$0 -> a
-    50:50:void <init>(com.yibu.headmaster.GuideActivity) -> <init>
-    55:60:void onPageScrolled(int,float,int) -> onPageScrolled
-    64:69:void onPageSelected(int) -> onPageSelected
-    74:74:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    51:51:void <init>(com.yibu.headmaster.GuideActivity) -> <init>
+    56:61:void onPageScrolled(int,float,int) -> onPageScrolled
+    65:70:void onPageSelected(int) -> onPageSelected
+    75:75:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.yibu.headmaster.HomeGuideActivity -> com.yibu.headmaster.HomeGuideActivity:
     java.util.List images -> b
     java.lang.String IS_HELP_PAGE_OPENED -> a
-    23:23:void <clinit>() -> <clinit>
-    20:20:void <init>() -> <init>
-    27:32:void onCreate(android.os.Bundle) -> onCreate
-    1035:1040:void init():35:40 -> onCreate
-    1035:1040:void onCreate(android.os.Bundle):31 -> onCreate
-    1064:1090:void initData():64:90 -> onCreate
-    1064:1090:void init():36 -> onCreate
-    1064:1090:void onCreate(android.os.Bundle):31 -> onCreate
-    21:21:java.util.List access$0(com.yibu.headmaster.HomeGuideActivity) -> a
+    24:24:void <clinit>() -> <clinit>
+    21:21:void <init>() -> <init>
+    28:33:void onCreate(android.os.Bundle) -> onCreate
+    1036:1041:void init():36:41 -> onCreate
+    1036:1041:void onCreate(android.os.Bundle):32 -> onCreate
+    1065:1091:void initData():65:91 -> onCreate
+    1065:1091:void init():37 -> onCreate
+    1065:1091:void onCreate(android.os.Bundle):32 -> onCreate
+    22:22:java.util.List access$0(com.yibu.headmaster.HomeGuideActivity) -> a
 com.yibu.headmaster.HomeGuideActivity$1 -> com.yibu.headmaster.q:
     com.yibu.headmaster.HomeGuideActivity this$0 -> a
-    1:79:void <init>(com.yibu.headmaster.HomeGuideActivity) -> <init>
-    83:88:void onClick(android.view.View) -> onClick
+    1:80:void <init>(com.yibu.headmaster.HomeGuideActivity) -> <init>
+    84:89:void onClick(android.view.View) -> onClick
 com.yibu.headmaster.HomeGuideActivity$HomeGuideAdapter -> com.yibu.headmaster.r:
     com.yibu.headmaster.HomeGuideActivity this$0 -> a
-    92:92:void <init>(com.yibu.headmaster.HomeGuideActivity) -> <init>
-    96:96:int getCount() -> getCount
-    101:101:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    106:107:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    112:113:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    93:93:void <init>(com.yibu.headmaster.HomeGuideActivity) -> <init>
+    97:97:int getCount() -> getCount
+    102:102:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    107:108:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    113:114:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
 com.yibu.headmaster.HomeGuideActivity$MyOnPageChangeListener -> com.yibu.headmaster.s:
     com.yibu.headmaster.HomeGuideActivity this$0 -> a
-    42:42:void <init>(com.yibu.headmaster.HomeGuideActivity) -> <init>
-    47:47:void onPageScrolled(int,float,int) -> onPageScrolled
-    54:54:void onPageSelected(int) -> onPageSelected
-    59:59:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    43:43:void <init>(com.yibu.headmaster.HomeGuideActivity) -> <init>
+    48:48:void onPageScrolled(int,float,int) -> onPageScrolled
+    55:55:void onPageSelected(int) -> onPageSelected
+    60:60:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.yibu.headmaster.LeftMyCoachActivity -> com.yibu.headmaster.LeftMyCoachActivity:
     android.view.View view -> k
     android.widget.ListView mListView -> l
@@ -29665,29 +29758,29 @@ com.yibu.headmaster.LeftMyCoachActivity -> com.yibu.headmaster.LeftMyCoachActivi
     android.content.Context mContext -> p
     android.widget.EditText searchText -> q
     boolean isSearch -> r
-    27:112:void <init>() -> <init>
-    39:60:void initView() -> a
-    65:102:void initListener() -> b
-    106:110:void initData() -> c
-    1116:1124:void loadNetworkData():116:124 -> c
-    1116:1124:void initData():109 -> c
-    141:160:void processSuccess(java.lang.String) -> a
-    164:165:void processFailure() -> d
-    35:35:android.widget.EditText access$0(com.yibu.headmaster.LeftMyCoachActivity) -> a
-    126:126:void access$1(com.yibu.headmaster.LeftMyCoachActivity) -> b
-    1127:1136:void searchCoach():127:136 -> b
-    1127:1136:void access$1(com.yibu.headmaster.LeftMyCoachActivity):126 -> b
+    28:113:void <init>() -> <init>
+    40:61:void initView() -> a
+    66:103:void initListener() -> b
+    107:111:void initData() -> c
+    1117:1125:void loadNetworkData():117:125 -> c
+    1117:1125:void initData():110 -> c
+    142:161:void processSuccess(java.lang.String) -> a
+    165:166:void processFailure() -> d
+    36:36:android.widget.EditText access$0(com.yibu.headmaster.LeftMyCoachActivity) -> a
+    127:127:void access$1(com.yibu.headmaster.LeftMyCoachActivity) -> b
+    1128:1137:void searchCoach():128:137 -> b
+    1128:1137:void access$1(com.yibu.headmaster.LeftMyCoachActivity):127 -> b
 com.yibu.headmaster.LeftMyCoachActivity$1 -> com.yibu.headmaster.t:
     com.yibu.headmaster.LeftMyCoachActivity this$0 -> a
-    1:65:void <init>(com.yibu.headmaster.LeftMyCoachActivity) -> <init>
-    70:78:void onFocusChange(android.view.View,boolean) -> onFocusChange
+    1:66:void <init>(com.yibu.headmaster.LeftMyCoachActivity) -> <init>
+    71:79:void onFocusChange(android.view.View,boolean) -> onFocusChange
 com.yibu.headmaster.LeftMyCoachActivity$2 -> com.yibu.headmaster.u:
     com.yibu.headmaster.LeftMyCoachActivity this$0 -> a
-    1:80:void <init>(com.yibu.headmaster.LeftMyCoachActivity) -> <init>
-    85:98:boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
+    1:81:void <init>(com.yibu.headmaster.LeftMyCoachActivity) -> <init>
+    86:99:boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
 com.yibu.headmaster.LeftMyCoachActivity$3 -> com.yibu.headmaster.v:
     com.yibu.headmaster.LeftMyCoachActivity this$0 -> d
-    1:142:void <init>(com.yibu.headmaster.LeftMyCoachActivity) -> <init>
+    1:143:void <init>(com.yibu.headmaster.LeftMyCoachActivity) -> <init>
 com.yibu.headmaster.LeftSettingActivity -> com.yibu.headmaster.LeftSettingActivity:
     android.widget.RelativeLayout setting_aboutus -> n
     android.widget.RelativeLayout setting_callback -> o
@@ -29701,81 +29794,81 @@ com.yibu.headmaster.LeftSettingActivity -> com.yibu.headmaster.LeftSettingActivi
     int messageInt -> t
     int complaintInt -> u
     int studentEnrollInt -> v
-    28:30:void <clinit>() -> <clinit>
-    17:17:void <init>() -> <init>
-    37:49:void initView() -> a
-    53:70:void onClick(android.view.View) -> onClick
-    75:135:void initListener() -> b
-    140:146:void processSuccess(java.lang.String) -> a
-    150:151:void processFailure() -> d
-    155:177:void initData() -> c
-    31:31:void access$0(com.yibu.headmaster.LeftSettingActivity,int) -> a
-    31:31:int access$1(com.yibu.headmaster.LeftSettingActivity) -> a
-    32:32:int access$2(com.yibu.headmaster.LeftSettingActivity) -> b
-    33:33:int access$3(com.yibu.headmaster.LeftSettingActivity) -> c
-    32:32:void access$4(com.yibu.headmaster.LeftSettingActivity,int) -> b
-    33:33:void access$5(com.yibu.headmaster.LeftSettingActivity,int) -> c
+    29:31:void <clinit>() -> <clinit>
+    18:18:void <init>() -> <init>
+    38:50:void initView() -> a
+    54:71:void onClick(android.view.View) -> onClick
+    76:136:void initListener() -> b
+    141:147:void processSuccess(java.lang.String) -> a
+    151:152:void processFailure() -> d
+    156:178:void initData() -> c
+    32:32:void access$0(com.yibu.headmaster.LeftSettingActivity,int) -> a
+    32:32:int access$1(com.yibu.headmaster.LeftSettingActivity) -> a
+    33:33:int access$2(com.yibu.headmaster.LeftSettingActivity) -> b
+    34:34:int access$3(com.yibu.headmaster.LeftSettingActivity) -> c
+    33:33:void access$4(com.yibu.headmaster.LeftSettingActivity,int) -> b
+    34:34:void access$5(com.yibu.headmaster.LeftSettingActivity,int) -> c
 com.yibu.headmaster.LeftSettingActivity$1 -> com.yibu.headmaster.w:
     com.yibu.headmaster.LeftSettingActivity this$0 -> a
-    1:78:void <init>(com.yibu.headmaster.LeftSettingActivity) -> <init>
-    83:94:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+    1:79:void <init>(com.yibu.headmaster.LeftSettingActivity) -> <init>
+    84:95:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
 com.yibu.headmaster.LeftSettingActivity$2 -> com.yibu.headmaster.x:
     com.yibu.headmaster.LeftSettingActivity this$0 -> a
-    1:96:void <init>(com.yibu.headmaster.LeftSettingActivity) -> <init>
-    101:112:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+    1:97:void <init>(com.yibu.headmaster.LeftSettingActivity) -> <init>
+    102:113:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
 com.yibu.headmaster.LeftSettingActivity$3 -> com.yibu.headmaster.y:
     com.yibu.headmaster.LeftSettingActivity this$0 -> a
-    1:115:void <init>(com.yibu.headmaster.LeftSettingActivity) -> <init>
-    120:133:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+    1:116:void <init>(com.yibu.headmaster.LeftSettingActivity) -> <init>
+    121:134:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
 com.yibu.headmaster.LoginActivity -> com.yibu.headmaster.LoginActivity:
     android.widget.EditText phoneEt -> c
     android.widget.EditText passwordEt -> d
     android.widget.Button loginBtn -> e
     android.widget.RelativeLayout rootView -> a
     android.widget.TextView servicePhone -> b
-    44:44:void <init>() -> <init>
-    65:74:void onCreate(android.os.Bundle) -> onCreate
-    1077:1085:void initData():77:85 -> onCreate
-    1077:1085:void onCreate(android.os.Bundle):72 -> onCreate
-    1088:1122:void initListener():88:122 -> onCreate
-    1088:1122:void onCreate(android.os.Bundle):73 -> onCreate
-    126:141:void onClick(android.view.View) -> onClick
-    1153:1166:void login():153:166 -> onClick
-    1153:1166:void onClick(android.view.View):128 -> onClick
-    1169:1177:java.lang.String checkLoginInfo():169:177 -> onClick
-    1169:1177:void login():153 -> onClick
-    1169:1177:void onClick(android.view.View):128 -> onClick
-    2144:2150:void callPhone():144:150 -> onClick
-    2144:2150:void onClick(android.view.View):136 -> onClick
-    273:312:void loginResult$2d4ee5ae(boolean) -> a
-    52:52:android.widget.EditText access$0(com.yibu.headmaster.LoginActivity) -> a
+    45:45:void <init>() -> <init>
+    66:75:void onCreate(android.os.Bundle) -> onCreate
+    1078:1086:void initData():78:86 -> onCreate
+    1078:1086:void onCreate(android.os.Bundle):73 -> onCreate
+    1089:1123:void initListener():89:123 -> onCreate
+    1089:1123:void onCreate(android.os.Bundle):74 -> onCreate
+    127:142:void onClick(android.view.View) -> onClick
+    1154:1167:void login():154:167 -> onClick
+    1154:1167:void onClick(android.view.View):129 -> onClick
+    1170:1178:java.lang.String checkLoginInfo():170:178 -> onClick
+    1170:1178:void login():154 -> onClick
+    1170:1178:void onClick(android.view.View):129 -> onClick
+    2145:2151:void callPhone():145:151 -> onClick
+    2145:2151:void onClick(android.view.View):137 -> onClick
+    274:313:void loginResult$2d4ee5ae(boolean) -> a
+    53:53:android.widget.EditText access$0(com.yibu.headmaster.LoginActivity) -> a
 com.yibu.headmaster.LoginActivity$1 -> com.yibu.headmaster.z:
     com.yibu.headmaster.LoginActivity this$0 -> a
-    1:91:void <init>(com.yibu.headmaster.LoginActivity) -> <init>
-    96:104:void onFocusChange(android.view.View,boolean) -> onFocusChange
+    1:92:void <init>(com.yibu.headmaster.LoginActivity) -> <init>
+    97:105:void onFocusChange(android.view.View,boolean) -> onFocusChange
 com.yibu.headmaster.LoginActivity$2 -> com.yibu.headmaster.aa:
     com.yibu.headmaster.LoginActivity this$0 -> a
-    1:106:void <init>(com.yibu.headmaster.LoginActivity) -> <init>
-    111:119:void onFocusChange(android.view.View,boolean) -> onFocusChange
+    1:107:void <init>(com.yibu.headmaster.LoginActivity) -> <init>
+    112:120:void onFocusChange(android.view.View,boolean) -> onFocusChange
 com.yibu.headmaster.LoginActivity$3 -> com.yibu.headmaster.ab:
     com.yibu.headmaster.LoginActivity this$0 -> a
-    1:303:void <init>(com.yibu.headmaster.LoginActivity) -> <init>
-    306:309:void run() -> run
+    1:304:void <init>(com.yibu.headmaster.LoginActivity) -> <init>
+    307:310:void run() -> run
 com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler -> com.yibu.headmaster.ac:
     com.yibu.headmaster.LoginActivity this$0 -> a
-    180:180:void <init>(com.yibu.headmaster.LoginActivity) -> <init>
-    185:186:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
-    192:232:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
-    1235:1259:void process(java.lang.String):235:259 -> a
-    1235:1259:void onSuccess(int,org.apache.http.Header[],byte[]):227 -> a
+    181:181:void <init>(com.yibu.headmaster.LoginActivity) -> <init>
+    186:187:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
+    193:233:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
+    1236:1260:void process(java.lang.String):236:260 -> a
+    1236:1260:void onSuccess(int,org.apache.http.Header[],byte[]):228 -> a
 com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler$1 -> com.yibu.headmaster.ad:
     com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler this$1 -> a
-    1:245:void <init>(com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler) -> <init>
-    250:255:void run() -> run
-    1180:1180:com.yibu.headmaster.LoginActivity com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler.access$0(com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler):180:180 -> run
-    1180:1180:void run():250 -> run
-    2180:2180:com.yibu.headmaster.LoginActivity com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler.access$0(com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler):180:180 -> run
-    2180:2180:void run():252 -> run
+    1:246:void <init>(com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler) -> <init>
+    251:256:void run() -> run
+    1181:1181:com.yibu.headmaster.LoginActivity com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler.access$0(com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler):181:181 -> run
+    1181:1181:void run():251 -> run
+    2181:2181:com.yibu.headmaster.LoginActivity com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler.access$0(com.yibu.headmaster.LoginActivity$MyAsyncHttpResponseHandler):181:181 -> run
+    2181:2181:void run():253 -> run
 com.yibu.headmaster.MainActivity -> com.yibu.headmaster.MainActivity:
     android.support.v4.widget.DrawerLayout drawerLayout -> u
     android.support.v4.view.ViewPager contentPager -> a
@@ -29804,82 +29897,82 @@ com.yibu.headmaster.MainActivity -> com.yibu.headmaster.MainActivity:
     boolean isHasWeatherIconInlocal -> A
     java.lang.String result -> s
     java.lang.String msg -> t
-    63:72:void <clinit>() -> <clinit>
-    47:373:void <init>() -> <init>
-    90:104:void onCreate(android.os.Bundle) -> onCreate
-    1108:1123:void initView():108:123 -> onCreate
-    1108:1123:void onCreate(android.os.Bundle):99 -> onCreate
-    1126:1128:void initListener():126:128 -> onCreate
-    1126:1128:void onCreate(android.os.Bundle):100 -> onCreate
-    1133:1155:void initData():132:154 -> onCreate
-    1133:1155:void onCreate(android.os.Bundle):101 -> onCreate
-    1233:1239:void initMyLocation():233:239 -> onCreate
-    1233:1239:void onCreate(android.os.Bundle):102 -> onCreate
-    1267:1277:void setLocationOption():267:277 -> onCreate
-    1267:1277:void initMyLocation():235 -> onCreate
-    1267:1277:void onCreate(android.os.Bundle):102 -> onCreate
-    204:217:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    222:230:void onClick(android.view.View) -> onClick
-    258:263:void onDestroy() -> onDestroy
-    376:407:java.lang.String parseJson(byte[]) -> a
-    190:190:void access$0(com.yibu.headmaster.MainActivity) -> a
-    2191:2198:void setBottom():191:198 -> a
-    2191:2198:void access$0(com.yibu.headmaster.MainActivity):190 -> a
-    281:281:void access$1(com.yibu.headmaster.MainActivity) -> b
-    2283:2370:void getWeatherInfo():283:370 -> b
-    2283:2370:void access$1(com.yibu.headmaster.MainActivity):281 -> b
-    375:375:java.lang.String access$2(com.yibu.headmaster.MainActivity,byte[]) -> a
-    59:59:android.widget.TextView access$3(com.yibu.headmaster.MainActivity) -> c
-    78:78:java.lang.String[] access$4(com.yibu.headmaster.MainActivity) -> d
-    279:279:void access$5$56882b79(com.yibu.headmaster.MainActivity) -> e
-    80:80:int[] access$6(com.yibu.headmaster.MainActivity) -> f
-    60:60:android.widget.ImageView access$7(com.yibu.headmaster.MainActivity) -> g
-    279:279:boolean access$8(com.yibu.headmaster.MainActivity) -> h
+    65:74:void <clinit>() -> <clinit>
+    49:375:void <init>() -> <init>
+    92:106:void onCreate(android.os.Bundle) -> onCreate
+    1110:1125:void initView():110:125 -> onCreate
+    1110:1125:void onCreate(android.os.Bundle):101 -> onCreate
+    1128:1130:void initListener():128:130 -> onCreate
+    1128:1130:void onCreate(android.os.Bundle):102 -> onCreate
+    1135:1157:void initData():134:156 -> onCreate
+    1135:1157:void onCreate(android.os.Bundle):103 -> onCreate
+    1235:1241:void initMyLocation():235:241 -> onCreate
+    1235:1241:void onCreate(android.os.Bundle):104 -> onCreate
+    1269:1279:void setLocationOption():269:279 -> onCreate
+    1269:1279:void initMyLocation():237 -> onCreate
+    1269:1279:void onCreate(android.os.Bundle):104 -> onCreate
+    206:219:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    224:232:void onClick(android.view.View) -> onClick
+    260:265:void onDestroy() -> onDestroy
+    378:409:java.lang.String parseJson(byte[]) -> a
+    192:192:void access$0(com.yibu.headmaster.MainActivity) -> a
+    2193:2200:void setBottom():193:200 -> a
+    2193:2200:void access$0(com.yibu.headmaster.MainActivity):192 -> a
+    283:283:void access$1(com.yibu.headmaster.MainActivity) -> b
+    2285:2372:void getWeatherInfo():285:372 -> b
+    2285:2372:void access$1(com.yibu.headmaster.MainActivity):283 -> b
+    377:377:java.lang.String access$2(com.yibu.headmaster.MainActivity,byte[]) -> a
+    61:61:android.widget.TextView access$3(com.yibu.headmaster.MainActivity) -> c
+    80:80:java.lang.String[] access$4(com.yibu.headmaster.MainActivity) -> d
+    281:281:void access$5$56882b79(com.yibu.headmaster.MainActivity) -> e
+    82:82:int[] access$6(com.yibu.headmaster.MainActivity) -> f
+    62:62:android.widget.ImageView access$7(com.yibu.headmaster.MainActivity) -> g
+    281:281:boolean access$8(com.yibu.headmaster.MainActivity) -> h
 com.yibu.headmaster.MainActivity$1 -> com.yibu.headmaster.ae:
     com.yibu.headmaster.MainActivity this$0 -> a
-    1:283:void <init>(com.yibu.headmaster.MainActivity) -> <init>
-    288:334:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
-    340:365:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
+    1:285:void <init>(com.yibu.headmaster.MainActivity) -> <init>
+    290:336:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
+    342:367:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
 com.yibu.headmaster.MainActivity$BottomOnCheckedChangeListener -> com.yibu.headmaster.af:
     com.yibu.headmaster.MainActivity this$0 -> a
-    156:156:void <init>(com.yibu.headmaster.MainActivity) -> <init>
-    160:187:void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
+    158:158:void <init>(com.yibu.headmaster.MainActivity) -> <init>
+    162:189:void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
 com.yibu.headmaster.MainActivity$MyLocationListenner -> com.yibu.headmaster.ag:
     com.yibu.headmaster.MainActivity this$0 -> a
-    241:241:void <init>(com.yibu.headmaster.MainActivity) -> <init>
-    245:252:void onReceiveLocation(com.baidu.location.BDLocation) -> onReceiveLocation
+    243:243:void <init>(com.yibu.headmaster.MainActivity) -> <init>
+    247:254:void onReceiveLocation(com.baidu.location.BDLocation) -> onReceiveLocation
 com.yibu.headmaster.NewsDetailActivity -> com.yibu.headmaster.NewsDetailActivity:
     android.webkit.WebView webview -> k
     android.widget.ProgressBar progress -> l
     android.webkit.WebSettings settings -> m
-    9:9:void <init>() -> <init>
-    19:24:void initView() -> a
-    29:29:void initListener() -> b
-    33:54:void initData() -> c
-    59:59:void processSuccess(java.lang.String) -> a
-    64:64:void processFailure() -> d
-    13:13:android.widget.ProgressBar access$0(com.yibu.headmaster.NewsDetailActivity) -> a
+    10:10:void <init>() -> <init>
+    20:25:void initView() -> a
+    30:30:void initListener() -> b
+    34:55:void initData() -> c
+    60:60:void processSuccess(java.lang.String) -> a
+    65:65:void processFailure() -> d
+    14:14:android.widget.ProgressBar access$0(com.yibu.headmaster.NewsDetailActivity) -> a
 com.yibu.headmaster.NewsDetailActivity$1 -> com.yibu.headmaster.ah:
     com.yibu.headmaster.NewsDetailActivity this$0 -> a
-    1:36:void <init>(com.yibu.headmaster.NewsDetailActivity) -> <init>
-    40:42:void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
+    1:37:void <init>(com.yibu.headmaster.NewsDetailActivity) -> <init>
+    41:43:void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
 com.yibu.headmaster.PersonSettingActivity -> com.yibu.headmaster.PersonSettingActivity:
     android.view.View view -> k
     android.widget.Button exit -> l
     android.widget.TextView name -> m
     android.widget.ImageView headImage -> n
-    13:13:void <init>() -> <init>
-    23:29:void initView() -> a
-    33:43:void initListener() -> b
-    63:65:void initData() -> c
-    70:70:void processSuccess(java.lang.String) -> a
-    75:75:void processFailure() -> d
+    15:15:void <init>() -> <init>
+    25:31:void initView() -> a
+    35:45:void initListener() -> b
+    65:67:void initData() -> c
+    72:72:void processSuccess(java.lang.String) -> a
+    77:77:void processFailure() -> d
 com.yibu.headmaster.PersonSettingActivity$1 -> com.yibu.headmaster.ai:
     com.yibu.headmaster.PersonSettingActivity this$0 -> a
-    1:33:void <init>(com.yibu.headmaster.PersonSettingActivity) -> <init>
-    39:40:void onClick(android.view.View) -> onClick
-    1046:1059:void com.yibu.headmaster.PersonSettingActivity.exit():46:59 -> onClick
-    1046:1059:void onClick(android.view.View):39 -> onClick
+    1:35:void <init>(com.yibu.headmaster.PersonSettingActivity) -> <init>
+    41:42:void onClick(android.view.View) -> onClick
+    1048:1061:void com.yibu.headmaster.PersonSettingActivity.exit():48:61 -> onClick
+    1048:1061:void onClick(android.view.View):41 -> onClick
 com.yibu.headmaster.PublishBulletinActivity -> com.yibu.headmaster.PublishBulletinActivity:
     android.widget.RadioGroup radioGroup -> k
     android.widget.EditText pulishContent -> l
@@ -29892,122 +29985,113 @@ com.yibu.headmaster.PublishBulletinActivity -> com.yibu.headmaster.PublishBullet
     android.view.View view -> s
     com.yibu.headmaster.view.QuickReturnListView mListView -> t
     android.view.View viewHeader -> u
-    36:49:void <init>() -> <init>
-    56:84:void initView() -> a
-    89:117:void initListener() -> b
-    121:149:void initData() -> c
-    153:158:void loadNetworkData() -> e
-    164:182:void processSuccess(java.lang.String) -> a
-    188:189:void processFailure() -> d
-    202:202:void access$0(com.yibu.headmaster.PublishBulletinActivity) -> a
-    1204:1288:void PublishBulletin():204:288 -> a
-    1204:1288:void access$0(com.yibu.headmaster.PublishBulletinActivity):202 -> a
-    47:47:void access$1(com.yibu.headmaster.PublishBulletinActivity,int) -> a
-    44:44:boolean access$2(com.yibu.headmaster.PublishBulletinActivity) -> b
-    42:42:java.util.ArrayList access$3(com.yibu.headmaster.PublishBulletinActivity) -> c
-    46:46:void access$4(com.yibu.headmaster.PublishBulletinActivity,int) -> b
-    46:46:int access$5(com.yibu.headmaster.PublishBulletinActivity) -> d
-    49:49:android.content.Context access$6(com.yibu.headmaster.PublishBulletinActivity) -> e
-    151:151:void access$7(com.yibu.headmaster.PublishBulletinActivity) -> f
-    51:51:com.yibu.headmaster.view.QuickReturnListView access$8(com.yibu.headmaster.PublishBulletinActivity) -> g
-    39:39:android.widget.EditText access$9(com.yibu.headmaster.PublishBulletinActivity) -> h
-    38:38:android.widget.RadioGroup access$10(com.yibu.headmaster.PublishBulletinActivity) -> i
-    41:41:com.yibu.headmaster.adapter.BulletinAdapter access$11(com.yibu.headmaster.PublishBulletinActivity) -> j
+    37:50:void <init>() -> <init>
+    57:85:void initView() -> a
+    90:118:void initListener() -> b
+    122:150:void initData() -> c
+    154:159:void loadNetworkData() -> e
+    165:183:void processSuccess(java.lang.String) -> a
+    189:190:void processFailure() -> d
+    203:203:void access$0(com.yibu.headmaster.PublishBulletinActivity) -> a
+    1205:1289:void PublishBulletin():205:289 -> a
+    1205:1289:void access$0(com.yibu.headmaster.PublishBulletinActivity):203 -> a
+    48:48:void access$1(com.yibu.headmaster.PublishBulletinActivity,int) -> a
+    45:45:boolean access$2(com.yibu.headmaster.PublishBulletinActivity) -> b
+    43:43:java.util.ArrayList access$3(com.yibu.headmaster.PublishBulletinActivity) -> c
+    47:47:void access$4(com.yibu.headmaster.PublishBulletinActivity,int) -> b
+    47:47:int access$5(com.yibu.headmaster.PublishBulletinActivity) -> d
+    50:50:android.content.Context access$6(com.yibu.headmaster.PublishBulletinActivity) -> e
+    152:152:void access$7(com.yibu.headmaster.PublishBulletinActivity) -> f
+    52:52:com.yibu.headmaster.view.QuickReturnListView access$8(com.yibu.headmaster.PublishBulletinActivity) -> g
+    40:40:android.widget.EditText access$9(com.yibu.headmaster.PublishBulletinActivity) -> h
+    39:39:android.widget.RadioGroup access$10(com.yibu.headmaster.PublishBulletinActivity) -> i
+    42:42:com.yibu.headmaster.adapter.BulletinAdapter access$11(com.yibu.headmaster.PublishBulletinActivity) -> j
 com.yibu.headmaster.PublishBulletinActivity$1 -> com.yibu.headmaster.aj:
     com.yibu.headmaster.PublishBulletinActivity this$0 -> a
-    1:89:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
-    94:102:void onFocusChange(android.view.View,boolean) -> onFocusChange
+    1:90:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
+    95:103:void onFocusChange(android.view.View,boolean) -> onFocusChange
 com.yibu.headmaster.PublishBulletinActivity$2 -> com.yibu.headmaster.ak:
     com.yibu.headmaster.PublishBulletinActivity this$0 -> a
-    1:105:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
-    109:115:void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
+    1:106:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
+    110:116:void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
 com.yibu.headmaster.PublishBulletinActivity$3 -> com.yibu.headmaster.al:
     com.yibu.headmaster.PublishBulletinActivity this$0 -> a
-    1:125:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
-    130:141:void onLoadingMore() -> a
+    1:126:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
+    131:142:void onLoadingMore() -> a
 com.yibu.headmaster.PublishBulletinActivity$4 -> com.yibu.headmaster.am:
     com.yibu.headmaster.PublishBulletinActivity this$0 -> d
-    1:165:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
+    1:166:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
 com.yibu.headmaster.PublishBulletinActivity$5 -> com.yibu.headmaster.an:
     com.yibu.headmaster.PublishBulletinActivity this$0 -> a
-    1:222:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
-    228:276:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
-    282:282:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
+    1:223:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
+    229:277:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
+    283:283:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
 com.yibu.headmaster.PublishBulletinActivity$PublishBulletinOnClickListener -> com.yibu.headmaster.ao:
     com.yibu.headmaster.PublishBulletinActivity this$0 -> a
-    191:191:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
-    195:198:void onClick(android.view.View) -> onClick
-com.yibu.headmaster.R -> com.yibu.headmaster.ap:
-com.yibu.headmaster.R$styleable -> com.yibu.headmaster.aq:
-    int[] ArcProgress -> a
-    int[] CircleProgress -> b
-    int[] DonutProgress -> c
-    int[] PagerSlidingTab -> d
-    int[] PullToRefresh -> e
-    int[] Themes -> f
-    1763:3036:void <clinit>() -> <clinit>
+    192:192:void <init>(com.yibu.headmaster.PublishBulletinActivity) -> <init>
+    196:199:void onClick(android.view.View) -> onClick
 com.yibu.headmaster.TermsActivity -> com.yibu.headmaster.TermsActivity:
     android.webkit.WebView webView -> k
     android.view.View view -> l
-    11:11:void <init>() -> <init>
-    18:21:void initView() -> a
-    26:38:void initListener() -> b
-    42:47:void onClick(android.view.View) -> onClick
+    12:12:void <init>() -> <init>
+    19:22:void initView() -> a
+    27:39:void initListener() -> b
+    43:48:void onClick(android.view.View) -> onClick
     53:53:void initData() -> c
-    59:59:void processSuccess(java.lang.String) -> a
-    65:65:void processFailure() -> d
-    69:71:void onPause() -> onPause
-    75:79:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-com.yibu.headmaster.TermsActivity$1 -> com.yibu.headmaster.ar:
+    58:58:void processSuccess(java.lang.String) -> a
+    63:63:void processFailure() -> d
+    67:69:void onPause() -> onPause
+    73:77:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+com.yibu.headmaster.TermsActivity$1 -> com.yibu.headmaster.ap:
     com.yibu.headmaster.TermsActivity this$0 -> a
-    1:29:void <init>(com.yibu.headmaster.TermsActivity) -> <init>
-    32:32:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
+    1:30:void <init>(com.yibu.headmaster.TermsActivity) -> <init>
+    33:33:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
 com.yibu.headmaster.WelcomeActivity -> com.yibu.headmaster.WelcomeActivity:
     com.yibu.headmaster.global.HeadmasterApplication app -> l
     java.lang.String password -> m
     java.lang.String lastLoginPhone -> n
     java.lang.String IS_APP_FIRST_OPEN -> k
     android.os.Handler myHandler -> o
-    29:29:void <clinit>() -> <clinit>
-    23:151:void <init>() -> <init>
-    34:47:void onCreate(android.os.Bundle) -> onCreate
-    52:52:void initView() -> a
-    57:57:void initListener() -> b
-    61:104:void initData() -> c
-    1108:1113:void login(java.lang.String,java.lang.String):108:113 -> c
-    1108:1113:void initData():88 -> c
-    117:133:void processSuccess(java.lang.String) -> a
-    138:149:void processFailure() -> d
-    164:218:void loginResult$2d4ee5ae(boolean) -> a
-    151:151:android.os.Handler access$0(com.yibu.headmaster.WelcomeActivity) -> a
-com.yibu.headmaster.WelcomeActivity$1 -> com.yibu.headmaster.as:
+    30:30:void <clinit>() -> <clinit>
+    24:152:void <init>() -> <init>
+    35:48:void onCreate(android.os.Bundle) -> onCreate
+    53:53:void initView() -> a
+    58:58:void initListener() -> b
+    62:105:void initData() -> c
+    1109:1114:void login(java.lang.String,java.lang.String):109:114 -> c
+    1109:1114:void initData():89 -> c
+    118:134:void processSuccess(java.lang.String) -> a
+    139:150:void processFailure() -> d
+    165:219:void loginResult$2d4ee5ae(boolean) -> a
+    152:152:android.os.Handler access$0(com.yibu.headmaster.WelcomeActivity) -> a
+com.yibu.headmaster.WelcomeActivity$1 -> com.yibu.headmaster.aq:
     com.yibu.headmaster.WelcomeActivity this$0 -> a
-    1:151:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
-    154:157:void handleMessage(android.os.Message) -> handleMessage
-com.yibu.headmaster.WelcomeActivity$2 -> com.yibu.headmaster.at:
+    1:152:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
+    155:158:void handleMessage(android.os.Message) -> handleMessage
+com.yibu.headmaster.WelcomeActivity$2 -> com.yibu.headmaster.ar:
     com.yibu.headmaster.WelcomeActivity this$0 -> a
-    1:67:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
-    71:75:void run() -> run
-com.yibu.headmaster.WelcomeActivity$3 -> com.yibu.headmaster.au:
+    1:68:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
+    72:76:void run() -> run
+com.yibu.headmaster.WelcomeActivity$3 -> com.yibu.headmaster.as:
     com.yibu.headmaster.WelcomeActivity this$0 -> a
-    1:91:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
-    95:99:void run() -> run
-com.yibu.headmaster.WelcomeActivity$4 -> com.yibu.headmaster.av:
+    1:92:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
+    96:100:void run() -> run
+com.yibu.headmaster.WelcomeActivity$4 -> com.yibu.headmaster.at:
     com.yibu.headmaster.WelcomeActivity this$0 -> a
-    1:138:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
-    142:146:void run() -> run
-com.yibu.headmaster.WelcomeActivity$5 -> com.yibu.headmaster.aw:
+    1:139:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
+    143:147:void run() -> run
+com.yibu.headmaster.WelcomeActivity$5 -> com.yibu.headmaster.au:
     com.yibu.headmaster.WelcomeActivity this$0 -> a
-    1:174:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
-    179:184:void run() -> run
-com.yibu.headmaster.WelcomeActivity$6 -> com.yibu.headmaster.ax:
+    1:175:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
+    180:185:void run() -> run
+com.yibu.headmaster.WelcomeActivity$6 -> com.yibu.headmaster.av:
     com.yibu.headmaster.WelcomeActivity this$0 -> a
-    1:199:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
-    202:205:void run() -> run
-com.yibu.headmaster.WelcomeActivity$7 -> com.yibu.headmaster.ay:
+    1:200:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
+    203:206:void run() -> run
+com.yibu.headmaster.WelcomeActivity$7 -> com.yibu.headmaster.aw:
     com.yibu.headmaster.WelcomeActivity this$0 -> a
-    1:207:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
-    211:215:void run() -> run
+    1:208:void <init>(com.yibu.headmaster.WelcomeActivity) -> <init>
+    212:216:void run() -> run
 com.yibu.headmaster.adapter.AssessAdapter -> com.yibu.headmaster.a.a:
     31:32:void <init>(android.content.Context,java.util.ArrayList) -> <init>
     36:114:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
@@ -30033,12 +30117,10 @@ com.yibu.headmaster.adapter.AssessAdapter$DeleteOnClickListener -> com.yibu.head
 com.yibu.headmaster.adapter.AssessDetailAdapter -> com.yibu.headmaster.a.d:
     java.lang.String[] title -> a
     java.util.List tabPagers -> b
-    17:20:void <init>(java.lang.String[],java.util.List) -> <init>
-    24:24:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    29:29:int getCount() -> getCount
-    34:34:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    40:44:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    49:50:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    18:21:void <init>(android.support.v4.app.FragmentManager,java.lang.String[],java.util.List) -> <init>
+    29:29:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    34:34:int getCount() -> getCount
+    39:39:android.support.v4.app.Fragment getItem(int) -> getItem
 com.yibu.headmaster.adapter.BasicAdapter -> com.yibu.headmaster.a.e:
     android.content.Context context -> a
     java.util.ArrayList list -> b
@@ -30118,20 +30200,17 @@ com.yibu.headmaster.adapter.ComplaintAdapter$DeleteOnClickListener -> com.yibu.h
     207:235:void onClick(android.view.View) -> onClick
 com.yibu.headmaster.adapter.MainPagerAdapter -> com.yibu.headmaster.a.q:
     java.util.List pagers -> a
-    18:20:void <init>(java.util.List) -> <init>
-    24:24:int getCount() -> getCount
-    29:29:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    35:42:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    47:48:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    18:20:void <init>(android.support.v4.app.FragmentManager,java.util.List) -> <init>
+    32:32:int getCount() -> getCount
+    57:58:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    63:63:android.support.v4.app.Fragment getItem(int) -> getItem
 com.yibu.headmaster.adapter.MoreDataAdapter -> com.yibu.headmaster.a.r:
     java.lang.String[] title -> a
     java.util.List tabPagers -> b
-    13:20:void <init>(java.lang.String[],java.util.List) -> <init>
-    24:24:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    29:29:int getCount() -> getCount
-    34:34:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    40:44:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    49:50:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    17:25:void <init>(android.support.v4.app.FragmentManager,java.lang.String[],java.util.List) -> <init>
+    34:34:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    39:39:int getCount() -> getCount
+    49:49:android.support.v4.app.Fragment getItem(int) -> getItem
 com.yibu.headmaster.adapter.MyCoachAdapter -> com.yibu.headmaster.a.s:
     28:30:void <init>(android.content.Context,java.util.ArrayList) -> <init>
     34:69:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
@@ -30148,42 +30227,43 @@ com.yibu.headmaster.adapter.MyCoachAdapter$TalkOnClickListener -> com.yibu.headm
     86:90:void <init>(com.yibu.headmaster.adapter.MyCoachAdapter,int) -> <init>
     94:110:void onClick(android.view.View) -> onClick
 com.yibu.headmaster.adapter.NewsInformationAdapter -> com.yibu.headmaster.a.v:
-    24:26:void <init>(android.content.Context,java.util.ArrayList) -> <init>
-    32:74:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    25:27:void <init>(android.content.Context,java.util.ArrayList) -> <init>
+    33:76:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.yibu.headmaster.adapter.NewsInformationAdapter$NewsHolder -> com.yibu.headmaster.a.w:
     android.widget.ImageView imageView_item_cover -> a
     android.widget.TextView textView_item_content -> b
     android.widget.TextView textView_item_time -> c
-    77:77:void <init>() -> <init>
+    79:79:void <init>() -> <init>
 com.yibu.headmaster.api.ApiHttpClient -> com.yibu.headmaster.b.a:
     java.lang.String Base_URL -> a
     java.lang.String API_URL -> b
     com.loopj.android.http.AsyncHttpClient client -> c
-    13:120:void <clinit>() -> <clinit>
-    37:38:void delete(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler) -> delete
-    41:42:void get(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler) -> a
-    46:48:void getWithFullPath(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler) -> b
-    52:54:void postWithFullPath(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler) -> a
-    62:63:java.lang.String getAbsoluteApiUrl(java.lang.String) -> a
-    80:81:void post(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler) -> b
-    102:110:void setHttpClient(com.loopj.android.http.AsyncHttpClient) -> a
-    127:129:void setHeader(java.lang.String[]) -> a
+    14:121:void <clinit>() -> <clinit>
+    38:39:void delete(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler) -> delete
+    42:43:void get(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler) -> a
+    47:49:void getWithFullPath(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler) -> b
+    53:55:void postWithFullPath(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler) -> a
+    63:64:java.lang.String getAbsoluteApiUrl(java.lang.String) -> a
+    81:82:void post(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler) -> b
+    103:111:void setHttpClient(com.loopj.android.http.AsyncHttpClient) -> a
+    128:130:void setHeader(java.lang.String[]) -> a
 com.yibu.headmaster.base.BasePager -> com.yibu.headmaster.c.a:
     android.view.View rootView -> a
     android.content.Context mContext -> b
     java.lang.String result -> c
     java.lang.String msg -> d
     com.loopj.android.http.AsyncHttpResponseHandler handler -> e
-    18:95:void <init>(android.content.Context) -> <init>
-    98:98:android.view.View initView() -> a
-    103:103:void initData() -> b
+    100:103:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    23:108:void <init>() -> <init>
+    111:111:android.view.View initView() -> a
+    116:116:void initData() -> b
     void process(java.lang.String) -> a
 com.yibu.headmaster.base.BasePager$1 -> com.yibu.headmaster.c.b:
     com.yibu.headmaster.base.BasePager this$0 -> a
-    1:21:void <init>(com.yibu.headmaster.base.BasePager) -> <init>
-    26:35:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
-    38:69:java.lang.String parseJson(byte[]) -> a
-    75:75:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
+    1:26:void <init>(com.yibu.headmaster.base.BasePager) -> <init>
+    31:41:void onSuccess(int,org.apache.http.Header[],byte[]) -> a
+    44:75:java.lang.String parseJson(byte[]) -> a
+    81:81:void onFailure(int,org.apache.http.Header[],byte[],java.lang.Throwable) -> a
 com.yibu.headmaster.base.impl.AssessDetailPager -> com.yibu.headmaster.c.a.a:
     android.view.View view -> f
     java.util.ArrayList listAssess -> g
@@ -30200,7 +30280,7 @@ com.yibu.headmaster.base.impl.AssessDetailPager -> com.yibu.headmaster.c.a.a:
     com.yibu.headmaster.datachart.DountChartDemo assessThan -> r
     int searchtype -> s
     boolean hasMoreData -> t
-    37:71:void <init>(android.content.Context,int,int) -> <init>
+    37:71:void <init>(int,int) -> <init>
     75:91:android.view.View initView() -> a
     96:133:void initData() -> b
     137:163:void loadNetworkData() -> c
@@ -30258,7 +30338,7 @@ com.yibu.headmaster.base.impl.DataPager -> com.yibu.headmaster.c.a.f:
     int progressOut2 -> G
     int progressIn2 -> H
     android.os.Handler msgHandler -> I
-    81:294:void <init>(android.content.Context) -> <init>
+    81:294:void <init>() -> <init>
     96:102:void initData() -> b
     106:118:android.view.View initView() -> a
     125:151:void process(java.lang.String) -> a
@@ -30331,7 +30411,7 @@ com.yibu.headmaster.base.impl.MoreDataPager -> com.yibu.headmaster.c.a.l:
     android.widget.TextView yuekeSumTextView -> v
     int zhaoshengSum -> w
     int yuekeSum -> x
-    46:64:void <init>(android.content.Context,int) -> <init>
+    46:64:void <init>(int) -> <init>
     68:89:android.view.View initView() -> a
     94:95:void initData() -> b
     1099:1105:void loadDataFromWeb():99:105 -> b
@@ -30353,7 +30433,7 @@ com.yibu.headmaster.base.impl.NewsPager -> com.yibu.headmaster.c.a.m:
     int seqindex -> j
     java.util.ArrayList totalList -> k
     boolean isLoadMoreData -> l
-    40:57:void <init>(android.content.Context) -> <init>
+    40:57:void <init>() -> <init>
     50:54:android.view.View initView() -> a
     61:99:void initData() -> b
     103:116:void loadNetworkData() -> c
@@ -31688,6 +31768,7 @@ com.yibu.headmaster.fragment.BaseFragment -> com.yibu.headmaster.fragment.a:
     14:15:void <init>() -> <init>
     20:21:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
     26:28:void onActivityCreated(android.os.Bundle) -> onActivityCreated
+    35:35:void initData() -> a
     android.view.View initView(android.view.LayoutInflater,android.view.ViewGroup) -> a
     49:52:void onResume() -> onResume
     56:59:void onPause() -> onPause
@@ -31729,15 +31810,16 @@ com.yibu.headmaster.fragment.ChatterFragment$4 -> com.yibu.headmaster.fragment.f
     1:214:void <init>(com.yibu.headmaster.fragment.ChatterFragment) -> <init>
     217:218:void run() -> run
 com.yibu.headmaster.fragment.LeftFragment -> com.yibu.headmaster.fragment.LeftFragment:
-    android.widget.ImageView ivHeadPortrait -> a
+    com.joooonho.SelectableRoundedImageView ivHeadPortrait -> a
     android.widget.RelativeLayout rlMyNotice -> b
     android.widget.RelativeLayout rlMyCoach -> c
     android.widget.RelativeLayout rlSetting -> d
-    19:19:void <init>() -> <init>
-    29:38:android.view.View initView(android.view.LayoutInflater,android.view.ViewGroup) -> a
-    1043:1048:void initOnClick():43:48 -> a
-    1043:1048:android.view.View initView(android.view.LayoutInflater,android.view.ViewGroup):37 -> a
-    53:89:void onClick(android.view.View) -> onClick
+    23:23:void <init>() -> <init>
+    33:42:android.view.View initView(android.view.LayoutInflater,android.view.ViewGroup) -> a
+    1047:1052:void initOnClick():47:52 -> a
+    1047:1052:android.view.View initView(android.view.LayoutInflater,android.view.ViewGroup):41 -> a
+    57:93:void onClick(android.view.View) -> onClick
+    97:103:void initData() -> a
 com.yibu.headmaster.global.HeadmasterApplication -> com.yibu.headmaster.global.HeadmasterApplication:
     android.content.Context mContext -> d
     android.os.Handler mHandler -> e

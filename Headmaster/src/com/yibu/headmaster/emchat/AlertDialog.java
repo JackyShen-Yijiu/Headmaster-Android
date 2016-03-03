@@ -29,7 +29,7 @@ import com.easemob.util.ImageUtils;
 import com.sft.Utils.ImageCache;
 import com.yibu.headmaster.BaseActivity;
 import com.yibu.headmaster.ChatActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class AlertDialog extends BaseActivity {
 	private TextView mTextView;

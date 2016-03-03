@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
 
 public class GuideActivity extends Activity implements OnClickListener {

@@ -27,7 +27,7 @@ import com.easemob.chat.EMConversation.EMConversationType;
 import com.easemob.chat.EMMessage;
 import com.yibu.common.Config;
 import com.yibu.headmaster.ChatActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.bean.PushInnerVO;
 import com.yibu.headmaster.emchat.ChatAllHistoryAdapter;
 import com.yibu.headmaster.global.HeadmasterApplication;

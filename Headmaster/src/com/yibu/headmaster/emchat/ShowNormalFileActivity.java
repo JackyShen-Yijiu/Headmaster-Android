@@ -14,7 +14,7 @@ import com.easemob.chat.EMChatManager;
 import com.easemob.chat.FileMessageBody;
 import com.easemob.util.FileUtils;
 import com.yibu.headmaster.BaseActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class ShowNormalFileActivity extends BaseActivity {
 	private ProgressBar progressBar;

@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.GiveClassActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.MoreDataBean;

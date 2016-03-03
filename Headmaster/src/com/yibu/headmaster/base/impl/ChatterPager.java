@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.view.View;
 
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.fragment.ChatterFragment;
 

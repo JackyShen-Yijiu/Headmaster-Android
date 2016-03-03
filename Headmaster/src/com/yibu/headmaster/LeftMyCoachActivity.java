@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.google.gson.reflect.TypeToken;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.adapter.MyCoachAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.CoachBean;

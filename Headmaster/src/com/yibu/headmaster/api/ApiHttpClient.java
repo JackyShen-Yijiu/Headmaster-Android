@@ -10,7 +10,8 @@ import com.yibu.headmaster.utils.LogUtil;
 public class ApiHttpClient {
 
 	// public static String Base_URL = "http://101.200.204.240:8181/";
-	public static String Base_URL = "http://api.yibuxueche.com/";
+//	public static String Base_URL = "http://api.yibuxueche.com/";
+	public static String Base_URL = "http://jzapi.yibuxueche.com/";
 	public static String API_URL = Base_URL + "api/headmaster/%s";
 	public static final String DELETE = "DELETE";
 	public static final String GET = "GET";

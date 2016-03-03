@@ -36,7 +36,7 @@ import com.easemob.util.ImageUtils;
 import com.easemob.util.PathUtil;
 import com.sft.Utils.ImageCache;
 import com.yibu.headmaster.BaseActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 /**
  * 下载显示大图

@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.adapter.MoreDataAdapter;
 import com.yibu.headmaster.base.impl.MoreDataPager;
 import com.yibu.headmaster.lib.PagerSliding.PagerSlidingTab;
@@ -70,7 +71,7 @@ public class DataChartActivity extends BaseActivity {
 			tabPagers.add(new MoreDataPager(getApplicationContext(), i + 1));
 		}
 
-		viewPager.setAdapter(new MoreDataAdapter(titles, tabPagers));
+		viewPager.setAdapter(new MoreDataAdapter(getSupportFragmentManager(),titles, tabPagers));
 		slidingTab.setViewPager(viewPager);
 		int searchtype = getIntent().getIntExtra("searchtype", 0);
 		viewPager.setCurrentItem(searchtype);

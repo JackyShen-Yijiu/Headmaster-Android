@@ -13,7 +13,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class ZProgressHUD extends Dialog {
 

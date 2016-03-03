@@ -21,7 +21,7 @@ import android.view.View;
 import com.easemob.chat.EMMessage;
 import com.yibu.headmaster.BaseActivity;
 import com.yibu.headmaster.ChatActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class ContextMenu extends BaseActivity {
 

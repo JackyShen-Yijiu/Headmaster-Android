@@ -69,7 +69,7 @@ import com.sft.Utils.ImageCache;
 import com.sft.Utils.ImageUtils;
 import com.sft.Utils.UserUtils;
 import com.yibu.headmaster.ChatActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;
 
 @SuppressLint({ "HandlerLeak", "InflateParams", "CutPasteId", "ShowToast" })

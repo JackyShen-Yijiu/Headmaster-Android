@@ -9,7 +9,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/aboutusicon" />
+        android:background="@drawable/ic_launcher" />
 
     <TextView
         android:id="@+id/textView2"

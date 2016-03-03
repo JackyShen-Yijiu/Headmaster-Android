@@ -5,13 +5,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public abstract class BasePager {
+public abstract class BasePager extends Fragment {
 
 	public View rootView;
 	protected Context mContext;
@@ -28,6 +33,7 @@ public abstract class BasePager {
 				// 加载失败，弹出失败对话框
 				ToastUtil.showToast(mContext, msg);
 			} else {
+				LogUtil.print("======"+value);
 				process(value);
 
 			}
@@ -89,9 +95,16 @@ public abstract class BasePager {
 	// MobclickAgent.onPageStart(this.getClass().getSimpleName());
 	// }
 
-	public BasePager(Context context) {
-		mContext = context;
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		mContext = getActivity();
 		rootView = initView();
+		initData();
+		return  rootView;
+	};
+
+	public BasePager(Context context) {
+		
 	}
 
 	public View initView() {

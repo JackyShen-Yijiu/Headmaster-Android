@@ -33,7 +33,7 @@ import com.easemob.chat.VoiceMessageBody;
 import com.easemob.util.EMLog;
 import com.sft.Utils.HXSDKHelper;
 import com.yibu.headmaster.ChatActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class VoicePlayClickListener implements View.OnClickListener {
 	private static final String TAG = "VoicePlayClickListener";

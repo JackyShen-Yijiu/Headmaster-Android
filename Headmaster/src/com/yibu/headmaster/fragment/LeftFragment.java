@@ -1,25 +1,29 @@
 package com.yibu.headmaster.fragment;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 
+import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
 import com.yibu.headmaster.PersonSettingActivity;
 import com.yibu.headmaster.PublishBulletinActivity;
-import com.yibu.headmaster.R;
+import com.joooonho.SelectableRoundedImageView;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
 
 public class LeftFragment extends BaseFragment implements OnClickListener {
 
 	ImageView ivBack;
-	ImageView ivHeadPortrait;
+	SelectableRoundedImageView ivHeadPortrait;
 	RelativeLayout rlMyNotice;
 	RelativeLayout rlMyCoach;
 	RelativeLayout rlSetting;
@@ -28,7 +32,7 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 	protected View initView(LayoutInflater inflater, ViewGroup container) {
 		View view = inflater.inflate(R.layout.left_content, container, false);
 		// View view =View.inflate(getActivity(), R.layout.left_content, null);
-		ivHeadPortrait = (ImageView) view
+		ivHeadPortrait = (SelectableRoundedImageView) view
 				.findViewById(R.id.iv_left_head_portrait);
 		rlMyNotice = (RelativeLayout) view.findViewById(R.id.my_rl_notice);
 		rlMyCoach = (RelativeLayout) view.findViewById(R.id.my_rl_coach);
@@ -90,7 +94,12 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 
 	@Override
 	protected void initData() {
-		super.initData();
+		ivHeadPortrait.setScaleType(ScaleType.CENTER_CROP);
+		ivHeadPortrait.setImageResource(R.drawable.left_title);
+		ivHeadPortrait.setOval(true);
+		if(!TextUtils.isEmpty(HeadmasterApplication.app.userInfo.headportrait)){
+			Picasso.with(getActivity()).load(HeadmasterApplication.app.userInfo.headportrait).into(ivHeadPortrait);
+		}
 	}
 
 }

@@ -19,6 +19,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.google.gson.reflect.TypeToken;
+import com.jzjf.headmaster.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.adapter.BulletinAdapter;

@@ -22,7 +22,7 @@ import android.widget.ProgressBar;
 
 import com.easemob.util.ImageUtils;
 import com.sft.Utils.ImageCache;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class LoadLocalBigImgTask extends AsyncTask<Void, Void, Bitmap> {
 

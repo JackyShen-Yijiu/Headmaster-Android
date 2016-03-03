@@ -600,6 +600,132 @@ com.handmark.pulltorefresh.library.internal.ViewCompat:
 com.handmark.pulltorefresh.library.internal.ViewCompat$SDK11
 com.handmark.pulltorefresh.library.internal.ViewCompat$SDK16:
     58:58:ViewCompat$SDK16()
+com.joooonho.R:
+    9:9:public R()
+com.joooonho.R$attr
+com.joooonho.R$styleable:
+    19:19:public R$styleable()
+com.joooonho.SelectableRoundedImageView:
+    public static final java.lang.String TAG
+    private static final int DEFAULT_BORDER_COLOR
+    207:207:public float getCornerRadius()
+    220:229:public void setCornerRadiiDP(float,float,float,float)
+    232:232:public float getBorderWidth()
+    242:250:public void setBorderWidthDP(float)
+    253:253:public int getBorderColor()
+    257:258:public void setBorderColor(int)
+    261:261:public android.content.res.ColorStateList getBorderColors()
+    265:275:public void setBorderColor(android.content.res.ColorStateList)
+    278:278:public boolean isOval()
+com.joooonho.SelectableRoundedImageView$SelectableRoundedCornerDrawable:
+    private static final java.lang.String TAG
+    private static final int DEFAULT_BORDER_COLOR
+    598:598:public float getBorderWidth()
+    607:607:public int getBorderColor()
+    611:612:public void setBorderColor(int)
+    615:615:public android.content.res.ColorStateList getBorderColors()
+    639:639:public boolean isOval()
+    647:647:public android.widget.ImageView$ScaleType getScaleType()
+com.jzjf.headmaster.BuildConfig
+com.jzjf.headmaster.Manifest
+com.jzjf.headmaster.Manifest$permission
+com.jzjf.headmaster.R:
+    10:10:public R()
+com.jzjf.headmaster.R$anim
+com.jzjf.headmaster.R$array
+com.jzjf.headmaster.R$attr
+com.jzjf.headmaster.R$color
+com.jzjf.headmaster.R$dimen
+com.jzjf.headmaster.R$drawable
+com.jzjf.headmaster.R$id
+com.jzjf.headmaster.R$layout
+com.jzjf.headmaster.R$string
+com.jzjf.headmaster.R$style
+com.jzjf.headmaster.R$styleable:
+    public static final int ArcProgress_arc_angle
+    public static final int ArcProgress_arc_bottom_text
+    public static final int ArcProgress_arc_bottom_text_size
+    public static final int ArcProgress_arc_finished_color
+    public static final int ArcProgress_arc_is_display_text
+    public static final int ArcProgress_arc_max
+    public static final int ArcProgress_arc_progress
+    public static final int ArcProgress_arc_stroke_width
+    public static final int ArcProgress_arc_suffix_text
+    public static final int ArcProgress_arc_suffix_text_padding
+    public static final int ArcProgress_arc_suffix_text_size
+    public static final int ArcProgress_arc_text_color
+    public static final int ArcProgress_arc_text_size
+    public static final int ArcProgress_arc_unfinished_color
+    public static final int CircleProgress_circle_finished_color
+    public static final int CircleProgress_circle_max
+    public static final int CircleProgress_circle_prefix_text
+    public static final int CircleProgress_circle_progress
+    public static final int CircleProgress_circle_suffix_text
+    public static final int CircleProgress_circle_text_color
+    public static final int CircleProgress_circle_text_size
+    public static final int CircleProgress_circle_unfinished_color
+    public static final int DonutProgress_donut_background_color
+    public static final int DonutProgress_donut_circle_starting_degree
+    public static final int DonutProgress_donut_finished_color
+    public static final int DonutProgress_donut_finished_stroke_width
+    public static final int DonutProgress_donut_inner_bottom_text
+    public static final int DonutProgress_donut_inner_bottom_text_color
+    public static final int DonutProgress_donut_inner_bottom_text_size
+    public static final int DonutProgress_donut_max
+    public static final int DonutProgress_donut_prefix_text
+    public static final int DonutProgress_donut_progress
+    public static final int DonutProgress_donut_suffix_text
+    public static final int DonutProgress_donut_text
+    public static final int DonutProgress_donut_text_color
+    public static final int DonutProgress_donut_text_size
+    public static final int DonutProgress_donut_unfinished_color
+    public static final int DonutProgress_donut_unfinished_stroke_width
+    public static final int PagerSlidingTab_dividerColor
+    public static final int PagerSlidingTab_indicatorColor
+    public static final int PagerSlidingTab_indicatorHeight
+    public static final int PagerSlidingTab_pst_dividerPadding
+    public static final int PagerSlidingTab_pst_textAllCaps
+    public static final int PagerSlidingTab_scrollOffset
+    public static final int PagerSlidingTab_shouldExpand
+    public static final int PagerSlidingTab_tabBackground
+    public static final int PagerSlidingTab_tabPaddingLeftRight
+    public static final int PagerSlidingTab_underlineColor
+    public static final int PagerSlidingTab_underlineHeight
+    public static final int PullToRefresh_adapterViewBackground
+    public static final int PullToRefresh_headerBackground
+    public static final int PullToRefresh_headerTextColor
+    public static final int PullToRefresh_mode
+    public static final int PullToRefresh_ptrAdapterViewBackground
+    public static final int PullToRefresh_ptrAnimationStyle
+    public static final int PullToRefresh_ptrDrawable
+    public static final int PullToRefresh_ptrDrawableBottom
+    public static final int PullToRefresh_ptrDrawableEnd
+    public static final int PullToRefresh_ptrDrawableStart
+    public static final int PullToRefresh_ptrDrawableTop
+    public static final int PullToRefresh_ptrHeaderBackground
+    public static final int PullToRefresh_ptrHeaderSubTextColor
+    public static final int PullToRefresh_ptrHeaderTextAppearance
+    public static final int PullToRefresh_ptrHeaderTextColor
+    public static final int PullToRefresh_ptrListViewExtrasEnabled
+    public static final int PullToRefresh_ptrMode
+    public static final int PullToRefresh_ptrOverScroll
+    public static final int PullToRefresh_ptrRefreshableViewBackground
+    public static final int PullToRefresh_ptrRotateDrawableWhilePulling
+    public static final int PullToRefresh_ptrScrollingWhileRefreshingEnabled
+    public static final int PullToRefresh_ptrShowIndicator
+    public static final int PullToRefresh_ptrSubHeaderTextAppearance
+    public static final int SelectableRoundedImageView_android_scaleType
+    public static final int SelectableRoundedImageView_sriv_border_color
+    public static final int SelectableRoundedImageView_sriv_border_width
+    public static final int SelectableRoundedImageView_sriv_left_bottom_corner_radius
+    public static final int SelectableRoundedImageView_sriv_left_top_corner_radius
+    public static final int SelectableRoundedImageView_sriv_oval
+    public static final int SelectableRoundedImageView_sriv_right_bottom_corner_radius
+    public static final int SelectableRoundedImageView_sriv_right_top_corner_radius
+    public static final int Themes_arcProgressStyle
+    public static final int Themes_circleProgressStyle
+    public static final int Themes_donutProgressStyle
+    1793:1793:public R$styleable()
 com.lidroid.xutils.BitmapUtils
 com.lidroid.xutils.BitmapUtils$BitmapLoadTask
 com.lidroid.xutils.DbUtils
@@ -1991,7 +2117,6 @@ com.yibu.common.Config$EnrollResult
 com.yibu.common.Config$PushType
 com.yibu.common.Config$SubjectStatu
 com.yibu.common.Config$WalletType
-com.yibu.headmaster.BuildConfig
 com.yibu.headmaster.ChatActivity:
     private static final int REQUEST_CODE_EMPTY_HISTORY
     public static final int REQUEST_CODE_CONTEXT_MENU
@@ -2034,130 +2159,39 @@ com.yibu.headmaster.LeftSettingActivity:
 com.yibu.headmaster.LoginActivity:
     private android.widget.ImageView loginLogo
     public static final java.lang.String USER_INFO
-    263:266:protected android.text.SpannableString setHint(java.lang.String)
+    264:267:protected android.text.SpannableString setHint(java.lang.String)
 com.yibu.headmaster.MainActivity:
     public static final java.lang.String MESSAGE_RECEIVED_ACTION
     public static final java.lang.String KEY_TITLE
     public static final java.lang.String KEY_MESSAGE
     public static final java.lang.String KEY_EXTRAS
-com.yibu.headmaster.Manifest
-com.yibu.headmaster.Manifest$permission
 com.yibu.headmaster.PublishBulletinActivity$3:
-    146:146:public void onRefreshing()
-com.yibu.headmaster.R:
-    10:10:public R()
-com.yibu.headmaster.R$anim
-com.yibu.headmaster.R$array
-com.yibu.headmaster.R$attr
-com.yibu.headmaster.R$color
-com.yibu.headmaster.R$dimen
-com.yibu.headmaster.R$drawable
-com.yibu.headmaster.R$id
-com.yibu.headmaster.R$layout
-com.yibu.headmaster.R$string
-com.yibu.headmaster.R$style
-com.yibu.headmaster.R$styleable:
-    public static final int ArcProgress_arc_angle
-    public static final int ArcProgress_arc_bottom_text
-    public static final int ArcProgress_arc_bottom_text_size
-    public static final int ArcProgress_arc_finished_color
-    public static final int ArcProgress_arc_is_display_text
-    public static final int ArcProgress_arc_max
-    public static final int ArcProgress_arc_progress
-    public static final int ArcProgress_arc_stroke_width
-    public static final int ArcProgress_arc_suffix_text
-    public static final int ArcProgress_arc_suffix_text_padding
-    public static final int ArcProgress_arc_suffix_text_size
-    public static final int ArcProgress_arc_text_color
-    public static final int ArcProgress_arc_text_size
-    public static final int ArcProgress_arc_unfinished_color
-    public static final int CircleProgress_circle_finished_color
-    public static final int CircleProgress_circle_max
-    public static final int CircleProgress_circle_prefix_text
-    public static final int CircleProgress_circle_progress
-    public static final int CircleProgress_circle_suffix_text
-    public static final int CircleProgress_circle_text_color
-    public static final int CircleProgress_circle_text_size
-    public static final int CircleProgress_circle_unfinished_color
-    public static final int DonutProgress_donut_background_color
-    public static final int DonutProgress_donut_circle_starting_degree
-    public static final int DonutProgress_donut_finished_color
-    public static final int DonutProgress_donut_finished_stroke_width
-    public static final int DonutProgress_donut_inner_bottom_text
-    public static final int DonutProgress_donut_inner_bottom_text_color
-    public static final int DonutProgress_donut_inner_bottom_text_size
-    public static final int DonutProgress_donut_max
-    public static final int DonutProgress_donut_prefix_text
-    public static final int DonutProgress_donut_progress
-    public static final int DonutProgress_donut_suffix_text
-    public static final int DonutProgress_donut_text
-    public static final int DonutProgress_donut_text_color
-    public static final int DonutProgress_donut_text_size
-    public static final int DonutProgress_donut_unfinished_color
-    public static final int DonutProgress_donut_unfinished_stroke_width
-    public static final int PagerSlidingTab_dividerColor
-    public static final int PagerSlidingTab_indicatorColor
-    public static final int PagerSlidingTab_indicatorHeight
-    public static final int PagerSlidingTab_pst_dividerPadding
-    public static final int PagerSlidingTab_pst_textAllCaps
-    public static final int PagerSlidingTab_scrollOffset
-    public static final int PagerSlidingTab_shouldExpand
-    public static final int PagerSlidingTab_tabBackground
-    public static final int PagerSlidingTab_tabPaddingLeftRight
-    public static final int PagerSlidingTab_underlineColor
-    public static final int PagerSlidingTab_underlineHeight
-    public static final int PullToRefresh_adapterViewBackground
-    public static final int PullToRefresh_headerBackground
-    public static final int PullToRefresh_headerTextColor
-    public static final int PullToRefresh_mode
-    public static final int PullToRefresh_ptrAdapterViewBackground
-    public static final int PullToRefresh_ptrAnimationStyle
-    public static final int PullToRefresh_ptrDrawable
-    public static final int PullToRefresh_ptrDrawableBottom
-    public static final int PullToRefresh_ptrDrawableEnd
-    public static final int PullToRefresh_ptrDrawableStart
-    public static final int PullToRefresh_ptrDrawableTop
-    public static final int PullToRefresh_ptrHeaderBackground
-    public static final int PullToRefresh_ptrHeaderSubTextColor
-    public static final int PullToRefresh_ptrHeaderTextAppearance
-    public static final int PullToRefresh_ptrHeaderTextColor
-    public static final int PullToRefresh_ptrListViewExtrasEnabled
-    public static final int PullToRefresh_ptrMode
-    public static final int PullToRefresh_ptrOverScroll
-    public static final int PullToRefresh_ptrRefreshableViewBackground
-    public static final int PullToRefresh_ptrRotateDrawableWhilePulling
-    public static final int PullToRefresh_ptrScrollingWhileRefreshingEnabled
-    public static final int PullToRefresh_ptrShowIndicator
-    public static final int PullToRefresh_ptrSubHeaderTextAppearance
-    public static final int Themes_arcProgressStyle
-    public static final int Themes_circleProgressStyle
-    public static final int Themes_donutProgressStyle
-    1726:1726:public R$styleable()
+    147:147:public void onRefreshing()
 com.yibu.headmaster.adapter.MainPagerAdapter:
     android.content.Context context
 com.yibu.headmaster.adapter.NewsInformationAdapter:
-    88:93:public void reloadListView(java.util.ArrayList,boolean)
+    90:95:public void reloadListView(java.util.ArrayList,boolean)
 com.yibu.headmaster.api.ApiHttpClient:
     public static final java.lang.String DELETE
     public static final java.lang.String GET
     public static final java.lang.String POST
     public static final java.lang.String PUT
     private static java.lang.String appCookie
-    21:22:public ApiHttpClient()
-    25:25:public static com.loopj.android.http.AsyncHttpClient getHttpClient()
-    29:30:public static void cancelAll(android.content.Context)
-    34:34:public static void clearUserCookies(android.content.Context)
-    58:59:public static void get(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)
-    67:67:public static java.lang.String getApiUrl()
-    71:72:public static void getDirect(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
-    75:76:public static void post(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
-    85:86:public static void postDirect(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)
-    89:90:public static void put(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
-    94:95:public static void put(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)
-    98:99:public static void setApiUrl(java.lang.String)
-    113:114:public static void setUserAgent(java.lang.String)
-    117:118:public static void setCookie(java.lang.String)
-    123:124:public static void cleanCookie()
+    22:23:public ApiHttpClient()
+    26:26:public static com.loopj.android.http.AsyncHttpClient getHttpClient()
+    30:31:public static void cancelAll(android.content.Context)
+    35:35:public static void clearUserCookies(android.content.Context)
+    59:60:public static void get(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)
+    68:68:public static java.lang.String getApiUrl()
+    72:73:public static void getDirect(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
+    76:77:public static void post(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
+    86:87:public static void postDirect(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)
+    90:91:public static void put(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
+    95:96:public static void put(java.lang.String,com.loopj.android.http.RequestParams,com.loopj.android.http.AsyncHttpResponseHandler)
+    99:100:public static void setApiUrl(java.lang.String)
+    114:115:public static void setUserAgent(java.lang.String)
+    118:119:public static void setCookie(java.lang.String)
+    124:125:public static void cleanCookie()
 com.yibu.headmaster.api.HeadmasterApi
 com.yibu.headmaster.api.HeadmasterApi$1
 com.yibu.headmaster.datachart.BarChartDemo:

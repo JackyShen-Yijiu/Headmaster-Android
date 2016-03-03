@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.jzjf.headmaster.R;
 import com.loopj.android.http.RequestParams;
 import com.sft.api.UserLogin;
 import com.sft.listener.EMLoginListener;
@@ -34,16 +35,16 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_welcome);
 
-		ImageView image = (ImageView) findViewById(R.id.welcome_image);
-		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) image
-				.getLayoutParams();
-		params.width = (int) (screenWidth * 5 / 12f);
-		params.height = (int) (params.width * 243 / 509f);
-
-		ImageView devider = (ImageView) findViewById(R.id.welcom_devider);
-		RelativeLayout.LayoutParams deviderparams = (RelativeLayout.LayoutParams) devider
-				.getLayoutParams();
-		deviderparams.height = (int) (screenHeight * 41 / 128f);
+//		ImageView image = (ImageView) findViewById(R.id.welcome_image);
+//		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) image
+//				.getLayoutParams();
+//		params.width = (int) (screenWidth * 5 / 12f);
+//		params.height = (int) (params.width * 243 / 509f);
+//
+//		ImageView devider = (ImageView) findViewById(R.id.welcom_devider);
+//		RelativeLayout.LayoutParams deviderparams = (RelativeLayout.LayoutParams) devider
+//				.getLayoutParams();
+//		deviderparams.height = (int) (screenHeight * 41 / 128f);
 	}
 
 	@Override

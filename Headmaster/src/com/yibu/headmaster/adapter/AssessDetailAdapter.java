@@ -2,22 +2,27 @@ package com.yibu.headmaster.adapter;
 
 import java.util.List;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.yibu.headmaster.base.impl.AssessDetailPager;
 
-public class AssessDetailAdapter extends PagerAdapter {
+public class AssessDetailAdapter extends FragmentStatePagerAdapter {
+
+	public AssessDetailAdapter(FragmentManager fm, String[] title,
+			List<AssessDetailPager> tabPagers) {
+		super(fm);
+		this.tabPagers = tabPagers;
+		this.title = title;
+	}
 
 	private String[] title;
 
 	private List<AssessDetailPager> tabPagers;
-
-	public AssessDetailAdapter(String[] title, List<AssessDetailPager> tabPagers) {
-		this.tabPagers = tabPagers;
-		this.title = title;
-	}
 
 	@Override
 	public CharSequence getPageTitle(int position) {
@@ -30,23 +35,28 @@ public class AssessDetailAdapter extends PagerAdapter {
 	}
 
 	@Override
-	public boolean isViewFromObject(View view, Object object) {
-		return view == object;
+	public Fragment getItem(int position) {
+		return tabPagers.get(position);
 	}
 
-	@Override
-	public Object instantiateItem(ViewGroup container, int position) {
-
-		AssessDetailPager detailPager = tabPagers.get(position);
-		container.addView(detailPager.rootView);
-		// 更新详情界面的UI
-		detailPager.initData();
-		return detailPager.rootView;
-	}
-
-	@Override
-	public void destroyItem(ViewGroup container, int position, Object object) {
-		container.removeView((View) object);
-	}
+//	@Override
+//	public boolean isViewFromObject(View view, Object object) {
+//		return view == object;
+//	}
+//
+//	@Override
+//	public Object instantiateItem(ViewGroup container, int position) {
+//
+//		AssessDetailPager detailPager = tabPagers.get(position);
+//		container.addView(detailPager.rootView);
+//		// 更新详情界面的UI
+//		detailPager.initData();
+//		return detailPager.rootView;
+//	}
+//
+//	@Override
+//	public void destroyItem(ViewGroup container, int position, Object object) {
+//		container.removeView((View) object);
+//	}
 
 }

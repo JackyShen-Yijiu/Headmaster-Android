@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jzjf.headmaster.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -233,7 +234,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 
 		private void process(String value) {
 			UserBean userBean = JsonUtil.parseJsonToBean(value, UserBean.class);
-
+LogUtil.print("xxxx"+value);
 			if (userBean != null) {
 				// 保存用户信息
 				SharedPreferencesUtil.putString(LoginActivity.this,
@@ -241,7 +242,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 				HeadmasterApplication.app.userInfo = userBean;
 				ApiHttpClient.setHeader(new String[] { "authorization",
 						HeadmasterApplication.app.userInfo.token });
-
+LogUtil.print("-----"+userBean.userid);
 				new Thread(new Runnable() {
 
 					@Override

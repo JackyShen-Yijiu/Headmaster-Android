@@ -6,6 +6,7 @@ import java.util.List;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.adapter.AssessDetailAdapter;
 import com.yibu.headmaster.base.impl.AssessDetailPager;
 import com.yibu.headmaster.lib.PagerSliding.PagerSlidingTab;
@@ -79,7 +80,7 @@ public class AssessActivity extends BaseActivity {
 					currentTime));
 		}
 
-		viewPager.setAdapter(new AssessDetailAdapter(titles, tabPagers));
+		viewPager.setAdapter(new AssessDetailAdapter(getSupportFragmentManager(),titles, tabPagers));
 		viewPager.setCurrentItem(commentlevel - 1);
 		slidingTab.setViewPager(viewPager);
 

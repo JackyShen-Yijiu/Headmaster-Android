@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import cn.sft.baseactivity.util.MyHandler;
 
+import com.jzjf.headmaster.R;
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.utils.ZProgressHUD;

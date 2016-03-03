@@ -15,7 +15,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.yibu.common.Config;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 @SuppressLint("HandlerLeak")
 public class DownLoadService extends Service {

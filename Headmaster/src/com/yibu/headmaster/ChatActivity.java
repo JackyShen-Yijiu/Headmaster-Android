@@ -59,6 +59,7 @@ import com.easemob.chat.VoiceMessageBody;
 import com.easemob.exceptions.EaseMobException;
 import com.easemob.util.PathUtil;
 import com.easemob.util.VoiceRecorder;
+import com.jzjf.headmaster.R;
 import com.sft.Utils.CommonUtils;
 import com.sft.Utils.HXSDKHelper;
 import com.yibu.common.Config;

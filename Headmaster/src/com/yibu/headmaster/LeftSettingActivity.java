@@ -8,6 +8,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 
+import com.jzjf.headmaster.R;
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.global.HeadmasterApplication;

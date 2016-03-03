@@ -3,7 +3,7 @@ package com.yibu.headmaster.utils;
 import android.util.Log;
 
 public class LogUtil {
-	private static boolean isDebug = false;
+	private static boolean isDebug = true;
 
 	public static void i(String tag, String msg) {
 		if (isDebug) {

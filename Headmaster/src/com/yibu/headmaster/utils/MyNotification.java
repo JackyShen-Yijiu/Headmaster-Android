@@ -6,7 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.widget.RemoteViews;
 
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 /**
  * Notification类，既可用系统默认的通知布局，也可以用自定义的布局

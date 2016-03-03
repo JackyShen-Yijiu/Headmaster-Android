@@ -19,7 +19,7 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.DataChartActivity;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.MainOfTodayBean;

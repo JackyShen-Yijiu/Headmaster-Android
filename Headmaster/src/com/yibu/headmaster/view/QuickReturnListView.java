@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.yibu.headmaster.R;
+import com.jzjf.headmaster.R;
 
 public class QuickReturnListView extends ListView {
 
