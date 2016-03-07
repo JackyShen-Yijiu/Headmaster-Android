@@ -29960,19 +29960,19 @@ com.yibu.headmaster.PersonSettingActivity -> com.yibu.headmaster.PersonSettingAc
     android.view.View view -> k
     android.widget.Button exit -> l
     android.widget.TextView name -> m
-    android.widget.ImageView headImage -> n
-    15:15:void <init>() -> <init>
-    25:31:void initView() -> a
-    35:45:void initListener() -> b
-    65:67:void initData() -> c
-    72:72:void processSuccess(java.lang.String) -> a
-    77:77:void processFailure() -> d
+    com.joooonho.SelectableRoundedImageView headImage -> n
+    19:19:void <init>() -> <init>
+    29:35:void initView() -> a
+    39:49:void initListener() -> b
+    69:77:void initData() -> c
+    82:82:void processSuccess(java.lang.String) -> a
+    87:87:void processFailure() -> d
 com.yibu.headmaster.PersonSettingActivity$1 -> com.yibu.headmaster.ai:
     com.yibu.headmaster.PersonSettingActivity this$0 -> a
-    1:35:void <init>(com.yibu.headmaster.PersonSettingActivity) -> <init>
-    41:42:void onClick(android.view.View) -> onClick
-    1048:1061:void com.yibu.headmaster.PersonSettingActivity.exit():48:61 -> onClick
-    1048:1061:void onClick(android.view.View):41 -> onClick
+    1:39:void <init>(com.yibu.headmaster.PersonSettingActivity) -> <init>
+    45:46:void onClick(android.view.View) -> onClick
+    1052:1065:void com.yibu.headmaster.PersonSettingActivity.exit():52:65 -> onClick
+    1052:1065:void onClick(android.view.View):45 -> onClick
 com.yibu.headmaster.PublishBulletinActivity -> com.yibu.headmaster.PublishBulletinActivity:
     android.widget.RadioGroup radioGroup -> k
     android.widget.EditText pulishContent -> l
