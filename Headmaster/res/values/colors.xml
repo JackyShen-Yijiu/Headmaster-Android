@@ -21,4 +21,6 @@
   <color name="btn_blue_pressed">#0066FF</color>
    <color name="orange">#FFA500</color>
     	
+   <color name="new_gray">#a0a0a0</color>
+   <color name="new_main">#00f8c7</color>
 </resources>

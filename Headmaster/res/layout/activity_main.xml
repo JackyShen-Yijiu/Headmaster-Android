@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout_main"
@@ -22,27 +23,50 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <RadioGroup
-            android:id="@+id/rg_content_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:background="@drawable/radiogroup_bottom"
-            android:orientation="horizontal" >
+   
+    <RadioGroup
+        android:id="@+id/rg_content_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal" >
 
-            <RadioButton
-                android:id="@+id/rb_bottom_data"
-                style="@style/bottomTheme"
-                
-                 />
+        <RadioButton
+            android:id="@+id/rb_bottom_data"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:drawableTop="@drawable/selector_bottom_data"
+            android:textSize="10sp"
+            android:textColor="@drawable/selector_text_color"
+            android:text="数据" />
 
             <RadioButton
                 android:id="@+id/rb_bottom_news"
-                style="@style/bottomTheme"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/selector_bottom_news"
+           		android:gravity="center"
+                android:textSize="10sp"
+          		android:textColor="@drawable/selector_text_color"
+                android:text="资讯" />
 
-            <RadioButton
-                android:id="@+id/rb_bottom_chatter"
-                style="@style/bottomTheme"/>
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/rb_bottom_chatter"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:button="@null"
+            		android:gravity="center"
+                    android:layout_weight="1"
+                    android:textSize="10sp"
+                    android:drawableTop="@drawable/selector_bottom_chatter"
+            		android:textColor="@drawable/selector_text_color"
+                    android:text="消息" />
+    </RadioGroup>
     </LinearLayout>
  <fragment
         android:id="@+id/navigation_drawer"
