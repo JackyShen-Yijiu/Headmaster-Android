@@ -28,9 +28,11 @@
     <string name="service_phone_number">400-101-6669</string>
     <string name="publish_bulletin">发布公告</string>
     <string name="publish">发布</string>
+    <string name="history_bulletin">历史公告</string>
     <string name="coach">教练</string>
     <string name="student">学员</string>
     <string name="max_300_word">最多输入300字</string>
+    <string name="input_bulletin_title">请输入公告标题最多15字(选填)</string>
     
     <!-- 左侧教练 -->
     <string name="title_search_hint">搜索</string>

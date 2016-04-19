@@ -300,10 +300,8 @@ public class ChatActivity extends BaseActivity implements
 	// }
 
 	@Override
-	public void otherOnclick(View v) {
-		// if (!onClickSingleView()) {
-		// return;
-		// }
+	public void onClick(View v) {
+		super.onClick(v);
 		LogUtil.print("点击事件");
 		switch (v.getId()) {
 		// case R.id.base_left_btn:
