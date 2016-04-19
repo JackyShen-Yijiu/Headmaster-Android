@@ -1,3 +1,10 @@
 
 Headmaster/gen/*
 Headmaster/bin/*
+*.properties
+*.properties
+*.properties
+XCL-Charts/project.properties
+XCL-Charts/project.properties
+roundedimageviewlibrary/gen/com/joooonho/BuildConfig.java
+Android-PullToRefresh-master/extras/PullToRefreshViewPager/project.properties
