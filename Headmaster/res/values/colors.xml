@@ -21,4 +21,10 @@
   <color name="btn_blue_pressed">#0066FF</color>
    <color name="orange">#FFA500</color>
     	
+   <color name="line_color">#77000000</color>
+  <color name="text_green_light_color">#00f8c7</color> 
+  <color name="text_green_dark_color">#009577</color> 
+  <color name="text_white_dark_color">#bfbfbf</color> 
+  <color name="text_gray_color">#b7b7b7</color> 
+  <color name="white">#ffffff</color> 
 </resources>

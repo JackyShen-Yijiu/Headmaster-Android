@@ -154,6 +154,8 @@
                 android:screenOrientation="portrait"></activity>
             <activity android:name="com.yibu.headmaster.GiveClassActivity"
                 android:screenOrientation="portrait"></activity>
+            <activity android:name="com.yibu.headmaster.BulletinHistoryActivity"
+                android:screenOrientation="portrait"></activity>
             
             <!-- 百度 -->
           <service

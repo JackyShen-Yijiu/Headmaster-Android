@@ -7,4 +7,5 @@ public class BulletinBean {
 	public int seqindex;
 	public int bulletobject;
 	public String content;
+	public String title;
 }

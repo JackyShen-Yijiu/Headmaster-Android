@@ -26,6 +26,7 @@ import com.jzjf.headmaster.R;
 import com.lidroid.xutils.ViewUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.umeng.analytics.MobclickAgent;
+import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
 public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
@@ -128,6 +129,7 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 		initView();
 		initListener();
 		initData();
+		baseRight.setOnClickListener(this);
 		arrowButton.setOnClickListener(this);
 		overridePendingTransition(R.anim.next_enter, R.anim.next_enter);
 	}
@@ -174,12 +176,11 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 
 	@Override
 	public void onClick(View v) {
-
+		LogUtil.print("base----"+v.getId());
 		if (R.id.ib_base_arrow == v.getId()) {
 			finish();
 		}
 
-		otherOnclick(v);
 	}
 
 	public void setSonsTitle(String title) {
@@ -203,15 +204,14 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 
 	protected abstract void initView();
 
-	protected abstract void initListener();
+	protected  void initListener(){
+		
+	}
 
 	protected abstract void initData();
 
 	public abstract void processSuccess(String data);
 
 	public abstract void processFailure();
-
-	public void otherOnclick(View v) {
-	}
 
 }

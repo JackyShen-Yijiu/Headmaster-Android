@@ -15,8 +15,7 @@ import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public class LeftSettingActivity extends BaseActivity implements
-		OnClickListener {
+public class LeftSettingActivity extends BaseActivity  {
 
 	private RelativeLayout setting_aboutus;
 	private RelativeLayout setting_callback;

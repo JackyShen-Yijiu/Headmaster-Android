@@ -9,11 +9,13 @@ import org.apache.http.Header;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -36,21 +38,19 @@ import com.yibu.headmaster.view.QuickReturnListView.OnRefreshListener;
 
 public class PublishBulletinActivity extends BaseActivity {
 
-	private RadioGroup radioGroup;
-	private EditText pulishContent;
+	private EditText publishContent;
 
-	private BulletinAdapter adapter;
-	private ArrayList<BulletinBean> list = new ArrayList<BulletinBean>();
-
-	private boolean moreData = false;
-
-	private int seqindex = 0;
-	private int bulletinObject = 1;
 
 	private Context mContext = null;
+
+	private int bulletinObject = 2;
 	private View view;
-	private QuickReturnListView mListView;
-	private View viewHeader;
+
+
+	private EditText publishTitle;
+
+
+	private Button publishBulletin;
 
 	@Override
 	protected void initView() {
@@ -58,36 +58,21 @@ public class PublishBulletinActivity extends BaseActivity {
 		content.addView(view);
 		mContext = this;
 
-		mListView = (QuickReturnListView) view
-				.findViewById(R.id.lv_publish_bulletin_list);
+		publishContent = (EditText)findViewById(R.id.et_publish_bulletin_content);
+		publishTitle = (EditText)findViewById(R.id.et_publish_bulletin_title);
+		publishBulletin = (Button) findViewById(R.id.btn_publish_bulletin);
 
-		mListView.setCacheColorHint(android.R.color.transparent);
-		mListView.setDividerHeight(0);
-		viewHeader = View.inflate(getBaseContext(), R.layout.bulletin_header,
-				null);
-
-		radioGroup = (RadioGroup) viewHeader
-				.findViewById(R.id.rg_publish_bulletin_select);
-		// rbCoach = (RadioButton) viewHeader
-		// .findViewById(R.id.rb_publish_bulletin_coach);
-		// rbStudent = (RadioButton) viewHeader
-		// .findViewById(R.id.rb_publish_bulletin_student);
-		pulishContent = (EditText) viewHeader
-				.findViewById(R.id.et_publish_bulletin_content);
-
-		mListView.addHeaderView(viewHeader);
 
 		setSonsTitle(getString(R.string.publish_bulletin));
 
 		baseRight.setVisibility(View.VISIBLE);
-		baseRight.setText(getString(R.string.publish));
-		baseRight.setOnClickListener(new PublishBulletinOnClickListener());
+		baseRight.setText(getString(R.string.history_bulletin));
 	}
 
 	@Override
 	protected void initListener() {
-
-		pulishContent.setOnFocusChangeListener(new OnFocusChangeListener() {
+		publishBulletin.setOnClickListener(this);
+		publishContent.setOnFocusChangeListener(new OnFocusChangeListener() {
 
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
@@ -103,90 +88,25 @@ public class PublishBulletinActivity extends BaseActivity {
 			}
 		});
 
-		radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				if (checkedId == R.id.rb_publish_bulletin_student) {
-					bulletinObject = 2;
-				} else {
-					bulletinObject = 1;
-
-				}
-			}
-		});
 	}
 
 	@Override
 	protected void initData() {
-		adapter = new BulletinAdapter(this, list);
-		mListView.setAdapter(adapter);
-
-		loadNetworkData();
-		mListView.setOnRefreshListener(new OnRefreshListener() {
-
-			@Override
-			public void onLoadingMore() {
-
-				if (moreData) {
-					seqindex = list.get(list.size() - 1).seqindex;
-					if (seqindex == 0) {
-						ToastUtil.showToast(mContext, "没有更多数据了");
-					} else {
-						loadNetworkData();
-					}
-				} else {
-					mListView.loadMoreFinished();
-					ToastUtil.showToast(mContext, "没有更多数据了");
-				}
-			}
-
-			@Override
-			public void onRefreshing() {
-
-			}
-		});
+		
 
 	}
 
-	private void loadNetworkData() {
-
-		ApiHttpClient.get("userinfo/getbulletin?seqindex=" + seqindex
-				+ "&count=10&userid="
-				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
-				+ HeadmasterApplication.app.userInfo.driveschool.schoolid + "",
-				handler);
-	}
 
 	@Override
 	public void processSuccess(String data) {
 
 		// 加载
-		final ArrayList<BulletinBean> bulletinBeans = (ArrayList<BulletinBean>) JsonUtil
-				.parseJsonToList(data, new TypeToken<List<BulletinBean>>() {
-				}.getType());
-
-		if (bulletinBeans.size() == 0) {
-			moreData = false;
-		} else {
-			LogUtil.print(bulletinBeans.get(0).content);
-			moreData = true;
-		}
-		System.out.println(moreData);
-
-		list.addAll(bulletinBeans);
-		adapter.notifyDataSetChanged();
-
-		// isLoadMore = false;
-		mListView.loadMoreFinished();
 
 	}
 
 	@Override
 	public void processFailure() {
 
-		// isLoadMore = false;
-		mListView.loadMoreFinished();
 	}
 
 	class PublishBulletinOnClickListener implements OnClickListener {
@@ -202,7 +122,8 @@ public class PublishBulletinActivity extends BaseActivity {
 
 	private void PublishBulletin() {
 
-		String content = pulishContent.getText().toString();
+		String content = publishContent.getText().toString();
+		String title = publishTitle.getText().toString();
 		if (TextUtils.isEmpty(content.trim())) {
 
 			ZProgressHUD.getInstance(this).show();
@@ -218,6 +139,7 @@ public class PublishBulletinActivity extends BaseActivity {
 				params.put("schoolid", userInfo.driveschool.schoolid);
 				params.put("content", content);
 				params.put("bulletobject", bulletinObject);
+				params.put("title", title);
 			}
 
 			AsyncHttpResponseHandler handler1 = new AsyncHttpResponseHandler() {
@@ -253,25 +175,12 @@ public class PublishBulletinActivity extends BaseActivity {
 								.dismissWithSuccess(data);
 						// ToastUtil.showToast(mContext, data);
 
-						// 发布成功后，刷新列表
-						BulletinBean bean = new BulletinBean();
-						bean.content = pulishContent.getText().toString();
-						SimpleDateFormat format = new SimpleDateFormat(
-								"yyyy-MM-dd'T'HH:mm:ss");
-						bean.createtime = format.format(new Date());
-						if (radioGroup.getCheckedRadioButtonId() == R.id.rb_publish_bulletin_coach) {
-							bean.bulletobject = 2;
-						} else {
-							bean.bulletobject = 1;
-
-						}
-						list.add(0, bean);
-						adapter.notifyDataSetChanged();
-						pulishContent.setText("");
+						publishContent.setText("");
+						publishTitle.setText("");
 						// 隐藏软键盘
 						InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 						imm.hideSoftInputFromWindow(
-								pulishContent.getWindowToken(), 0);
+								publishContent.getWindowToken(), 0);
 					}
 
 				}
@@ -287,4 +196,31 @@ public class PublishBulletinActivity extends BaseActivity {
 
 		}
 	}
+	
+	@Override
+	public void onClick(View v) {
+		super.onClick(v);
+		LogUtil.print("----"+v.getId());
+		Intent intent = null;
+		switch (v.getId()) {
+		case R.id.tv_base_right:
+			//历史公告
+			intent = new Intent(this,BulletinHistoryActivity.class);
+			break;
+		case R.id.ib_base_arrow :
+				finish();
+				break;
+		case R.id.btn_publish_bulletin:
+			//发布公告
+			PublishBulletin();
+			break;
+		default:
+			break;
+		}
+		
+		if(intent !=null){
+			startActivity(intent);
+		}
+	}
+
 }
