@@ -3,13 +3,188 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_bg" >
+    
+    
+        <LinearLayout
+            android:id="@+id/tv_data_current_enroll"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+               <TextView
+                android:id="@+id/tv_data_current_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日报名"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_data_current_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23"
+                android:layout_marginLeft="6dp"
+                android:textColor="#19f9cc"
+                android:textSize="16sp" />
+         
+        </LinearLayout>
+        
+<RelativeLayout
+        android:id="@+id/rl_datas_header"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_below="@+id/tv_data_current_enroll">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="#2a2a2a" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentTop="true"
+            android:background="#2a2a2a" />
+
+        <LinearLayout
+            android:id="@+id/ll_data_subjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_data_subject1_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="44"
+                    android:textColor="#19f9cc"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_data_subject1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="科一在学"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            
+                <ImageView
+            android:layout_width="1dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:background="#2a2a2a" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_data_subject2_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:textColor="#19f9cc"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_data_subject2_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="科二在学"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+    <ImageView
+            android:layout_width="1dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:background="#2a2a2a" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_data_subject3_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:textColor="#19f9cc"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_data_subject3_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="科三在学"
+                   android:layout_marginTop="8dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+                <ImageView
+            android:layout_width="1dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:background="#2a2a2a" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_data_subject4_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="44"
+                    android:textColor="#19f9cc"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_data_subject4_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="科四在学"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    
+    </RelativeLayout>
 <FrameLayout
         android:id="@+id/fl_data_circle"
         android:layout_width="258dp"
         android:layout_height="258dp"
+        android:layout_below="@+id/rl_datas_header"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="107dp" >
+        android:layout_marginTop="30dp" >
 
         <ImageView
             android:id="@+id/data_circle"
@@ -88,13 +263,24 @@
             custom:arc_unfinished_color="@android:color/transparent" />
     </FrameLayout>
 
+<TextView 
+    android:id="@+id/assess_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#ffffff"
+    android:textSize="14sp"
+    android:layout_below="@+id/fl_data_circle"
+    android:layout_centerHorizontal="true"
+    android:text="学员评价"/>
+
     <LinearLayout
         android:id="@+id/data_star_ll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_below="@+id/fl_data_circle"
+        android:layout_height="64dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/assess_title"
         android:orientation="horizontal" >
 
         <!-- 第一个星 -->
@@ -115,11 +301,19 @@
                 android:textColor="#19f9cc"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/good_assess" />
+           <TextView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:drawableLeft="@drawable/good"
+               android:drawablePadding="6dp"
+               android:textColor="#ffffff"
+               android:textSize="14sp"
+               android:layout_marginTop="18dp"
+               android:text="好评"/>
         </LinearLayout>
+              <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#2a2a2a" />
         <!-- 第二个星 -->
 
         <LinearLayout
@@ -138,11 +332,19 @@
                 android:textColor="#19f9cc"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/middle_assess" />
+              <TextView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:drawableLeft="@drawable/well"
+               android:drawablePadding="6dp"
+               android:textColor="#ffffff"
+               android:textSize="14sp"
+               android:layout_marginTop="18dp"
+               android:text="中评"/>
         </LinearLayout>
+           <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#2a2a2a" />
         <!-- 第三个星 -->
 
         <LinearLayout
@@ -161,14 +363,18 @@
                 android:textColor="#19f9cc"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/low_assess" />
+              <TextView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:drawableLeft="@drawable/bad"
+               android:drawablePadding="6dp"
+               android:textColor="#ffffff"
+               android:textSize="14sp"
+               android:layout_marginTop="18dp"
+               android:text="差评"/>
         </LinearLayout>
         <!-- 第四个星 -->
 
-        <LinearLayout
+        <!-- <LinearLayout
             android:id="@+id/data_star_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -188,209 +394,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ts39x36" />
-        </LinearLayout>
+        </LinearLayout> -->
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@+id/data_star_ll"
-        android:layout_marginLeft="61dp"
-        android:layout_marginRight="61dp"
-        android:layout_marginTop="36dp"
-        android:orientation="horizontal" >
 
-        <ImageButton
-            android:id="@+id/data_yesterday_ib"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/yesterday_selector" />
-
-        <ImageView
-            android:id="@+id/data_line_left_iv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/right" />
-        <ImageButton
-            android:id="@+id/data_today_ib"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/today_selector" />
-         <ImageView
-            android:id="@+id/data_line_right_iv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/left" />
-
-        <ImageButton
-            android:id="@+id/data_this_week_ib"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/this_week_selector"
-             />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl_datas_header"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" >
-
-        <ImageView
-            android:id="@+id/base_deviderline_down"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="#2a2a2a" />
-
-        <LinearLayout
-            android:id="@+id/ll_data_subjects"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal" >
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/tv_data_subject1_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="44"
-                    android:textColor="#19f9cc"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_data_subject1_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="科一"
-                    android:textColor="#009577"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/tv_data_subject2_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25"
-                    android:textColor="#19f9cc"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_data_subject2_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="科二"
-                    android:textColor="#009577"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/tv_data_subject3_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7"
-                    android:textColor="#19f9cc"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_data_subject3_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="科三"
-                    android:textColor="#009577"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/tv_data_subject4_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="44"
-                    android:textColor="#19f9cc"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_data_subject4_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="科四"
-                    android:textColor="#009577"
-                    android:textSize="12sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/tv_data_current_enroll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="25dp"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/tv_data_current_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="23"
-                android:textColor="#19f9cc"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/tv_data_current_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="当天报名"
-                android:textColor="#009577"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/iamgeview_line"
-            android:layout_width="1dp"
-            android:layout_height="55dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="40dp"
-            android:layout_toRightOf="@+id/ll_data_subjects"
-            android:background="#2a2a2a" />
-    </RelativeLayout>
+    
 </RelativeLayout>

@@ -55,18 +55,18 @@ public class DataPager extends BasePager implements OnClickListener {
 	private TextView generalCommnent;
 	@ViewInject(R.id.data_badcomment_tv)
 	private TextView badCommnent;
-	@ViewInject(R.id.data_complaintstudentcount_tv)
-	private TextView complaintStudentCount;
-	@ViewInject(R.id.data_yesterday_ib)
-	private ImageButton yesterday;
-	@ViewInject(R.id.data_today_ib)
-	private ImageButton today;
-	@ViewInject(R.id.data_this_week_ib)
-	private ImageButton thisWeek;
-	@ViewInject(R.id.data_line_left_iv)
-	private ImageView leftLine;
-	@ViewInject(R.id.data_line_right_iv)
-	private ImageView rightLine;
+//	@ViewInject(R.id.data_complaintstudentcount_tv)
+//	private TextView complaintStudentCount;
+//	@ViewInject(R.id.data_yesterday_ib)
+//	private ImageButton yesterday;
+//	@ViewInject(R.id.data_today_ib)
+//	private ImageButton today;
+//	@ViewInject(R.id.data_this_week_ib)
+//	private ImageButton thisWeek;
+//	@ViewInject(R.id.data_line_left_iv)
+//	private ImageView leftLine;
+//	@ViewInject(R.id.data_line_right_iv)
+//	private ImageView rightLine;
 	@ViewInject(R.id.fl_data_circle)
 	private FrameLayout dataCircle;
 	@ViewInject(R.id.data_star_1)
@@ -75,8 +75,8 @@ public class DataPager extends BasePager implements OnClickListener {
 	private LinearLayout datastar2;
 	@ViewInject(R.id.data_star_3)
 	private LinearLayout datastar3;
-	@ViewInject(R.id.data_star_4)
-	private LinearLayout datastar4;
+//	@ViewInject(R.id.data_star_4)
+//	private LinearLayout datastar4;
 
 	private int searchtype = 1;// 查询类型 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
 	private int commentlevel = 1;// 评价等级 3 差评2 中评1 好评
@@ -96,7 +96,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		progressOut1 = 0;
 		progressOut2 = 0;
 		progressIn2 = 0;
-		setState(2);
+//		setState(2);
 		loadNetworkData();
 
 	}
@@ -107,14 +107,14 @@ public class DataPager extends BasePager implements OnClickListener {
 				R.layout.data_information, null);
 		ViewUtils.inject(this, view);
 
-		yesterday.setOnClickListener(this);
-		today.setOnClickListener(this);
-		thisWeek.setOnClickListener(this);
+//		yesterday.setOnClickListener(this);
+//		today.setOnClickListener(this);
+//		thisWeek.setOnClickListener(this);
 		dataCircle.setOnClickListener(this);
 		datastar1.setOnClickListener(this);
 		datastar2.setOnClickListener(this);
 		datastar3.setOnClickListener(this);
-		datastar4.setOnClickListener(this);
+//		datastar4.setOnClickListener(this);
 		return view;
 	}
 
@@ -136,7 +136,6 @@ public class DataPager extends BasePager implements OnClickListener {
 					currentNum.setText(todayBean.applystudentcount + "");
 
 				}
-
 				setCircleData(todayBean);
 				setCommnent(todayBean);
 			}
@@ -155,7 +154,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		goodCommnent.setText(weekBean.goodcommentcount + "");
 		generalCommnent.setText(weekBean.generalcomment + "");
 		badCommnent.setText(weekBean.badcommentcount + "");
-		complaintStudentCount.setText(weekBean.complaintstudentcount + "");
+//		complaintStudentCount.setText(weekBean.complaintstudentcount + "");
 	}
 
 	// 设置评论数
@@ -164,7 +163,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		generalCommnent.setText(todayBean.commentstudentcount.generalcomment
 				+ "");
 		badCommnent.setText(todayBean.commentstudentcount.badcomment + "");
-		complaintStudentCount.setText(todayBean.complaintstudentcount + "");
+//		complaintStudentCount.setText(todayBean.complaintstudentcount + "");
 	}
 
 	// 设置头部学校学生数量
@@ -321,9 +320,9 @@ public class DataPager extends BasePager implements OnClickListener {
 	};
 
 	public void setButtonUnClickable(boolean enable) {
-		yesterday.setClickable(enable);
-		today.setClickable(enable);
-		thisWeek.setClickable(enable);
+//		yesterday.setClickable(enable);
+//		today.setClickable(enable);
+//		thisWeek.setClickable(enable);
 	}
 
 	private void loadNetworkData() {
@@ -342,70 +341,70 @@ public class DataPager extends BasePager implements OnClickListener {
 	}
 
 	// 显示内容：： 1 昨天 ， 2今天 ，3 本周
-	private void setState(int curState) {
-		yesterday.setSelected(false);
-		today.setSelected(false);
-		thisWeek.setSelected(false);
-		switch (curState) {
-		case 1:
-
-			yesterday.setSelected(true);
-			leftLine.setBackgroundResource(R.drawable.left);
-			rightLine.setBackgroundResource(R.drawable.center);
-			break;
-		case 2:
-			today.setSelected(true);
-			leftLine.setBackgroundResource(R.drawable.right);
-			rightLine.setBackgroundResource(R.drawable.left);
-			break;
-		case 3:
-			thisWeek.setSelected(true);
-			leftLine.setBackgroundResource(R.drawable.center);
-			rightLine.setBackgroundResource(R.drawable.right);
-			break;
-
-		default:
-			break;
-		}
-	}
+//	private void setState(int curState) {
+//		yesterday.setSelected(false);
+//		today.setSelected(false);
+//		thisWeek.setSelected(false);
+//		switch (curState) {
+//		case 1:
+//
+//			yesterday.setSelected(true);
+//			leftLine.setBackgroundResource(R.drawable.left);
+//			rightLine.setBackgroundResource(R.drawable.center);
+//			break;
+//		case 2:
+//			today.setSelected(true);
+//			leftLine.setBackgroundResource(R.drawable.right);
+//			rightLine.setBackgroundResource(R.drawable.left);
+//			break;
+//		case 3:
+//			thisWeek.setSelected(true);
+//			leftLine.setBackgroundResource(R.drawable.center);
+//			rightLine.setBackgroundResource(R.drawable.right);
+//			break;
+//
+//		default:
+//			break;
+//		}
+//	}
 
 	@Override
 	public void onClick(View v) {
 
 		switch (v.getId()) {
-		case R.id.data_yesterday_ib:
-			if (currentDay == DayButton.YESTERDAY) {
-				return;
-			}
-			progressOut1 = 0;
-			progressOut2 = 0;
-			progressIn2 = 0;
-			setState(1);
-			searchtype = 2;
-			loadNetworkData();
-			currentDay = DayButton.YESTERDAY;
-			break;
-		case R.id.data_today_ib:
-			if (currentDay == DayButton.TODAY) {
-				return;
-			}
-			progressOut1 = 0;
-			progressOut2 = 0;
-			progressIn2 = 0;
-			setState(2);
-			searchtype = 1;
-			loadNetworkData();
-			currentDay = DayButton.TODAY;
-			break;
-		case R.id.data_this_week_ib:
-			if (currentDay == DayButton.THISWEEK) {
-				return;
-			}
-			setState(3);
-			searchtype = 3;
-			loadNetworkData();
-			currentDay = DayButton.THISWEEK;
-			break;
+//		case R.id.data_yesterday_ib:
+//			if (currentDay == DayButton.YESTERDAY) {
+//				return;
+//			}
+//			progressOut1 = 0;
+//			progressOut2 = 0;
+//			progressIn2 = 0;
+//			setState(1);
+//			searchtype = 2;
+//			loadNetworkData();
+//			currentDay = DayButton.YESTERDAY;
+//			break;
+//		case R.id.data_today_ib:
+//			if (currentDay == DayButton.TODAY) {
+//				return;
+//			}
+//			progressOut1 = 0;
+//			progressOut2 = 0;
+//			progressIn2 = 0;
+//			setState(2);
+//			searchtype = 1;
+//			loadNetworkData();
+//			currentDay = DayButton.TODAY;
+//			break;
+//		case R.id.data_this_week_ib:
+//			if (currentDay == DayButton.THISWEEK) {
+//				return;
+//			}
+//			setState(3);
+//			searchtype = 3;
+//			loadNetworkData();
+//			currentDay = DayButton.THISWEEK;
+//			break;
 		case R.id.fl_data_circle:
 			LogUtil.print("更多数据");
 			Intent intent = new Intent(mContext, DataChartActivity.class);
@@ -434,13 +433,13 @@ public class DataPager extends BasePager implements OnClickListener {
 			intent4.putExtra("commentlevel", 3);
 			mContext.startActivity(intent4);
 			break;
-		case R.id.data_star_4:
-			Intent intent5 = new Intent(mContext, AssessActivity.class);
-			intent5.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			intent5.putExtra("title", searchtype);
-			intent5.putExtra("commentlevel", 4);
-			mContext.startActivity(intent5);
-			break;
+//		case R.id.data_star_4:
+//			Intent intent5 = new Intent(mContext, AssessActivity.class);
+//			intent5.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//			intent5.putExtra("title", searchtype);
+//			intent5.putExtra("commentlevel", 4);
+//			mContext.startActivity(intent5);
+//			break;
 		default:
 			break;
 		}
