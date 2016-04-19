@@ -27,4 +27,6 @@
   <color name="text_white_dark_color">#bfbfbf</color> 
   <color name="text_gray_color">#b7b7b7</color> 
   <color name="white">#ffffff</color> 
+   <color name="new_gray">#a0a0a0</color>
+   <color name="new_main">#00f8c7</color>
 </resources>

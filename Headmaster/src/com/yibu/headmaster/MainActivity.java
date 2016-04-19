@@ -6,6 +6,7 @@ import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.R.drawable;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -120,7 +121,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		raButton1 = (RadioButton) findViewById(R.id.rb_bottom_data);
 		raButton2 = (RadioButton) findViewById(R.id.rb_bottom_news);
 		raButton3 = (RadioButton) findViewById(R.id.rb_bottom_chatter);
-		raButton1.setBackgroundResource(R.drawable.bottom_1);
+//		raButton1.setBackgroundResource(R.drawable.bottom_1);
 		contentPager.setOffscreenPageLimit(2);
 	}
 
@@ -159,24 +160,21 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
 		@Override
 		public void onCheckedChanged(RadioGroup group, int checkedId) {
-			setBottom();
+//			setBottom();
 			switch (checkedId) {
 			case R.id.rb_bottom_data:
 				contentPager.setCurrentItem(0, false);// 参数2 是否带滑动效果
 				title.setText(getString(R.string.data_title));
-				raButton1.setBackgroundResource(R.drawable.bottom_1);
 				weather.setVisibility(View.VISIBLE);
 				break;
 			case R.id.rb_bottom_news:
 				contentPager.setCurrentItem(1, false);
 				title.setText(getString(R.string.industry_consult));
-				raButton2.setBackgroundResource(R.drawable.bottom_2);
 				weather.setVisibility(View.INVISIBLE);
 				break;
 			case R.id.rb_bottom_chatter:
 				contentPager.setCurrentItem(2, false);
 				title.setText(getString(R.string.my_chat_messages));
-				raButton3.setBackgroundResource(R.drawable.bottom_3);
 				weather.setVisibility(View.INVISIBLE);
 
 				// ChatterPager chatterPager = (ChatterPager) pagers.get(2);
@@ -189,15 +187,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		}
 	}
 
-	private void setBottom() {
-		raButton1.setBackgroundColor(getResources().getColor(
-				android.R.color.transparent));
-		raButton2.setBackgroundColor(getResources().getColor(
-				android.R.color.transparent));
-		raButton3.setBackgroundColor(getResources().getColor(
-				android.R.color.transparent));
-
-	}
+//	private void setBottom() {
+//		raButton1.setBackgroundColor(getResources().getColor(
+//				android.R.color.transparent));
+//		raButton2.setBackgroundColor(getResources().getColor(
+//				android.R.color.transparent));
+//		raButton3.setBackgroundColor(getResources().getColor(
+//				android.R.color.transparent));
+//
+//	}
 
 	long pressedTime = 0;
 
