@@ -58,6 +58,18 @@ public class ApiHttpClient {
 			AsyncHttpResponseHandler handler) {
 		client.get(getAbsoluteApiUrl(partUrl), params, handler);
 	}
+	
+	/**
+	 * 获取绝对地址
+	 * @param partUrl
+	 * @param params
+	 * @param handler
+	 */
+	public static void getAbsolute(String partUrl, RequestParams params,
+			AsyncHttpResponseHandler handler) {
+		client.get(Base_URL+partUrl, params, handler);
+	}
+
 
 	public static String getAbsoluteApiUrl(String partUrl) {
 		String url = String.format(API_URL, partUrl);

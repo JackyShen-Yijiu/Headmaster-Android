@@ -71,6 +71,7 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 			try {
 
 				JSONObject jsonObject = new JSONObject(new String(responseBody));
+				LogUtil.print("json-->"+new String(responseBody));
 				result = jsonObject.getString("type");
 				msg = jsonObject.getString("msg");
 				try {

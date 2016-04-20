@@ -43,6 +43,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+   
   
 <!--     极光推送权限 -->
     	<permission android:name="com.yibu.headmaster.permission.JPUSH_MESSAGE"
@@ -218,7 +219,9 @@
                  <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> 
                  <category android:name="com.yibu.headmaster" />
              </intent-filter>
+             
              <intent-filter>
+                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> 
                  <action android:name="android.intent.action.USER_PRESENT" />
                  <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
              </intent-filter>
