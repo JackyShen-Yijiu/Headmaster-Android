@@ -180,6 +180,7 @@ public class DataPager extends BasePager implements OnClickListener {
 	// 设置头部学校学生数量
 	private void setSchoolStudentCount(
 			List<Schoolstudentcount> schoolstudentcount) {
+		
 		if (schoolstudentcount != null) {
 			for (int i = 0; i < schoolstudentcount.size(); i++) {
 				int subjectid = schoolstudentcount.get(i).subjectid;
@@ -188,6 +189,7 @@ public class DataPager extends BasePager implements OnClickListener {
 
 					subject1Num.setText(schoolstudentcount.get(i).studentcount
 							+ "");
+					
 					break;
 				case 1:
 					subject2Num.setText(schoolstudentcount.get(i).studentcount

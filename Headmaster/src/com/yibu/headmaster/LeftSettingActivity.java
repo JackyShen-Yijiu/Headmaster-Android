@@ -1,8 +1,18 @@
 package com.yibu.headmaster;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
@@ -13,12 +23,18 @@ import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 
+import cn.sft.baseactivity.util.Util;
+
 import com.easemob.chat.EMChatManager;
+import com.google.gson.JsonObject;
 import com.jzjf.headmaster.R;
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.api.ApiHttpClient;
+import com.yibu.headmaster.bean.DataBean;
+import com.yibu.headmaster.bean.UserBean;
 import com.yibu.headmaster.cache.DataCleanManager;
 import com.yibu.headmaster.global.HeadmasterApplication;
+import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
@@ -45,9 +61,15 @@ public class LeftSettingActivity extends BaseActivity  {
 	private RelativeLayout setting_finish;
 	private RelativeLayout setting_pingfen;
 	private RelativeLayout setting_update;
-
+	private TextView banben_code;
+	private DataBean dataBean;
+	private Util util;	
+	private PackageInfo packageInfo;
+	
 	@Override
 	protected void initView() {
+		Util util=new Util(this);
+		DataBean dataBean=new DataBean();
 		view = View.inflate(getBaseContext(), R.layout.left_setting, null);
 		content.addView(view);
 		setSonsTitle(getString(R.string.setting_title));
@@ -60,24 +82,100 @@ public class LeftSettingActivity extends BaseActivity  {
 		setting_finish=(RelativeLayout)view.findViewById(R.id.setting_finish);
 		setting_pingfen=(RelativeLayout)view.findViewById(R.id.setting_pingfen);
 		tv_number=(TextView)view.findViewById(R.id.tv_number);
+		banben_code=(TextView)view.findViewById(R.id.banben_code);
 		messageCb = (CheckBox) findViewById(R.id.setting_every_day_cb);
 		commplaintCb = (CheckBox) findViewById(R.id.setting_commplaint_cb);
 		studentEnrollCb = (CheckBox) findViewById(R.id.setting_new_student_enroll);
-		
+		banben_code.setText(util.getAppVersion());
 		 try {
 			tv_number.setText(DataCleanManager.getTotalCacheSize(LeftSettingActivity.this));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
-
+	// 获取版本号
+		private void update() {
+			if(dataBean ==null){
+				return;
+			}
+			String urlString=dataBean.downloadUrl;
+			getVersionCode(this);
+			//本地
+			int curVersion = getVersionCode(this);;
+			//服务器
+			int newVersion = dataBean.innerversionCode;
+			if (newVersion>curVersion) {
+					AlertDialog.Builder builder = new AlertDialog.Builder(this);
+					builder.setTitle("发现新版本");
+					builder.setMessage(getString(R.string.app_name) + "有新版本啦！");
+					builder.setPositiveButton("立即更新",
+							new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog,
+										int whichButton) {
+									if(url(dataBean.downloadUrl)){
+										Uri uri = Uri.parse(dataBean.downloadUrl);       
+										Intent it = new Intent(Intent.ACTION_VIEW, uri);
+										startActivity(it); 
+									}else{
+										 ToastUtil.showToast(getBaseContext(), "下载地址失效！");
+									}
+									dialog.dismiss();
+								}
+							});
+					builder.setNegativeButton("以后再说",
+							new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog,
+										int whichButton) {
+									
+									dialog.dismiss();
+								}
+							});
+					Dialog dialog = builder.create();
+					dialog.show();
+				} else {
+					   ToastUtil.showToast(getBaseContext(), "已是最新版本！");
+				}
+			
+		}
+		
+		public static int getVersionCode(Context context) {//获取版本号(内部识别号)  
+			
+		    try {  
+		        PackageInfo pi=context.getPackageManager().getPackageInfo(context.getPackageName(), 0);  
+		        return pi.versionCode;  
+		    } catch (PackageManager.NameNotFoundException e) {  
+		        e.printStackTrace();  
+		        return 0;  
+		    }  
+		} 
+	// 获取版本号
+	private void obtainCode() {
+		RequestParams params = new RequestParams();
+//		params.put("type", 5);
+		ApiHttpClient.getAbsolute("api/v1/appversion/5",params, handler);
+		
+		
+	}
+	private boolean url(String urlString) {
+		if (urlString!=null) {
+			if(urlString.startsWith("http://") ||urlString.startsWith("https://")){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.ib_base_arrow:
 			finish();
+			break;
+		case R.id.setting_update:
+			obtainCode();
 			break;
 		case R.id.setting_aboutus_tv:
 			Intent abouts = new Intent(HeadmasterApplication.getContext(),
@@ -200,8 +298,11 @@ public class LeftSettingActivity extends BaseActivity  {
 				});
 	}
 
+	
 	@Override
 	public void processSuccess(String data) {
+		dataBean = JsonUtil.parseJsonToBean(data, DataBean.class);
+		update();
 		// 设置成功，保存到本地
 		SharedPreferencesUtil.putInt(getBaseContext(), SETTING_MESSAGE,
 				messageInt);
@@ -210,6 +311,7 @@ public class LeftSettingActivity extends BaseActivity  {
 		SharedPreferencesUtil.putInt(getBaseContext(), SETTING_STUDENT_ENROLL,
 				studentEnrollInt);
 	}
+	
 
 	@Override
 	public void processFailure() {
