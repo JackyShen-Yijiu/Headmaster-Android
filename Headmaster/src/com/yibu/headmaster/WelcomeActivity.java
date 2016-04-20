@@ -205,16 +205,18 @@ public class WelcomeActivity extends BaseActivity implements EMLoginListener {
 							.dismissWithFailure("初始化聊天失败");
 				}
 			});
-			new Handler().postDelayed(new Runnable() {
+			new Thread(new Runnable() {
 
 				@Override
 				public void run() {
-					Intent intent = new Intent(WelcomeActivity.this,
-							LoginActivity.class);
-					startActivity(intent);
-					WelcomeActivity.this.finish();
+					try {
+						Thread.sleep(1000);
+						myHandler.sendMessage(myHandler.obtainMessage());
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 				}
-			}, 1000);
+			}).start();
 		}
 	}
 

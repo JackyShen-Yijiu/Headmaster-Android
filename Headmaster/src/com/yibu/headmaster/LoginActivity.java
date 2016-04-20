@@ -280,25 +280,7 @@ LogUtil.print("-----"+userBean.userid);
 							passwordEt.getText().toString());
 
 			LogUtil.print("登录环信成功！");
-			HeadmasterApplication.app.isLogin = true;
-
-			boolean isFirstOpen = SharedPreferencesUtil.getBoolean(
-					getApplicationContext(),
-					HomeGuideActivity.IS_HELP_PAGE_OPENED, false);
-			if (isFirstOpen) {
-				// 转到主界面
-				Intent intent = new Intent(LoginActivity.this,
-						MainActivity.class);
-				startActivity(intent);
-
-			} else {
-				// 转到帮助页
-				Intent intent = new Intent(LoginActivity.this,
-						HomeGuideActivity.class);
-				startActivity(intent);
-			}
-
-			finish();
+			toMainActivity();
 		} else {
 			LogUtil.print("登录环信失败！");
 			runOnUiThread(new Runnable() {
@@ -307,8 +289,31 @@ LogUtil.print("-----"+userBean.userid);
 					ZProgressHUD.getInstance(LoginActivity.this).show();
 					ZProgressHUD.getInstance(LoginActivity.this)
 							.dismissWithFailure("初始化聊天失败");
+					toMainActivity();
 				}
 			});
 		}
+	}
+
+	private void toMainActivity() {
+		HeadmasterApplication.app.isLogin = true;
+
+		boolean isFirstOpen = SharedPreferencesUtil.getBoolean(
+				getApplicationContext(),
+				HomeGuideActivity.IS_HELP_PAGE_OPENED, false);
+		if (isFirstOpen) {
+			// 转到主界面
+			Intent intent = new Intent(LoginActivity.this,
+					MainActivity.class);
+			startActivity(intent);
+
+		} else {
+			// 转到帮助页
+			Intent intent = new Intent(LoginActivity.this,
+					HomeGuideActivity.class);
+			startActivity(intent);
+		}
+
+		finish();
 	}
 }
