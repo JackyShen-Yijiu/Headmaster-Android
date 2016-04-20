@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/base_titlebar_layout"
+    android:id="@+id/base_titlebar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/base_titlebar_height"
+    android:orientation="vertical" >
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/base_titlebar_height"
-        android:orientation="vertical" >
+        android:layout_height="49dp" >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-             >
+        <FrameLayout
+            android:id="@+id/title_left_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:padding="8dp" >
 
-            <FrameLayout 
-                android:id="@+id/title_left_btn"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_centerVertical="true"
-                android:padding="8dp"
-                
-                android:layout_marginLeft="7dp"
-                >
             <ImageButton
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@null"
-                android:scaleType="centerCrop"
                 android:clickable="false"
-                android:src="@drawable/side"
-                android:contentDescription="@string/app_name" />
-            </FrameLayout>
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@drawable/side" />
+        </FrameLayout>
 
-            <TextView
-                android:id="@+id/base_title_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textColor="#fefefe"
-                android:text="@string/data_title"
-                android:textSize="18sp"
-                />
+        <TextView
+            android:id="@+id/base_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/data_title"
+            android:textColor="#fefefe"
+            android:textSize="18sp" />
 
+        <RelativeLayout
+            android:id="@+id/main_complaint_rl"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
 
-            <LinearLayout 
-                android:id="@+id/weather"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                >
-                 <TextView
+            <!--
+                      <TextView
                 android:id="@+id/weather_degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,26 +55,38 @@
                 android:textColor="#fefefe" 
                 android:textSize="14sp"
                 />
+            -->
+
+
             <ImageView
-                android:id="@+id/weather_icon"
-                android:layout_width="@dimen/weather_icon_width"
-                android:layout_height="@dimen/weather_icon_height"
-                android:scaleType="centerCrop"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="7dp"
+                android:id="@+id/main_complaint_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/complaint"
                 android:contentDescription="@string/app_name" />
-                
-            </LinearLayout>
-
-           
+            
+             <TextView
+                android:id="@+id/main_complaint_num_tv"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/red_point"
+                android:textColor="@color/white"
+                android:textSize="10sp" /> 
         </RelativeLayout>
+    </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/base_deviderline"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_height="1dp"
-            android:background="#2a2a2a"
-            android:contentDescription="@string/app_name" />
+    <ImageView
+        android:id="@+id/base_deviderline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#2a2a2a"
+        android:contentDescription="@string/app_name" />
+
 </LinearLayout>

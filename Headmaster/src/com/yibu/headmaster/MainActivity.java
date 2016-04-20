@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
@@ -41,11 +42,14 @@ import com.yibu.headmaster.base.impl.ChatterPager;
 import com.yibu.headmaster.base.impl.DataPager;
 import com.yibu.headmaster.base.impl.NewsPager;
 import com.yibu.headmaster.bean.WeatherBean;
+import com.yibu.headmaster.event.ComplaintEvent;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
+
+import de.greenrobot.event.EventBus;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 	private DrawerLayout drawerLayout;
@@ -55,12 +59,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	FrameLayout ivLeftBack;
 	FrameLayout leftBtn;
 	TextView title;
-	LinearLayout weather;
+//	LinearLayout weather;
 	RadioButton raButton1;
 	RadioButton raButton2;
 	RadioButton raButton3;
-	private TextView weatherDegree;
-	private ImageView weatherIcon;
+//	private TextView weatherDegree;
+//	private ImageView weatherIcon;
 
 	// jpush自定义 receiver所用数据
 	public static boolean isForeground = false;
@@ -85,6 +89,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			R.drawable.haze, R.drawable.fog, R.drawable.clear_to_overcast,
 			R.drawable.flurry, R.drawable.little_rain, R.drawable.snow,
 			R.drawable.moderate_rain };
+	private RelativeLayout complaintRl;
+	private TextView complaintNumTv;
 
 	// Window window;
 
@@ -115,9 +121,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		ivLeftBack = (FrameLayout) findViewById(R.id.iv_left_back);
 		leftBtn = (FrameLayout) findViewById(R.id.title_left_btn);
 		title = (TextView) findViewById(R.id.base_title_tv);
-		weather = (LinearLayout) findViewById(R.id.weather);
-		weatherDegree = (TextView) findViewById(R.id.weather_degree);
-		weatherIcon = (ImageView) findViewById(R.id.weather_icon);
+		complaintRl = (RelativeLayout) findViewById(R.id.main_complaint_rl);
+		complaintNumTv = (TextView) findViewById(R.id.main_complaint_num_tv);
 		raButton1 = (RadioButton) findViewById(R.id.rb_bottom_data);
 		raButton2 = (RadioButton) findViewById(R.id.rb_bottom_news);
 		raButton3 = (RadioButton) findViewById(R.id.rb_bottom_chatter);
@@ -128,20 +133,21 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	protected void initListener() {
 		ivLeftBack.setOnClickListener(this);
 		leftBtn.setOnClickListener(this);
+		complaintRl.setOnClickListener(this);
 	}
 
 	protected void initData() {
 
-		String weather_temp = SharedPreferencesUtil.getString(
-				HeadmasterApplication.getContext(), WEATHER_TEMPERATURE, "");
-		String weather_pic = SharedPreferencesUtil.getString(
-				HeadmasterApplication.getContext(), WEATHER_PIC, "");
-		if (!TextUtils.isEmpty(weather_temp) && TextUtils.isEmpty(weather_pic)) {
-			weatherDegree.setText(weather_temp + "°C");
-			Picasso.with(getApplicationContext()).load(weather_pic)
-					.into(weatherIcon);
-			LogUtil.print("-----00+++" + weather_pic);
-		}
+//		String weather_temp = SharedPreferencesUtil.getString(
+//				HeadmasterApplication.getContext(), WEATHER_TEMPERATURE, "");
+//		String weather_pic = SharedPreferencesUtil.getString(
+//				HeadmasterApplication.getContext(), WEATHER_PIC, "");
+//		if (!TextUtils.isEmpty(weather_temp) && TextUtils.isEmpty(weather_pic)) {
+//			weatherDegree.setText(weather_temp + "°C");
+//			Picasso.with(getApplicationContext()).load(weather_pic)
+//					.into(weatherIcon);
+//			LogUtil.print("-----00+++" + weather_pic);
+//		}
 
 		pagers = new ArrayList<BasePager>();
 
@@ -165,17 +171,17 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			case R.id.rb_bottom_data:
 				contentPager.setCurrentItem(0, false);// 参数2 是否带滑动效果
 				title.setText(getString(R.string.data_title));
-				weather.setVisibility(View.VISIBLE);
+				complaintRl.setVisibility(View.VISIBLE);
 				break;
 			case R.id.rb_bottom_news:
 				contentPager.setCurrentItem(1, false);
 				title.setText(getString(R.string.industry_consult));
-				weather.setVisibility(View.INVISIBLE);
+				complaintRl.setVisibility(View.INVISIBLE);
 				break;
 			case R.id.rb_bottom_chatter:
 				contentPager.setCurrentItem(2, false);
 				title.setText(getString(R.string.my_chat_messages));
-				weather.setVisibility(View.INVISIBLE);
+				complaintRl.setVisibility(View.INVISIBLE);
 
 				// ChatterPager chatterPager = (ChatterPager) pagers.get(2);
 				// chatterPager.checkChatterPagerHasMessage();
@@ -226,6 +232,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		case R.id.iv_left_back:
 			drawerLayout.closeDrawer(Gravity.START);
 			break;
+		case R.id.main_complaint_rl:
+			LogUtil.print("----投诉");
+			EventBus.getDefault().post(new ComplaintEvent());
+			break;
 		}
 	}
 
@@ -248,7 +258,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 				mLocationClient.stop();// 结束定位
 
 			}
-			getWeatherInfo();
 		}
 
 	}
@@ -278,96 +287,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
 	private boolean isHasWeatherIconInlocal = false;
 
-	private void getWeatherInfo() {
-
-		AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler() {
-
-			@Override
-			public void onSuccess(int statusCode, Header[] headers,
-					byte[] responseBody) {
-				String weather_temp = null;
-				String weather_pic = null;
-				WeatherBean weatherBean = null;
-				String value = parseJson(responseBody);
-				if (!TextUtils.isEmpty(value)) {
-					weatherBean = JsonUtil.parseJsonToBean(value,
-							WeatherBean.class);
-
-					if (weatherBean != null) {
-						weather_temp = weatherBean.now.temperature;
-						weather_pic = weatherBean.now.weather;
-						LogUtil.print("weather:" + weather_pic);
-						// 保存天气
-						SharedPreferencesUtil.putString(
-								HeadmasterApplication.getContext(),
-								WEATHER_TEMPERATURE, weather_temp);
-						SharedPreferencesUtil.putString(
-								HeadmasterApplication.getContext(),
-								WEATHER_PIC, weather_pic);
-					}
-				} else {
-
-				}
-				if (weather_pic != null && weather_temp != null) {
-					weatherDegree.setText(weather_temp + "°C");
-					// Picasso.with(getApplicationContext()).load(weather_pic)
-					// .into(weatherIcon);
-					for (int i = 0; i < weatherStrings.length; i++) {
-						if (weatherStrings[i].equals(weather_pic)) {
-							isHasWeatherIconInlocal = true;
-							// Picasso.with(getApplicationContext())
-							// .load(weatherIconLocal[i])
-							// .into(weatherIcon);
-							LogUtil.print("weatherIconLocal"
-									+ weatherIconLocal[i]);
-							weatherIcon
-									.setBackgroundResource(weatherIconLocal[i]);
-						}
-					}
-					if (!isHasWeatherIconInlocal) {
-						Picasso.with(getApplicationContext()).load(weather_pic)
-								.into(weatherIcon);
-
-					}
-
-				}
-			}
-
-			@Override
-			public void onFailure(int statusCode, Header[] headers,
-					byte[] responseBody, Throwable error) {
-
-				String weather_temp = SharedPreferencesUtil.getString(
-						HeadmasterApplication.getContext(),
-						WEATHER_TEMPERATURE, "");
-				String weather_pic = SharedPreferencesUtil.getString(
-						HeadmasterApplication.getContext(), WEATHER_PIC, "");
-				if (weather_pic != null && weather_temp != null) {
-					weatherDegree.setText(weather_temp + "°C");
-					for (int i = 0; i < weatherStrings.length; i++) {
-						if (weatherStrings.equals(weather_pic)) {
-							isHasWeatherIconInlocal = true;
-							// Picasso.with(getApplicationContext())
-							// .load(weatherIconLocal[i])
-							// .into(weatherIcon);
-							weatherIcon
-									.setBackgroundResource(weatherIconLocal[i]);
-						}
-					}
-					if (!isHasWeatherIconInlocal) {
-						Picasso.with(getApplicationContext()).load(weather_pic)
-								.into(weatherIcon);
-
-					}
-
-				}
-
-			}
-		};
-		if (currCity != null) {
-			ApiHttpClient.get("info/getweather?cityname=" + currCity, handler);
-		}
-	}
 
 	String result = null;
 	String msg = null;
@@ -405,5 +324,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			value = dataString;
 		}
 		return value;
+	}
+	
+	public void setComplaintNUm(int num){
+		LogUtil.print("-----"+num);
+		if(num<1){
+			complaintNumTv.setVisibility(View.INVISIBLE);
+		}else{
+			complaintNumTv.setText(num+"");
+			complaintNumTv.setVisibility(View.VISIBLE);
+		}
 	}
 }

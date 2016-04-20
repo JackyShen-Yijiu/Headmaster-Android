@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -19,15 +20,19 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.DataChartActivity;
+import com.yibu.headmaster.MainActivity;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.MainOfTodayBean;
 import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
 import com.yibu.headmaster.bean.MainOfWeekBean;
+import com.yibu.headmaster.event.ComplaintEvent;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
+
+import de.greenrobot.event.EventBus;
 
 public class DataPager extends BasePager implements OnClickListener {
 
@@ -81,6 +86,7 @@ public class DataPager extends BasePager implements OnClickListener {
 	private int searchtype = 1;// 查询类型 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
 	private int commentlevel = 1;// 评价等级 3 差评2 中评1 好评
 
+	private MainActivity activity;
 	private enum DayButton {
 		TODAY, YESTERDAY, THISWEEK;
 	}
@@ -97,6 +103,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		progressOut2 = 0;
 		progressIn2 = 0;
 //		setState(2);
+		activity = (MainActivity) getActivity();
 		loadNetworkData();
 
 	}
@@ -154,6 +161,8 @@ public class DataPager extends BasePager implements OnClickListener {
 		goodCommnent.setText(weekBean.goodcommentcount + "");
 		generalCommnent.setText(weekBean.generalcomment + "");
 		badCommnent.setText(weekBean.badcommentcount + "");
+		
+		activity.setComplaintNUm(weekBean.complaintstudentcount);
 //		complaintStudentCount.setText(weekBean.complaintstudentcount + "");
 	}
 
@@ -163,6 +172,8 @@ public class DataPager extends BasePager implements OnClickListener {
 		generalCommnent.setText(todayBean.commentstudentcount.generalcomment
 				+ "");
 		badCommnent.setText(todayBean.commentstudentcount.badcomment + "");
+//		activity.setComplaintNUm(1);
+		activity.setComplaintNUm(todayBean.complaintstudentcount);
 //		complaintStudentCount.setText(todayBean.complaintstudentcount + "");
 	}
 
@@ -204,55 +215,68 @@ public class DataPager extends BasePager implements OnClickListener {
 	// 设置圆盘的值
 	private void setCircleData(final MainOfTodayBean todayBean) {
 
-		progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
-		progressOutsideForcast.setProgress(0);
+		if(todayBean.coachstotalcoursecount==0 || todayBean.reservationcoursecountday == 0){
+			progressOutsideForcast.setVisibility(View.GONE);
+		}else{
+			progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
+			progressOutsideForcast.setProgress(0);
+				// 动画效果
+				new Thread(new Runnable() {
 
-		// 动画效果
-		new Thread(new Runnable() {
+					@Override
+					public void run() {
+						for (int i = 0; i < todayBean.reservationcoursecountday; i++) {
+							try {
+								Thread.sleep(700 / todayBean.reservationcoursecountday);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
 
-			@Override
-			public void run() {
-				for (int i = 0; i < todayBean.reservationcoursecountday; i++) {
-					try {
-						Thread.sleep(700 / todayBean.reservationcoursecountday);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+							progressOut1++;
+							Message msg = Message.obtain();
+							msg.what = 1;
+							msg.obj = todayBean.reservationcoursecountday;
+							msgHandler.sendMessage(msg);
+						}
 					}
+				}).start();
+		}
+		
 
-					progressOut1++;
-					Message msg = Message.obtain();
-					msg.what = 1;
-					msg.obj = todayBean.reservationcoursecountday;
-					msgHandler.sendMessage(msg);
-				}
-			}
-		}).start();
+		
 
-		progressOutside.setMax(todayBean.coachstotalcoursecount);
-		progressOutside.setProgress(0);
+	
+		if(todayBean.coachstotalcoursecount==0 || todayBean.finishreservationnow ==0){
+			progressOutside.setVisibility(View.GONE);
+		}else{
+			progressOutside.setMax(todayBean.coachstotalcoursecount);
+			progressOutside.setProgress(0);
+				// 动画效果
+				new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						for (int i = 0; i < todayBean.finishreservationnow; i++) {
+							try {
+								Thread.sleep(700 / todayBean.finishreservationnow);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+
+							progressOut2++;
+							Message msg = Message.obtain();
+							msg.what = 2;
+							msg.obj = todayBean.finishreservationnow;
+							msgHandler.sendMessage(msg);
+						}
+					}
+				}).start();
+		}
+		
 		// progressOutside.setMax(3);
 		// progressOutside.setProgress(0);
 
-		// 动画效果
-		new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				for (int i = 0; i < todayBean.finishreservationnow; i++) {
-					try {
-						Thread.sleep(700 / todayBean.finishreservationnow);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-
-					progressOut2++;
-					Message msg = Message.obtain();
-					msg.what = 2;
-					msg.obj = todayBean.finishreservationnow;
-					msgHandler.sendMessage(msg);
-				}
-			}
-		}).start();
+		
 
 		if (todayBean.coachcoursenow == 0) {
 
@@ -263,28 +287,34 @@ public class DataPager extends BasePager implements OnClickListener {
 			progressInsideForcast.setProgress(todayBean.coachcoursenow);
 		}
 
-		progressInside.setMax(todayBean.coachcoursenow);
-		progressInside.setProgress(0);
+		if(todayBean.coachcoursenow == 0 || todayBean.coursestudentnow == 0){
+			progressInside.setVisibility(View.GONE);
 
-		new Thread(new Runnable() {
+		}else{
+			progressInside.setMax(todayBean.coachcoursenow);
+			progressInside.setProgress(0);
+			new Thread(new Runnable() {
 
-			@Override
-			public void run() {
-				for (int i = 0; i < todayBean.coursestudentnow; i++) {
-					try {
-						Thread.sleep(700 / todayBean.coursestudentnow);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+				@Override
+				public void run() {
+					for (int i = 0; i < todayBean.coursestudentnow; i++) {
+						try {
+							Thread.sleep(700 / todayBean.coursestudentnow);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+
+						progressIn2++;
+						Message msg = Message.obtain();
+						msg.what = 3;
+						msg.obj = todayBean.coursestudentnow;
+						msgHandler.sendMessage(msg);
 					}
-
-					progressIn2++;
-					Message msg = Message.obtain();
-					msg.what = 3;
-					msg.obj = todayBean.coursestudentnow;
-					msgHandler.sendMessage(msg);
 				}
-			}
-		}).start();
+			}).start();
+		}
+		
+		
 	}
 
 	private int progressOut1 = 0;
@@ -301,6 +331,7 @@ public class DataPager extends BasePager implements OnClickListener {
 					setButtonUnClickable(true);
 				}
 			} else if (msg.what == 2) {
+				LogUtil.print("pdsfkbnmpedsnb");
 				progressOutside.setProgress(progressOut2);
 				if (progressOut2 != (Integer) msg.obj) {
 					setButtonUnClickable(false);
@@ -408,27 +439,23 @@ public class DataPager extends BasePager implements OnClickListener {
 		case R.id.fl_data_circle:
 			LogUtil.print("更多数据");
 			Intent intent = new Intent(mContext, DataChartActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.putExtra("searchtype", searchtype - 1);
 			mContext.startActivity(intent);
 			break;
 		case R.id.data_star_1:
 			Intent intent2 = new Intent(mContext, AssessActivity.class);
-			intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent2.putExtra("title", searchtype);
 			intent2.putExtra("commentlevel", 1);
 			mContext.startActivity(intent2);
 			break;
 		case R.id.data_star_2:
 			Intent intent3 = new Intent(mContext, AssessActivity.class);
-			intent3.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent3.putExtra("title", searchtype);
 			intent3.putExtra("commentlevel", 2);
 			mContext.startActivity(intent3);
 			break;
 		case R.id.data_star_3:
 			Intent intent4 = new Intent(mContext, AssessActivity.class);
-			intent4.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent4.putExtra("title", searchtype);
 			intent4.putExtra("commentlevel", 3);
 			mContext.startActivity(intent4);
@@ -443,6 +470,28 @@ public class DataPager extends BasePager implements OnClickListener {
 		default:
 			break;
 		}
+	}
+	
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		EventBus.getDefault().register(this);
+	}
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		EventBus.getDefault().unregister(this);
+	}
+	public void onEvent(ComplaintEvent event){
+		//
+		LogUtil.print("----投诉onEvent");
+		Intent intent = new Intent(mContext, AssessActivity.class);
+//		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.putExtra("title", searchtype);
+		intent.putExtra("commentlevel", 4);
+		mContext.startActivity(intent);
 	}
 
 }
