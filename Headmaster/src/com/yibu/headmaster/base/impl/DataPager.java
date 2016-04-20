@@ -287,8 +287,36 @@ public class DataPager extends BasePager implements OnClickListener {
 			progressInsideForcast.setProgress(todayBean.coachcoursenow);
 		}
 
+//		if(todayBean.coachcoursenow == 0 || todayBean.coursestudentnow == 0){
+//			progressInside.setVisibility(View.GONE);
+//
+//		}else{
+//			progressInside.setMax(todayBean.coachcoursenow);
+//			progressInside.setProgress(0);
+//			new Thread(new Runnable() {
+//
+//				@Override
+//				public void run() {
+//					for (int i = 0; i < todayBean.coursestudentnow; i++) {
+//						try {
+//							Thread.sleep(700 / todayBean.coursestudentnow);
+//						} catch (InterruptedException e) {
+//							e.printStackTrace();
+//						}
+//
+//						progressIn2++;
+//						Message msg = Message.obtain();
+//						msg.what = 3;
+//						msg.obj = todayBean.coursestudentnow;
+//						msgHandler.sendMessage(msg);
+//					}
+//				}
+//			}).start();
+//		}
+		
 		if(todayBean.coachcoursenow == 0 || todayBean.coursestudentnow == 0){
-			progressInside.setVisibility(View.GONE);
+			progressInside.setMax(100);
+			progressInside.setProgress(0);
 
 		}else{
 			progressInside.setMax(todayBean.coachcoursenow);
@@ -313,8 +341,6 @@ public class DataPager extends BasePager implements OnClickListener {
 				}
 			}).start();
 		}
-		
-		
 	}
 
 	private int progressOut1 = 0;

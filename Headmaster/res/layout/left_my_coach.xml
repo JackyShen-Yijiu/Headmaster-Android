@@ -35,14 +35,11 @@
             android:background="#2a2a2a" />
     </LinearLayout>
 
-    <ListView
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:cacheColorHint="@android:color/transparent"
-        android:listSelector="@drawable/listview_selector"
+        android:layout_height="match_parent"
         android:layout_below="@+id/relativeLayout1" >
-    </ListView>
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
 
 </RelativeLayout>

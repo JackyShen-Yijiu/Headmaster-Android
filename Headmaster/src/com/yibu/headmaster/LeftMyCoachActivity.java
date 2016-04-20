@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -15,6 +16,10 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.google.gson.reflect.TypeToken;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.adapter.MyCoachAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
@@ -28,20 +33,21 @@ import com.yibu.headmaster.utils.ZProgressHUD;
 public class LeftMyCoachActivity extends BaseActivity {
 
 	private View view;
+	private PullToRefreshListView pullToRefreshListView;
 	private ListView mListView;
 	private MyCoachAdapter adapter;
 	private ArrayList<CoachBean> list = new ArrayList<CoachBean>();
 	private int curpage = 1;
 	private Context mContext;
 	private EditText searchText;
-
+	private boolean isLoadMoreData;
 	@Override
 	protected void initView() {
 		mContext = this;
 		view = View.inflate(getBaseContext(), R.layout.left_my_coach, null);
 		content.addView(view);
 
-		mListView = (ListView) view.findViewById(R.id.listView1);
+		pullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.listView1);
 		searchText = (EditText) view.findViewById(R.id.search_view);
 		searchText.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
 		// if (searchView != null) {
@@ -55,8 +61,6 @@ public class LeftMyCoachActivity extends BaseActivity {
 		// e.printStackTrace();
 		// }
 		// }
-		mListView.setCacheColorHint(android.R.color.transparent);
-		mListView.setDividerHeight(0);
 		setSonsTitle(getString(R.string.coach_title));
 	}
 
@@ -104,6 +108,31 @@ public class LeftMyCoachActivity extends BaseActivity {
 
 	@Override
 	protected void initData() {
+		pullToRefreshListView.setMode(Mode.BOTH);
+		mListView = pullToRefreshListView.getRefreshableView();
+		mListView.setCacheColorHint(Color.TRANSPARENT);
+		mListView.setDividerHeight(0);
+		mListView.setSelector(R.drawable.listview_selector);
+		pullToRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
+					@Override
+					public void onRefresh(
+							PullToRefreshBase<ListView> refreshView) {
+						if (pullToRefreshListView.isHeaderShown()) {
+							// 下拉刷新
+							curpage = 1;
+							loadNetworkData();
+						} else {
+							// 下拉加载
+							if (list.size() == 0) {
+								ToastUtil.showToast(mContext, "没有更多数据了");
+								isLoadMoreData = true;
+							} else {
+							}
+							curpage++;
+							loadNetworkData();
+						}
+					}
+				});
 		adapter = new MyCoachAdapter(this, list);
 		mListView.setAdapter(adapter);
 
@@ -153,10 +182,12 @@ public class LeftMyCoachActivity extends BaseActivity {
 				}
 			}
 
-			list.clear();
+			if(curpage == 1){
+				list.clear();
+			}
 			list.addAll(coachBeans);
 			adapter.notifyDataSetChanged();
-
+			pullToRefreshListView.onRefreshComplete();
 		}
 	}
 
