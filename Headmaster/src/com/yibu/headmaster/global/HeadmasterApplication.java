@@ -14,6 +14,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.sft.library.DemoHXSDKHelper;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.UserBean;
+import com.yibu.headmaster.utils.LogUtil;
 
 public class HeadmasterApplication extends Application {
 
@@ -46,6 +47,7 @@ public class HeadmasterApplication extends Application {
 
 	public static HeadmasterApplication getInstance() {
 		app = new HeadmasterApplication();
+		LogUtil.print("sssssssssss"+app);
 		return app;
 	}
 

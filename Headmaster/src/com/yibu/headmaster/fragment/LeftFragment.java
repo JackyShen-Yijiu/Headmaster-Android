@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 
 import com.squareup.picasso.Picasso;
+import com.yibu.headmaster.AssessActivity;
+import com.yibu.headmaster.DataChartActivity;
 import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
 import com.yibu.headmaster.PersonSettingActivity;
@@ -24,9 +27,12 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 
 	ImageView ivBack;
 	SelectableRoundedImageView ivHeadPortrait;
-	RelativeLayout rlMyNotice;
-	RelativeLayout rlMyCoach;
-	RelativeLayout rlSetting;
+	private TextView rlMyNotice;
+	private TextView rlMyCoach;
+	private TextView rlSetting;
+	private TextView rlData;
+	private TextView rlComplain;
+	private TextView name;
 
 	@Override
 	protected View initView(LayoutInflater inflater, ViewGroup container) {
@@ -34,10 +40,13 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 		// View view =View.inflate(getActivity(), R.layout.left_content, null);
 		ivHeadPortrait = (SelectableRoundedImageView) view
 				.findViewById(R.id.iv_left_head_portrait);
-		rlMyNotice = (RelativeLayout) view.findViewById(R.id.my_rl_notice);
-		rlMyCoach = (RelativeLayout) view.findViewById(R.id.my_rl_coach);
-		rlSetting = (RelativeLayout) view.findViewById(R.id.my_rl_setting);
-
+		rlMyNotice = (TextView) view.findViewById(R.id.my_rl_notice);
+		rlMyCoach = (TextView) view.findViewById(R.id.my_rl_coach);
+		rlSetting = (TextView) view.findViewById(R.id.my_rl_setting);
+		rlData = (TextView) view.findViewById(R.id.my_rl_data);
+		rlComplain = (TextView) view.findViewById(R.id.my_rl_complain);
+		name=(TextView)view.findViewById(R.id.coach_name);
+		name.setText(HeadmasterApplication.app.userInfo.name);
 		initOnClick();
 		return view;
 	}
@@ -48,6 +57,9 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 		rlMyNotice.setOnClickListener(this);
 		rlMyCoach.setOnClickListener(this);
 		rlSetting.setOnClickListener(this);
+		rlData.setOnClickListener(this);
+		rlComplain.setOnClickListener(this);
+		
 
 	}
 
@@ -55,15 +67,25 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 	public void onClick(View v) {
 
 		switch (v.getId()) {
-
-		// 打开个人设置
-		case R.id.iv_left_head_portrait:
-
-			Intent intent_persion = new Intent(
-					HeadmasterApplication.getContext(),
-					PersonSettingActivity.class);
-			startActivity(intent_persion);
+		//我的投诉
+		case R.id.my_rl_complain:
+			Intent intent5 = new Intent(getActivity(), AssessActivity.class);
+			intent5.putExtra("commentlevel", 4);
+			startActivity(intent5);
 			break;
+		//更多数据
+		case R.id.my_rl_data:
+			Intent intent1 = new Intent(getActivity(), DataChartActivity.class);
+			startActivity(intent1);
+			break;
+		// 打开个人设置
+//		case R.id.iv_left_head_portrait:
+//
+//			Intent intent_persion = new Intent(
+//					HeadmasterApplication.getContext(),
+//					PersonSettingActivity.class);
+//			startActivity(intent_persion);
+//			break;
 		// 公告
 		case R.id.my_rl_notice:
 			LogUtil.print("我的公告");

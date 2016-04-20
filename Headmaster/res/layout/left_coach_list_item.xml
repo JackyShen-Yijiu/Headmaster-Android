@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/rl_item"
         android:layout_width="match_parent"
-        android:layout_height="83dp" >
+        android:layout_height="90dp" >
 
         <ImageView
             android:id="@+id/imageView_head"
@@ -27,11 +27,11 @@
                 android:id="@+id/imageView_star"
                 android:layout_width="wrap_content"  
                 android:layout_height="wrap_content" 
-                android:layout_below="@+id/textView_name"
-            android:layout_marginTop="11dp"
-            android:layout_toRightOf="@+id/imageView_head"
-            android:layout_marginLeft="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_alignParentRight="true"
+            	android:layout_alignTop="@+id/textView_name"
                 android:rating="0" 
+                android:numStars="5"
                 android:isIndicator="true"
                 style="@style/roomRatingBar"/>
 
@@ -40,12 +40,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/imageView_head"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="12dp"
             android:layout_marginLeft="12dp"
             android:text="请叫我不要太帅"
             android:textColor="#bfbfbf" />
 
-        <FrameLayout 
+   <!--      <FrameLayout 
             android:id="@+id/imageView_talk"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -59,15 +59,51 @@
             android:layout_marginTop="30dp"
             android:layout_gravity="right"
             android:src="@drawable/lt61x62" />
-        </FrameLayout>
+        </FrameLayout> -->
+        
+        <TextView 
+            android:id="@+id/learn_kemu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:layout_alignLeft="@+id/textView_name"
+            android:layout_below="@+id/textView_name"
+            android:textColor="@color/new_gray"
+            android:text="科目二 科目三"/>
+          <TextView 
+            android:id="@+id/learn_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:layout_alignLeft="@+id/textView_name"
+            android:layout_below="@+id/learn_kemu"
+            android:textColor="@color/new_gray"
+            android:text="通过率"/>
+        <ImageView 
+            android:id="@+id/imageView_talk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView_phone"
+            android:layout_toLeftOf="@+id/imageView_phone"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/chat"/>
+          <ImageView 
+            android:id="@+id/imageView_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_below="@+id/imageView_star"
+			android:layout_marginTop="12dp"
+            android:src="@drawable/phone"/>
         <View
         android:id="@+id/iv_item_deviderline"
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageView_head"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         android:background="@drawable/line" />
 
     </RelativeLayout>

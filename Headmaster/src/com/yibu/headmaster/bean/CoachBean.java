@@ -1,5 +1,9 @@
 package com.yibu.headmaster.bean;
 
+import android.R.integer;
+
+import com.yibu.headmaster.bean.AssessBean.Commentlist.Subject;
+
 public class CoachBean {
 
 	public Double latitude;
@@ -9,6 +13,16 @@ public class CoachBean {
 	public Double longitude;
 	public Headportrait headportrait;
 	public int starlevel;
+	public int passrate;
+	public String mobile;
+	public Subject[]subject;
+	
+	public class Subject {
+
+		public String _id;
+		public String name;
+		public int subjectid;
+	}
 
 	public class Headportrait {
 

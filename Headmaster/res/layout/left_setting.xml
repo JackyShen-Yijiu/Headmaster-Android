@@ -1,29 +1,31 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/main_bg" >
 
     <RelativeLayout
         android:id="@+id/rl_new_one"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="42dp" >
+        android:layout_height="44dp"
+        android:background="#292929"
+        android:layout_marginTop="10dp" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
-            android:text="每天消息提醒"
-            android:textColor="#bfbfbf"
+            android:text="新消息提醒"
+            android:textColor="#ffffff"
             android:textSize="14sp" />
        <CheckBox
             android:id="@+id/setting_every_day_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-			android:layout_marginRight="49dp"
+			android:layout_marginRight="16dp"
 			android:button="@null"
             android:background="@drawable/switch_bkground" />
     </RelativeLayout>
@@ -31,9 +33,9 @@
     <RelativeLayout
         android:id="@+id/rl_new_two"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_new_one"
-        android:layout_marginTop="40dp" >
+        android:layout_height="44dp"
+        android:background="#292929"
+        android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,14 +43,15 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="投诉消息提醒"
-            android:textColor="#bfbfbf"
+            android:textColor="#ffffff"
             android:textSize="14sp" />
         <CheckBox 
             android:id="@+id/setting_commplaint_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-			android:layout_marginRight="49dp"
+			android:layout_marginRight="16dp"
+			android:layout_centerVertical="true"
 			android:button="@null"
             android:background="@drawable/switch_bkground" />
     </RelativeLayout>
@@ -56,9 +59,9 @@
     <RelativeLayout
         android:id="@+id/rl_new_three"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       android:layout_below="@+id/rl_new_two"
-        android:layout_marginTop="40dp" >
+        android:layout_height="44dp"
+        android:background="#292929"
+        android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,25 +69,63 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="新学员报名提醒"
-            android:textColor="#bfbfbf"
+            android:textColor="#ffffff"
             android:textSize="14sp" />
         <CheckBox 
             android:id="@+id/setting_new_student_enroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-			android:layout_marginRight="49dp"		
+			android:layout_marginRight="16dp"		
+			android:layout_centerVertical="true"
 			android:button="@null"
             android:background="@drawable/switch_bkground" />
     </RelativeLayout>
     
+    
+    
+    <RelativeLayout 
+        android:id="@+id/setting_cache"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#292929"
+        android:layout_marginTop="10dp">
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清除缓存"
+            android:layout_marginLeft="29dp"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:textColor="#ffffff"/>
+        <TextView 
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_toLeftOf="@+id/iv_more"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/new_gray"
+            android:text=""/>
+        <ImageView 
+            android:id="@+id/iv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more"
+            android:layout_marginRight="16dp"
+             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
         <RelativeLayout
         android:id="@+id/setting_aboutus_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_new_three"
+        android:layout_height="44dp"
         android:clickable="true"
-        android:layout_marginTop="80dp" >
+        android:background="#292929"
+        android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,24 +133,114 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="关于我们"
-            android:textColor="#bfbfbf"
+            android:textColor="#ffffff"
             android:textSize="14sp" />
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more"
+            android:layout_marginRight="16dp"
+             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
     </RelativeLayout>
-         <RelativeLayout
-        android:id="@+id/setting_callback_tv"
+     <RelativeLayout
+        android:id="@+id/setting_pingfen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       android:layout_below="@+id/setting_aboutus_tv"
-        android:layout_marginTop="40dp" >
+        android:layout_height="44dp"
+        android:clickable="true"
+        android:background="#292929"
+        android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
-            android:text="反馈"
-            android:textColor="#bfbfbf"
+            android:text="去评分"
+            android:textColor="#ffffff"
             android:textSize="14sp" />
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more"
+            android:layout_marginRight="16dp"
+             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+         <RelativeLayout
+        android:id="@+id/setting_callback_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#292929"
+        android:layout_marginTop="1dp" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="29dp"
+            android:text="意见反馈"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+         <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more"
+            android:layout_marginRight="16dp"
+             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+     <RelativeLayout 
+        android:id="@+id/setting_update"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#292929"
+        android:layout_marginTop="1dp">
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="版本更新"
+            android:layout_marginLeft="29dp"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:textColor="#ffffff"/>
+        <TextView 
+            android:id="@+id/banben_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_toLeftOf="@+id/iv_more1"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/new_gray"
+            android:text=""/>
+        <ImageView 
+            android:id="@+id/iv_more1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more"
+            android:layout_marginRight="16dp"
+             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+     <RelativeLayout
+        android:id="@+id/setting_finish"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#292929"
+        android:gravity="center"
+        android:layout_marginTop="10dp" >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退出登录"
+            android:textSize="16sp"
+            android:textColor="@color/new_gray"/>
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>
