@@ -36,7 +36,7 @@
     
     <!-- 左侧教练 -->
     <string name="title_search_hint">搜索</string>
-    <string name="coach_title">我的教练</string>
+    <string name="coach_title">我校教练</string>
     <string name="setting_title">设置</string>
      <!-- 左侧设置 -->
       <string name="setting_aboutus">关于我们</string>  

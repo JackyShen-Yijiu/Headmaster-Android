@@ -81,9 +81,9 @@ public class AssessActivity extends BaseActivity {
 		}
 
 		viewPager.setAdapter(new AssessDetailAdapter(getSupportFragmentManager(),titles, tabPagers));
-		viewPager.setCurrentItem(commentlevel - 1);
+		
 		slidingTab.setViewPager(viewPager);
-
+		viewPager.setCurrentItem(commentlevel - 1);
 	}
 
 	@Override
