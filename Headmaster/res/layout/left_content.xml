@@ -4,90 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:background="@drawable/sbg"
-    android:layout_gravity="left"
+    android:background="#272629"
     android:orientation="vertical" >
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <RelativeLayout
-            android:id="@+id/my_rl_notice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/my_rl_xingxi" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="37dp"
-                android:layout_marginTop="38dp"
-                android:drawableLeft="@drawable/notice"
-                android:drawablePadding="15dp"
-                android:text="发布公告"
-                android:textSize="16sp"
-                android:textColor="#bfbfbf" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/my_rl_coach"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/my_rl_notice" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="37dp"
-                android:layout_marginTop="38dp"
-                android:drawableLeft="@drawable/coach"
-                android:drawablePadding="15dp"
-                android:text="我的教练"
-                android:textSize="16sp"
-                android:textColor="#bfbfbf" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/my_rl_setting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/my_rl_coach" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="37dp"
-                android:layout_marginTop="38dp"
-                android:drawableLeft="@drawable/setting"
-                android:drawablePadding="15dp"
-                android:text="设置"
-                android:textSize="16sp"
-                android:textColor="#bfbfbf" />
-        </RelativeLayout>
-
-        <RelativeLayout
+     
+  
+   <RelativeLayout
             android:id="@+id/my_rl_xingxi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="58dp" >
-
-            <com.joooonho.SelectableRoundedImageView
+            android:layout_marginTop="72dp" >
+            
+ <com.joooonho.SelectableRoundedImageView
                 android:id="@+id/iv_left_head_portrait"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginLeft="36dp"
                 android:src="@drawable/left_title" />
 
             <FrameLayout
@@ -99,7 +30,75 @@
                 android:padding="21dp" >
             </FrameLayout>
         </RelativeLayout>
+        
+   <TextView 
+       android:id="@+id/coach_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="36dp"
+       android:textColor="#ffffff"
+       android:textSize="16sp"
+       android:layout_marginTop="14dp"
+       android:text=""/>
 
-    </RelativeLayout>
-
+<TextView 
+    android:id="@+id/my_rl_notice"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_marginLeft="36dp"
+    android:gravity="center_vertical"
+    android:drawableLeft="@drawable/announcement"
+    android:drawablePadding="17dp"
+    android:text="发布公告"
+    android:layout_marginTop="48dp"
+    android:textSize="14sp"
+    android:textColor="#ffffff"/>
+<TextView 
+    android:id="@+id/my_rl_coach"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_marginLeft="36dp"
+    android:gravity="center_vertical"
+    android:drawableLeft="@drawable/coach"
+    android:drawablePadding="17dp"
+    android:text="我校教练"
+    android:layout_marginTop="10dp"
+    android:textSize="14sp"
+    android:textColor="#ffffff"/>
+<TextView 
+    android:id="@+id/my_rl_data"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_marginLeft="36dp"
+    android:gravity="center_vertical"
+    android:drawableLeft="@drawable/data"
+    android:drawablePadding="17dp"
+     android:layout_marginTop="10dp"
+    android:text="运营数据"
+    android:textSize="14sp"
+    android:textColor="#ffffff"/>
+<TextView 
+    android:id="@+id/my_rl_complain"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_marginLeft="36dp"
+    android:gravity="center_vertical"
+    android:drawableLeft="@drawable/complaint"
+    android:drawablePadding="17dp"
+     android:layout_marginTop="10dp"
+    android:text="评论投诉"
+    android:textSize="14sp"
+    android:textColor="#ffffff"/>
+<TextView 
+    android:id="@+id/my_rl_setting"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_marginLeft="36dp"
+    android:gravity="center_vertical"
+    android:drawableLeft="@drawable/set"
+     android:layout_marginTop="10dp"
+    android:drawablePadding="17dp"
+    android:text="设置"
+    android:textSize="14sp"
+    android:textColor="#ffffff"/>
 </LinearLayout>

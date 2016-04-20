@@ -1,19 +1,28 @@
 package com.yibu.headmaster;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 
+import com.easemob.chat.EMChatManager;
 import com.jzjf.headmaster.R;
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.api.ApiHttpClient;
+import com.yibu.headmaster.cache.DataCleanManager;
 import com.yibu.headmaster.global.HeadmasterApplication;
+import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
+import com.yibu.headmaster.utils.ZProgressHUD;
 
 public class LeftSettingActivity extends BaseActivity  {
 
@@ -31,6 +40,11 @@ public class LeftSettingActivity extends BaseActivity  {
 	private int messageInt;
 	private int complaintInt;
 	private int studentEnrollInt;
+	private RelativeLayout setting_cache;
+	private TextView tv_number;
+	private RelativeLayout setting_finish;
+	private RelativeLayout setting_pingfen;
+	private RelativeLayout setting_update;
 
 	@Override
 	protected void initView() {
@@ -41,10 +55,21 @@ public class LeftSettingActivity extends BaseActivity  {
 				.findViewById(R.id.setting_aboutus_tv);
 		setting_callback = (RelativeLayout) view
 				.findViewById(R.id.setting_callback_tv);
-
+		setting_cache=(RelativeLayout)view.findViewById(R.id.setting_cache);
+		setting_update=(RelativeLayout)view.findViewById(R.id.setting_update);
+		setting_finish=(RelativeLayout)view.findViewById(R.id.setting_finish);
+		setting_pingfen=(RelativeLayout)view.findViewById(R.id.setting_pingfen);
+		tv_number=(TextView)view.findViewById(R.id.tv_number);
 		messageCb = (CheckBox) findViewById(R.id.setting_every_day_cb);
 		commplaintCb = (CheckBox) findViewById(R.id.setting_commplaint_cb);
 		studentEnrollCb = (CheckBox) findViewById(R.id.setting_new_student_enroll);
+		
+		 try {
+			tv_number.setText(DataCleanManager.getTotalCacheSize(LeftSettingActivity.this));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -64,17 +89,58 @@ public class LeftSettingActivity extends BaseActivity  {
 					CallBackActivity.class);
 			startActivity(callback);
 			break;
+		case R.id.setting_finish:
+			exit();
+			break;
+		case R.id.setting_pingfen:
+			rateAppInMarket(this);
+			break;
+		case R.id.setting_cache:
+			  try {
+                  //查看缓存的大小
+                  Log.e("YQY", DataCleanManager.getTotalCacheSize(LeftSettingActivity.this));
+              } catch (Exception e) {
+                  e.printStackTrace();
+              }
+              DataCleanManager.clearAllCache(LeftSettingActivity.this);
+//              ToastHelper.getInstance(CarCoachApplication.getInstance()).toast(R.string.clean_ok);
+              ToastUtil.showToast(getBaseContext(), "清除成功");
+              try {
+                  //清除后的操作
+                  Log.e("YQY", DataCleanManager.getTotalCacheSize(LeftSettingActivity.this));
+                  tv_number.setText(DataCleanManager.getTotalCacheSize(LeftSettingActivity.this));
+              } catch (Exception e) {
+                  e.printStackTrace();
+              }
+			break;
 		default:
 			break;
 		}
 	}
+	public void exit() {
+		ZProgressHUD.getInstance(this).setMessage("正在退出登录...");
+		ZProgressHUD.getInstance(this).show();
+		// 退出环信
+		EMChatManager.getInstance().logout(null);
 
+		ZProgressHUD.getInstance(LeftSettingActivity.this).dismiss();
+
+		LeftSettingActivity.this.finish();
+		Intent intent = new Intent(LeftSettingActivity.this,
+				LoginActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		LeftSettingActivity.this.startActivity(intent);
+	}
 	@Override
 	protected void initListener() {
 
 		setting_aboutus.setOnClickListener(this);
 		setting_callback.setOnClickListener(this);
-
+		setting_cache.setOnClickListener(this);
+		setting_finish.setOnClickListener(this);
+		setting_pingfen.setOnClickListener(this);
+		setting_update.setOnClickListener(this);
 		messageCb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 			@Override
@@ -175,4 +241,22 @@ public class LeftSettingActivity extends BaseActivity  {
 			studentEnrollCb.setChecked(false);
 		}
 	}
+	
+	  /*
+     * 给APP打分
+     */
+    public static void rateAppInMarket(Activity activity) {
+        if (activity == null) {
+            return;
+        }
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("market://details?id="
+                + activity.getPackageName()));
+        try {
+            activity.startActivity(intent);
+            activity.overridePendingTransition(0, 0);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
