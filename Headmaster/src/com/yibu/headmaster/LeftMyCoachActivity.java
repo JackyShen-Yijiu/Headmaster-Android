@@ -46,7 +46,6 @@ public class LeftMyCoachActivity extends BaseActivity {
 		mContext = this;
 		view = View.inflate(getBaseContext(), R.layout.left_my_coach, null);
 		content.addView(view);
-
 		pullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.listView1);
 		searchText = (EditText) view.findViewById(R.id.search_view);
 		searchText.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
@@ -61,7 +60,8 @@ public class LeftMyCoachActivity extends BaseActivity {
 		// e.printStackTrace();
 		// }
 		// }
-		setSonsTitle(getString(R.string.coach_title));
+		setSonsTitle(getString(R.string.coach_title)+"(0)");
+		
 	}
 
 	@Override
@@ -146,6 +146,7 @@ public class LeftMyCoachActivity extends BaseActivity {
 		ApiHttpClient.getWithFullPath("api/v1/getschoolcoach/"
 				+ HeadmasterApplication.app.userInfo.driveschool.schoolid + "/"
 				+ curpage, handler);
+		LogUtil.print("wqeqwasdasd"+HeadmasterApplication.app.userInfo.driveschool.schoolid);
 		// ApiHttpClient.get("getschoolcoach/"
 		// + HeadmasterApplication.app.userInfo.driveschool.schoolid + "/"
 		// + curpage + "?name=" + HeadmasterApplication.app.userInfo.name,
@@ -188,6 +189,7 @@ public class LeftMyCoachActivity extends BaseActivity {
 			list.addAll(coachBeans);
 			adapter.notifyDataSetChanged();
 			pullToRefreshListView.onRefreshComplete();
+			setSonsTitle(getString(R.string.coach_title)+"("+extra+")");
 		}
 	}
 

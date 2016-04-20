@@ -6,4 +6,6 @@ public class BaseBean {
 	public String msg;
 	public int type;
 	public String data;
+	public int extra;
+	
 }
