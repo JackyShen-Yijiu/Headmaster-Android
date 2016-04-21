@@ -185,22 +185,22 @@ public class DataPager extends BasePager implements OnClickListener {
 			for (int i = 0; i < schoolstudentcount.size(); i++) {
 				int subjectid = schoolstudentcount.get(i).subjectid;
 				switch (subjectid) {
-				case 0:
+				case 1:
 
 					subject1Num.setText(schoolstudentcount.get(i).studentcount
 							+ "");
 					
 					break;
-				case 1:
+				case 2:
 					subject2Num.setText(schoolstudentcount.get(i).studentcount
 							+ "");
 					break;
-				case 2:
+				case 3:
 					subject3Num.setText(schoolstudentcount.get(i).studentcount
 							+ "");
 
 					break;
-				case 3:
+				case 4:
 					subject4Num.setText(schoolstudentcount.get(i).studentcount
 							+ "");
 

@@ -41,6 +41,7 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 
 	protected String result = "";
 	protected String msg = "";
+	protected String extra = "";
 
 	protected static int screenWidth;
 	protected static int screenHeight;
@@ -74,6 +75,7 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 				LogUtil.print("json-->"+new String(responseBody));
 				result = jsonObject.getString("type");
 				msg = jsonObject.getString("msg");
+				extra = jsonObject.getString("extra");
 				try {
 					dataObject = jsonObject.getJSONObject("data");
 

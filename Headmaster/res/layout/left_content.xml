@@ -74,7 +74,7 @@
     android:drawableLeft="@drawable/data"
     android:drawablePadding="17dp"
      android:layout_marginTop="10dp"
-    android:text="运营数据"
+    android:text="数据概览"
     android:textSize="14sp"
     android:textColor="#ffffff"/>
 <TextView 
