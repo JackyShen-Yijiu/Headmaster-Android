@@ -251,6 +251,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		if(todayBean.coachstotalcoursecount==0 || todayBean.finishreservationnow ==0){
 			progressOutside.setVisibility(View.GONE);
 		}else{
+		
 			progressOutside.setMax(todayBean.coachstotalcoursecount);
 			progressOutside.setProgress(0);
 				// 动画效果
@@ -353,6 +354,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		public void handleMessage(android.os.Message msg) {
 			if (msg.what == 1) {
 				progressOutsideForcast.setProgress(progressOut1);
+				progressOutsideForcast.setVisibility(View.VISIBLE);
 				if (progressOut1 != (Integer) msg.obj) {
 					setButtonUnClickable(false);
 				} else {
@@ -360,6 +362,7 @@ public class DataPager extends BasePager implements OnClickListener {
 				}
 			} else if (msg.what == 2) {
 				LogUtil.print("pdsfkbnmpedsnb");
+				progressOutside.setVisibility(View.VISIBLE);
 				progressOutside.setProgress(progressOut2);
 				if (progressOut2 != (Integer) msg.obj) {
 					setButtonUnClickable(false);

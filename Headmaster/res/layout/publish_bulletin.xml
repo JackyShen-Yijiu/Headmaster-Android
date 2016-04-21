@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <EditText
+    <com.yibu.headmaster.view.BulleinEditText
         android:id="@+id/et_publish_bulletin_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -20,6 +20,7 @@
         android:scrollbars="vertical"
         android:singleLine="true"
         android:textColor="#ffffff" 
+        android:textCursorDrawable="@null"
         android:textSize="14sp"/>
 
     <ImageView 

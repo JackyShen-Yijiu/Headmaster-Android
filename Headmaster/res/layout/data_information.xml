@@ -233,6 +233,7 @@
             custom:arc_stroke_width="11dp"
             custom:arc_suffix_text_size="22sp"
             custom:arc_text_color="#4e1741"
+            android:visibility="gone"
             custom:arc_unfinished_color="@android:color/transparent" />
 
         <com.github.lzyzsd.circleprogress.ArcProgress
@@ -250,6 +251,7 @@
             custom:arc_stroke_width="11dp"
             custom:arc_suffix_text_size="22sp"
             custom:arc_text_color="#f955d2"
+            android:visibility="gone"
             custom:arc_unfinished_color="@android:color/transparent" />
 
         <com.github.lzyzsd.circleprogress.ArcProgress
