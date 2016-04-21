@@ -29,4 +29,8 @@
   <color name="white">#ffffff</color> 
    <color name="new_gray">#a0a0a0</color>
    <color name="new_main">#00f8c7</color>
+   
+   <color name="new_black_false">#1d1c21</color>
+   <color name="new_black_true">#161619</color>
+   
 </resources>

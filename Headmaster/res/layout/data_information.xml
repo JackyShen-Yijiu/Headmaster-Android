@@ -1,8 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res/com.jzjf.headmaster"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/main_bg" >
+    android:layout_height="wrap_content" >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/tv_data_current_enroll"
@@ -429,5 +432,5 @@
         </LinearLayout>
         -->
     </LinearLayout>
-
 </RelativeLayout>
+</ScrollView>

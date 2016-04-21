@@ -273,11 +273,7 @@ LogUtil.print("-----"+userBean.userid);
 
 		if (result) {
 			// 保存用户名和密码到本地
-			SharedPreferencesUtil.putString(getBaseContext(),
-					Config.LAST_LOGIN_ACCOUNT, phoneEt.getText().toString());
-			SharedPreferencesUtil
-					.putString(getBaseContext(), Config.LAST_LOGIN_PASSWORD,
-							passwordEt.getText().toString());
+			
 
 			LogUtil.print("登录环信成功！");
 			toMainActivity();
@@ -296,6 +292,11 @@ LogUtil.print("-----"+userBean.userid);
 	}
 
 	private void toMainActivity() {
+		SharedPreferencesUtil.putString(getBaseContext(),
+				Config.LAST_LOGIN_ACCOUNT, phoneEt.getText().toString());
+		SharedPreferencesUtil
+				.putString(getBaseContext(), Config.LAST_LOGIN_PASSWORD,
+						passwordEt.getText().toString());
 		HeadmasterApplication.app.isLogin = true;
 
 		boolean isFirstOpen = SharedPreferencesUtil.getBoolean(

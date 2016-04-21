@@ -38,6 +38,7 @@
             android:button="@null"
             android:checked="true"
             android:gravity="center"
+            android:background="@drawable/bt_press"
             android:drawableTop="@drawable/selector_bottom_data"
             android:textSize="10sp"
             android:textColor="@drawable/selector_text_color"
@@ -52,6 +53,7 @@
                 android:drawableTop="@drawable/selector_bottom_news"
            		android:gravity="center"
                 android:textSize="10sp"
+                android:background="@drawable/bt_press"
           		android:textColor="@drawable/selector_text_color"
                 android:text="资讯" />
 
@@ -62,6 +64,7 @@
                     android:button="@null"
             		android:gravity="center"
                     android:layout_weight="1"
+                    android:background="@drawable/bt_press"
                     android:textSize="10sp"
                     android:drawableTop="@drawable/selector_bottom_chatter"
             		android:textColor="@drawable/selector_text_color"
