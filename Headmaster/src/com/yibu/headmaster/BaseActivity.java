@@ -75,7 +75,9 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 				LogUtil.print("json-->"+new String(responseBody));
 				result = jsonObject.getString("type");
 				msg = jsonObject.getString("msg");
-				extra = jsonObject.getString("extra");
+				if(jsonObject.has("extra")){
+					extra = jsonObject.getString("extra");
+				}
 				try {
 					dataObject = jsonObject.getJSONObject("data");
 
