@@ -32,6 +32,6 @@ proguard/
 captures/
 
 # local file
-project.properties
-
+#project.properties
+#
 .metadata/
