@@ -46,14 +46,14 @@ public class DataPager extends BasePager implements OnClickListener {
 	private TextView subject4Num;
 	@ViewInject(R.id.tv_data_current_num)
 	private TextView currentNum;
-	@ViewInject(R.id.data_arc_progress_outside_forcast)
-	private ArcProgress progressOutsideForcast;
-	@ViewInject(R.id.data_arc_progress_outside)
-	private ArcProgress progressOutside;
-	@ViewInject(R.id.data_arc_progress_inside_forcast)
-	private ArcProgress progressInsideForcast;
-	@ViewInject(R.id.data_arc_progress_inside)
-	private ArcProgress progressInside;
+//	@ViewInject(R.id.data_arc_progress_outside_forcast)
+//	private ArcProgress progressOutsideForcast;
+//	@ViewInject(R.id.data_arc_progress_outside)
+//	private ArcProgress progressOutside;
+//	@ViewInject(R.id.data_arc_progress_inside_forcast)
+//	private ArcProgress progressInsideForcast;
+//	@ViewInject(R.id.data_arc_progress_inside)
+//	private ArcProgress progressInside;
 	@ViewInject(R.id.data_goodcommnent_tv)
 	private TextView goodCommnent;
 	@ViewInject(R.id.data_generalcomment_tv)
@@ -72,8 +72,8 @@ public class DataPager extends BasePager implements OnClickListener {
 //	private ImageView leftLine;
 //	@ViewInject(R.id.data_line_right_iv)
 //	private ImageView rightLine;
-	@ViewInject(R.id.fl_data_circle)
-	private FrameLayout dataCircle;
+//	@ViewInject(R.id.fl_data_circle)
+//	private FrameLayout dataCircle;
 	@ViewInject(R.id.data_star_1)
 	private LinearLayout datastar1;
 	@ViewInject(R.id.data_star_2)
@@ -117,7 +117,7 @@ public class DataPager extends BasePager implements OnClickListener {
 //		yesterday.setOnClickListener(this);
 //		today.setOnClickListener(this);
 //		thisWeek.setOnClickListener(this);
-		dataCircle.setOnClickListener(this);
+//		dataCircle.setOnClickListener(this);
 		datastar1.setOnClickListener(this);
 		datastar2.setOnClickListener(this);
 		datastar3.setOnClickListener(this);
@@ -143,7 +143,7 @@ public class DataPager extends BasePager implements OnClickListener {
 					currentNum.setText(todayBean.applystudentcount + "");
 
 				}
-				setCircleData(todayBean);
+//				setCircleData(todayBean);
 				setCommnent(todayBean);
 			}
 		} else if (searchtype == 3) {
@@ -214,84 +214,112 @@ public class DataPager extends BasePager implements OnClickListener {
 
 	}
 
-	// 设置圆盘的值
-	private void setCircleData(final MainOfTodayBean todayBean) {
-
-		if(todayBean.coachstotalcoursecount==0 || todayBean.reservationcoursecountday == 0){
-			progressOutsideForcast.setVisibility(View.GONE);
-		}else{
-			progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
-			progressOutsideForcast.setProgress(0);
-				// 动画效果
-				new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						for (int i = 0; i < todayBean.reservationcoursecountday; i++) {
-							try {
-								Thread.sleep(700 / todayBean.reservationcoursecountday);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-
-							progressOut1++;
-							Message msg = Message.obtain();
-							msg.what = 1;
-							msg.obj = todayBean.reservationcoursecountday;
-							msgHandler.sendMessage(msg);
-						}
-					}
-				}).start();
-		}
-		
-
-		
-
-	
-		if(todayBean.coachstotalcoursecount==0 || todayBean.finishreservationnow ==0){
-			progressOutside.setVisibility(View.GONE);
-		}else{
-		
-			progressOutside.setMax(todayBean.coachstotalcoursecount);
-			progressOutside.setProgress(0);
-				// 动画效果
-				new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						for (int i = 0; i < todayBean.finishreservationnow; i++) {
-							try {
-								Thread.sleep(700 / todayBean.finishreservationnow);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-
-							progressOut2++;
-							Message msg = Message.obtain();
-							msg.what = 2;
-							msg.obj = todayBean.finishreservationnow;
-							msgHandler.sendMessage(msg);
-						}
-					}
-				}).start();
-		}
-		
-		// progressOutside.setMax(3);
-		// progressOutside.setProgress(0);
-
-		
-
-		if (todayBean.coachcoursenow == 0) {
-
-			progressInsideForcast.setMax(100);
-			progressInsideForcast.setProgress(100);
-		} else {
-			progressInsideForcast.setMax(todayBean.coachcoursenow);
-			progressInsideForcast.setProgress(todayBean.coachcoursenow);
-		}
-
+//	// 设置圆盘的值
+//	private void setCircleData(final MainOfTodayBean todayBean) {
+//
+//		if(todayBean.coachstotalcoursecount==0 || todayBean.reservationcoursecountday == 0){
+//			progressOutsideForcast.setVisibility(View.GONE);
+//		}else{
+//			progressOutsideForcast.setMax(todayBean.coachstotalcoursecount);
+//			progressOutsideForcast.setProgress(0);
+//				// 动画效果
+//				new Thread(new Runnable() {
+//
+//					@Override
+//					public void run() {
+//						for (int i = 0; i < todayBean.reservationcoursecountday; i++) {
+//							try {
+//								Thread.sleep(700 / todayBean.reservationcoursecountday);
+//							} catch (InterruptedException e) {
+//								e.printStackTrace();
+//							}
+//
+//							progressOut1++;
+//							Message msg = Message.obtain();
+//							msg.what = 1;
+//							msg.obj = todayBean.reservationcoursecountday;
+//							msgHandler.sendMessage(msg);
+//						}
+//					}
+//				}).start();
+//		}
+//		
+//
+//		
+//
+//	
+//		if(todayBean.coachstotalcoursecount==0 || todayBean.finishreservationnow ==0){
+//			progressOutside.setVisibility(View.GONE);
+//		}else{
+//		
+//			progressOutside.setMax(todayBean.coachstotalcoursecount);
+//			progressOutside.setProgress(0);
+//				// 动画效果
+//				new Thread(new Runnable() {
+//
+//					@Override
+//					public void run() {
+//						for (int i = 0; i < todayBean.finishreservationnow; i++) {
+//							try {
+//								Thread.sleep(700 / todayBean.finishreservationnow);
+//							} catch (InterruptedException e) {
+//								e.printStackTrace();
+//							}
+//
+//							progressOut2++;
+//							Message msg = Message.obtain();
+//							msg.what = 2;
+//							msg.obj = todayBean.finishreservationnow;
+//							msgHandler.sendMessage(msg);
+//						}
+//					}
+//				}).start();
+//		}
+//		
+//		// progressOutside.setMax(3);
+//		// progressOutside.setProgress(0);
+//
+//		
+//
+//		if (todayBean.coachcoursenow == 0) {
+//
+//			progressInsideForcast.setMax(100);
+//			progressInsideForcast.setProgress(100);
+//		} else {
+//			progressInsideForcast.setMax(todayBean.coachcoursenow);
+//			progressInsideForcast.setProgress(todayBean.coachcoursenow);
+//		}
+//
+////		if(todayBean.coachcoursenow == 0 || todayBean.coursestudentnow == 0){
+////			progressInside.setVisibility(View.GONE);
+////
+////		}else{
+////			progressInside.setMax(todayBean.coachcoursenow);
+////			progressInside.setProgress(0);
+////			new Thread(new Runnable() {
+////
+////				@Override
+////				public void run() {
+////					for (int i = 0; i < todayBean.coursestudentnow; i++) {
+////						try {
+////							Thread.sleep(700 / todayBean.coursestudentnow);
+////						} catch (InterruptedException e) {
+////							e.printStackTrace();
+////						}
+////
+////						progressIn2++;
+////						Message msg = Message.obtain();
+////						msg.what = 3;
+////						msg.obj = todayBean.coursestudentnow;
+////						msgHandler.sendMessage(msg);
+////					}
+////				}
+////			}).start();
+////		}
+//		
 //		if(todayBean.coachcoursenow == 0 || todayBean.coursestudentnow == 0){
-//			progressInside.setVisibility(View.GONE);
+//			progressInside.setMax(100);
+//			progressInside.setProgress(0);
 //
 //		}else{
 //			progressInside.setMax(todayBean.coachcoursenow);
@@ -316,70 +344,42 @@ public class DataPager extends BasePager implements OnClickListener {
 //				}
 //			}).start();
 //		}
-		
-		if(todayBean.coachcoursenow == 0 || todayBean.coursestudentnow == 0){
-			progressInside.setMax(100);
-			progressInside.setProgress(0);
-
-		}else{
-			progressInside.setMax(todayBean.coachcoursenow);
-			progressInside.setProgress(0);
-			new Thread(new Runnable() {
-
-				@Override
-				public void run() {
-					for (int i = 0; i < todayBean.coursestudentnow; i++) {
-						try {
-							Thread.sleep(700 / todayBean.coursestudentnow);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-
-						progressIn2++;
-						Message msg = Message.obtain();
-						msg.what = 3;
-						msg.obj = todayBean.coursestudentnow;
-						msgHandler.sendMessage(msg);
-					}
-				}
-			}).start();
-		}
-	}
+//	}
 
 	private int progressOut1 = 0;
 	private int progressOut2 = 0;
 	private int progressIn2 = 0;
-	private Handler msgHandler = new Handler() {
-		@Override
-		public void handleMessage(android.os.Message msg) {
-			if (msg.what == 1) {
-				progressOutsideForcast.setProgress(progressOut1);
-				progressOutsideForcast.setVisibility(View.VISIBLE);
-				if (progressOut1 != (Integer) msg.obj) {
-					setButtonUnClickable(false);
-				} else {
-					setButtonUnClickable(true);
-				}
-			} else if (msg.what == 2) {
-				LogUtil.print("pdsfkbnmpedsnb");
-				progressOutside.setVisibility(View.VISIBLE);
-				progressOutside.setProgress(progressOut2);
-				if (progressOut2 != (Integer) msg.obj) {
-					setButtonUnClickable(false);
-				} else {
-					setButtonUnClickable(true);
-				}
-			} else if (msg.what == 3) {
-				progressInside.setProgress(progressIn2);
-				if (progressIn2 != (Integer) msg.obj) {
-					setButtonUnClickable(false);
-				} else {
-					setButtonUnClickable(true);
-				}
-			}
-		}
+//	private Handler msgHandler = new Handler() {
+//		@Override
+//		public void handleMessage(android.os.Message msg) {
+////			if (msg.what == 1) {
+//				progressOutsideForcast.setProgress(progressOut1);
+//				progressOutsideForcast.setVisibility(View.VISIBLE);
+//				if (progressOut1 != (Integer) msg.obj) {
+//					setButtonUnClickable(false);
+//				} else {
+//					setButtonUnClickable(true);
+//				}
+//			} else if (msg.what == 2) {
+//				LogUtil.print("pdsfkbnmpedsnb");
+//				progressOutside.setVisibility(View.VISIBLE);
+//				progressOutside.setProgress(progressOut2);
+//				if (progressOut2 != (Integer) msg.obj) {
+//					setButtonUnClickable(false);
+//				} else {
+//					setButtonUnClickable(true);
+//				}
+//			} else if (msg.what == 3) {
+//				progressInside.setProgress(progressIn2);
+//				if (progressIn2 != (Integer) msg.obj) {
+//					setButtonUnClickable(false);
+//				} else {
+//					setButtonUnClickable(true);
+//				}
+//			}
+//		}
 
-	};
+//	};
 
 	public void setButtonUnClickable(boolean enable) {
 //		yesterday.setClickable(enable);
@@ -467,12 +467,12 @@ public class DataPager extends BasePager implements OnClickListener {
 //			loadNetworkData();
 //			currentDay = DayButton.THISWEEK;
 //			break;
-		case R.id.fl_data_circle:
-			LogUtil.print("更多数据");
-			Intent intent = new Intent(mContext, DataChartActivity.class);
-			intent.putExtra("searchtype", searchtype - 1);
-			mContext.startActivity(intent);
-			break;
+//		case R.id.fl_data_circle:
+//			LogUtil.print("更多数据");
+//			Intent intent = new Intent(mContext, DataChartActivity.class);
+//			intent.putExtra("searchtype", searchtype - 1);
+//			mContext.startActivity(intent);
+//			break;
 		case R.id.data_star_1:
 			Intent intent2 = new Intent(mContext, AssessActivity.class);
 			intent2.putExtra("title", searchtype);
