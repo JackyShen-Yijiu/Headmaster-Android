@@ -12,11 +12,13 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,16 +47,16 @@ import com.yibu.headmaster.utils.ZProgressHUD;
 public class LoginActivity extends Activity implements OnClickListener,
 		EMLoginListener {
 
-	@ViewInject(R.id.login_logo_iv)
-	private ImageView loginLogo;
+//	@ViewInject(R.id.login_logo_iv)
+//	private ImageView loginLogo;
 	@ViewInject(R.id.login_phone_et)
 	private EditText phoneEt;
 	@ViewInject(R.id.login_password_et)
 	private EditText passwordEt;
 	@ViewInject(R.id.login_login_btn)
 	private Button loginBtn;
-	@ViewInject(R.id.login_rootview_rl)
-	RelativeLayout rootView;
+//	@ViewInject(R.id.login_rootview_rl)
+//	RelativeLayout rootView;
 	@ViewInject(R.id.login_service_phone)
 	TextView servicePhone;
 
@@ -67,7 +69,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+		setContentView(R.layout.new_login);
 		ViewUtils.inject(this);
 
 		initData();
@@ -87,7 +89,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 
 	private void initListener() {
 		loginBtn.setOnClickListener(this);
-		rootView.setOnClickListener(this);
+//		rootView.setOnClickListener(this);
 		servicePhone.setOnClickListener(this);
 		phoneEt.setOnFocusChangeListener(new OnFocusChangeListener() {
 
@@ -317,4 +319,42 @@ LogUtil.print("-----"+userBean.userid);
 
 		finish();
 	}
+	//点击空白处收起键盘
+	 @Override
+	    public boolean dispatchTouchEvent(MotionEvent ev) {
+	        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+	            View v = getCurrentFocus();
+	            if (isShouldHideInput(v, ev)) {
+	                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+	                if (imm != null) {
+	                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+	                }
+	            }
+	            return super.dispatchTouchEvent(ev);
+	        }
+	        // 必不可少，否则所有的组件都不会有TouchEvent了
+	        if (getWindow().superDispatchTouchEvent(ev)) {
+	            return true;
+	        }
+	        return onTouchEvent(ev);
+	    }
+	 public boolean isShouldHideInput(View v, MotionEvent event) {
+	        if (v != null && (v instanceof EditText)) {
+	            int[] leftTop = {0, 0};
+	            //获取输入框当前的location位置
+	            v.getLocationInWindow(leftTop);
+	            int left = leftTop[0];
+	            int top = leftTop[1];
+	            int bottom = top + v.getHeight();
+	            int right = left + v.getWidth();
+	            if (event.getY() > top && event.getY() < bottom) {
+	                // 点击的是输入框区域上下范围之内的
+	                return false;
+	            } else {
+	                return true;
+	            }
+	        }
+	        return false;
+	    }
+
 }
