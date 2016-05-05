@@ -50,4 +50,11 @@
     <dimen name="image_thumbnail_size">100dp</dimen>
     <dimen name="image_thumbnail_spacing">1dp</dimen>
     
+    <!-- 考试合格率  高度 -->
+    <dimen name="percentage_parent_height">44dp</dimen>
+    
+    
+    
+    
+    
 </resources>

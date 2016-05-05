@@ -5,16 +5,13 @@ import java.util.List;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.yibu.headmaster.base.impl.AssessDetailPager;
+import com.yibu.headmaster.base.BasePager;
 
 public class AssessDetailAdapter extends FragmentStatePagerAdapter {
 
 	public AssessDetailAdapter(FragmentManager fm, String[] title,
-			List<AssessDetailPager> tabPagers) {
+			List<? extends BasePager> tabPagers) {
 		super(fm);
 		this.tabPagers = tabPagers;
 		this.title = title;
@@ -22,7 +19,7 @@ public class AssessDetailAdapter extends FragmentStatePagerAdapter {
 
 	private String[] title;
 
-	private List<AssessDetailPager> tabPagers;
+	private List<? extends BasePager> tabPagers;
 
 	@Override
 	public CharSequence getPageTitle(int position) {
