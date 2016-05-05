@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.AssessActivity;
+import com.yibu.headmaster.ComplainActivity;
 import com.yibu.headmaster.DataChartActivity;
 import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
@@ -69,9 +70,12 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 		switch (v.getId()) {
 		//我的投诉
 		case R.id.my_rl_complain:
-			Intent intent5 = new Intent(getActivity(), AssessActivity.class);
-			intent5.putExtra("commentlevel", 4);
-			startActivity(intent5);
+//			Intent intent5 = new Intent(getActivity(), AssessActivity.class);
+//			intent5.putExtra("commentlevel", 4);
+//			startActivity(intent5);
+			
+			Intent intents = new Intent(getActivity(), ComplainActivity.class);
+			startActivity(intents);
 			break;
 		//更多数据
 		case R.id.my_rl_data:

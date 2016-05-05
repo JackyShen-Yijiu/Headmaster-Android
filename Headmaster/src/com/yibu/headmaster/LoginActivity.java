@@ -61,7 +61,6 @@ public class LoginActivity extends Activity implements OnClickListener,
 	TextView servicePhone;
 
 	public static final String USER_INFO = "userInfo";
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -71,7 +70,6 @@ public class LoginActivity extends Activity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_login);
 		ViewUtils.inject(this);
-
 		initData();
 		initListener();
 	}
