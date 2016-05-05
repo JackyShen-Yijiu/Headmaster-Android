@@ -106,6 +106,8 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name="com.yibu.headmaster.HomeGuideActivity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name="com.yibu.headmaster.ComplainActivity"
+            android:screenOrientation="portrait"></activity>
         <activity android:name="com.yibu.headmaster.AboutUsActivity"
             android:screenOrientation="portrait" ></activity>
          <activity  android:name="com.yibu.headmaster.TermsActivity"
