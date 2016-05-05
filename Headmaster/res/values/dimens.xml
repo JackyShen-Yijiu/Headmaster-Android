@@ -53,5 +53,11 @@
     <dimen name="text_large_size">16sp</dimen>
     <dimen name="text_middle_size">14sp</dimen>
     <dimen name="text_small_size">12sp</dimen>
+    <!-- 考试合格率  高度 -->
+    <dimen name="percentage_parent_height">44dp</dimen>
+    
+    
+    
+    
     
 </resources>

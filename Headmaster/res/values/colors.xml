@@ -33,4 +33,14 @@
    <color name="new_black_false">#1d1c21</color>
    <color name="new_black_true">#161619</color>
    
+   
+   <!-- 2.0 颜色 -->
+   <color name="text_color_light_black">#8c8c8c</color>
+   <color name="text_color_dark_black">#2f2f2f</color>
+   <color name="bg_black">#1d1c21</color>
+   <color name="bg_grey">#e8e8ed</color>
+   <color name="blue">#3d8bff</color>
+   <color name="red">#e80031</color>
+   <color name="green">#00e6c8</color>
+   
 </resources>

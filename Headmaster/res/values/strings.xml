@@ -15,9 +15,9 @@
     
 
     <!-- 登录页面 -->
-    <string name="phonenumber">账号</string>
-    <string name="password">密码</string>
-    <string name="login">登入</string>
+    <string name="phonenumber">请输入用户名</string>
+    <string name="password">请输入密码</string>
+    <string name="login">登录</string>
     
         <!-- 下拉刷新 -->
     <string name="pull_to_refresh_pull_label">下拉刷新</string>
@@ -29,6 +29,7 @@
     <string name="publish_bulletin">发布公告</string>
     <string name="publish">发布</string>
     <string name="history_bulletin">历史公告</string>
+    <string name="complain">投诉</string>
     <string name="coach">教练</string>
     <string name="student">学员</string>
     <string name="max_300_word">最多输入300字</string>
