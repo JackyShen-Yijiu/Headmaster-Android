@@ -1,10 +1,12 @@
 package com.yibu.headmaster.bean;
 
+import java.io.Serializable;
+
 import android.R.integer;
 
 import com.yibu.headmaster.bean.AssessBean.Commentlist.Subject;
 
-public class CoachBean {
+public class CoachBean implements Serializable{
 
 	public Double latitude;
 	public String name;
@@ -17,14 +19,14 @@ public class CoachBean {
 	public String mobile;
 	public Subject[]subject;
 	
-	public class Subject {
+	public class Subject implements Serializable {
 
 		public String _id;
 		public String name;
 		public int subjectid;
 	}
 
-	public class Headportrait {
+	public class Headportrait  implements Serializable{
 
 		public String thumbnailpic;
 		public String width;
@@ -34,7 +36,7 @@ public class CoachBean {
 
 	public Driveschoolinfo driveschoolinfo;
 
-	public class Driveschoolinfo {
+	public class Driveschoolinfo implements Serializable{
 
 		public String name;
 		public String id;

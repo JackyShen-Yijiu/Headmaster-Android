@@ -6,6 +6,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
 
@@ -16,6 +18,7 @@ import com.jzjf.headmaster.R;
 import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.bean.ComplainVO;
 import com.yibu.headmaster.global.HeadmasterApplication;
+import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.UTC2LOC;
 
 public class ComplainAdapter extends BasicAdapter<ComplainVO> {
@@ -59,11 +62,49 @@ public class ComplainAdapter extends BasicAdapter<ComplainVO> {
 		
 		holder.time.setText(UTC2LOC.instance.getDate(complainVO.complaintDateTime, "yyyy/MM/dd"));
 		holder.content.setText(complainVO.complaintcontent);
+		
+		
 		if (complainVO.feedbacktype==1) {
 			holder.stype.setText("投诉教练："+complainVO.coachinfo.name);
 		}else {
 			holder.stype.setText("投诉驾校："+HeadmasterApplication.app.userInfo.driveschool.name);
 		}
+		LogUtil.print("asdzxcasd"+complainVO.feedbacktype+complainVO.feedbackusertype);
+		
+		
+		RelativeLayout.LayoutParams headParam = (RelativeLayout.LayoutParams) holder.iv_one
+				.getLayoutParams();
+		RelativeLayout.LayoutParams headParams = (RelativeLayout.LayoutParams) holder.iv_two
+				.getLayoutParams();
+		String[] url1 = complainVO.piclistr;
+		switch (url1.length) {
+		case 1:
+			// 第一个显示
+			if (TextUtils.isEmpty(url1[0])) {
+			} else {
+				holder.iv_one.setVisibility(View.VISIBLE);
+				Picasso.with(context).load(url1[0]).into(holder.iv_one);
+				break;
+			}
+			break;
+		case 2:
+			// 第二个显示
+			if (TextUtils.isEmpty(url1[1])) {
+			} else {
+				holder.iv_one.setVisibility(View.VISIBLE);
+				holder.iv_one.setVisibility(View.VISIBLE);
+				Picasso.with(context).load(url1[0]).into(holder.iv_one);
+
+				holder.iv_two.setVisibility(View.VISIBLE);
+				holder.iv_one.setVisibility(View.VISIBLE);
+				Picasso.with(context).load(url1[1]).into(holder.iv_two);
+				break;
+			}
+
+		default:
+			break;
+		}
+
 		return convertView;
 	}
 
@@ -78,6 +119,11 @@ public class ComplainAdapter extends BasicAdapter<ComplainVO> {
 		TextView stype;
 		@ViewInject(R.id.student_head_iv)
 		SelectableRoundedImageView headIv;
+		@ViewInject(R.id.iv_one)
+		ImageView iv_one;
+		@ViewInject(R.id.iv_two)
+		ImageView iv_two;
+		
 
 	}
 }
