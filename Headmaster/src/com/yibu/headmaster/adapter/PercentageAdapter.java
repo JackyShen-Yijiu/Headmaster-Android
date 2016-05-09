@@ -1,9 +1,11 @@
 package com.yibu.headmaster.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jzjf.headmaster.R;
@@ -14,7 +16,7 @@ import com.yibu.headmaster.utils.LogUtil;
  * @author pengdonghua
  *
  */
-public class PercentageAdapter extends BaseExpandableListAdapter{
+@SuppressLint("CutPasteId") public class PercentageAdapter extends BaseExpandableListAdapter{
 	
 	/**
 	 * 
@@ -54,10 +56,10 @@ public class PercentageAdapter extends BaseExpandableListAdapter{
 		TextView tvLou = (TextView) view.findViewById(R.id.item_percentage_lou);
 		TextView tvNotPass = (TextView) view.findViewById(R.id.item_percentage_notpass);
 		
-		
+		tvRate.setText("");
 		tvTotal.setText("报考\n"+1+"人");
 		tvLou.setText("缺考\n"+1+"人");
-		tvNotPass.setText("报考\n"+1+"人");
+		tvNotPass.setText("考\n"+1+"人");
 		
 		return view;
 	}
@@ -87,7 +89,14 @@ public class PercentageAdapter extends BaseExpandableListAdapter{
 			View convertView, ViewGroup parent) {
 		View view = View.inflate(context, R.layout.item_percentage_parent, null);
 		TextView tv = (TextView) view.findViewById(R.id.item_percentage_title);
+		ImageView img = (ImageView) view.findViewById(R.id.item_percentage_arrow);
+		
 		tv.setText("2016.3.3");
+		if(isExpanded){
+			img.setImageResource(R.drawable.arrow_up);
+		}else{
+			img.setImageResource(R.drawable.arrow_down);
+		}
 		return view;
 	}
 

@@ -19,6 +19,7 @@ import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
 import com.yibu.headmaster.PersonSettingActivity;
 import com.yibu.headmaster.PublishBulletinActivity;
+import com.yibu.headmaster.StatisticsAct;
 import com.joooonho.SelectableRoundedImageView;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -79,6 +80,9 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 			break;
 		//更多数据
 		case R.id.my_rl_data:
+			
+//			Intent intent1 = new Intent(getActivity(), StatisticsAct.class);
+			
 			Intent intent1 = new Intent(getActivity(), DataChartActivity.class);
 			startActivity(intent1);
 			break;
