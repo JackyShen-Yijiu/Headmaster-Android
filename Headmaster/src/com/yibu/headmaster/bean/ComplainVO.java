@@ -1,7 +1,13 @@
 package com.yibu.headmaster.bean;
 
-public class ComplainVO {
+import java.io.Serializable;
 
+public class ComplainVO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public CoachBean coachinfo;
 	public String complaintDateTime;
 	public String complaintcontent;
@@ -12,7 +18,7 @@ public class ComplainVO {
 	public String[] piclistr;
 	public Studentinfo studentinfo;
 	
-	public class Complainthandinfo {
+	public class Complainthandinfo implements Serializable {
 
 		public String handlemessage;
 		public String operator;

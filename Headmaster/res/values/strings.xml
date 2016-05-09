@@ -30,6 +30,7 @@
     <string name="publish">发布</string>
     <string name="history_bulletin">历史公告</string>
     <string name="complain">投诉</string>
+    <string name="complain_detail">投诉详情</string>
     <string name="coach">教练</string>
     <string name="student">学员</string>
     <string name="max_300_word">最多输入300字</string>
