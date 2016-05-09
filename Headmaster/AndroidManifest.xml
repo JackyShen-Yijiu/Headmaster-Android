@@ -114,6 +114,8 @@
              android:screenOrientation="portrait" ></activity>
          <activity  android:name="com.yibu.headmaster.CallBackActivity"
              android:screenOrientation="portrait" ></activity>
+         <activity  android:name="com.yibu.headmaster.ComplainDetailActivity"
+             android:screenOrientation="portrait" ></activity>
          <activity  android:name="com.yibu.headmaster.AssessActivity"
              android:screenOrientation="portrait" ></activity>
         <activity 

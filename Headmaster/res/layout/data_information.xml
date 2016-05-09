@@ -3,66 +3,490 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:id="@+id/tv_data_current_enroll"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/tv_data_current_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="今日报名"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_data_current_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:textColor="#19f9cc"
-            android:textSize="16sp" />
-    </LinearLayout>
-
     <RelativeLayout
-        android:id="@+id/rl_datas_header"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:layout_below="@+id/tv_data_current_enroll" >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#2a2a2a" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#2a2a2a" />
+        android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:id="@+id/ll_data_subjects"
+            android:id="@+id/tv_data_current_enroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:gravity="center_vertical"
+            android:background="@color/bg_black"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp"
+            android:paddingTop="16dp" >
+
+            <TextView
+                android:id="@+id/tv_data_current_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日报名"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_data_current_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:textColor="#19f9cc"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_datas_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_data_current_enroll"
+            android:background="@color/bg_black" >
+
+            <LinearLayout
+                android:id="@+id/ll_data_subjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp" >
+
+                <LinearLayout
+                    android:id="@+id/ll_subject_one_student"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_data_subject1_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_data_subject1_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="科一在学"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_subject_two_student"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_data_subject2_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_data_subject2_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="科二在学"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_subject_three_student"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_data_subject3_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_data_subject3_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="科三在学"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_subject_four_student"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_data_subject4_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_data_subject4_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="科四在学"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_curr_pass_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_datas_header"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12sp"
+            android:layout_marginTop="12sp"
+            android:text="当前合格率"
+            android:textColor="@color/text_color_dark_black"
+            android:textSize="14sp" />
+        <!-- 四个圆环 -->
+
+        <LinearLayout
+            android:id="@+id/ll_circle_layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_curr_pass_percent"
             android:orientation="horizontal" >
 
             <LinearLayout
+                android:id="@+id/ll_pass_percent_subject_one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                    android:id="@+id/dout_progress_subject_one"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    custom:donut_finished_color="@color/green"
+                    custom:donut_finished_stroke_width="7dp"
+                    custom:donut_progress="0"
+                    custom:donut_text_color="@color/green"
+                    custom:donut_text_size="@dimen/text_middle_size"
+                    custom:donut_unfinished_color="#f7f7f7"
+                    custom:donut_unfinished_stroke_width="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="科目一"
+                    android:textColor="@color/text_color_light_black"
+                    android:textSize="@dimen/text_middle_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="积压："
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:id="@+id/tv_subject_one_remaining_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="人"
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:id="@+id/ll_pass_percent_subject_two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                    android:id="@+id/dout_progress_subject_two"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    custom:donut_finished_color="@color/blue"
+                    custom:donut_finished_stroke_width="7dp"
+                    custom:donut_progress="0"
+                    custom:donut_text_color="@color/blue"
+                    custom:donut_text_size="@dimen/text_middle_size"
+                    custom:donut_unfinished_color="#f7f7f7"
+                    custom:donut_unfinished_stroke_width="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="科目二"
+                    android:textColor="@color/text_color_light_black"
+                    android:textSize="@dimen/text_middle_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="积压："
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:id="@+id/tv_subject_two_remaining_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="人"
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_circle_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_circle_layout_1"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/line_color" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@color/line_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_circle_layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="12dp"
+            android:layout_below="@+id/ll_circle_divider"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/ll_pass_percent_subject_three"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                     android:id="@+id/dout_progress_subject_three"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    custom:donut_finished_color="@color/red"
+                    custom:donut_finished_stroke_width="7dp"
+                    custom:donut_progress="0"
+                    custom:donut_text_color="@color/red"
+                    custom:donut_text_size="@dimen/text_middle_size"
+                    custom:donut_unfinished_color="#f7f7f7"
+                    custom:donut_unfinished_stroke_width="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="科目三"
+                    android:textColor="@color/text_color_light_black"
+                    android:textSize="@dimen/text_middle_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="积压："
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:id="@+id/tv_subject_three_remaining_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="人"
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:id="@+id/ll_pass_percent_subject_four"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                     android:id="@+id/dout_progress_subject_four"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    custom:donut_finished_color="@color/blue"
+                    custom:donut_finished_stroke_width="7dp"
+                    custom:donut_progress="0"
+                    custom:donut_text_color="@color/blue"
+                    custom:donut_text_size="@dimen/text_middle_size"
+                    custom:donut_unfinished_color="#f7f7f7"
+                    custom:donut_unfinished_stroke_width="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="科目四"
+                    android:textColor="@color/text_color_light_black"
+                    android:textSize="@dimen/text_middle_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="积压："
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:id="@+id/tv_subject_four_remaining_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="人"
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+           android:layout_below="@+id/ll_circle_layout_2"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:id="@+id/assess_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="学员评价"
+            android:textColor="@color/text_color_dark_black"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/data_star_ll"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_below="@+id/assess_title"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal" >
+
+            <!-- 第一个星 -->
+
+            <LinearLayout
+                android:id="@+id/data_star_1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -70,30 +494,63 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/tv_data_subject1_num"
+                    android:id="@+id/data_goodcommnent_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#19f9cc"
-                    android:text="0"
-                    android:textSize="16sp" />
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_large_size" />
 
                 <TextView
-                    android:id="@+id/tv_data_subject1_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="科一在学"
-                    android:textColor="#ffffff"
-                    android:textSize="12sp" />
+                    android:layout_marginTop="18dp"
+                    android:drawableLeft="@drawable/good"
+                    android:drawablePadding="6dp"
+                    android:text="好评"
+                    android:textColor="@color/text_color_light_black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/line_color" />
+            <!-- 第二个星 -->
+
+            <LinearLayout
+                android:id="@+id/data_star_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/data_generalcomment_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_large_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:drawableLeft="@drawable/well"
+                    android:drawablePadding="6dp"
+                    android:text="中评"
+                    android:textColor="@color/text_color_light_black"
+                    android:textSize="@dimen/text_middle_size" />
             </LinearLayout>
 
             <ImageView
-                android:layout_width="1dp"
-                android:layout_height="48dp"
-                android:layout_centerVertical="true"
-                android:background="#2a2a2a" />
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/line_color" />
+            <!-- 第三个星 -->
 
             <LinearLayout
+                android:id="@+id/data_star_3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -101,336 +558,24 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/tv_data_subject2_num"
+                    android:id="@+id/data_badcomment_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#19f9cc"
-                    android:text="0"
-                    android:textSize="16sp" />
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_large_size" />
 
                 <TextView
-                    android:id="@+id/tv_data_subject2_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="科二在学"
-                    android:textColor="#ffffff"
-                    android:textSize="12sp" />
+                    android:layout_marginTop="18dp"
+                    android:drawableLeft="@drawable/bad"
+                    android:drawablePadding="6dp"
+                    android:text="差评"
+                    android:textColor="@color/text_color_light_black"
+                    android:textSize="@dimen/text_middle_size" />
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="1dp"
-                android:layout_height="48dp"
-                android:layout_centerVertical="true"
-                android:background="#2a2a2a" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/tv_data_subject3_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#19f9cc"
-                    android:text="0"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_data_subject3_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="科三在学"
-                    android:textColor="#ffffff"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="1dp"
-                android:layout_height="48dp"
-                android:layout_centerVertical="true"
-                android:background="#2a2a2a" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/tv_data_subject4_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#19f9cc"
-                    android:text="0"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_data_subject4_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="科四在学"
-                    android:textColor="#ffffff"
-                    android:textSize="12sp" />
-            </LinearLayout>
+            <!-- 第四个星 -->
         </LinearLayout>
     </RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/fl_data_circle"
-        android:layout_width="258dp"
-        android:layout_height="258dp"
-        android:layout_below="@+id/rl_datas_header"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" >
-
-        <ImageView
-            android:id="@+id/data_circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/shuju" />
-
-        <RelativeLayout
-            android:layout_width="196dp"
-            android:layout_height="196dp"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center_horizontal" >
-
-            <TextView
-                android:id="@+id/textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="当天累积负荷"
-                android:textColor="#f955d2"
-                android:textSize="16sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/textview"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:text="实时负荷"
-                android:textColor="#00e4b7"
-                android:textSize="16sp" />
-        </RelativeLayout>
-
-        <com.github.lzyzsd.circleprogress.ArcProgress
-            android:id="@+id/data_arc_progress_outside_forcast"
-            android:layout_width="257dp"
-            android:layout_height="257dp"
-            android:layout_gravity="center_horizontal"
-            custom:arc_angle="266"
-            custom:arc_bottom_text_size="16sp"
-            custom:arc_finished_color="#4e1741"
-            custom:arc_is_display_text="false"
-            custom:arc_max="0"
-            custom:arc_progress="0"
-            custom:arc_stroke_width="11dp"
-            custom:arc_suffix_text_size="22sp"
-            custom:arc_text_color="#4e1741"
-            android:visibility="gone"
-            custom:arc_unfinished_color="@android:color/transparent" />
-
-        <com.github.lzyzsd.circleprogress.ArcProgress
-            android:id="@+id/data_arc_progress_outside"
-            android:layout_width="257dp"
-            android:layout_height="257dp"
-            android:layout_gravity="center_horizontal"
-            custom:arc_angle="266"
-            custom:arc_bottom_text=""
-            custom:arc_bottom_text_size="16sp"
-            custom:arc_finished_color="#f955d2"
-            custom:arc_is_display_text="false"
-            custom:arc_max="0"
-            custom:arc_progress="0"
-            custom:arc_stroke_width="11dp"
-            custom:arc_suffix_text_size="22sp"
-            custom:arc_text_color="#f955d2"
-            android:visibility="gone"
-            custom:arc_unfinished_color="@android:color/transparent" />
-
-        <com.github.lzyzsd.circleprogress.ArcProgress
-            android:id="@+id/data_arc_progress_inside_forcast"
-            android:layout_width="196dp"
-            android:layout_height="196dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            custom:arc_angle="262"
-            custom:arc_bottom_text_size="16sp"
-            custom:arc_finished_color="#284E4D"
-            custom:arc_is_display_text="false"
-            custom:arc_progress="0"
-            custom:arc_stroke_width="11dp"
-            custom:arc_suffix_text_padding="3dp"
-            custom:arc_suffix_text_size="18sp"
-            custom:arc_text_color="#284E4D"
-            custom:arc_unfinished_color="@android:color/transparent" />
-
-        <com.github.lzyzsd.circleprogress.ArcProgress
-            android:id="@+id/data_arc_progress_inside"
-            android:layout_width="196dp"
-            android:layout_height="196dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            custom:arc_angle="262"
-            custom:arc_bottom_text=""
-            custom:arc_bottom_text_size="16sp"
-            custom:arc_finished_color="#00e4b7"
-            custom:arc_is_display_text="true"
-            custom:arc_progress="0"
-            custom:arc_stroke_width="12dp"
-            custom:arc_suffix_text="%"
-            custom:arc_suffix_text_padding="3dp"
-            custom:arc_suffix_text_size="18sp"
-            custom:arc_text_color="#00e4b7"
-            custom:arc_unfinished_color="@android:color/transparent" />
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/assess_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fl_data_circle"
-        android:layout_centerHorizontal="true"
-        android:text="学员评价"
-        android:textColor="#ffffff"
-        android:textSize="14sp" />
-
-    <LinearLayout
-        android:id="@+id/data_star_ll"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_below="@+id/assess_title"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal" >
-
-        <!-- 第一个星 -->
-
-        <LinearLayout
-            android:id="@+id/data_star_1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/data_goodcommnent_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#19f9cc"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:drawableLeft="@drawable/good"
-                android:drawablePadding="6dp"
-                android:text="好评"
-                android:textColor="#ffffff"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#2a2a2a" />
-        <!-- 第二个星 -->
-
-        <LinearLayout
-            android:id="@+id/data_star_2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/data_generalcomment_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#19f9cc"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:drawableLeft="@drawable/well"
-                android:drawablePadding="6dp"
-                android:text="中评"
-                android:textColor="#ffffff"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#2a2a2a" />
-        <!-- 第三个星 -->
-
-        <LinearLayout
-            android:id="@+id/data_star_3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/data_badcomment_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#19f9cc"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:drawableLeft="@drawable/bad"
-                android:drawablePadding="6dp"
-                android:text="差评"
-                android:textColor="#ffffff"
-                android:textSize="14sp" />
-        </LinearLayout>
-        <!-- 第四个星 -->
-
-
-        <!--
-        <LinearLayout
-            android:id="@+id/data_star_4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/data_complaintstudentcount_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:textColor="#da0808"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ts39x36" />
-        </LinearLayout>
-        -->
-    </LinearLayout>
-</RelativeLayout>
 </ScrollView>

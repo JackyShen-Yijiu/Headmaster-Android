@@ -8,6 +8,9 @@
     android:id="@+id/lv_publish_complain_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:dividerHeight="1px" 
+    android:divider="#000000"
     android:padding="5dp" >
 </com.yibu.headmaster.view.QuickReturnListView>
 

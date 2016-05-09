@@ -46,7 +46,9 @@ public class HeadmasterApplication extends Application {
 	}
 
 	public static HeadmasterApplication getInstance() {
-		app = new HeadmasterApplication();
+		if(app==null){
+			app = new HeadmasterApplication();
+		}
 		LogUtil.print("sssssssssss"+app);
 		return app;
 	}

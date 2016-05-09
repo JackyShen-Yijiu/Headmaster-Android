@@ -29,10 +29,10 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 
 	ImageView ivBack;
 	SelectableRoundedImageView ivHeadPortrait;
-	private TextView rlMyNotice;
+//	private TextView rlMyNotice;
 	private TextView rlMyCoach;
 	private TextView rlSetting;
-	private TextView rlData;
+//	private TextView rlData;
 	private TextView rlComplain;
 	private TextView name;
 
@@ -42,10 +42,10 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 		// View view =View.inflate(getActivity(), R.layout.left_content, null);
 		ivHeadPortrait = (SelectableRoundedImageView) view
 				.findViewById(R.id.iv_left_head_portrait);
-		rlMyNotice = (TextView) view.findViewById(R.id.my_rl_notice);
+//		rlMyNotice = (TextView) view.findViewById(R.id.my_rl_notice);
 		rlMyCoach = (TextView) view.findViewById(R.id.my_rl_coach);
 		rlSetting = (TextView) view.findViewById(R.id.my_rl_setting);
-		rlData = (TextView) view.findViewById(R.id.my_rl_data);
+//		rlData = (TextView) view.findViewById(R.id.my_rl_data);
 		rlComplain = (TextView) view.findViewById(R.id.my_rl_complain);
 		name=(TextView)view.findViewById(R.id.coach_name);
 		name.setText(HeadmasterApplication.app.userInfo.name);
@@ -56,10 +56,10 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 	private void initOnClick() {
 
 		ivHeadPortrait.setOnClickListener(this);
-		rlMyNotice.setOnClickListener(this);
+//		rlMyNotice.setOnClickListener(this);
 		rlMyCoach.setOnClickListener(this);
 		rlSetting.setOnClickListener(this);
-		rlData.setOnClickListener(this);
+//		rlData.setOnClickListener(this);
 		rlComplain.setOnClickListener(this);
 		
 
@@ -79,13 +79,10 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 			startActivity(intents);
 			break;
 		//更多数据
-		case R.id.my_rl_data:
-			
-//			Intent intent1 = new Intent(getActivity(), StatisticsAct.class);
-			
-			Intent intent1 = new Intent(getActivity(), DataChartActivity.class);
-			startActivity(intent1);
-			break;
+//		case R.id.my_rl_data:
+//			Intent intent1 = new Intent(getActivity(), DataChartActivity.class);
+//			startActivity(intent1);
+//			break;
 		// 打开个人设置
 //		case R.id.iv_left_head_portrait:
 //
@@ -95,12 +92,12 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 //			startActivity(intent_persion);
 //			break;
 		// 公告
-		case R.id.my_rl_notice:
-			LogUtil.print("我的公告");
-			Intent intent = new Intent(HeadmasterApplication.getContext(),
-					PublishBulletinActivity.class);
-			startActivity(intent);
-			break;
+//		case R.id.my_rl_notice:
+//			LogUtil.print("我的公告");
+//			Intent intent = new Intent(HeadmasterApplication.getContext(),
+//					PublishBulletinActivity.class);
+//			startActivity(intent);
+//			break;
 		// 我的教练
 		case R.id.my_rl_coach:
 			LogUtil.print("我的教练");
