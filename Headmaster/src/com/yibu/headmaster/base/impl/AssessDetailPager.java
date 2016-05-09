@@ -26,6 +26,7 @@ import com.yibu.headmaster.bean.AssessBean.Commentcount;
 import com.yibu.headmaster.bean.AssessBean.Commentlist;
 import com.yibu.headmaster.bean.ComplaintBean;
 import com.yibu.headmaster.datachart.DountChartDemo;
+import com.yibu.headmaster.datachart.PieChart01View;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
@@ -47,7 +48,7 @@ public class AssessDetailPager extends BasePager {
 	private ListView list_assess;
 	private RelativeLayout relativeLayout_ring;
 
-	private DountChartDemo assessThan;// 评价比列
+	private PieChart01View assessThan;// 评价比列
 
 	private int searchtype = 1; // 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
 	private boolean hasMoreData = true;
@@ -93,20 +94,20 @@ public class AssessDetailPager extends BasePager {
 
 	@Override
 	public void initData() {
-		if (commentlevel == 4) {
-			adapterComplaint = new ComplaintAdapter(mContext, listComplaint);
-			list_assess.setAdapter(adapterComplaint);
-		} else {
+//		if (commentlevel == 4) {
+//			adapterComplaint = new ComplaintAdapter(mContext, listComplaint);
+//			list_assess.setAdapter(adapterComplaint);
+//		} else {
 
 			adapterAssess = new AssessAdapter(mContext, listAssess);
 			list_assess.setAdapter(adapterAssess);
-		}
-		if (commentlevel == 4) {
-			list_assess.removeHeaderView(viewHeader);
-		} else {
-			// list_assess.removeHeaderView(viewHeader);
-
-		}
+//		}
+//		if (commentlevel == 4) {
+//			list_assess.removeHeaderView(viewHeader);
+//		} else {
+//			// list_assess.removeHeaderView(viewHeader);
+//
+//		}
 
 		// 给PullToRefreshListView设置监听器
 		pullToRefreshListView
@@ -144,13 +145,13 @@ public class AssessDetailPager extends BasePager {
 				}
 			}, 100);
 		}
-		if (commentlevel == 4) {
-
-			ApiHttpClient.get("statistics/complaintdetails?userid="
-					+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
-					+ HeadmasterApplication.app.userInfo.driveschool.schoolid
-					+ "&index=" + curpage + "&count=10", handler);
-		} else {
+//		if (commentlevel == 4) {
+//
+//			ApiHttpClient.get("statistics/complaintdetails?userid="
+//					+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
+//					+ HeadmasterApplication.app.userInfo.driveschool.schoolid
+//					+ "&index=" + curpage + "&count=10", handler);
+//		} else {
 
 			LogUtil.print("评论详情：加载第几页：" + curpage);
 			ApiHttpClient.get("statistics/commentdetails?userid="
@@ -158,35 +159,35 @@ public class AssessDetailPager extends BasePager {
 					+ HeadmasterApplication.app.userInfo.driveschool.schoolid
 					+ "&index=" + curpage + "&count=10&searchtype="
 					+ searchtype + "&commentlevel=" + commentlevel, handler);
-		}
+//		}
 
 	}
 
 	@Override
 	public void process(String data) {
 		// 加载
-		if (commentlevel == 4) {
-
-			List<ComplaintBean> comList = (List<ComplaintBean>) JsonUtil
-					.parseJsonToList(data,
-							new TypeToken<List<ComplaintBean>>() {
-							}.getType());
-			if (comList != null) {
-
-				if (curpage == 1) {
-					listComplaint.clear();
-				}
-				if (comList.size() == 0 && curpage != 1) {
-					hasMoreData = false;
-
-				} else {
-					listComplaint.addAll(comList);
-					adapterComplaint.notifyDataSetChanged();
-					progressBar_main.setVisibility(View.GONE);
-
-				}
-			}
-		} else {
+//		if (commentlevel == 4) {
+//
+//			List<ComplaintBean> comList = (List<ComplaintBean>) JsonUtil
+//					.parseJsonToList(data,
+//							new TypeToken<List<ComplaintBean>>() {
+//							}.getType());
+//			if (comList != null) {
+//
+//				if (curpage == 1) {
+//					listComplaint.clear();
+//				}
+//				if (comList.size() == 0 && curpage != 1) {
+//					hasMoreData = false;
+//
+//				} else {
+//					listComplaint.addAll(comList);
+//					adapterComplaint.notifyDataSetChanged();
+//					progressBar_main.setVisibility(View.GONE);
+//
+//				}
+//			}
+//		} else {
 			AssessBean assessBean = JsonUtil.parseJsonToBean(data,
 					AssessBean.class);
 			List<Commentlist> commentlist = null;
@@ -214,16 +215,17 @@ public class AssessDetailPager extends BasePager {
 			// 评价比列--------------------------
 			if (assessBean != null) {
 				Commentcount commentcount = assessBean.commentcount;
-
-				assessThan = new DountChartDemo(mContext, commentcount);
-				relativeLayout_ring.addView(assessThan);
+				if (relativeLayout_ring.getChildCount()==0) {
+					assessThan = new PieChart01View(mContext, commentcount);
+					relativeLayout_ring.addView(assessThan);
+				}
 				LayoutParams params = assessThan.getLayoutParams();
 				params.height = LayoutParams.MATCH_PARENT;
 				params.width = LayoutParams.MATCH_PARENT;
 				assessThan.setLayoutParams(params);
 			}
 			progressBar_main.setVisibility(View.GONE);
-		}
+//		}
 		pullToRefreshListView.onRefreshComplete();
 
 	}

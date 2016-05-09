@@ -9,16 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
-import android.widget.RelativeLayout;
 
 import com.squareup.picasso.Picasso;
-import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.ComplainActivity;
-import com.yibu.headmaster.DataChartActivity;
 import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
-import com.yibu.headmaster.PersonSettingActivity;
-import com.yibu.headmaster.PublishBulletinActivity;
 import com.joooonho.SelectableRoundedImageView;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -53,7 +48,6 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 	}
 
 	private void initOnClick() {
-
 		ivHeadPortrait.setOnClickListener(this);
 //		rlMyNotice.setOnClickListener(this);
 		rlMyCoach.setOnClickListener(this);

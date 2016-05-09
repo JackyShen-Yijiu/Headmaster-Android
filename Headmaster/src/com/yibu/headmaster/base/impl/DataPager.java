@@ -5,27 +5,19 @@ import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.github.lzyzsd.circleprogress.ArcProgress;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
-import com.yibu.headmaster.DataChartActivity;
 import com.yibu.headmaster.MainActivity;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
-import com.yibu.headmaster.bean.MainOfTodayBean;
 import com.yibu.headmaster.bean.MainOfWeekBean;
 import com.yibu.headmaster.bean.MainPageDataV2Bean;
 import com.yibu.headmaster.bean.MainPageDataV2Bean.Schoolstudentcount;
@@ -101,6 +93,8 @@ public class DataPager extends BasePager implements OnClickListener {
 	private int searchtype = 1;// 查询类型 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
 
 	private MainActivity activity;
+	
+	private MainPageDataV2Bean mainPageDataV2Bean;
 
 	public DataPager(Context context) {
 		super(context);
@@ -110,7 +104,7 @@ public class DataPager extends BasePager implements OnClickListener {
 	public void initData() {
 		activity = (MainActivity) getActivity();
 		loadNetworkData();
-
+		
 	}
 
 	@Override
@@ -118,7 +112,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		View view = View.inflate(HeadmasterApplication.getContext(),
 				R.layout.data_information, null);
 		ViewUtils.inject(this, view);
-
+		
 		datastar1.setOnClickListener(this);
 		datastar2.setOnClickListener(this);
 		datastar3.setOnClickListener(this);
@@ -138,6 +132,7 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		MainPageDataV2Bean todayBean = JsonUtil.parseJsonToBean(data,
 				MainPageDataV2Bean.class);
+		
 		//评论数
 		setCommnent(todayBean);
 		//学生数量
@@ -146,6 +141,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		currentNum.setText(todayBean.applystudentcount + "");
 		//合格率
 		setProgress(todayBean);
+		
 //		// 今日和昨日
 //		if (searchtype == 1 || searchtype == 2) {
 //			LogUtil.print("=------------" + data);
@@ -260,6 +256,7 @@ public class DataPager extends BasePager implements OnClickListener {
 				handler);
 	}
 
+	
 	@Override
 	public void onClick(View v) {
 
@@ -269,6 +266,7 @@ public class DataPager extends BasePager implements OnClickListener {
 			Intent intent2 = new Intent(mContext, AssessActivity.class);
 			intent2.putExtra("title", searchtype);
 			intent2.putExtra("commentlevel", 1);
+//			intent2.putExtra("assessnumber", mainPageDataV2Bean.commentstudentcount.goodcommnent);
 			mContext.startActivity(intent2);
 			break;
 		case R.id.data_star_2:
@@ -337,5 +335,6 @@ public class DataPager extends BasePager implements OnClickListener {
 		intent.putExtra("commentlevel", 4);
 		mContext.startActivity(intent);
 	}
+	
 
 }

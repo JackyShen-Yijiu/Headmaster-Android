@@ -59,7 +59,6 @@ public class DountChartDemo extends DemoView {
 		super(context);
 		this.commentcount = commentcount;
 		initView();
-
 	}
 
 	public DountChartDemo(Context context, AttributeSet attrs) {
