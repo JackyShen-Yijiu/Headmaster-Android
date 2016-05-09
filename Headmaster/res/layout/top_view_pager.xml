@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="158dp" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_news_topimage"
+            android:layout_width="match_parent"
+            android:layout_height="158dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_alignParentBottom="true"
+            android:background="#88000000"
+            >
+
+            <TextView
+                android:id="@+id/tv_news_imginfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:text=""
+                android:textSize="@dimen/text_middle_size"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/ll_news_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:layout_marginRight="12dp"
+                android:orientation="horizontal" />
+        </RelativeLayout>
+    </RelativeLayout>

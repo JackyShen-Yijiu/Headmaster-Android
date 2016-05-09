@@ -14,6 +14,12 @@ import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.ComplainActivity;
 import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
+<<<<<<< HEAD
+=======
+import com.yibu.headmaster.PersonSettingActivity;
+import com.yibu.headmaster.PublishBulletinActivity;
+import com.yibu.headmaster.StatisticsAct;
+>>>>>>> 215e8a9de7d9c336c33d8174d3a6d916cb37e788
 import com.joooonho.SelectableRoundedImageView;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;

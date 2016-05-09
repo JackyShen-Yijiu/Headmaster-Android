@@ -18,6 +18,7 @@ import com.jzjf.headmaster.R;
 import com.yibu.headmaster.bean.NewsBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
+import com.yibu.headmaster.utils.UTC2LOC;
 
 public class NewsInformationAdapter extends BasicAdapter<NewsBean> {
 
@@ -41,37 +42,36 @@ public class NewsInformationAdapter extends BasicAdapter<NewsBean> {
 			mHolder = (NewsHolder) convertView.getTag();
 		}
 		NewsBean newsBean = list.get(position);
-		LogUtil.print("newsBean.logimg-----"+newsBean.logimg);
 		Picasso.with(HeadmasterApplication.getContext()).load(newsBean.logimg)
 				.into(mHolder.imageView_item_cover);
-		mHolder.textView_item_content.setText(newsBean.title);
+		mHolder.textView_item_title.setText(newsBean.title);
+		mHolder.textView_item_content.setText(newsBean.description);
+//		String time;
+//		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+//		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
+//		Date dateCreate = null;
+//		try {
+//			dateCreate = format1.parse(newsBean.createtime);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+//		Date dateCurr = new Date();
+//		long diff = 1;
+//		if (dateCreate != null && dateCreate != null) {
+//			diff = (dateCurr.getTime() - dateCreate.getTime()) / 1000 / 60; // 分钟
+//		}
+//		if (diff < 60) {
+//			time = diff + "分钟前";
+//		} else {
+//			diff = diff / 60;
+//			if (diff < 60) {
+//				time = diff + "小时前";
+//			} else {
+//				time = format2.format(dateCreate);
+//			}
+//		}
 
-		String time;
-		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
-		Date dateCreate = null;
-		try {
-			dateCreate = format1.parse(newsBean.createtime);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		Date dateCurr = new Date();
-		long diff = 1;
-		if (dateCreate != null && dateCreate != null) {
-			diff = (dateCurr.getTime() - dateCreate.getTime()) / 1000 / 60; // 分钟
-		}
-		if (diff < 60) {
-			time = diff + "分钟前";
-		} else {
-			diff = diff / 60;
-			if (diff < 60) {
-				time = diff + "小时前";
-			} else {
-				time = format2.format(dateCreate);
-			}
-		}
-
-		mHolder.textView_item_time.setText(time);
+		mHolder.textView_item_time.setText(UTC2LOC.instance.getDate(newsBean.createtime, "yyyy/MM/dd"));
 
 		return convertView;
 	}
@@ -81,6 +81,8 @@ public class NewsInformationAdapter extends BasicAdapter<NewsBean> {
 		ImageView imageView_item_cover;
 		@ViewInject(R.id.textView_item_content)
 		TextView textView_item_content;
+		@ViewInject(R.id.textView_item_title)
+		TextView textView_item_title;
 		@ViewInject(R.id.textView_item_time)
 		TextView textView_item_time;
 

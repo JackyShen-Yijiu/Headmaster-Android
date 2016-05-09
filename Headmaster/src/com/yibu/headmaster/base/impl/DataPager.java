@@ -11,16 +11,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.lzyzsd.circleprogress.DonutProgress;
+import com.jzjf.headmaster.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.MainActivity;
-import com.jzjf.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
+<<<<<<< HEAD
+=======
+import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
+>>>>>>> 215e8a9de7d9c336c33d8174d3a6d916cb37e788
 import com.yibu.headmaster.bean.MainOfWeekBean;
 import com.yibu.headmaster.bean.MainPageDataV2Bean;
-import com.yibu.headmaster.bean.MainPageDataV2Bean.Schoolstudentcount;
 import com.yibu.headmaster.event.ComplaintEvent;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
@@ -202,7 +205,7 @@ public class DataPager extends BasePager implements OnClickListener {
 
 	// 设置头部学校学生数量
 	private void setSchoolStudentCount(
-			List<Schoolstudentcount> schoolstudentcount) {
+			List<com.yibu.headmaster.bean.MainPageDataV2Bean.Schoolstudentcount> schoolstudentcount) {
 		
 		if (schoolstudentcount != null) {
 			for (int i = 0; i < schoolstudentcount.size(); i++) {

@@ -5,12 +5,12 @@
 
     <ImageView
         android:id="@+id/imageView_item_cover"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="100dp"
+        android:layout_height="74dp"
         android:scaleType="centerCrop"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_launcher" />
 
@@ -19,36 +19,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/iv_item_deviderline"
+        android:layout_alignBottom="@+id/imageView_item_cover"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="8dp"
         android:gravity="right"
-        android:textColor="#666"
+        android:textColor="@color/text_color_light_black"
         android:text="26分钟前"
-        android:textSize="14sp"
+        android:textSize="12sp"
          />
 
     <View
         android:id="@+id/iv_item_deviderline"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_alignParentLeft="true"
+        android:layout_height="0.5dp"
         android:layout_below="@+id/imageView_item_cover"
+        android:background="@color/line_color"  />
+
+    <TextView
+        android:id="@+id/textView_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView_item_cover"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        android:background="@drawable/line"  />
-
+        android:layout_toRightOf="@+id/imageView_item_cover"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="title"
+        android:textColor="@color/text_color_dark_black"
+        android:textSize="14sp" />
     <TextView
         android:id="@+id/textView_item_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView_item_cover"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="4dp"
         android:layout_toRightOf="@+id/imageView_item_cover"
-        android:ellipsize="end"
+        android:layout_below="@+id/textView_item_title"
         android:maxLines="2"
-        android:text="content"
-        android:textColor="#bfbfbf"
+        android:text=""
+        android:textColor="@color/text_color_light_black"
         android:textSize="14sp" />
 
 </RelativeLayout>

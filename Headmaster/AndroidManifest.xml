@@ -162,6 +162,13 @@
             <activity android:name="com.yibu.headmaster.BulletinHistoryActivity"
                 android:screenOrientation="portrait"></activity>
             
+            
+        <activity 
+            android:name="com.yibu.headmaster.StatisticsAct"
+            android:screenOrientation="portrait"
+            ></activity>
+        
+            
             <!-- 百度 -->
           <service
            	 android:name="com.baidu.location.f"
@@ -248,6 +255,8 @@
                 <category android:name="com.yibu.headmaster" />
             </intent-filter>
         </activity>
+        
+        
             <!-- Required  SDK核心功能-->
         <service
             android:name="cn.jpush.android.service.DownloadService"
