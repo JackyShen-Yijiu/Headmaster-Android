@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/base_titlebar_layout"
     android:layout_width="match_parent"
+    android:background="@color/bg_black"
     android:layout_height="@dimen/base_titlebar_height"
     android:orientation="vertical" >
 
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/data_title"
-            android:textColor="#fefefe"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <RelativeLayout
@@ -86,7 +87,8 @@
         android:layout_height="1dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:background="#2a2a2a"
+        android:background="@color/line_color"
+        android:visibility="gone"
         android:contentDescription="@string/app_name" />
 
 </LinearLayout>
