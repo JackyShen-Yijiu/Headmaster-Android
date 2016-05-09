@@ -19,6 +19,7 @@ import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
 import com.yibu.headmaster.PersonSettingActivity;
 import com.yibu.headmaster.PublishBulletinActivity;
+import com.yibu.headmaster.StatisticsAct;
 import com.joooonho.SelectableRoundedImageView;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;

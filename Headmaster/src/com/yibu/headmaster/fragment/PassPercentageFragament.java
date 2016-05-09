@@ -47,13 +47,11 @@ public class PassPercentageFragament extends BasePager{
 		b.putString("param2", param2);
 		frag.setArguments(b);
 		return frag;
-		
 	}
 	
 	 @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
-
 	        if (getArguments() != null) {
 	        	params1 = getArguments().getString("params1");
 	        	params2 = getArguments().getString("params1");

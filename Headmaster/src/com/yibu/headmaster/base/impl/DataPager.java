@@ -5,30 +5,22 @@ import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.github.lzyzsd.circleprogress.ArcProgress;
 import com.github.lzyzsd.circleprogress.DonutProgress;
+import com.jzjf.headmaster.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
-import com.yibu.headmaster.DataChartActivity;
 import com.yibu.headmaster.MainActivity;
-import com.jzjf.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
-import com.yibu.headmaster.bean.MainOfTodayBean;
+import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
 import com.yibu.headmaster.bean.MainOfWeekBean;
 import com.yibu.headmaster.bean.MainPageDataV2Bean;
-import com.yibu.headmaster.bean.MainPageDataV2Bean.Schoolstudentcount;
 import com.yibu.headmaster.event.ComplaintEvent;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
@@ -206,7 +198,7 @@ public class DataPager extends BasePager implements OnClickListener {
 
 	// 设置头部学校学生数量
 	private void setSchoolStudentCount(
-			List<Schoolstudentcount> schoolstudentcount) {
+			List<com.yibu.headmaster.bean.MainPageDataV2Bean.Schoolstudentcount> schoolstudentcount) {
 		
 		if (schoolstudentcount != null) {
 			for (int i = 0; i < schoolstudentcount.size(); i++) {

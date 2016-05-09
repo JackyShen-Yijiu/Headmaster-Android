@@ -13,7 +13,14 @@
         android:layout_marginLeft="12dp"
         android:textSize="14sp"
         android:text="TextView" />
-    
-    
+
+    <ImageView
+        android:id="@+id/item_percentage_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/arrow_down" />
    
 </RelativeLayout>
