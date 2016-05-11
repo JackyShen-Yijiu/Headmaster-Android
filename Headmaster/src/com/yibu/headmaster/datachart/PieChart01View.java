@@ -159,8 +159,8 @@ public class PieChart01View extends DemoView implements Runnable {
 			int sum = commentcount.goodcommnent + commentcount.badcomment
 					+ commentcount.generalcomment;
 			if (sum == 0) {
-				chartData.add(new PieData(null, "100%", 100, Color.rgb(123, 214,
-						92)));
+				chartData.add(new PieData(null, "暂无评价", 100, Color.rgb(140, 140,
+						140)));
 			} else {
 
 				int good = (int) (((commentcount.goodcommnent) / (sum * 1.0f)) * 100);

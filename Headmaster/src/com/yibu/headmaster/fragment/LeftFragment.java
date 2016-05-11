@@ -14,12 +14,9 @@ import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.ComplainActivity;
 import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
-<<<<<<< HEAD
-=======
 import com.yibu.headmaster.PersonSettingActivity;
 import com.yibu.headmaster.PublishBulletinActivity;
 import com.yibu.headmaster.StatisticsAct;
->>>>>>> 215e8a9de7d9c336c33d8174d3a6d916cb37e788
 import com.joooonho.SelectableRoundedImageView;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -35,6 +32,7 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 //	private TextView rlData;
 	private TextView rlComplain;
 	private TextView name;
+	private TextView school_name;
 
 	@Override
 	protected View initView(LayoutInflater inflater, ViewGroup container) {
@@ -48,7 +46,9 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 //		rlData = (TextView) view.findViewById(R.id.my_rl_data);
 		rlComplain = (TextView) view.findViewById(R.id.my_rl_complain);
 		name=(TextView)view.findViewById(R.id.coach_name);
+		school_name=(TextView)view.findViewById(R.id.school_name);
 		name.setText(HeadmasterApplication.app.userInfo.name);
+		school_name.setText(HeadmasterApplication.app.userInfo.driveschool.name);
 		initOnClick();
 		return view;
 	}

@@ -33,7 +33,7 @@
             android:drawableLeft="@drawable/good_item"
             android:drawablePadding="10dp"
             android:layout_toRightOf="@+id/RelativeLayout_ring"
-            android:text="好评"
+            android:text="好评  0%"
             android:textColor="@color/green"
             android:textSize="16sp" />
 
@@ -46,7 +46,7 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/well_item"
             android:drawablePadding="10dp"
-            android:text="中评"
+            android:text="中评  0%"
             android:textColor="@color/blue"
             android:textSize="14sp" />
 
@@ -59,7 +59,7 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/bad_item"
             android:drawablePadding="10dp"
-            android:text="差评" 
+            android:text="差评  0%" 
             android:textColor="@color/red"
             android:textSize="14sp"/>
     </RelativeLayout>
@@ -80,7 +80,7 @@
     	android:layout_marginLeft="16dp"
     	android:layout_centerVertical="true"
     	android:textColor="@color/text_color_dark_black"
-    	android:text="好评（147）"/>
+    	android:text="好评"/>
 </RelativeLayout>
 <ImageView 
     android:layout_width="match_parent"

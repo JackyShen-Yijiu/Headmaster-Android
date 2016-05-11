@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <RelativeLayout 
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+ <com.joooonho.SelectableRoundedImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/assess_student_image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="16dp"
+        app:sriv_border_color="#00000000"
+        app:sriv_border_width="1dip" />
+    
+ <TextView
+        android:id="@+id/textView_student_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/assess_student_image"
+        android:layout_marginLeft="14dp"
+        android:text="大苏打撒"
+        android:textColor="#8c8c8c"
+        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/textView_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:text="asdsad"
+        android:textColor="#2f2f2f"
+        android:textSize="12sp" />
+</RelativeLayout>
+
+    <TextView 
+        android:id="@+id/textView_coach_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dasdas"
+        android:layout_below="@+id/rl_main"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="14dp"
+        android:textColor="#2f2f2f"
+        android:textSize="14sp"/>
+   
+    <RatingBar
+        android:id="@+id/imageView_star"
+        style="@style/roomRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:isIndicator="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+         android:layout_below="@+id/rl_main"
+         android:layout_marginTop="16dp"
+        android:rating="0" />
+    
+    <TextView 
+        android:id="@+id/textView_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dasdas"
+        android:layout_below="@+id/textView_coach_id"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#2f2f2f"
+        android:textSize="14sp"/>
+    
+      <ImageView 
+          android:layout_width="match_parent"
+          android:layout_height="0.5dp"
+          android:layout_below="@+id/textView_content"
+          android:layout_marginTop="16dp"
+          android:background="@color/text_color_light_black"/>
+    
+</RelativeLayout>

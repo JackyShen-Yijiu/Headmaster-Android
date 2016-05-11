@@ -15,10 +15,12 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.ImageView.ScaleType;
 
 import com.squareup.picasso.Picasso;
 import com.yibu.common.Config.UserType;
 import com.yibu.headmaster.ChatActivity;
+import com.joooonho.SelectableRoundedImageView;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.bean.AssessBean.Commentlist;
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -36,7 +38,7 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 		AssessHolder holder = null;
 		if (convertView == null) {
 			holder = new AssessHolder();
-			convertView = View.inflate(context, R.layout.assess_listview_item,
+			convertView = View.inflate(context, R.layout.list_item_assess,
 					null);
 
 			holder.commentcontent = (TextView) convertView
@@ -45,23 +47,23 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 					.findViewById(R.id.textView_student_id);
 			holder.coachname = (TextView) convertView
 					.findViewById(R.id.textView_coach_id);
-			holder.subjectname = (TextView) convertView
-					.findViewById(R.id.textView_subject);
-			holder.classid = (TextView) convertView
-					.findViewById(R.id.textView_class);
+//			holder.subjectname = (TextView) convertView
+//					.findViewById(R.id.textView_subject);
+//			holder.classid = (TextView) convertView
+//					.findViewById(R.id.textView_class);
 			holder.time = (TextView) convertView
 					.findViewById(R.id.textView_time);
-			holder.studenthead = (ImageView) convertView
+			holder.studenthead = (SelectableRoundedImageView) convertView
 					.findViewById(R.id.assess_student_image);
-			holder.coachhead = (ImageView) convertView
-					.findViewById(R.id.assess_coach_image);
-			holder.talk = (ImageView) convertView
-					.findViewById(R.id.imageView_talk);
+//			holder.coachhead = (ImageView) convertView
+//					.findViewById(R.id.assess_coach_image);
+//			holder.talk = (ImageView) convertView
+//					.findViewById(R.id.imageView_talk);
 			holder.startLevel = (RatingBar) convertView
 					.findViewById(R.id.imageView_star);
-			holder.complaintSwitch = (CheckBox) convertView
-					.findViewById(R.id.checkBox_assess_switch);
-			holder.complaintSwitch.setVisibility(View.GONE);
+//			holder.complaintSwitch = (CheckBox) convertView
+//					.findViewById(R.id.checkBox_assess_switch);
+//			holder.complaintSwitch.setVisibility(View.GONE);
 			holder.startLevel.setVisibility(View.VISIBLE);
 
 			// ViewUtils.inject(holder, convertView);
@@ -74,11 +76,14 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 		// 设值
 		holder.commentcontent.setText(commentlist.commentcontent);
 		holder.studetname.setText(commentlist.studentinfo.name);
-		holder.coachname.setText(commentlist.coachinfo.name);
-		holder.subjectname.setText(commentlist.subject.name);
-		holder.classid.setText(commentlist.studentinfo.classtype.name);
+		holder.coachname.setText("教练:"+commentlist.coachinfo.name);
+//		holder.subjectname.setText(commentlist.subject.name);
+//		holder.classid.setText(commentlist.studentinfo.classtype.name);
 		holder.startLevel.setRating(commentlist.commentstarlevel);
-
+		
+		holder.studenthead.setScaleType(ScaleType.CENTER_CROP);
+		holder.studenthead.setImageResource(R.drawable.head_null);
+		holder.studenthead.setOval(true);
 		if (!TextUtils
 				.isEmpty(commentlist.studentinfo.headportrait.originalpic)) {
 			Picasso.with(HeadmasterApplication.getContext())
@@ -87,13 +92,13 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 					.into(holder.studenthead);
 
 		}
-		if (!TextUtils.isEmpty(commentlist.coachinfo.headportrait.originalpic)) {
-			Picasso.with(HeadmasterApplication.getContext())
-					.load(commentlist.coachinfo.headportrait.originalpic
-							+ "?imageView2/0/w/39/h/39").into(holder.coachhead);
-
-		}
-		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+//		if (!TextUtils.isEmpty(commentlist.coachinfo.headportrait.originalpic)) {
+//			Picasso.with(HeadmasterApplication.getContext())
+//					.load(commentlist.coachinfo.headportrait.originalpic
+//							+ "?imageView2/0/w/39/h/39").into(holder.coachhead);
+//
+//		}
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:ss");
 
 		Date date = new Date();
 
@@ -106,8 +111,8 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 
 		holder.time.setText(format1.format(date));
 
-		holder.coachhead
-				.setOnClickListener(new DeleteOnClickListener(position));
+//		holder.coachhead
+//				.setOnClickListener(new DeleteOnClickListener(position));
 		holder.studenthead.setOnClickListener(new DeleteOnClickListener(
 				position));
 		// holder.talk.setOnClickListener(new DeleteOnClickListener());
@@ -119,14 +124,14 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 		TextView commentcontent;
 		TextView studetname;
 		TextView coachname;
-		TextView subjectname;
-		TextView classid;
+//		TextView subjectname;
+//		TextView classid;
 		TextView time;
-		ImageView studenthead;
-		ImageView coachhead;
-		ImageView talk;
+		SelectableRoundedImageView studenthead;
+//		ImageView coachhead;
+//		ImageView talk;
 		RatingBar startLevel;
-		CheckBox complaintSwitch;
+//		CheckBox complaintSwitch;
 	}
 
 	class DeleteOnClickListener implements OnClickListener {

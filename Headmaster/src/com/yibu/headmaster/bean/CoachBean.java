@@ -18,6 +18,9 @@ public class CoachBean implements Serializable{
 	public int passrate;
 	public String mobile;
 	public Subject[]subject;
+	public int isonline;
+	public int coursecountr;
+	
 	
 	public class Subject implements Serializable {
 

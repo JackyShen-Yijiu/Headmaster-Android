@@ -3,15 +3,18 @@ package com.yibu.headmaster.base.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.SearchManager.OnCancelListener;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.google.gson.reflect.TypeToken;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
@@ -25,14 +28,13 @@ import com.yibu.headmaster.bean.AssessBean;
 import com.yibu.headmaster.bean.AssessBean.Commentcount;
 import com.yibu.headmaster.bean.AssessBean.Commentlist;
 import com.yibu.headmaster.bean.ComplaintBean;
-import com.yibu.headmaster.datachart.DountChartDemo;
 import com.yibu.headmaster.datachart.PieChart01View;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public class AssessDetailPager extends BasePager {
+public class AssessDetailPager extends BasePager implements OnClickListener{
 
 	private View view;
 	private ArrayList<Commentlist> listAssess = new ArrayList<Commentlist>();
@@ -40,7 +42,7 @@ public class AssessDetailPager extends BasePager {
 	private AssessAdapter adapterAssess;
 	private ComplaintAdapter adapterComplaint;
 	private int curpage = 1;
-	private int commentlevel = 1; // 评价等级 1 差评2 中评 3 好评
+	private int commentlevel = 3; // 评价等级 1 差评2 中评 3 好评
 	private View viewHeader;
 	// 刷新
 	private ProgressBar progressBar_main;
@@ -50,24 +52,36 @@ public class AssessDetailPager extends BasePager {
 
 	private PieChart01View assessThan;// 评价比列
 
-	private int searchtype = 1; // 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
+	private int searchtype = 1; // 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年 6： 上周 7 上月
 	private boolean hasMoreData = true;
+	private TextView tv_assess_number;
+	private TextView textView1;
+	private TextView textView2;
+	private TextView textView3;
 
 	public AssessDetailPager(Context context, int i, int searchtype) {
 		super(context);
-		commentlevel = i;
-		// switch (i) {
-		// case 1:
-		// this.commentlevel = 3;
-		// break;
-		// case 3:
-		// this.commentlevel = 1;
-		// break;
-		//
-		// default:
-		// commentlevel = i;
-		// break;
-		// }
+		searchtype = i;
+		 switch (i) {
+		 case 1:
+			  this.searchtype = 7;
+			 break;
+		 case 2:
+			  this.searchtype = 6;
+			 break;
+		 case 3:
+			  this.searchtype = 1;
+			 break;
+		 case 4:
+			  this.searchtype = 3;
+			 break;
+		 case 5:
+			  this.searchtype = 4;
+			 break;
+		 default:
+			 this.searchtype = 1;
+		 break;
+		 }
 		this.searchtype = searchtype;
 	}
 
@@ -87,8 +101,16 @@ public class AssessDetailPager extends BasePager {
 		viewHeader = View.inflate(mContext, R.layout.assess_head_view, null);
 		relativeLayout_ring = (RelativeLayout) viewHeader
 				.findViewById(R.id.RelativeLayout_ring);
+		tv_assess_number=(TextView)viewHeader.findViewById(R.id.tv_assess_number);
+		textView1=(TextView)viewHeader.findViewById(R.id.textView1);
+		textView2=(TextView)viewHeader.findViewById(R.id.textView2);
+		textView3=(TextView)viewHeader.findViewById(R.id.textView3);
 		list_assess.addHeaderView(viewHeader);
 
+		textView1.setOnClickListener(this);
+		textView2.setOnClickListener(this);
+		textView3.setOnClickListener(this);
+		
 		return view;
 	}
 
@@ -160,7 +182,6 @@ public class AssessDetailPager extends BasePager {
 					+ "&index=" + curpage + "&count=10&searchtype="
 					+ searchtype + "&commentlevel=" + commentlevel, handler);
 //		}
-
 	}
 
 	@Override
@@ -223,10 +244,57 @@ public class AssessDetailPager extends BasePager {
 				params.height = LayoutParams.MATCH_PARENT;
 				params.width = LayoutParams.MATCH_PARENT;
 				assessThan.setLayoutParams(params);
+				//百分比
+				int sum = commentcount.goodcommnent + commentcount.badcomment
+						+ commentcount.generalcomment;
+				int good = (int) (((commentcount.goodcommnent) / (sum * 1.0f)) * 100);
+				int bad = (int) (((commentcount.badcomment) / (sum * 1.0f)) * 100);
+				int general =(int) (((commentcount.generalcomment) / (sum * 1.0f)) * 100);
+				
+				textView1.setText("好评  "+good+"%");
+				textView2.setText("中评  "+general+"%");
+				textView3.setText("差评  "+bad+"%");
+				
+				if (commentlevel==3) {
+					tv_assess_number.setText("好评("+commentcount.goodcommnent+")");
+				}else if(commentlevel==2){
+					tv_assess_number.setText("中评("+commentcount.generalcomment+")");
+				}else if(commentlevel==1){
+					tv_assess_number.setText("差评("+commentcount.badcomment+")");
+				}
+				
 			}
 			progressBar_main.setVisibility(View.GONE);
 //		}
 		pullToRefreshListView.onRefreshComplete();
 
+	}
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.textView1:
+			commentlevel=3;
+			loadNetworkData();
+			textView1.setTextSize(16);
+			textView2.setTextSize(14);
+			textView3.setTextSize(14);
+			break;
+		case R.id.textView2:
+			commentlevel=2;
+			loadNetworkData();
+			textView2.setTextSize(16);
+			textView1.setTextSize(14);
+			textView3.setTextSize(14);
+			break;
+		case R.id.textView3:
+			commentlevel=1;
+			loadNetworkData();
+			textView3.setTextSize(16);
+			textView1.setTextSize(14);
+			textView2.setTextSize(14);
+			break;
+		
+		}
 	}
 }

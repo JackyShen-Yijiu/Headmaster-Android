@@ -39,34 +39,10 @@ public class AssessActivity extends BaseActivity {
 //		assess_number=getIntent().getIntExtra("assessnumber", 0);
 		currentTime = getIntent().getIntExtra("title", 1);
 		commentlevel = getIntent().getIntExtra("commentlevel", 1);
-		baseTitle.setText(getTitle(currentTime) + "评价详情");
+		baseTitle.setText("学员评价");
 
 	}
 
-	private String getTitle(int searchtype) {
-		String title = null;
-		switch (searchtype) {
-		case 1:
-			title = "今天";
-			break;
-		case 2:
-			title = "昨天";
-			break;
-		case 3:
-			title = "本周";
-			break;
-		case 4:
-			title = "本月";
-			break;
-		case 5:
-			title = "本年";
-			break;
-
-		default:
-			break;
-		}
-		return title;
-	}
 
 	@Override
 	protected void initListener() {

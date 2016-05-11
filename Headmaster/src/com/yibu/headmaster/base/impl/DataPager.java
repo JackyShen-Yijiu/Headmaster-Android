@@ -15,13 +15,10 @@ import com.jzjf.headmaster.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
+import com.yibu.headmaster.ComplainActivity;
 import com.yibu.headmaster.MainActivity;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
-<<<<<<< HEAD
-=======
-import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
->>>>>>> 215e8a9de7d9c336c33d8174d3a6d916cb37e788
 import com.yibu.headmaster.bean.MainOfWeekBean;
 import com.yibu.headmaster.bean.MainPageDataV2Bean;
 import com.yibu.headmaster.event.ComplaintEvent;
@@ -268,14 +265,14 @@ public class DataPager extends BasePager implements OnClickListener {
 		case R.id.data_star_1:
 			Intent intent2 = new Intent(mContext, AssessActivity.class);
 			intent2.putExtra("title", searchtype);
-			intent2.putExtra("commentlevel", 1);
+			intent2.putExtra("commentlevel", 3);
 //			intent2.putExtra("assessnumber", mainPageDataV2Bean.commentstudentcount.goodcommnent);
 			mContext.startActivity(intent2);
 			break;
 		case R.id.data_star_2:
 			Intent intent3 = new Intent(mContext, AssessActivity.class);
 			intent3.putExtra("title", searchtype);
-			intent3.putExtra("commentlevel", 2);
+			intent3.putExtra("commentlevel", 3);
 			mContext.startActivity(intent3);
 			break;
 		case R.id.data_star_3:
@@ -332,10 +329,7 @@ public class DataPager extends BasePager implements OnClickListener {
 	public void onEvent(ComplaintEvent event){
 		//
 		LogUtil.print("----投诉onEvent");
-		Intent intent = new Intent(mContext, AssessActivity.class);
-//		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		intent.putExtra("title", searchtype);
-		intent.putExtra("commentlevel", 4);
+		Intent intent = new Intent(mContext, ComplainActivity.class);
 		mContext.startActivity(intent);
 	}
 	
