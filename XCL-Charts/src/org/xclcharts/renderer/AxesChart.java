@@ -34,6 +34,7 @@ import org.xclcharts.renderer.plot.AxisTitleRender;
 
 import android.graphics.Canvas;
 import android.graphics.Paint.Align;
+import android.util.Log;
 
 /**
  * @ClassName AxesChart
@@ -155,10 +156,10 @@ public class AxesChart extends EventChart {
 
 		if (null == lstLabels)
 			return;
-
 		boolean showTicks = true;
 		for (int i = 0; i < lstLabels.size(); i++) {
 			PlotAxisTick t = lstLabels.get(i);
+			
 			switch (mCategoryAxisLocation) {
 			case LEFT: // Y
 			case RIGHT:
@@ -174,7 +175,6 @@ public class AxesChart extends EventChart {
 			case HORIZONTAL_CENTER:
 				XEnum.ODD_EVEN oe = (i % 2 != 0) ? XEnum.ODD_EVEN.ODD
 						: XEnum.ODD_EVEN.EVEN;
-
 				if (!t.isShowTickMarks() || !isDrawXAxisTickMarks(t.X, mMoveX))
 					showTicks = false;
 				categoryAxis.renderAxisVerticalTick(canvas, t.X, t.Y, t.Label,
@@ -281,8 +281,8 @@ public class AxesChart extends EventChart {
 	 */
 	public float getVerticalXSteps(int tickCount) {
 		// 柱形图为了让柱形显示在tick的中间，会多出一个步长即(dataSet.size()+1)
-		// return (div(getPlotScreenWidth(), tickCount));
-		return 85;
+		 return (div(getPlotScreenWidth(), tickCount));
+//		return 85;
 	}
 
 	/**

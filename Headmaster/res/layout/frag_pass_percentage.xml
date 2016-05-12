@@ -7,7 +7,9 @@
     <ExpandableListView
         android:id="@+id/frag_pass_percentage_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:groupIndicator="@null"
+         >
     </ExpandableListView>
 
 </LinearLayout>

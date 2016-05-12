@@ -47,6 +47,7 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 	protected static int screenHeight;
 	protected static float screenDensity;
 	protected static int densityDpi;
+	
 
 	protected AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler() {
 
@@ -59,7 +60,6 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
 				ToastUtil.showToast(BaseActivity.this, msg);
 			} else {
 				processSuccess(value);
-
 			}
 
 		}

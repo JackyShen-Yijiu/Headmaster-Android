@@ -3,21 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/textView1"
+    
+    <LinearLayout 
+        android:id="@+id/ll1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
         android:layout_alignParentTop="true"
         android:background="@color/white"
         android:gravity="center"
-        android:text="今日报名15人" />
+        >
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="今日报名" />
+        <TextView
+        android:id="@+id/act_statistics_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/blue"
+        android:text="16" />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="人" />
+        
+    </LinearLayout>
+    
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/act_statistics_bottom"
-        android:layout_below="@+id/textView1"
-        android:background="@color/bg_grey"
+        android:layout_below="@+id/ll1"
+        android:background="#f7f7f7"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -29,29 +50,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_margin="5dp"
+                android:layout_margin="12dp"
                 android:orientation="horizontal" >
 
                 <RadioButton
                     android:id="@+id/radio0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@null"
+                    android:layout_width="56dp"
+                    android:layout_height="32dp"
                     android:checked="true"
+                    style="@style/myradiobtn_left"
                     android:text="本周" />
+                
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/line_color"
+                     />
 
+                
                 <RadioButton
                     android:id="@+id/radio1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@null"
+                    android:layout_width="56dp"
+                    android:layout_height="32dp"
+                    style="@style/myradiobtn_middle"
                     android:text="本月" />
 
+                 <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                     android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/line_color"
+                     />
+                
                 <RadioButton
                     android:id="@+id/radio2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@null"
+                    android:layout_width="56dp"
+                    android:layout_height="32dp"
+                    style="@style/myradiobtn_right"
                     android:text="本年" />
             </RadioGroup>
             
@@ -62,19 +100,22 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/act_statist_current"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/red"
                 android:text="2016年4月第四周" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/act_statistics_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginRight="12dp"
                 android:text="共142人" />
 
         </RelativeLayout>
@@ -82,8 +123,12 @@
         <FrameLayout
             android:id="@+id/act_statistics_line"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="32dp"
+            android:paddingRight="10dp"
+             >
             
         </FrameLayout>
 
@@ -102,12 +147,17 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="今日报名15人" />
+            android:textSize="14sp"
+            android:textColor="@color/text_color_dark_black"
+            android:text="当前在学人数" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
             android:orientation="horizontal" >
 
             <LinearLayout
@@ -118,10 +168,11 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/act_statist_subject1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textColor="@color/blue"
                     android:text="46" />
 
                 <TextView
@@ -129,8 +180,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textColor="@color/text_color_light_black"
                     android:text="科目一" />
             </LinearLayout>
+            
+            <View 
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/line_color"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -140,19 +198,26 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/act_statist_subject2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textColor="@color/blue"
                     android:text="46" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="科目一" />
+                    android:textColor="@color/text_color_light_black"
+                    android:text="科目二" />
             </LinearLayout>
 
+            <View 
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/line_color"
+                />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -161,19 +226,25 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/act_statist_subject3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textColor="@color/blue"
                     android:text="46" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="科目一" />
+                    android:textColor="@color/text_color_light_black"
+                    android:text="科目三" />
             </LinearLayout>
-
+			<View 
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/line_color"
+                />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -182,17 +253,19 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/act_statist_subject4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textColor="@color/blue"
                     android:text="46" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="科目一" />
+                    android:textColor="@color/text_color_light_black"
+                    android:text="科目四" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

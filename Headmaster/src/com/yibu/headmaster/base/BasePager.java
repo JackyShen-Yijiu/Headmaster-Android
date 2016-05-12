@@ -40,46 +40,46 @@ public abstract class BasePager extends Fragment {
 
 		}
 
-		private String parseJson(byte[] responseBody) {
-			String value = null;
-			JSONObject dataObject = null;
-			JSONArray dataArray = null;
-			String dataString = null;
-			try {
-
-				JSONObject jsonObject = new JSONObject(new String(responseBody));
-				result = jsonObject.getString("type");
-				msg = jsonObject.getString("msg");
-				try {
-					dataObject = jsonObject.getJSONObject("data");
-
-				} catch (Exception e2) {
-					try {
-						dataArray = jsonObject.getJSONArray("data");
-					} catch (Exception e3) {
-						dataString = jsonObject.getString("data");
-					}
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			if (dataObject != null) {
-				value = dataObject.toString();
-			} else if (dataArray != null) {
-				value = dataArray.toString();
-
-			} else if (dataString != null) {
-				value = dataString;
-			}
-			return value;
-		}
-
 		@Override
 		public void onFailure(int statusCode, Header[] headers,
 				byte[] responseBody, Throwable error) {
 		}
 	};
+	
+	public String parseJson(byte[] responseBody) {
+		String value = null;
+		JSONObject dataObject = null;
+		JSONArray dataArray = null;
+		String dataString = null;
+		try {
+
+			JSONObject jsonObject = new JSONObject(new String(responseBody));
+			result = jsonObject.getString("type");
+			msg = jsonObject.getString("msg");
+			try {
+				dataObject = jsonObject.getJSONObject("data");
+
+			} catch (Exception e2) {
+				try {
+					dataArray = jsonObject.getJSONArray("data");
+				} catch (Exception e3) {
+					dataString = jsonObject.getString("data");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (dataObject != null) {
+			value = dataObject.toString();
+		} else if (dataArray != null) {
+			value = dataArray.toString();
+
+		} else if (dataString != null) {
+			value = dataString;
+		}
+		return value;
+	}
 
 	// @Override
 	// public void onResume() {

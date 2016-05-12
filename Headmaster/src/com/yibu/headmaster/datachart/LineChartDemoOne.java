@@ -1,5 +1,6 @@
 package com.yibu.headmaster.datachart;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.xclcharts.chart.LineChart;
 import org.xclcharts.chart.LineData;
 import org.xclcharts.common.DensityUtil;
 import org.xclcharts.renderer.XEnum;
+import org.xclcharts.renderer.info.AnchorDataPoint;
 import org.xclcharts.renderer.plot.PlotGrid;
 
 import android.content.Context;
@@ -33,7 +35,10 @@ public class LineChartDemoOne extends DemoView {
 	private LinkedList<String> mLabels = new LinkedList<String>();
 	// 数据集合
 	private LinkedList<AreaData> mDataset = new LinkedList<AreaData>();
-
+	
+	//批注
+	private List<AnchorDataPoint> anchor = new ArrayList<AnchorDataPoint>();
+	
 	// 用来显示折线,右边及顶部的轴
 	private LineChart chartLn = new LineChart();
 	private LinkedList<LineData> chartData = new LinkedList<LineData>();
@@ -44,7 +49,7 @@ public class LineChartDemoOne extends DemoView {
 	public LineChartDemoOne(Context context, List<MoreDataBean> lineData) {
 		super(context);
 		this.lineData = lineData;
-		initView();
+		initView(); 
 
 	}
 
@@ -65,13 +70,21 @@ public class LineChartDemoOne extends DemoView {
 	// }
 
 	public void initView() {
-
 		chartLabels();
 		chartDataSetLn();
+		AnchorInit();
 		chartRenderLn();
 		// 綁定手势滑动事件
 		this.bindTouch(this, chart);
 		this.bindTouch(this, chartLn);
+	}
+
+	private void AnchorInit() {
+		AnchorDataPoint point = new AnchorDataPoint();
+		for (MoreDataBean data : lineData) {
+			point.setAnchor(data.countY+"");
+			anchor.add(point);
+		}
 	}
 
 	@Override
@@ -106,18 +119,26 @@ public class LineChartDemoOne extends DemoView {
 
 			// 设定数据源
 			chartLn.setCategories(mLabels);
+			
 			chartLn.setDataSource(chartData);
+			
+			chartLn.setAnchorDataPoint(anchor);
 			// 禁止缩放
 			chartLn.disableScale();
 
 			// 背景网格
 			chartLn.getPlotGrid().showHorizontalLines();
-			chartLn.getPlotGrid().showVerticalLines();
+			//设置横线颜色
+			chartLn.getPlotGrid().getHorizontalLinePaint().setColor(Color.parseColor("#e8e8ed"));
+			
+//			chartLn.getPlotGrid().showVerticalLines();
+			
 			// chartLn.getPlotGrid().showEvenRowBgColor();
 			// chartLn.getPlotGrid().showOddRowBgColor();
-			chartLn.getPlotGrid().getHorizontalLinePaint();
-			chartLn.getPlotGrid().getVerticalLinePaint();
+//			chartLn.getPlotGrid().getHorizontalLinePaint();
+//			chartLn.getPlotGrid().getVerticalLinePaint();
 			// chartLn.getPlotGrid().setEvenRowsFillVisible(true);
+			
 
 			int max = Integer.MIN_VALUE;
 			for (int i = 0; i < lineData.size(); i++) {
@@ -149,9 +170,9 @@ public class LineChartDemoOne extends DemoView {
 
 			// chartLn.getDataAxis().setTickLabelRotateAngle(-90);
 			chartLn.getDataAxis().getTickLabelPaint()
-					.setColor(Color.rgb(1, 226, 182));
+					.setColor(Color.rgb(61, 139, 255));
 			chartLn.getCategoryAxis().getTickLabelPaint()
-					.setColor(Color.rgb(1, 226, 182));
+					.setColor(Color.rgb(232, 0, 49));
 			// 隐藏图列
 			chartLn.getPlotLegend().hide();
 			// 调整轴显示位置
@@ -206,15 +227,19 @@ public class LineChartDemoOne extends DemoView {
 
 		}
 
-		LineData lineData1 = new LineData("直线", dataSeries1, Color.rgb(1, 226,
-				182));
-		lineData1.setDotStyle(XEnum.DotStyle.DOT);
-		lineData1.getDotLabelPaint().setColor(Color.rgb(1, 226, 182));
+		LineData lineData1 = new LineData("直线", dataSeries1, Color.rgb(61, 139,
+				255));
+		lineData1.setDotStyle(XEnum.DotStyle.RING);
+		lineData1.getDotLabelPaint().setColor(Color.rgb(232, 0, 49));
 		lineData1.setLabelVisible(false);
 		// lineData1.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
 		lineData1.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);
-
+		
+		
+		lineData1.getLinePaint().setStrokeWidth(2);
+		lineData1.getDotPaint().setStrokeWidth(2);
+		lineData1.setDotRadius(6);
 		chartData.add(lineData1);
 
 	}
@@ -228,12 +253,13 @@ public class LineChartDemoOne extends DemoView {
 			}
 
 		}
-		if (mLabels.size() < 7) {
-			int temp = (7 - mLabels.size());
-			for (int j = 0; j < temp; j++) {
-				mLabels.add("");
-			}
-		}
+		//强制 补齐7个
+//		if (mLabels.size() < 7) {
+//			int temp = (7 - mLabels.size());
+//			for (int j = 0; j < temp; j++) {
+//				mLabels.add("");
+//			}
+//		}
 
 	}
 

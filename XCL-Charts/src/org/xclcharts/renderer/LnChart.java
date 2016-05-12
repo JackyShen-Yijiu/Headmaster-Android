@@ -191,11 +191,14 @@ public class LnChart extends AxesChart {
 			case VERTICAL_CENTER:
 				// 依起始数据坐标与数据刻度间距算出上移高度
 				currentY = sub(plotArea.getBottom(), mul(i , YSteps));
-
+				//灰色
+//				canvas.drawRGB(140, 140, 140);
 				// 从左到右的横向网格线
 				drawHorizontalGridLines(canvas, plotArea.getLeft(),
 						plotArea.getRight(), i, tickCount + 1, YSteps, currentY);
 
+//				canvas.drawRGB(255, 255, 255);
+				
 				// 这个有点问题，要处理下，
 				// 隐藏时应当不需要这个，但目前主明细模式下，会有问题，加 了一个都显示不出来
 				// 先省略了
@@ -215,9 +218,9 @@ public class LnChart extends AxesChart {
 				currentX = add(plotArea.getLeft(), mul(i , XSteps));
 
 				// 绘制竖向网格线
-				drawVerticalGridLines(canvas, plotArea.getTop(),
-						plotArea.getBottom(), i, tickCount + 1, XSteps,
-						currentX);
+//				drawVerticalGridLines(canvas, plotArea.getTop(),
+//						plotArea.getBottom(), i, tickCount + 1, XSteps,
+//						currentX);
 
 				// if(!dataAxis.isShowAxisLabels())continue;
 

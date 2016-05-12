@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+<item android:drawable="@drawable/shape_study_content_selected" android:state_checkable="true" android:state_pressed="true" android:state_selected="true"/>
+    <item android:drawable="@drawable/shape_study_content_default" />
+    -->
+
+    <item  android:state_pressed="true" >
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/blue"></solid>
+            <corners
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="4dp"
+                android:bottomLeftRadius="4dp"
+                 />
+            <stroke
+                android:color="@color/blue"
+                android:width="1dp"
+                ></stroke>
+            <padding
+                android:bottom="5dp"
+                android:top="5dp"
+                android:left="5dp"
+                android:right="5dp"
+                ></padding>
+        </shape>
+    </item>
+
+    <item  android:state_checked="true">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/blue"></solid>
+            <corners
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="4dp"
+                android:bottomLeftRadius="4dp"/>
+            <stroke
+                android:color="@color/blue"
+                android:width="1dp"
+
+                ></stroke>
+            <padding
+                android:bottom="5dp"
+                android:top="5dp"
+                android:left="5dp"
+                android:right="5dp"
+                ></padding>
+        </shape>
+    </item>
+
+    <item >
+        <shape>
+            <solid android:color="@color/white"></solid>
+            <corners
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="4dp"
+                android:bottomLeftRadius="4dp" />
+            <stroke
+                android:color="@color/line_color"
+                android:width="1dp"
+                ></stroke>
+            <padding
+                android:bottom="5dp"
+                android:top="5dp"
+                android:left="5dp"
+                android:right="5dp"
+                ></padding>
+        </shape>
+        
+
+    </item>
+    
+    
+
+</selector>

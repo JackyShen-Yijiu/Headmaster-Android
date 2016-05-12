@@ -16,6 +16,8 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.MainActivity;
+import com.yibu.headmaster.PassPercentageAct;
+import com.yibu.headmaster.StatisticsAct;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePager;
 import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
@@ -93,6 +95,7 @@ public class DataPager extends BasePager implements OnClickListener {
 	private int searchtype = 1;// 查询类型 查询时间类型：1 今天2 昨天 3 一周 4 本月5本年
 
 	private MainActivity activity;
+	private MainPageDataV2Bean todayBean;
 
 	public DataPager(Context context) {
 		super(context);
@@ -128,7 +131,7 @@ public class DataPager extends BasePager implements OnClickListener {
 	@Override
 	public void process(String data) {
 
-		MainPageDataV2Bean todayBean = JsonUtil.parseJsonToBean(data,
+		todayBean = JsonUtil.parseJsonToBean(data,
 				MainPageDataV2Bean.class);
 		//评论数
 		setCommnent(todayBean);
@@ -285,27 +288,53 @@ public class DataPager extends BasePager implements OnClickListener {
 			
 		case R.id.ll_subject_one_student:
 			//学生数量
+			Intent intent6 = new Intent(mContext, StatisticsAct.class);
+			intent6.putExtra("type", 1);
+			intent6.putExtra("todayBean", todayBean);
+			mContext.startActivity(intent6);
 			break;
 		case R.id.ll_subject_two_student:
+			Intent intent7 = new Intent(mContext, StatisticsAct.class);
+			intent7.putExtra("type", 1);
+			intent7.putExtra("todayBean", todayBean);
+			mContext.startActivity(intent7);
 			break;
 		case R.id.ll_subject_three_student:
+			Intent intent8 = new Intent(mContext, StatisticsAct.class);
+			intent8.putExtra("type", 1);
+			intent8.putExtra("todayBean", todayBean);
+			mContext.startActivity(intent8);
 			break;
 		case R.id.ll_subject_four_student:
+			Intent intent9 = new Intent(mContext, StatisticsAct.class);
+			intent9.putExtra("type", 1);
+			intent9.putExtra("todayBean", todayBean);
+			mContext.startActivity(intent9);
 			break;
 			
 			
 		case R.id.ll_pass_percent_subject_one:
+			toPercentage(0);
 			//考试合格率
 			break;
 		case R.id.ll_pass_percent_subject_two:
+			toPercentage(1);
 			break;
 		case R.id.ll_pass_percent_subject_three:
+			toPercentage(2);
 			break;
 		case R.id.ll_pass_percent_subject_four:
+			toPercentage(3);
 			break;
 		default:
 			break;
 		}
+	}
+	
+	private void toPercentage(int type){
+		Intent i1 = new Intent(mContext,PassPercentageAct.class);
+		i1.putExtra("current", type);
+		mContext.startActivity(i1);
 	}
 	
 	
