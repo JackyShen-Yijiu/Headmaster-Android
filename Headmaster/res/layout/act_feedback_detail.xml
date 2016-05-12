@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/act_feedback_ic"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/app_logo" />
+
+        <TextView
+            android:id="@+id/act_feedback_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/act_feedback_ic"
+            android:text="TextView"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/act_feedback_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/act_feedback_name"
+            android:layout_below="@+id/act_feedback_name"
+            android:layout_marginTop="12dp"
+            android:text="TextView"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/act_feedback_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/act_feedback_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:text="2016/06/07 12:30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/act_feedback_time"
+            android:layout_marginTop="48dp"
+            android:background="@color/line_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl1" >
+
+        <ImageView
+            android:id="@+id/act_feedback_response_ic"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/app_logo" />
+
+        <TextView
+            android:id="@+id/act_feedback_response_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="36dp"
+            android:layout_toRightOf="@+id/act_feedback_response_ic"
+            android:text="TextView"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/act_feedback_response_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/act_feedback_response_name"
+            android:layout_below="@+id/act_feedback_response_name"
+            android:layout_marginTop="12dp"
+            android:text="TextView"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/act_feedback_response_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/act_feedback_response_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:text="2016/06/07 12:30" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f7f7f7" >
+
+        <EditText
+            android:id="@+id/act_feedback_et"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="12dp"
+            android:layout_toLeftOf="@+id/act_feedback_btn"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <ImageView
+            android:id="@+id/act_feedback_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:src="@drawable/chat_more_normal" />
+    </RelativeLayout>
+
+</RelativeLayout>

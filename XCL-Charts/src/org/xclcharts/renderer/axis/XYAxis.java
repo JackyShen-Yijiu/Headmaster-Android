@@ -31,6 +31,7 @@ import org.xclcharts.renderer.XEnum;
 import android.graphics.Canvas;
 import android.graphics.Paint.Align;
 import android.graphics.Path;
+import android.util.Log;
 
 /**
  * @ClassName XYAxis
@@ -237,6 +238,8 @@ public class XYAxis extends Axis {
 	private void renderHorizontalTickLabels(float chatLeft, float plotLeft,
 			Canvas canvas, float labelStartX, float labelStartY,
 			float markeStopX, String text) {
+		Log.d("tag","render---xxxxx>"+text);
+		
 		float labelHeight = DrawHelper.getInstance().getPaintFontHeight(
 				getTickLabelPaint());
 		float textHeight = labelHeight / 4;
@@ -359,7 +362,7 @@ public class XYAxis extends Axis {
 			DrawHelper.getInstance().drawRotateText(getFormatterLabel(text),
 					labelX, currY, // labelsStartY,
 					getTickLabelRotateAngle(), canvas, getTickLabelPaint());
-			// Log.e("t2","2angle:"+Float.toString(getTickLabelRotateAngle()));
+			 Log.e("t2",text+"2angle:"+Float.toString(getTickLabelRotateAngle()));
 		}
 	}
 

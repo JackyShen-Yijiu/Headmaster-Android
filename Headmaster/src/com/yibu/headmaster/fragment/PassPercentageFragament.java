@@ -1,28 +1,26 @@
 package com.yibu.headmaster.fragment;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.http.Header;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+import android.widget.ExpandableListView.OnGroupClickListener;
 
 import com.google.gson.reflect.TypeToken;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.jzjf.headmaster.R;
-import com.yibu.headmaster.adapter.AssessAdapter;
-import com.yibu.headmaster.adapter.ComplaintAdapter;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yibu.headmaster.adapter.PercentageAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePagerFragment;
-import com.yibu.headmaster.bean.ComplaintBean;
+import com.yibu.headmaster.bean.MonthData;
+import com.yibu.headmaster.bean.PassBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
@@ -37,8 +35,16 @@ public class PassPercentageFragament extends BasePagerFragment{
 	private ExpandableListView lv;
 	
 	PercentageAdapter adapter;
-	
+	/**科目 N*/
 	private String params1,params2;
+	
+	private Map<String,List<PassBean>> map = new HashMap<String,List<PassBean>>();
+	
+//	private String tempDate = "";
+	/**当前父 id*/
+	private int tempDate = 0;
+	
+//	List<PassBean> detailList = new ArrayList<PassBean>();
 	
 	public static PassPercentageFragament getInstance(Context context,String param1,String param2){
 		PassPercentageFragament frag = new PassPercentageFragament(context);
@@ -57,22 +63,24 @@ public class PassPercentageFragament extends BasePagerFragment{
 	        	params2 = getArguments().getString("params1");
 	        }
 	    }
-	
-
-	
 
 	public PassPercentageFragament(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void process(String data) {
-		
-//		List<ComplaintBean> comList = (List<ComplaintBean>) JsonUtil
-//				.parseJsonToList(data,
-//						new TypeToken<List<ComplaintBean>>() {
-//						}.getType());
+		LogUtil.print("json------->"+data);
+		try{//月份
+			List<MonthData> comList = (List<MonthData>) JsonUtil
+					.parseJsonToList(data,
+							new TypeToken<List<MonthData>>() {
+							}.getType());
+			adapter.setDataMonth(comList);
+		}catch(Exception e){
+			//详细列表
+			
+		}
 //		adapter.setData();
 	}
 	
@@ -82,21 +90,82 @@ public class PassPercentageFragament extends BasePagerFragment{
 		lv = (ExpandableListView) view.findViewById(R.id.frag_pass_percentage_lv);
 		adapter = new PercentageAdapter(getActivity());
 		lv.setAdapter(adapter);
-
+		lv.setOnGroupClickListener(new OnGroupClickListener() {
+			
+			@Override
+			public boolean onGroupClick(ExpandableListView parent, View v,
+					int groupPosition, long id) {
+				if(lv.isGroupExpanded(groupPosition)){//关闭
+					LogUtil.print("关闭");
+				}else{// 展开
+					LogUtil.print("展开");
+					tempDate = groupPosition;
+					loadExamInfor(adapter.getGroup(groupPosition)._id,groupPosition);
+				}
+				return false;
+			}
+		});
 		return view;
 	}
 
 	@Override
 	public void initData() {
-		loadNetworkData();
+		loadMonthData();
 	}
 
-	private void loadNetworkData() {
-		ApiHttpClient.get("statistics/complaintdetails?userid="
+	private void loadMonthData() {
+		LogUtil.print("month-->"+params1);
+		ApiHttpClient.get("statistics/getexammonth?userid="
 				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
 				+ HeadmasterApplication.app.userInfo.driveschool.schoolid
-				+ "&index="  + "&count=10", handler);
+				+ "&subjectid=" +params1 
+				, handler);
 
+	}
+	
+	
+	/**
+	 * 按照月份请求
+	 */
+	public void loadExamInfor(String date,int id){
+		if(map.containsKey(id+"")){//如果已经请求过了
+			return;
+		}
+		
+		String[] temp = date.split("-");
+//		String url = "statistics/getexaminfo";
+		ApiHttpClient.get("statistics/getexaminfo?userid="
+				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
+				+ HeadmasterApplication.app.userInfo.driveschool.schoolid
+				+ "&subjectid=" +params1 
+				+ "&year="+temp[0]
+				+ "&month="+temp[1], new AsyncHttpResponseHandler(){
+
+					@Override
+					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+							Throwable arg3) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+						String value = parseJson(arg2);
+						if (!TextUtils.isEmpty(msg)) {
+							// 加载失败，弹出失败对话框
+							ToastUtil.showToast(mContext, msg);
+						} else {
+							List<PassBean> detailList = (List<PassBean>) JsonUtil
+									.parseJsonToList(value,
+											new TypeToken<List<PassBean>>() {
+											}.getType());
+							map.put(tempDate+"", detailList);
+							adapter.setDataDetail(map);	
+						}
+						
+					}
+					
+				});
 	}
 
 	@Override

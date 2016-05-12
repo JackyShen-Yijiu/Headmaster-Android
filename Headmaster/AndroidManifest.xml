@@ -161,6 +161,10 @@
                 android:screenOrientation="portrait"></activity>
             <activity android:name="com.yibu.headmaster.BulletinHistoryActivity"
                 android:screenOrientation="portrait"></activity>
+
+            <activity android:name="com.yibu.headmaster.PassPercentageAct"
+                android:screenOrientation="portrait"></activity>
+            
             <activity android:name="com.yibu.headmaster.CoachFeedbackDetailActivity"
                 android:screenOrientation="portrait"></activity>
             

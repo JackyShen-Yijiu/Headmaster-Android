@@ -160,6 +160,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 			params.put("mobile", phoneEt.getText().toString());
 			params.put("password", MD5.Md5(passwordEt.getText().toString()));
 			ApiHttpClient.post("userinfo/userlogin", params, handler);
+			
 		} else {
 			ToastUtil.showToast(this, checkResult);
 		}
