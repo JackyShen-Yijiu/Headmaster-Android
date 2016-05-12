@@ -20,7 +20,9 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.jzjf.headmaster.R;
+import com.yibu.headmaster.BulletinHistoryActivity;
 import com.yibu.headmaster.CoachFeedbackDetailActivity;
+import com.yibu.headmaster.ComplainActivity;
 import com.yibu.headmaster.GiveClassActivity;
 import com.yibu.headmaster.adapter.CoachFeedbackAdapter;
 import com.yibu.headmaster.adapter.CoachGiveClassAdapter;
@@ -139,6 +141,9 @@ public class MailFragment extends BasePagerFragment implements OnItemClickListen
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
+		if(position <2){
+			return;
+		}
 		LogUtil.print("onItemClick"+position);
 		Intent intent = new Intent(mContext,CoachFeedbackDetailActivity.class);
 		intent.putExtra("coachFeedback", list.get(position-2));
@@ -160,6 +165,9 @@ public class MailFragment extends BasePagerFragment implements OnItemClickListen
 		switch (v.getId()) {
 		case R.id.rl_mail_school_announcement:
 			//公告详情
+			Intent intents = new Intent(getActivity(), BulletinHistoryActivity.class);
+			startActivity(intents);
+			
 			break;
 
 		default:

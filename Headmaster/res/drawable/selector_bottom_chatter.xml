@@ -3,8 +3,8 @@
     
    <item
         android:state_checked="true"
-        android:drawable="@drawable/information_fill" />
+        android:drawable="@drawable/mail_fill" />
     <item
         android:state_checked="false"
-        android:drawable="@drawable/information" />
+        android:drawable="@drawable/mail" />
 </selector>
