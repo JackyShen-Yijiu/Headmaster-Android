@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:background="#272629"
+    android:background="@drawable/background_side"
     android:orientation="vertical" >
      
   
@@ -20,7 +20,16 @@
                 android:layout_height="58dp"
                 android:layout_marginLeft="36dp"
                 android:src="@drawable/left_title" />
-
+  <TextView 
+       android:id="@+id/coach_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_toRightOf="@+id/iv_left_head_portrait"
+       android:textColor="#ffffff"
+       android:textSize="16sp"
+       android:layout_marginLeft="20dp"
+       android:layout_centerVertical="true"
+       android:text=""/>
             <FrameLayout
                 android:id="@+id/iv_left_back"
                 android:layout_width="wrap_content"
@@ -32,13 +41,13 @@
         </RelativeLayout>
         
    <TextView 
-       android:id="@+id/coach_name"
+       android:id="@+id/school_name"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginLeft="36dp"
        android:textColor="#ffffff"
        android:textSize="16sp"
-       android:layout_marginTop="14dp"
+       android:layout_marginTop="18dp"
+       android:layout_marginLeft="36dp"
        android:text=""/>
 
 
@@ -50,7 +59,7 @@
     android:gravity="center_vertical"
     android:drawableLeft="@drawable/coach"
     android:drawablePadding="17dp"
-    android:text="我校教练"
+    android:text="教练"
     android:layout_marginTop="10dp"
     android:textSize="14sp"
     android:textColor="#ffffff"/>
@@ -75,7 +84,7 @@
     android:drawableLeft="@drawable/complaint"
     android:drawablePadding="17dp"
      android:layout_marginTop="10dp"
-    android:text="评论投诉"
+    android:text="投诉"
     android:textSize="14sp"
     android:textColor="#ffffff"/>
 <TextView 

@@ -9,12 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
-import android.widget.RelativeLayout;
 
 import com.squareup.picasso.Picasso;
-import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.ComplainActivity;
-import com.yibu.headmaster.DataChartActivity;
 import com.yibu.headmaster.LeftMyCoachActivity;
 import com.yibu.headmaster.LeftSettingActivity;
 import com.yibu.headmaster.PersonSettingActivity;
@@ -35,6 +32,7 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 //	private TextView rlData;
 	private TextView rlComplain;
 	private TextView name;
+	private TextView school_name;
 
 	@Override
 	protected View initView(LayoutInflater inflater, ViewGroup container) {
@@ -48,13 +46,14 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 //		rlData = (TextView) view.findViewById(R.id.my_rl_data);
 		rlComplain = (TextView) view.findViewById(R.id.my_rl_complain);
 		name=(TextView)view.findViewById(R.id.coach_name);
+		school_name=(TextView)view.findViewById(R.id.school_name);
 		name.setText(HeadmasterApplication.app.userInfo.name);
+		school_name.setText(HeadmasterApplication.app.userInfo.driveschool.name);
 		initOnClick();
 		return view;
 	}
 
 	private void initOnClick() {
-
 		ivHeadPortrait.setOnClickListener(this);
 //		rlMyNotice.setOnClickListener(this);
 		rlMyCoach.setOnClickListener(this);
