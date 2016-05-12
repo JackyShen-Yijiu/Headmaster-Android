@@ -47,11 +47,6 @@ public class BulletinAdapter extends BasicAdapter<BulletinBean> {
 		BulletinBean bulletinBean = list.get(position);
 		// 设值
 
-		if(position==0){
-			holder.deviderline.setVisibility(View.INVISIBLE);
-		}else{
-			holder.deviderline.setVisibility(View.VISIBLE);
-		}
 		if(!TextUtils.isEmpty(bulletinBean.title)){
 			holder.title.setText(bulletinBean.title);
 		}else{
@@ -59,6 +54,8 @@ public class BulletinAdapter extends BasicAdapter<BulletinBean> {
 		}
 		holder.date.setText(UTC2LOC.instance.getDate(bulletinBean.createtime, "yyyy/MM/dd"));
 		holder.content.setText(bulletinBean.content);
+		holder.name.setText("发布者："+bulletinBean.name);
+		
 		return convertView;
 	}
 
@@ -69,34 +66,9 @@ public class BulletinAdapter extends BasicAdapter<BulletinBean> {
 		TextView date;
 		@ViewInject(R.id.tv_bulletin_item_title)
 		TextView title;
-		@ViewInject(R.id.iv_bulletin_item_deviderline)
-		ImageView deviderline;
-
+		@ViewInject(R.id.tv_bulletin_item_name)
+		TextView name;
+		
 	}
 
-	class DeleteOnClickListener implements OnClickListener {
-
-		@Override
-		public void onClick(View v) {
-
-			LogUtil.print("删除成功");
-			/*
-			 * AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler()
-			 * {
-			 * 
-			 * @Override public void onSuccess(int statusCode, Header[] headers,
-			 * byte[] responseBody) {
-			 * 
-			 * // 刷新列表 if (index > -1) { list.remove(index);
-			 * notifyDataSetChanged(); } }
-			 * 
-			 * @Override public void onFailure(int statusCode, Header[] headers,
-			 * byte[] responseBody, Throwable error) {
-			 * 
-			 * } }; RequestParams params = new RequestParams(); // 删除公告
-			 * ApiHttpClient.post("", params, handler);
-			 */
-		}
-
-	}
 }

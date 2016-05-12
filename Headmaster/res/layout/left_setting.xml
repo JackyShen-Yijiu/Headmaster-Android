@@ -2,13 +2,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/main_bg" >
+    android:background="#e8eced" >
 
     <RelativeLayout
         android:id="@+id/rl_new_one"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#292929"
+        android:background="@color/white"
         android:layout_marginTop="10dp" >
         <TextView
             android:layout_width="wrap_content"
@@ -17,7 +17,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="新消息提醒"
-            android:textColor="#ffffff"
+            android:textColor="@color/text_color_dark_black"
             android:textSize="14sp" />
        <CheckBox
             android:id="@+id/setting_every_day_cb"
@@ -34,7 +34,7 @@
         android:id="@+id/rl_new_two"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#292929"
+        android:background="@color/white"
         android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="投诉消息提醒"
-            android:textColor="#ffffff"
+            android:textColor="@color/text_color_dark_black"
             android:textSize="14sp" />
         <CheckBox 
             android:id="@+id/setting_commplaint_cb"
@@ -60,7 +60,7 @@
         android:id="@+id/rl_new_three"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#292929"
+        android:background="@color/white"
         android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="新学员报名提醒"
-            android:textColor="#ffffff"
+            android:textColor="@color/text_color_dark_black"
             android:textSize="14sp" />
         <CheckBox 
             android:id="@+id/setting_new_student_enroll"
@@ -88,7 +88,7 @@
         android:id="@+id/setting_cache"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#292929"
+        android:background="@color/white"
         android:layout_marginTop="10dp">
         
         <TextView 
@@ -98,7 +98,7 @@
             android:layout_marginLeft="29dp"
             android:layout_centerVertical="true"
             android:textSize="14sp"
-            android:textColor="#ffffff"/>
+            android:textColor="@color/text_color_dark_black"/>
         <TextView 
             android:id="@+id/tv_number"
             android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
             android:layout_toLeftOf="@+id/iv_more"
             android:layout_centerVertical="true"
             android:layout_marginRight="8dp"
-            android:textColor="@color/new_gray"
+            android:textColor="@color/text_color_light_black"
             android:text=""/>
         <ImageView 
             android:id="@+id/iv_more"
@@ -124,7 +124,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:clickable="true"
-        android:background="#292929"
+        android:background="@color/white"
         android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="关于我们"
-            android:textColor="#ffffff"
+            android:textColor="@color/text_color_dark_black"
             android:textSize="14sp" />
         <ImageView 
             android:layout_width="wrap_content"
@@ -149,7 +149,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:clickable="true"
-        android:background="#292929"
+        android:background="@color/white"
         android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
@@ -158,7 +158,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="去评分"
-            android:textColor="#ffffff"
+            android:textColor="@color/text_color_dark_black"
             android:textSize="14sp" />
         <ImageView 
             android:layout_width="wrap_content"
@@ -173,7 +173,7 @@
         android:id="@+id/setting_callback_tv"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#292929"
+        android:background="@color/white"
         android:layout_marginTop="1dp" >
         <TextView
             android:layout_width="wrap_content"
@@ -182,7 +182,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="29dp"
             android:text="意见反馈"
-            android:textColor="#ffffff"
+            android:textColor="@color/text_color_dark_black"
             android:textSize="14sp" />
          <ImageView 
             android:layout_width="wrap_content"
@@ -197,7 +197,7 @@
         android:id="@+id/setting_update"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#292929"
+        android:background="@color/white"
         android:layout_marginTop="1dp">
         
         <TextView 
@@ -207,7 +207,7 @@
             android:layout_marginLeft="29dp"
             android:layout_centerVertical="true"
             android:textSize="14sp"
-            android:textColor="#ffffff"/>
+            android:textColor="@color/text_color_dark_black"/>
         <TextView 
             android:id="@+id/banben_code"
             android:layout_width="wrap_content"
@@ -232,7 +232,7 @@
         android:id="@+id/setting_finish"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#292929"
+        android:background="@color/white"
         android:gravity="center"
         android:layout_marginTop="10dp" >
         <TextView 
@@ -240,7 +240,7 @@
             android:layout_height="wrap_content"
             android:text="退出登录"
             android:textSize="16sp"
-            android:textColor="@color/new_gray"/>
+            android:textColor="@color/text_color_light_black"/>
     </RelativeLayout>
 
 </LinearLayout>

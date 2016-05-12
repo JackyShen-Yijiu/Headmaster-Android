@@ -1,26 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/listview_selector"
-    android:orientation="vertical" >
-
-    <ImageView
-        android:id="@+id/iv_bulletin_item_deviderline"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@drawable/line"
-        android:contentDescription="@string/app_name" />
+    android:paddingBottom="24dp"
+    android:background="@color/white" >
 
     <TextView
         android:id="@+id/tv_bulletin_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="标题"
-        android:textColor="@color/text_green_light_color"
-        android:textSize="14sp" />
+        android:textColor="@color/text_color_dark_black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_bulletin_item_date"
@@ -28,22 +20,33 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="12dp"
-        
+        android:layout_below="@+id/tv_bulletin_item_title"
         android:text="2015/12/12"
         android:textColor="@color/text_gray_color"
+        android:textSize="12sp" />
+    
+      <TextView
+        android:id="@+id/tv_bulletin_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/tv_bulletin_item_date"
+        android:textColor="@color/text_color_light_black"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/tv_bulletin_item_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_below="@+id/tv_bulletin_item_date"
+        android:layout_marginTop="14dp"
         android:text="如果你无法简单地表达你的想法，那只能说明你还不公了解它。 --阿尔伯特.爱因斯坦"
-        android:textColor="@color/text_white_dark_color"
+        android:textColor="@color/text_color_dark_black"
         android:textSize="14sp" />
 
 
-</LinearLayout>
+</RelativeLayout>
