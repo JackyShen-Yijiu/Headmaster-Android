@@ -17,7 +17,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.MainActivity;
 import com.yibu.headmaster.api.ApiHttpClient;
-import com.yibu.headmaster.base.BasePager;
+import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
 import com.yibu.headmaster.bean.MainOfWeekBean;
 import com.yibu.headmaster.bean.MainPageDataV2Bean;
@@ -28,7 +28,7 @@ import com.yibu.headmaster.utils.LogUtil;
 
 import de.greenrobot.event.EventBus;
 
-public class DataPager extends BasePager implements OnClickListener {
+public class DataPager extends BasePagerFragment implements OnClickListener {
 
 	@ViewInject(R.id.tv_data_subject1_num)
 	private TextView subject1Num;
@@ -328,6 +328,11 @@ public class DataPager extends BasePager implements OnClickListener {
 		intent.putExtra("title", searchtype);
 		intent.putExtra("commentlevel", 4);
 		mContext.startActivity(intent);
+	}
+
+	@Override
+	public void processFailure() {
+		
 	}
 
 }

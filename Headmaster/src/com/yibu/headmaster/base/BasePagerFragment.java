@@ -16,7 +16,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public abstract class BasePager extends Fragment {
+public abstract class BasePagerFragment extends Fragment {
 
 	public View rootView;
 	protected Context mContext;
@@ -78,6 +78,7 @@ public abstract class BasePager extends Fragment {
 		@Override
 		public void onFailure(int statusCode, Header[] headers,
 				byte[] responseBody, Throwable error) {
+			processFailure();
 		}
 	};
 
@@ -98,12 +99,13 @@ public abstract class BasePager extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mContext = getActivity();
+		LogUtil.print("onCreateView------");
 		rootView = initView();
 		initData();
 		return  rootView;
 	};
 
-	public BasePager(Context context) {
+	public BasePagerFragment(Context context) {
 		
 	}
 
@@ -116,5 +118,6 @@ public abstract class BasePager extends Fragment {
 	}
 
 	public abstract void process(String data);
+	public abstract void processFailure();
 
 }

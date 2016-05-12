@@ -2,6 +2,8 @@ package com.yibu.headmaster.adapter;
 
 import java.util.ArrayList;
 
+import com.yibu.headmaster.utils.LogUtil;
+
 import android.content.Context;
 import android.widget.BaseAdapter;
 

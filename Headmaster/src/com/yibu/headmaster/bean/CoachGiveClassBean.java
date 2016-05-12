@@ -14,12 +14,5 @@ public class CoachGiveClassBean {
 	public int starlevel;
 	public Headportrait headportrait;
 
-	public class Headportrait {
-
-		public String thumbnailpic;
-		public String width;
-		public String originalpic;
-		public String height;
-	}
 
 }

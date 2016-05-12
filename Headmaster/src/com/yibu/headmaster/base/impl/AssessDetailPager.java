@@ -20,7 +20,7 @@ import com.jzjf.headmaster.R;
 import com.yibu.headmaster.adapter.AssessAdapter;
 import com.yibu.headmaster.adapter.ComplaintAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
-import com.yibu.headmaster.base.BasePager;
+import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.bean.AssessBean;
 import com.yibu.headmaster.bean.AssessBean.Commentcount;
 import com.yibu.headmaster.bean.AssessBean.Commentlist;
@@ -31,7 +31,7 @@ import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public class AssessDetailPager extends BasePager {
+public class AssessDetailPager extends BasePagerFragment {
 
 	private View view;
 	private ArrayList<Commentlist> listAssess = new ArrayList<Commentlist>();
@@ -226,5 +226,10 @@ public class AssessDetailPager extends BasePager {
 		}
 		pullToRefreshListView.onRefreshComplete();
 
+	}
+
+	@Override
+	public void processFailure() {
+		
 	}
 }
