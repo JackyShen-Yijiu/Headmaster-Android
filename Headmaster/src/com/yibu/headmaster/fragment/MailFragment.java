@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import cn.jpush.android.util.l;
@@ -16,6 +20,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.jzjf.headmaster.R;
+import com.yibu.headmaster.CoachFeedbackDetailActivity;
 import com.yibu.headmaster.GiveClassActivity;
 import com.yibu.headmaster.adapter.CoachFeedbackAdapter;
 import com.yibu.headmaster.adapter.CoachGiveClassAdapter;
@@ -29,7 +34,7 @@ import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
 /**信箱*/
-public class MailFragment extends BasePagerFragment{
+public class MailFragment extends BasePagerFragment implements OnItemClickListener, OnClickListener{
 
 	private PullToRefreshListView pullToRefreshListView;
 	private ListView list_coach;
@@ -53,9 +58,10 @@ public class MailFragment extends BasePagerFragment{
 		list_coach.setCacheColorHint(Color.TRANSPARENT);
 		list_coach.setDividerHeight(0);
 		list_coach.setSelector(R.drawable.listview_selector);
-		
+		list_coach.setOnItemClickListener(this);
 		//添加头布局
 		View headerView = View.inflate(mContext, R.layout.mail_header, null);
+		headerView.findViewById(R.id.rl_mail_school_announcement).setOnClickListener(this);
 		list_coach.addHeaderView(headerView);
 		
 		return view;
@@ -114,6 +120,9 @@ public class MailFragment extends BasePagerFragment{
 		if(coachFeedbackList.size() == 0){
 			hasMoreData = false;
 		}else{
+			if(index == 1){
+				list.clear();
+			}
 			list.addAll(coachFeedbackList);
 			adapter.notifyDataSetChanged();
 		}
@@ -127,5 +136,35 @@ public class MailFragment extends BasePagerFragment{
 		ToastUtil.showToast(mContext, "网络异常");
 	}
 
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		LogUtil.print("onItemClick"+position);
+		Intent intent = new Intent(mContext,CoachFeedbackDetailActivity.class);
+		intent.putExtra("coachFeedback", list.get(position-2));
+		getActivity().startActivityForResult(intent, 1);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == 1){
+			//刷新列表
+			index = 1;
+			loadNetworkData();
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.rl_mail_school_announcement:
+			//公告详情
+			break;
+
+		default:
+			break;
+		}
+	}
 
 }
