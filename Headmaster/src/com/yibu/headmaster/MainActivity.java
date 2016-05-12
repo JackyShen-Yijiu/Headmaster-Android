@@ -2,25 +2,20 @@ package com.yibu.headmaster;
 
 import java.util.ArrayList;
 
-import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.R.drawable;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,20 +28,13 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.jzjf.headmaster.R;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.adapter.MainPagerAdapter;
-import com.yibu.headmaster.api.ApiHttpClient;
-import com.yibu.headmaster.base.BasePager;
+import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.base.impl.ChatterPager;
 import com.yibu.headmaster.base.impl.DataPager;
 import com.yibu.headmaster.base.impl.NewsPager;
-import com.yibu.headmaster.bean.WeatherBean;
 import com.yibu.headmaster.event.ComplaintEvent;
-import com.yibu.headmaster.global.HeadmasterApplication;
-import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
-import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
 import de.greenrobot.event.EventBus;
@@ -74,7 +62,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	public static final String KEY_EXTRAS = "extras";
 
 	String currCity = null;
-	private ArrayList<BasePager> pagers;
+	private ArrayList<BasePagerFragment> pagers;
 	public static String WEATHER_TEMPERATURE = "weather_temperature";
 	public static String WEATHER_PIC = "weather_pic";
 
@@ -149,7 +137,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 //			LogUtil.print("-----00+++" + weather_pic);
 //		}
 
-		pagers = new ArrayList<BasePager>();
+		pagers = new ArrayList<BasePagerFragment>();
 
 		pagers.add(new DataPager(getBaseContext()));
 		pagers.add(new NewsPager(getBaseContext()));
@@ -180,7 +168,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 				break;
 			case R.id.rb_bottom_chatter:
 				contentPager.setCurrentItem(2, false);
-				title.setText(getString(R.string.my_chat_messages));
+				title.setText(getString(R.string.mail));
 				complaintRl.setVisibility(View.INVISIBLE);
 
 				// ChatterPager chatterPager = (ChatterPager) pagers.get(2);
@@ -253,7 +241,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		public void onReceiveLocation(BDLocation location) {
 			// 定位成功
 			currCity = location.getCity();
-			LogUtil.print(location.getCity());
+//			LogUtil.print(location.getCity());
 			if (mLocationClient != null) {
 				mLocationClient.stop();// 结束定位
 

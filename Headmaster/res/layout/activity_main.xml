@@ -72,7 +72,7 @@
                     android:textSize="10sp"
                     android:drawableTop="@drawable/selector_bottom_chatter"
             		android:textColor="@drawable/selector_text_color"
-                    android:text="消息" />
+                    android:text="信箱" />
     </RadioGroup>
     </LinearLayout>
  <fragment

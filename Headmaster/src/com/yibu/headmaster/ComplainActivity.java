@@ -78,10 +78,7 @@ public class ComplainActivity extends BaseActivity implements OnItemClickListene
 		});
 
 	}
-
 	private void loadNetworkData() {
-
-		
 		ApiHttpClient.get("statistics/complaintlist?userid=" 
 				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
 				+ HeadmasterApplication.app.userInfo.driveschool.schoolid+ "&index"+index

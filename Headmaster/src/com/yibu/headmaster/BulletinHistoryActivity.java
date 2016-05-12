@@ -59,8 +59,8 @@ public class BulletinHistoryActivity extends BaseActivity {
 		mListView = (QuickReturnListView) view
 				.findViewById(R.id.lv_publish_bulletin_list);
 
-		mListView.setCacheColorHint(android.R.color.transparent);
-		mListView.setDividerHeight(0);
+		mListView.setCacheColorHint(android.R.color.tertiary_text_light);
+		mListView.setDividerHeight(1);
 
 		setSonsTitle(getString(R.string.history_bulletin));
 
@@ -139,25 +139,6 @@ public class BulletinHistoryActivity extends BaseActivity {
 
 		// isLoadMore = false;
 		mListView.loadMoreFinished();
-	}
-
-	
-	@Override
-	public void onClick(View v) {
-		super.onClick(v);
-		Intent intent = null;
-		switch (v.getId()) {
-		case R.id.tv_base_right:
-//			intent = new Intent(this,);
-			break;
-
-		default:
-			break;
-		}
-		
-		if(intent !=null){
-			startActivity(intent);
-		}
 	}
 
 }

@@ -76,19 +76,20 @@ public class PagerSlidingTab extends HorizontalScrollView {
 	private int indicatorColor = 0x01e2b6;
 	private int underlineColor = 0x000000;
 	private int dividerColor = 0x000000;
-
+	private int tabTextColor = 0xFF666666;
+	
 	private boolean shouldExpand = false;
 	private boolean textAllCaps = true;
 
 	private int scrollOffset = 52;
 	private int indicatorHeight = 8;
-	private int underlineHeight = 2;
+	private int underlineHeight = 1;
 	private int dividerPadding = 12;
 	private int tabPadding = 16;
 	private int dividerWidth = 1;
 
 	private int tabTextSize = 14;
-	private int tabTextColor = 0xFF666666;
+	
 	private Typeface tabTypeface = null;
 	private int tabTypefaceStyle = Typeface.BOLD;
 
@@ -155,6 +156,8 @@ public class PagerSlidingTab extends HorizontalScrollView {
 				underlineColor);
 		dividerColor = a.getColor(R.styleable.PagerSlidingTab_dividerColor,
 				dividerColor);
+		
+		
 		indicatorHeight = a.getDimensionPixelSize(
 				R.styleable.PagerSlidingTab_indicatorHeight, indicatorHeight);
 		underlineHeight = a.getDimensionPixelSize(
@@ -310,7 +313,7 @@ public class PagerSlidingTab extends HorizontalScrollView {
 				tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, tabTextSize);
 				tab.setTypeface(tabTypeface, tabTypefaceStyle);
 				tab.setTextColor(i == 0 ? getResources().getColor(
-						R.color.slidingtab_indicatorcolor) : tabTextColor);
+						R.color.blue) : tabTextColor);
 
 				// setAllCaps() is only available from API 14, so the upper case
 				// is made manually if we are on a
@@ -479,7 +482,7 @@ public class PagerSlidingTab extends HorizontalScrollView {
 				if (v instanceof TextView) {
 					TextView textView = (TextView) v;
 					textView.setTextColor(i == pager.getCurrentItem() ? getResources()
-							.getColor(R.color.slidingtab_indicatorcolor)
+							.getColor(R.color.blue)
 							: tabTextColor);
 				}
 			}

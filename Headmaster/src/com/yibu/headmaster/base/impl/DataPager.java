@@ -15,12 +15,12 @@ import com.jzjf.headmaster.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yibu.headmaster.AssessActivity;
+import com.yibu.headmaster.ComplainActivity;
 import com.yibu.headmaster.MainActivity;
 import com.yibu.headmaster.PassPercentageAct;
 import com.yibu.headmaster.StatisticsAct;
 import com.yibu.headmaster.api.ApiHttpClient;
-import com.yibu.headmaster.base.BasePager;
-import com.yibu.headmaster.bean.MainOfTodayBean.Schoolstudentcount;
+import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.bean.MainOfWeekBean;
 import com.yibu.headmaster.bean.MainPageDataV2Bean;
 import com.yibu.headmaster.event.ComplaintEvent;
@@ -30,7 +30,7 @@ import com.yibu.headmaster.utils.LogUtil;
 
 import de.greenrobot.event.EventBus;
 
-public class DataPager extends BasePager implements OnClickListener {
+public class DataPager extends BasePagerFragment implements OnClickListener {
 
 	@ViewInject(R.id.tv_data_subject1_num)
 	private TextView subject1Num;
@@ -96,6 +96,8 @@ public class DataPager extends BasePager implements OnClickListener {
 
 	private MainActivity activity;
 	private MainPageDataV2Bean todayBean;
+	
+	private MainPageDataV2Bean mainPageDataV2Bean;
 
 	public DataPager(Context context) {
 		super(context);
@@ -105,7 +107,7 @@ public class DataPager extends BasePager implements OnClickListener {
 	public void initData() {
 		activity = (MainActivity) getActivity();
 		loadNetworkData();
-
+		
 	}
 
 	@Override
@@ -113,7 +115,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		View view = View.inflate(HeadmasterApplication.getContext(),
 				R.layout.data_information, null);
 		ViewUtils.inject(this, view);
-
+		
 		datastar1.setOnClickListener(this);
 		datastar2.setOnClickListener(this);
 		datastar3.setOnClickListener(this);
@@ -133,6 +135,7 @@ public class DataPager extends BasePager implements OnClickListener {
 
 		todayBean = JsonUtil.parseJsonToBean(data,
 				MainPageDataV2Bean.class);
+		
 		//评论数
 		setCommnent(todayBean);
 		//学生数量
@@ -141,6 +144,7 @@ public class DataPager extends BasePager implements OnClickListener {
 		currentNum.setText(todayBean.applystudentcount + "");
 		//合格率
 		setProgress(todayBean);
+		
 //		// 今日和昨日
 //		if (searchtype == 1 || searchtype == 2) {
 //			LogUtil.print("=------------" + data);
@@ -255,6 +259,7 @@ public class DataPager extends BasePager implements OnClickListener {
 				handler);
 	}
 
+	
 	@Override
 	public void onClick(View v) {
 
@@ -263,13 +268,14 @@ public class DataPager extends BasePager implements OnClickListener {
 		case R.id.data_star_1:
 			Intent intent2 = new Intent(mContext, AssessActivity.class);
 			intent2.putExtra("title", searchtype);
-			intent2.putExtra("commentlevel", 1);
+			intent2.putExtra("commentlevel", 3);
+//			intent2.putExtra("assessnumber", mainPageDataV2Bean.commentstudentcount.goodcommnent);
 			mContext.startActivity(intent2);
 			break;
 		case R.id.data_star_2:
 			Intent intent3 = new Intent(mContext, AssessActivity.class);
 			intent3.putExtra("title", searchtype);
-			intent3.putExtra("commentlevel", 2);
+			intent3.putExtra("commentlevel", 3);
 			mContext.startActivity(intent3);
 			break;
 		case R.id.data_star_3:
@@ -352,11 +358,14 @@ public class DataPager extends BasePager implements OnClickListener {
 	public void onEvent(ComplaintEvent event){
 		//
 		LogUtil.print("----投诉onEvent");
-		Intent intent = new Intent(mContext, AssessActivity.class);
-//		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		intent.putExtra("title", searchtype);
-		intent.putExtra("commentlevel", 4);
+		Intent intent = new Intent(mContext, ComplainActivity.class);
 		mContext.startActivity(intent);
+	}
+	
+
+	@Override
+	public void processFailure() {
+		
 	}
 
 }

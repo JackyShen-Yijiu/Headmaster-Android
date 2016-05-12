@@ -8,4 +8,5 @@ public class BulletinBean {
 	public int bulletobject;
 	public String content;
 	public String title;
+	public String name;
 }

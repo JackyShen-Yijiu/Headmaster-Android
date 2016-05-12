@@ -34,6 +34,7 @@ public class PassPercentageAct extends BaseActivity{
 		content.addView(view);
 		slidingTab = (PagerSlidingTab) view
 				.findViewById(R.id.assess_detail_sliding_tab);
+		
 		viewPager = (ViewPager) view	
 				.findViewById(R.id.assess_detail_view_pager);
 		baseTitle.setText("考试合格率");

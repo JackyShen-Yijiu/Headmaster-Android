@@ -7,48 +7,35 @@
     
 <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="234dp" >
+        android:layout_height="158dp" >
         
         <RelativeLayout
             android:id="@+id/RelativeLayout_ring"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_below="@+id/textView_assess" >
-
+            android:layout_width="220dp"
+            android:layout_alignParentLeft="true"
+            android:layout_height="match_parent">
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/textView_assess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
-            android:text="评价比列"
-            android:textColor="#01e2b6"
-            android:textSize="20sp" />
 
-        <ImageView
+<!--         <ImageView
             android:id="@+id/imageView_change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/textView_assess"
             android:layout_marginRight="25dp"
-            android:background="@null" />
+            android:background="@null" /> -->
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView_change"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="50dp"
-            android:layout_toLeftOf="@+id/imageView_change"
-            android:drawableLeft="@drawable/good_assess"
+            android:layout_marginTop="15dp"
+            android:drawableLeft="@drawable/good_item"
             android:drawablePadding="10dp"
-            android:text="好评"
-            android:textColor="#ffffff"
-            android:textSize="15sp" />
+            android:layout_toRightOf="@+id/RelativeLayout_ring"
+            android:text="好评  0%"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -57,11 +44,11 @@
             android:layout_alignLeft="@+id/textView1"
             android:layout_below="@+id/textView1"
             android:layout_marginTop="20dp"
-            android:drawableLeft="@drawable/generalcomment"
+            android:drawableLeft="@drawable/well_item"
             android:drawablePadding="10dp"
-            android:text="中评"
-            android:textColor="#ffffff"
-            android:textSize="15sp" />
+            android:text="中评  0%"
+            android:textColor="@color/blue"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -70,12 +57,35 @@
             android:layout_alignLeft="@+id/textView2"
             android:layout_below="@+id/textView2"
             android:layout_marginTop="20dp"
-            android:drawableLeft="@drawable/badcomment"
+            android:drawableLeft="@drawable/bad_item"
             android:drawablePadding="10dp"
-            android:text="差评" 
-            android:textColor="#ffffff"
-            android:textSize="15sp"/>
-
-
+            android:text="差评  0%" 
+            android:textColor="@color/red"
+            android:textSize="14sp"/>
     </RelativeLayout>
+    
+<ImageView 
+    android:layout_width="match_parent"
+    android:layout_height="10dp"
+    android:background="#e8eced"/>
+<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="44dp">
+    
+    <TextView 
+        android:id="@+id/tv_assess_number"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textSize="14sp"
+    	android:layout_marginLeft="16dp"
+    	android:layout_centerVertical="true"
+    	android:textColor="@color/text_color_dark_black"
+    	android:text="好评"/>
+</RelativeLayout>
+<ImageView 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#e8eced"/>
+
+
 </LinearLayout>

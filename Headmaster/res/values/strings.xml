@@ -7,6 +7,7 @@
     <string name="data_title">数据概览</string>
     <string name="industry_consult">行业资讯</string>
     <string name="my_chat_messages">我的消息</string>
+    <string name="mail">信箱</string>
     <string name="appointment_tip">预约提醒</string>
     <string name="new_message_tip">新消息提醒</string>
     <string name="about_us">关于我们</string>
@@ -28,7 +29,7 @@
     <string name="service_phone_number">400-101-6669</string>
     <string name="publish_bulletin">发布公告</string>
     <string name="publish">发布</string>
-    <string name="history_bulletin">历史公告</string>
+    <string name="history_bulletin">驾校公告</string>
     <string name="complain">投诉</string>
     <string name="complain_detail">投诉详情</string>
     <string name="coach">教练</string>
@@ -64,4 +65,7 @@
         <string name="exit_login">退出登入</string>
         <string name="search">搜索</string>
         <string name="enter_app">点击进入</string>
+        <string name="coach_feedback">教练反馈</string>
 </resources>
+
+

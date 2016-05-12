@@ -2,9 +2,7 @@ package com.yibu.headmaster.bean;
 
 import java.io.Serializable;
 
-import android.R.integer;
 
-import com.yibu.headmaster.bean.AssessBean.Commentlist.Subject;
 
 public class CoachBean implements Serializable{
 
@@ -18,21 +16,10 @@ public class CoachBean implements Serializable{
 	public int passrate;
 	public String mobile;
 	public Subject[]subject;
+	public int isonline;
+	public int coursecountr;
 	
-	public class Subject implements Serializable {
-
-		public String _id;
-		public String name;
-		public int subjectid;
-	}
-
-	public class Headportrait  implements Serializable{
-
-		public String thumbnailpic;
-		public String width;
-		public String originalpic;
-		public String height;
-	}
+	
 
 	public Driveschoolinfo driveschoolinfo;
 

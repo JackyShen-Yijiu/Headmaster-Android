@@ -1,6 +1,5 @@
 package com.yibu.headmaster.fragment;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +18,7 @@ import com.jzjf.headmaster.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yibu.headmaster.adapter.PercentageAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
-import com.yibu.headmaster.base.BasePager;
+import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.bean.MonthData;
 import com.yibu.headmaster.bean.PassBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
@@ -31,7 +30,7 @@ import com.yibu.headmaster.utils.ToastUtil;
  * @author pengdonghua
  *
  */
-public class PassPercentageFragament extends BasePager{
+public class PassPercentageFragament extends BasePagerFragment{
 	
 	private ExpandableListView lv;
 	
@@ -167,6 +166,11 @@ public class PassPercentageFragament extends BasePager{
 					}
 					
 				});
+	}
+
+	@Override
+	public void processFailure() {
+		
 	}
 
 
