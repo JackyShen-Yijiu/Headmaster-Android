@@ -24,7 +24,6 @@ import com.yibu.headmaster.ChatActivity;
 import com.joooonho.SelectableRoundedImageView;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.bean.CoachBean;
-import com.yibu.headmaster.bean.AssessBean.Commentlist.Subject;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ZProgressHUD;

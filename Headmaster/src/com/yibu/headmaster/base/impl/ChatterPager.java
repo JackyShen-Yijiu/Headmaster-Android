@@ -1,20 +1,22 @@
 package com.yibu.headmaster.base.impl;
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.jzjf.headmaster.R;
-import com.yibu.headmaster.base.BasePager;
+import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.fragment.ChatterFragment;
+import com.yibu.headmaster.fragment.MailFragment;
 
 //import com.ypy.eventbus.EventBus;
 
-public class ChatterPager extends BasePager {
+public class ChatterPager extends BasePagerFragment {
 
-	private Activity activity;
+	private FragmentActivity activity;
 
-	public ChatterPager(Activity context) {
+	public ChatterPager(FragmentActivity context) {
 		super(context);
 		activity = context;
 		// refresh();
@@ -23,9 +25,16 @@ public class ChatterPager extends BasePager {
 	@Override
 	public void initData() {
 		System.out.println("ssssssssssactivity" + activity);
-		FragmentTransaction transaction = activity.getFragmentManager()
+		//聊天界面
+//		FragmentTransaction transaction = activity.getFragmentManager()
+//				.beginTransaction();
+//		transaction.replace(R.id.fragment, new ChatterFragment(mContext));
+//		transaction.addToBackStack(null);
+//		transaction.commit();
+		//信箱界面
+		FragmentTransaction transaction = activity.getSupportFragmentManager()
 				.beginTransaction();
-		transaction.replace(R.id.fragment, new ChatterFragment(mContext));
+		transaction.replace(R.id.fragment, new MailFragment(mContext));
 		transaction.addToBackStack(null);
 		transaction.commit();
 	}
@@ -40,6 +49,11 @@ public class ChatterPager extends BasePager {
 	@Override
 	public void process(String data) {
 
+	}
+
+	@Override
+	public void processFailure() {
+		
 	}
 
 }

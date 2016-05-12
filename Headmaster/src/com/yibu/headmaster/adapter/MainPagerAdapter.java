@@ -6,20 +6,19 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yibu.headmaster.base.BasePager;
+import com.yibu.headmaster.base.BasePagerFragment;
 
 public class MainPagerAdapter extends FragmentStatePagerAdapter {
 
-	public MainPagerAdapter(FragmentManager fm,List<BasePager> pagers) {
+	public MainPagerAdapter(FragmentManager fm,List<BasePagerFragment> pagers) {
 		super(fm);
 		this.pagers = pagers;
 	}
 
-	private List<BasePager> pagers;
+	private List<BasePagerFragment> pagers;
 	Context context;
 
 //	public MainPagerAdapter(List<BasePager> pagers) {

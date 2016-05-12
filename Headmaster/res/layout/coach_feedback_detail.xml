@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_feedback_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp" >
+
+                <com.joooonho.SelectableRoundedImageView
+                    android:id="@+id/iv_coach_head_portrait"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/left_title" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp" >
+
+                    <TextView
+                        android:id="@+id/tv_feedback_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:id="@+id/tv_coach_feedback_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_feedback_name"
+                        android:layout_marginTop="12dp"
+                        android:text=""
+                        android:textColor="@color/text_color_light_black"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:id="@+id/tv_coach_feedback_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/tv_coach_feedback_content"
+                        android:layout_marginTop="8dp"
+                        android:text=""
+                        android:textColor="@color/text_color_light_black"
+                        android:textSize="@dimen/text_small_size" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/ll_feedback_content"
+                android:layout_marginTop="48dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:id="@+id/ll_headmaster_reply_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:visibility="visible" >
+
+                <com.joooonho.SelectableRoundedImageView
+                    android:id="@+id/iv_headmaster_head_portrait"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/left_title" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp" >
+
+                    <TextView
+                        android:id="@+id/tv_headmaster_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/text_color_dark_black"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_toRightOf="@+id/tv_headmaster_name"
+                        android:text="回复"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:id="@+id/tv_headmaster_reply_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_headmaster_name"
+                        android:layout_marginTop="12dp"
+                        android:text=""
+                        android:textColor="@color/text_color_light_black"
+                        android:textSize="@dimen/text_middle_size" />
+
+                    <TextView
+                        android:id="@+id/tv_headmaster_reply_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text=""
+                        android:textColor="@color/text_color_light_black"
+                        android:textSize="@dimen/text_small_size" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f7f7f7"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/feedback_reply_content"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_bg" />
+
+        <ImageView
+            android:id="@+id/iv_send_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:src="@drawable/send" />
+    </LinearLayout>
+
+</RelativeLayout>

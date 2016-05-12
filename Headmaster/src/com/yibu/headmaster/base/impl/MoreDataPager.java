@@ -15,7 +15,7 @@ import com.yibu.headmaster.AssessActivity;
 import com.yibu.headmaster.GiveClassActivity;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.api.ApiHttpClient;
-import com.yibu.headmaster.base.BasePager;
+import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.bean.MoreDataBean;
 import com.yibu.headmaster.bean.MoreDataOfTodayBean;
 import com.yibu.headmaster.bean.MoreDataOfTodayBean.Applystuentlist;
@@ -36,7 +36,7 @@ import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 
-public class MoreDataPager extends BasePager implements OnClickListener {
+public class MoreDataPager extends BasePagerFragment implements OnClickListener {
 
 	private View view;
 	private RelativeLayout relativeLayout_textView_shouke;
@@ -717,5 +717,10 @@ public class MoreDataPager extends BasePager implements OnClickListener {
 
 		}
 		return dayString;
+	}
+
+	@Override
+	public void processFailure() {
+		
 	}
 }

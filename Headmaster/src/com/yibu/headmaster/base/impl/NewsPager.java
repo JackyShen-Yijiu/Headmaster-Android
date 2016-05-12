@@ -1,5 +1,6 @@
 package com.yibu.headmaster.base.impl;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
@@ -39,7 +39,7 @@ import com.yibu.headmaster.NewsDetailActivity;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.adapter.NewsInformationAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
-import com.yibu.headmaster.base.BasePager;
+import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.bean.NewsBean;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.CommonUtils;
@@ -47,7 +47,7 @@ import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
-public class NewsPager extends BasePager {
+public class NewsPager extends BasePagerFragment {
 
 	@ViewInject(R.id.pullToRefreshListView)
 	private PullToRefreshListView pullToRefreshListView;
@@ -129,7 +129,7 @@ public class NewsPager extends BasePager {
 					}
 				});
 		if (topHandler == null) {
-			topHandler = new MyHandler();
+			topHandler = new MyHandler(this);
 		}
 		loadNetworkData();
 	}
@@ -188,7 +188,7 @@ public class NewsPager extends BasePager {
 		}
 		setPointSize(0, true);
 		if (topHandler == null) {
-			topHandler = new MyHandler();
+			topHandler = new MyHandler(this);
 		}
 		topHandler.removeCallbacksAndMessages(null);// null是删掉所有已发送的消息
 		
@@ -306,7 +306,6 @@ public class NewsPager extends BasePager {
 				public void onClick(View v) {
 					LogUtil.print("onClicksdbdfb    --");
 					NewsBean bean = totalList.get(index);
-
 					Intent intent = new Intent(mContext, NewsDetailActivity.class);
 					// intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					intent.putExtra("url", bean.contenturl);
@@ -323,17 +322,23 @@ public class NewsPager extends BasePager {
 
 	}
 
-	class MyHandler extends Handler {
+	static class MyHandler extends Handler {
+		WeakReference<NewsPager> mActivity;
+		MyHandler(NewsPager activity) {
+			mActivity = new WeakReference<NewsPager>(activity);
+		}
+		
 		@Override
 		public void handleMessage(Message msg) {
-			if (topImage.getWindowVisibility() == View.GONE) {
-				topHandler.removeCallbacksAndMessages(null);
+			NewsPager pager = mActivity.get();
+			if (pager.topImage.getWindowVisibility() == View.GONE) {
+				pager.topHandler.removeCallbacksAndMessages(null);
 				return;
 			}
-			int nextIndex = (topImage.getCurrentItem() + 1)
-					% topImageNewsData.size();
-			topImage.setCurrentItem(nextIndex);
-			topHandler.sendMessageDelayed(Message.obtain(topHandler), 3000);
+			int nextIndex = (pager.topImage.getCurrentItem() + 1)
+					% pager.topImageNewsData.size();
+			pager.topImage.setCurrentItem(nextIndex);
+			pager.topHandler.sendMessageDelayed(Message.obtain(pager.topHandler), 3000);
 			super.handleMessage(msg);
 		}
 	}
@@ -341,6 +346,7 @@ public class NewsPager extends BasePager {
 	@Override
 	public void onPause() {
 		super.onPause();
+		
 		topHandler.removeCallbacksAndMessages(null);
 	}
 
@@ -348,5 +354,10 @@ public class NewsPager extends BasePager {
 	public void onResume() {
 		super.onResume();
 		topHandler.sendMessageDelayed(Message.obtain(topHandler), 3000);
+	}
+
+	@Override
+	public void processFailure() {
+		
 	}
 }
