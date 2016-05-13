@@ -179,10 +179,9 @@ public class NewsPager extends BasePagerFragment {
 		for (int i = 0; i < topImageNewsData.size(); i++) {
 			ImageView imageView = new ImageView(mContext);
 			imageView.setBackgroundResource(R.drawable.point);
-			LayoutParams params = new LayoutParams(CommonUtils.px2dp(mContext,
-					8), CommonUtils.px2dp(mContext, 8));
+			LayoutParams params = new LayoutParams(8, 8);
 			imageView.setLayoutParams(params);
-			params.leftMargin = CommonUtils.px2dp(mContext, 6);
+			params.leftMargin = 6;
 			imageView.setEnabled(false);
 			topPoints.addView(imageView);
 		}
@@ -209,11 +208,11 @@ public class NewsPager extends BasePagerFragment {
 	private void setPointSize(int position,boolean isSelected){
 		LayoutParams layoutParams = (LayoutParams) topPoints.getChildAt(position).getLayoutParams();
 		if(isSelected){
-			layoutParams.height = CommonUtils.px2dp(mContext, 12);
-			layoutParams.width = CommonUtils.px2dp(mContext, 12);
+			layoutParams.height = 12;
+			layoutParams.width = 12;
 		}else{
-			layoutParams.height = CommonUtils.px2dp(mContext, 8);
-			layoutParams.width = CommonUtils.px2dp(mContext, 8);
+			layoutParams.height = 8;
+			layoutParams.width = 8;
 			
 		}
 		topPoints.getChildAt(position).requestLayout();

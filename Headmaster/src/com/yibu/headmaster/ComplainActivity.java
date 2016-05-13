@@ -123,9 +123,6 @@ public class ComplainActivity extends BaseActivity implements OnItemClickListene
 	public void onItemClick(AdapterView<?> parent, View view,
 			int position, long id) {
 		ComplainVO bean = list.get(position);
-//		Intent intent = new Intent(mContext, ComplainDetailActivity.class);
-//		intent.putExtra("complaindrtail", bean);
-//		mContext.startActivity(intent);
 		Intent intent = new Intent(mContext, ComplainDetailActivity.class);
 		Bundle bundle=new Bundle();
 		bundle.putSerializable("item", bean);

@@ -264,14 +264,24 @@ public class PagerSlidingTab extends HorizontalScrollView {
 		tab.setFocusable(true);
 		tab.setGravity(Gravity.CENTER);
 		tab.setSingleLine();
-
+		
+		
 		tab.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				pager.setCurrentItem(position, false);
 			}
 		});
+		//设置1
 
+//		LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+//
+//                             LayoutParams.WRAP_CONTENT,
+//
+//                             LayoutParams.WRAP_CONTENT, 1.0f);
+
+
+		
 		tabsContainer.addView(tab);
 
 	}

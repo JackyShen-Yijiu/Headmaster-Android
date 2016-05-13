@@ -70,13 +70,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	public MyLocationListenner myListener = new MyLocationListenner();
 	Context mContext = this;
 
-	private String[] weatherStrings = new String[] { "晴", "大雪", "大雨", "多云",
-			"霾", "雾", "晴转多云", "小雪", "小雨", "雪", "中雨" };
-	private int[] weatherIconLocal = new int[] { R.drawable.clear,
-			R.drawable.heavy_snow, R.drawable.heavy_rain, R.drawable.cloudy,
-			R.drawable.haze, R.drawable.fog, R.drawable.clear_to_overcast,
-			R.drawable.flurry, R.drawable.little_rain, R.drawable.snow,
-			R.drawable.moderate_rain };
 	private RelativeLayout complaintRl;
 	private TextView complaintNumTv;
 
