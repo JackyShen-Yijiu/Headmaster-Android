@@ -300,21 +300,11 @@ LogUtil.print("-----"+userBean.userid);
 						passwordEt.getText().toString());
 		HeadmasterApplication.app.isLogin = true;
 
-		boolean isFirstOpen = SharedPreferencesUtil.getBoolean(
-				getApplicationContext(),
-				HomeGuideActivity.IS_HELP_PAGE_OPENED, false);
-		if (isFirstOpen) {
 			// 转到主界面
 			Intent intent = new Intent(LoginActivity.this,
 					MainActivity.class);
 			startActivity(intent);
 
-		} else {
-			// 转到帮助页
-			Intent intent = new Intent(LoginActivity.this,
-					HomeGuideActivity.class);
-			startActivity(intent);
-		}
 
 		finish();
 	}
