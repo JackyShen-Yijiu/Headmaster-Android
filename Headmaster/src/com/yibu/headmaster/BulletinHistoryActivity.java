@@ -27,9 +27,11 @@ import com.yibu.headmaster.adapter.BulletinAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.BulletinBean;
 import com.yibu.headmaster.bean.UserBean;
+import com.yibu.headmaster.fragment.MailFragment;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
+import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 import com.yibu.headmaster.utils.ZProgressHUD;
 import com.yibu.headmaster.view.QuickReturnListView;
@@ -118,10 +120,13 @@ public class BulletinHistoryActivity extends BaseActivity {
 				.parseJsonToList(data, new TypeToken<List<BulletinBean>>() {
 				}.getType());
 
+		
+		
 		if (bulletinBeans.size() == 0) {
 			moreData = false;
 		} else {
-			LogUtil.print(bulletinBeans.get(0).content);
+			//保存最后一条公告的sqlindexid
+			SharedPreferencesUtil.putInt(mContext, MailFragment.UNREADNOTICECOUNT, bulletinBeans.get(bulletinBeans.size()-1).seqindex);
 			moreData = true;
 		}
 		System.out.println(moreData);

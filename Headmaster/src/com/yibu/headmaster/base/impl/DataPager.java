@@ -174,6 +174,53 @@ public class DataPager extends BasePagerFragment implements OnClickListener {
 	//设置合格率
 	private void setProgress(MainPageDataV2Bean todayBean) {
 		
+		if(todayBean.overstockstudent[0] == 100){
+			progressSubjectOne.setFinishedStrokeColor(mContext.getResources().getColor(R.color.green));
+			progressSubjectOne.setTextColor(mContext.getResources().getColor(R.color.green));
+		}else if(todayBean.overstockstudent[0] <= 50){
+			progressSubjectOne.setFinishedStrokeColor(mContext.getResources().getColor(R.color.red));
+			progressSubjectOne.setTextColor(mContext.getResources().getColor(R.color.red));
+		}else{
+			progressSubjectOne.setFinishedStrokeColor(mContext.getResources().getColor(R.color.blue));
+			progressSubjectOne.setTextColor(mContext.getResources().getColor(R.color.blue));
+		}
+		
+		
+		if(todayBean.overstockstudent[1] == 100){
+			progressSubjectTwo.setFinishedStrokeColor(mContext.getResources().getColor(R.color.green));
+			progressSubjectTwo.setTextColor(mContext.getResources().getColor(R.color.green));
+		}else if(todayBean.overstockstudent[1] <= 50){
+			progressSubjectTwo.setFinishedStrokeColor(mContext.getResources().getColor(R.color.red));
+			progressSubjectTwo.setTextColor(mContext.getResources().getColor(R.color.red));
+		}else{
+			progressSubjectTwo.setFinishedStrokeColor(mContext.getResources().getColor(R.color.blue));
+			progressSubjectTwo.setTextColor(mContext.getResources().getColor(R.color.blue));
+		}
+		
+		
+		if(todayBean.overstockstudent[2] == 100){
+			progressSubjectThree.setFinishedStrokeColor(mContext.getResources().getColor(R.color.green));
+			progressSubjectThree.setTextColor(mContext.getResources().getColor(R.color.green));
+		}else if(todayBean.overstockstudent[2] <= 50){
+			progressSubjectThree.setFinishedStrokeColor(mContext.getResources().getColor(R.color.red));
+			progressSubjectThree.setTextColor(mContext.getResources().getColor(R.color.red));
+		}else{
+			progressSubjectThree.setFinishedStrokeColor(mContext.getResources().getColor(R.color.blue));
+			progressSubjectThree.setTextColor(mContext.getResources().getColor(R.color.blue));
+		}
+		
+		
+		if(todayBean.overstockstudent[3] == 100){
+			progressSubjectFour.setFinishedStrokeColor(mContext.getResources().getColor(R.color.green));
+			progressSubjectFour.setTextColor(mContext.getResources().getColor(R.color.green));
+		}else if(todayBean.overstockstudent[3] <= 50){
+			progressSubjectFour.setFinishedStrokeColor(mContext.getResources().getColor(R.color.red));
+			progressSubjectFour.setTextColor(mContext.getResources().getColor(R.color.red));
+		}else{
+			progressSubjectFour.setFinishedStrokeColor(mContext.getResources().getColor(R.color.blue));
+			progressSubjectFour.setTextColor(mContext.getResources().getColor(R.color.blue));
+		}
+		
 		progressSubjectOne.setProgress(todayBean.overstockstudent[0]);
 		progressSubjectTwo.setProgress(todayBean.overstockstudent[1]);
 		progressSubjectThree.setProgress(todayBean.overstockstudent[2]);

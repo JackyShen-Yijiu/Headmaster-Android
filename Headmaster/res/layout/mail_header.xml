@@ -10,14 +10,14 @@
         android:layout_height="48dp"
         android:background="@color/white" >
 
-        <ImageView
+        <com.joooonho.SelectableRoundedImageView
             android:id="@+id/iv_mail_announcement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="@drawable/announcement" />
+             />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,13 +38,14 @@
 
             <TextView
                 android:id="@+id/tv_mail_school_announcement_num"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:background="@drawable/point_red"
                 android:gravity="center"
-                android:text="3"
+                android:text="0"
+                android:visibility="invisible"
                 android:textColor="@color/white"
-                android:textSize="8dp" />
+                android:textSize="10dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
