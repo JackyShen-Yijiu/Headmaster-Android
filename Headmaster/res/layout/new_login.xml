@@ -5,45 +5,58 @@
     android:background="@drawable/bg"
     android:orientation="vertical" >
     
+    
     <ImageView 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/image_logo"
-        android:layout_marginTop="72dp"
-        android:layout_gravity="center_horizontal"/>
-    
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="66dp"
+        android:src="@drawable/head_logo"/>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_height="88dp">
 <EditText
             android:id="@+id/login_phone_et"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#22ffffff"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginTop="114dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="12dp"
             android:drawableLeft="@drawable/icon_name"
-            android:drawablePadding="1dp"
+            android:drawablePadding="8dp"
             android:hint="@string/phonenumber"
             android:inputType="phone"
             android:maxLength="11"
             android:singleLine="true"
-            android:textColor="#ffffff"
+            android:background="@null"
+            android:textColor="@color/text_color_dark_black"
             android:textColorHint="#C8CACD" />
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="#e8eced"/>
 <EditText
             android:id="@+id/login_password_et"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginTop="1dp"
-            android:background="#22ffffff"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="12dp"
+            android:background="@null"
             android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:drawableLeft="@drawable/icon_password"
-            android:drawablePadding="1dp"
+            android:drawablePadding="8dp"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:singleLine="true"
-            android:textColor="#ffffff"
+            android:textColor="@color/text_color_dark_black"
             android:textColorHint="#C8CACD" />
+</LinearLayout>
 
 <Button
             android:id="@+id/login_login_btn"
@@ -52,17 +65,18 @@
             android:layout_marginLeft="22dp"
             android:layout_marginRight="22dp"
             android:layout_marginTop="40dp"
-            android:background="#26CCC0"
+            android:background="@drawable/btn_blue_selector"
             android:text="@string/login" 
+            android:textSize="16sp"
             android:textColor="#ffffff"
-            android:textColorHint="#ffffff"/>
+            android:textColorHint="@color/text_color_light_black"/>
 
 <TextView 
     android:id="@+id/login_service_phone"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="116dp"
-    android:textColor="#9A9DA6"
+    android:textColor="@color/blue"
     android:textSize="14sp"
     android:layout_gravity="center_horizontal"
     android:text="没有账号？联系我们"/>

@@ -95,7 +95,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 			public void onFocusChange(View v, boolean hasFocus) {
 
 				EditText _v = (EditText) v;
-				if (!hasFocus) {// 失去焦点
+				if (!hasFocus) {// 失去焦点	
 					_v.setHint(_v.getTag().toString());
 				} else {
 					String hint = _v.getHint().toString();
