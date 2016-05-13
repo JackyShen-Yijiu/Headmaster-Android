@@ -9,10 +9,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="136dp"
-        android:background="@drawable/ic_launcher" />
+        android:background="@drawable/icon_headmaster" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/aboutus_version_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image_app"
@@ -22,7 +22,7 @@
         android:textColor="@color/text_color_dark_black"
         android:textSize="14sp" />
 
-    <TextView
+ <!--    <TextView
         android:id="@+id/aboutus_version_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         android:layout_marginLeft="5dp"
         android:text=""
          android:textColor="@color/text_color_dark_black"
-        android:textSize="14sp" />
+        android:textSize="14sp" /> -->
 
     <!-- <TextView
         android:id="@+id/textView1"
@@ -49,7 +49,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/aboutus_version_tv" >
+        android:layout_below="@id/textView2" >
 
         <TextView
             android:id="@+id/aboutus_protocal_tv"

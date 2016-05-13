@@ -13,6 +13,7 @@ import cn.sft.baseactivity.util.Util;
 
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.bean.DataBean;
+import com.yibu.headmaster.utils.CommonUtils;
 
 public class AboutUsActivity extends BaseActivity implements OnClickListener {
 
@@ -33,7 +34,7 @@ public class AboutUsActivity extends BaseActivity implements OnClickListener {
 		versionTv = (TextView) findViewById(R.id.aboutus_version_tv);
 		protocalTv = (TextView) findViewById(R.id.aboutus_protocal_tv);
 		
-		versionTv.setText(util.getAppVersion());
+		versionTv.setText(CommonUtils.getString(R.string.app_name)+"  "+util.getAppVersion());
 	}
 
 	@Override

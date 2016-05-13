@@ -36,8 +36,10 @@
                 android:id="@+id/tv_base_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/ib_base_arrow"
+                android:layout_centerVertical="true"
                 android:text="@string/data_title"
+                android:layout_marginLeft="10dp"
                 android:textColor="#fefefe"
                 android:textSize="18sp" />
 

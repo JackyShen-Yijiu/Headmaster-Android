@@ -23,8 +23,8 @@ import com.yibu.headmaster.utils.SharedPreferencesUtil;
 
 public class GuideActivity extends Activity implements OnClickListener {
 	private List<ImageView> images;
-	private LinearLayout ll_guide_points;
-	private ImageView iv_guide_redPoint;
+//	private LinearLayout ll_guide_points;
+//	private ImageView iv_guide_redPoint;
 	private Button bt_guide_start;
 
 	@Override
@@ -38,8 +38,8 @@ public class GuideActivity extends Activity implements OnClickListener {
 
 	private void init() {
 		ViewPager vp_guide_bg = (ViewPager) findViewById(R.id.vp_guide_bg);
-		ll_guide_points = (LinearLayout) findViewById(R.id.ll_guide_points);
-		iv_guide_redPoint = (ImageView) findViewById(R.id.iv_guide_front_Point);
+//		ll_guide_points = (LinearLayout) findViewById(R.id.ll_guide_points);
+//		iv_guide_redPoint = (ImageView) findViewById(R.id.iv_guide_front_Point);
 		bt_guide_start = (Button) findViewById(R.id.bt_guide_start);
 		bt_guide_start.setOnClickListener(this);
 		initData();
@@ -53,11 +53,11 @@ public class GuideActivity extends Activity implements OnClickListener {
 		@Override
 		public void onPageScrolled(int position, float positionOffset,
 				int positionOffsetPixels) {
-			int redPointX = (position) * dp2px(20);
-			android.widget.RelativeLayout.LayoutParams layoutParams = (android.widget.RelativeLayout.LayoutParams) iv_guide_redPoint
-					.getLayoutParams();
-			layoutParams.leftMargin = redPointX;
-			iv_guide_redPoint.setLayoutParams(layoutParams);
+//			int redPointX = (position) * dp2px(20);
+//			android.widget.RelativeLayout.LayoutParams layoutParams = (android.widget.RelativeLayout.LayoutParams) iv_guide_redPoint
+//					.getLayoutParams();
+//			layoutParams.leftMargin = redPointX;
+//			iv_guide_redPoint.setLayoutParams(layoutParams);
 		}
 
 		@Override
@@ -78,8 +78,7 @@ public class GuideActivity extends Activity implements OnClickListener {
 
 	private void initData() {
 		int[] imgIds = new int[] { R.drawable.guide_page_1,
-				R.drawable.guide_page_2, R.drawable.guide_page_3,
-				R.drawable.guide_page_4 };
+				R.drawable.guide_page_2, R.drawable.guide_page_3 };
 		images = new ArrayList<ImageView>();
 		for (int i = 0; i < imgIds.length; i++) {
 			ImageView imageView = new ImageView(getApplicationContext());
@@ -88,15 +87,15 @@ public class GuideActivity extends Activity implements OnClickListener {
 			imageView.setBackgroundResource(imgIds[i]);
 			images.add(imageView);
 
-			ImageView point = new ImageView(getApplicationContext());
-			point.setBackgroundResource(R.drawable.guide_point_normal);
-			int dp2px = dp2px(10);
-			LayoutParams params = new LayoutParams(dp2px, dp2px);
-			if (i != 0) {
-				params.leftMargin = dp2px;
-			}
-			point.setLayoutParams(params);
-			ll_guide_points.addView(point);
+//			ImageView point = new ImageView(getApplicationContext());
+//			point.setBackgroundResource(R.drawable.guide_point_normal);
+//			int dp2px = dp2px(10);
+//			LayoutParams params = new LayoutParams(dp2px, dp2px);
+//			if (i != 0) {
+//				params.leftMargin = dp2px;
+//			}
+//			point.setLayoutParams(params);
+//			ll_guide_points.addView(point);
 		}
 	}
 
