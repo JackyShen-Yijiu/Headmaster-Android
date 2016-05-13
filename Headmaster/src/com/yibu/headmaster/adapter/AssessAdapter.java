@@ -155,11 +155,12 @@ public class AssessAdapter extends BasicAdapter<Commentlist> {
 				chatId = commentBean.studentinfo.userid;
 				name = commentBean.studentinfo.name;
 				url = commentBean.studentinfo.headportrait.originalpic;
-			} else if (v.getId() == R.id.assess_coach_image) {
-				chatId = commentBean.coachinfo.coachid;
-				name = commentBean.coachinfo.name;
-				url = commentBean.coachinfo.headportrait.originalpic;
-			}
+			} 
+//			else if (v.getId() == R.id.assess_coach_image) {
+//				chatId = commentBean.coachinfo.coachid;
+//				name = commentBean.coachinfo.name;
+//				url = commentBean.coachinfo.headportrait.originalpic;
+//			}
 			if (!TextUtils.isEmpty(chatId)) {
 				Intent intent = new Intent(context, ChatActivity.class);
 				intent.putExtra("chatId", chatId);

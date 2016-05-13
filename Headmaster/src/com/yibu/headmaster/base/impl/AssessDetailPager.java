@@ -21,7 +21,6 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.jzjf.headmaster.R;
 import com.yibu.headmaster.adapter.AssessAdapter;
-import com.yibu.headmaster.adapter.ComplaintAdapter;
 import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.base.BasePagerFragment;
 import com.yibu.headmaster.bean.AssessBean;
@@ -40,7 +39,6 @@ public class AssessDetailPager extends BasePagerFragment implements OnClickListe
 	private ArrayList<Commentlist> listAssess = new ArrayList<Commentlist>();
 	private ArrayList<ComplaintBean> listComplaint = new ArrayList<ComplaintBean>();
 	private AssessAdapter adapterAssess;
-	private ComplaintAdapter adapterComplaint;
 	private int curpage = 1;
 	private int commentlevel = 3; // 评价等级 1 差评2 中评 3 好评
 	private View viewHeader;
