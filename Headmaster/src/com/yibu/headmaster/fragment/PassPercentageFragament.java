@@ -77,17 +77,24 @@ public class PassPercentageFragament extends BasePagerFragment{
 							new TypeToken<List<MonthData>>() {
 							}.getType());
 			adapter.setDataMonth(comList);
+			if(comList.size()==0){
+				error.setVisibility(View.VISIBLE);
+			}else{
+				error.setVisibility(View.GONE);
+			}
+			
 		}catch(Exception e){
 			//详细列表
-			
 		}
-//		adapter.setData();
 	}
+	
+	private View error;
 	
 	@Override
 	public View initView() {
 		View view = View.inflate(mContext, R.layout.frag_pass_percentage, null);
 		lv = (ExpandableListView) view.findViewById(R.id.frag_pass_percentage_lv);
+		error = view.findViewById(R.id.error);
 		adapter = new PercentageAdapter(getActivity());
 		lv.setAdapter(adapter);
 		lv.setOnGroupClickListener(new OnGroupClickListener() {
@@ -112,8 +119,11 @@ public class PassPercentageFragament extends BasePagerFragment{
 	public void initData() {
 		loadMonthData();
 	}
+	
+	private int falg = 0;
 
 	private void loadMonthData() {
+		falg = 1;
 		LogUtil.print("month-->"+params1);
 		ApiHttpClient.get("statistics/getexammonth?userid="
 				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="
@@ -128,6 +138,7 @@ public class PassPercentageFragament extends BasePagerFragment{
 	 * 按照月份请求
 	 */
 	public void loadExamInfor(String date,int id){
+		falg = 2;
 		if(map.containsKey(id+"")){//如果已经请求过了
 			return;
 		}
