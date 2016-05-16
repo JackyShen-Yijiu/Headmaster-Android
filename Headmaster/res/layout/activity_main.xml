@@ -32,7 +32,6 @@
         android:id="@+id/rg_content_bottom"
         android:layout_width="match_parent"
         android:layout_height="49dp"
-        android:paddingTop="4dp"
         android:orientation="horizontal" >
 
         <RadioButton

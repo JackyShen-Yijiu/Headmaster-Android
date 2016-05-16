@@ -83,9 +83,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		// WindowManager.LayoutParams params = window.getAttributes();
 		// params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
 		// window.setAttributes(params);
-
 		setContentView(R.layout.activity_main);
-
 		initView();
 		initListener();
 		initData();
