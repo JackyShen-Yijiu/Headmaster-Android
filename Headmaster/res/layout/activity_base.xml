@@ -32,6 +32,8 @@
                     android:src="@drawable/base_arrow" />
             </FrameLayout>
 
+
+
             <TextView
                 android:id="@+id/tv_base_right"
                 android:layout_width="wrap_content"

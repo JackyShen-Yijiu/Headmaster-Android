@@ -32,7 +32,9 @@
             android:id="@+id/base_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/title_left_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
             android:text="@string/data_title"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -63,8 +65,6 @@
                 android:id="@+id/main_complaint_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
                 android:src="@drawable/complaint"
                 android:contentDescription="@string/app_name" />
             
