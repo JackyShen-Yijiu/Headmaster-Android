@@ -46,7 +46,7 @@
             android:drawableTop="@drawable/selector_bottom_data"
             android:textSize="10sp"
             android:textColor="@drawable/selector_text_color"
-            android:text="数据" />
+            android:text="统计" />
 
             <RadioButton
                 android:id="@+id/rb_bottom_news"

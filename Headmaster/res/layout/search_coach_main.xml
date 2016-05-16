@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     android:focusable="true"  
+   android:focusableInTouchMode="true" >
+    
+<LinearLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:padding="8dp"
+        android:background="#1d1c21"
+        android:orientation="horizontal">
+
+        <com.yibu.headmaster.view.CleanableEditText
+            android:paddingLeft="8dp"
+            android:id="@+id/search_view"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="37dp"
+            android:layout_marginLeft="8dp"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:background="@drawable/edittext_bg"
+            android:textColor="@color/text_color_dark_black"
+            android:hint="@string/search"
+            android:drawableLeft="@drawable/search_gary"
+            android:drawableRight="@drawable/delete_text"
+            android:drawablePadding="8dp"
+             />
+        <TextView 
+            android:id="@+id/search_cancel"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+    </LinearLayout>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout1" >
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+</LinearLayout>

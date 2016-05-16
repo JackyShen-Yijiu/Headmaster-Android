@@ -5,35 +5,6 @@
     android:focusable="true"  
    android:focusableInTouchMode="true" >
 
-    <LinearLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:orientation="vertical">
-
-        <com.yibu.headmaster.view.CleanableEditText
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:imeOptions="actionSearch"
-            android:singleLine="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@null"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/text_color_dark_black"
-            android:hint="@string/search"
-            android:drawableLeft="@drawable/search"
-            android:drawableRight="@drawable/search_del"
-             />
-        <ImageView
-            android:id="@+id/base_deviderline_down"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="#e8eced" />
-    </LinearLayout>
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/listView1"

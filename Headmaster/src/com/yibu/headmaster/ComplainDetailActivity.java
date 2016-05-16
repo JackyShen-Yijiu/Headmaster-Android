@@ -12,6 +12,7 @@ import com.joooonho.SelectableRoundedImageView;
 import com.jzjf.headmaster.R;
 import com.squareup.picasso.Picasso;
 import com.yibu.headmaster.bean.ComplainVO;
+import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.UTC2LOC;
 
 public class ComplainDetailActivity extends BaseActivity{
@@ -70,11 +71,9 @@ public class ComplainDetailActivity extends BaseActivity{
 		tv_coach.setText(complainVO.coachinfo.name);
 		complain_content.setText(complainVO.complaintcontent);
 		
-		RelativeLayout.LayoutParams headParam = (RelativeLayout.LayoutParams) iv_one
-				.getLayoutParams();
-		RelativeLayout.LayoutParams headParams = (RelativeLayout.LayoutParams) iv_two
-				.getLayoutParams();
 		String[] urls = complainVO.piclistr;
+		
+		LogUtil.print("url...."+urls);
 		switch (urls.length) {
 		case 1:
 			// 第一个显示

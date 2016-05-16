@@ -2,6 +2,7 @@
 <RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:paddingBottom="12dp"
     android:layout_height="wrap_content">
     
     <RelativeLayout 
@@ -85,11 +86,5 @@
         android:visibility="gone"
         />
     
-      <ImageView 
-          android:layout_width="match_parent"
-          android:layout_height="0.5dp"
-          android:layout_below="@+id/complain_content"
-          android:layout_marginTop="95dp"
-          android:background="@color/text_color_light_black"/>
     
 </RelativeLayout>

@@ -60,7 +60,7 @@ public class ComplainAdapter extends BasicAdapter<ComplainVO> {
 			Picasso.with(context).load(url).into(holder.headIv);
 		}
 		
-		holder.time.setText(UTC2LOC.instance.getDate(complainVO.complaintDateTime, "yyyy/MM/dd"));
+		holder.time.setText(UTC2LOC.instance.getDate(complainVO.complaintDateTime, "yyyy/MM/dd HH:ss"));
 		holder.content.setText(complainVO.complaintcontent);
 		
 		
@@ -72,16 +72,21 @@ public class ComplainAdapter extends BasicAdapter<ComplainVO> {
 		LogUtil.print("asdzxcasd"+complainVO.feedbacktype+complainVO.feedbackusertype);
 		
 		
-		RelativeLayout.LayoutParams headParam = (RelativeLayout.LayoutParams) holder.iv_one
-				.getLayoutParams();
-		RelativeLayout.LayoutParams headParams = (RelativeLayout.LayoutParams) holder.iv_two
-				.getLayoutParams();
 		String[] url1 = complainVO.piclistr;
+		
+		
 		switch (url1.length) {
+		case 0:
+			holder.iv_one.setVisibility(View.GONE);
+			holder.iv_two.setVisibility(View.GONE);
+			break;
+		
 		case 1:
 			// 第一个显示
 			if (TextUtils.isEmpty(url1[0])) {
+				LogUtil.print(position+"url22...."+url1[0]);
 			} else {
+				LogUtil.print(position+"url111...."+url1[0]);
 				holder.iv_one.setVisibility(View.VISIBLE);
 				Picasso.with(context).load(url1[0]).into(holder.iv_one);
 				break;
@@ -90,7 +95,9 @@ public class ComplainAdapter extends BasicAdapter<ComplainVO> {
 		case 2:
 			// 第二个显示
 			if (TextUtils.isEmpty(url1[1])) {
+				LogUtil.print(position+"url33...."+url1[1]);
 			} else {
+				LogUtil.print(position+"url3...."+url1[1]);
 				holder.iv_one.setVisibility(View.VISIBLE);
 				holder.iv_one.setVisibility(View.VISIBLE);
 				Picasso.with(context).load(url1[0]).into(holder.iv_one);

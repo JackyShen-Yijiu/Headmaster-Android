@@ -118,6 +118,9 @@
              android:screenOrientation="portrait" ></activity>
          <activity  android:name="com.yibu.headmaster.AssessActivity"
              android:screenOrientation="portrait" ></activity>
+           <activity  android:name="com.yibu.headmaster.SearchCoachActivity"
+             android:screenOrientation="portrait" ></activity>
+         
         <activity 
             android:name="com.yibu.headmaster.PublishBulletinActivity" 
             android:screenOrientation="portrait"> 

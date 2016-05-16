@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -30,7 +33,7 @@ import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 import com.yibu.headmaster.utils.ZProgressHUD;
 
-public class LeftMyCoachActivity extends BaseActivity {
+public class LeftMyCoachActivity extends BaseActivity implements OnClickListener{
 
 	private View view;
 	private PullToRefreshListView pullToRefreshListView;
@@ -39,7 +42,6 @@ public class LeftMyCoachActivity extends BaseActivity {
 	private ArrayList<CoachBean> list = new ArrayList<CoachBean>();
 	private int curpage = 1;
 	private Context mContext;
-	private EditText searchText;
 	private boolean isLoadMoreData;
 	@Override
 	protected void initView() {
@@ -47,8 +49,10 @@ public class LeftMyCoachActivity extends BaseActivity {
 		view = View.inflate(getBaseContext(), R.layout.left_my_coach, null);
 		content.addView(view);
 		pullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.listView1);
-		searchText = (EditText) view.findViewById(R.id.search_view);
-		searchText.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+		
+		baseRight.setVisibility(View.VISIBLE);
+		baseRight.setBackgroundResource(R.drawable.search_white);
+		
 		// if (searchView != null) {
 		// try {
 		// Class<?> argClass = searchView.getClass();
@@ -64,47 +68,6 @@ public class LeftMyCoachActivity extends BaseActivity {
 		
 	}
 
-	@Override
-	protected void initListener() {
-
-		searchText.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
-
-				EditText _v = (EditText) v;
-				if (!hasFocus) {// 失去焦点
-					_v.setHint(_v.getTag().toString());
-				} else {
-					String hint = _v.getHint().toString();
-					_v.setTag(hint);
-					_v.setHint("");
-				}
-			}
-		});
-		searchText.setOnEditorActionListener(new OnEditorActionListener() {
-
-			@Override
-			public boolean onEditorAction(TextView v, int actionId,
-					KeyEvent event) {
-				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-					// 先隐藏键盘
-					((InputMethodManager) searchText.getContext()
-							.getSystemService(Context.INPUT_METHOD_SERVICE))
-							.hideSoftInputFromWindow(LeftMyCoachActivity.this
-									.getCurrentFocus().getWindowToken(),
-									InputMethodManager.HIDE_NOT_ALWAYS);
-
-					// 实现搜索
-					LogUtil.print("搜索");
-					searchCoach();
-					return true;
-				}
-				return false;
-			}
-
-		});
-	}
 
 	@Override
 	protected void initData() {
@@ -154,17 +117,6 @@ public class LeftMyCoachActivity extends BaseActivity {
 		// http://101.200.204.240:8181/api/v1/getschoolcoach/562dcc3ccb90f25c3bde40da/1?name=%E7%8E%8B
 	}
 
-	private void searchCoach() {
-		isSearch = true;
-		ApiHttpClient
-				.getWithFullPath(
-						"api/v1/getschoolcoach/"
-								+ HeadmasterApplication.app.userInfo.driveschool.schoolid
-								+ "/" + curpage + "?name="
-								+ searchText.getText().toString(), handler);
-
-		searchText.setText("");
-	}
 
 	@Override
 	public void processSuccess(String data) {
@@ -196,6 +148,20 @@ public class LeftMyCoachActivity extends BaseActivity {
 	@Override
 	public void processFailure() {
 		ToastUtil.showToast(mContext, "网络异常");
+	}
+	
+	public void onClick(View view){
+		switch(view.getId()){
+		case R.id.tv_base_right:
+			Intent intent = new Intent(HeadmasterApplication.getContext(),
+					SearchCoachActivity.class);
+			startActivity(intent);
+			break;
+		case R.id.ib_base_arrow:
+			finish();
+			break;
+			
+		}
 	}
 
 }

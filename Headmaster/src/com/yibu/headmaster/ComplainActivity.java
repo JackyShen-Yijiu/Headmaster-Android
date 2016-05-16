@@ -42,8 +42,8 @@ public class ComplainActivity extends BaseActivity implements OnItemClickListene
 		mContext = this;
 		mListView = (QuickReturnListView) view
 				.findViewById(R.id.lv_publish_complain_list);
-		mListView.setCacheColorHint(android.R.color.transparent);
-		mListView.setDividerHeight(0);
+		mListView.setCacheColorHint(R.color.line_color);
+		mListView.setDividerHeight(1);
 		setSonsTitle(getString(R.string.complain));
 		baseRight.setVisibility(View.GONE);
 	}
