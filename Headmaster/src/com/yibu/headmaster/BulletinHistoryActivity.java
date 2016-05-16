@@ -16,7 +16,10 @@ import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.google.gson.reflect.TypeToken;
@@ -29,6 +32,7 @@ import com.yibu.headmaster.bean.BulletinBean;
 import com.yibu.headmaster.bean.UserBean;
 import com.yibu.headmaster.fragment.MailFragment;
 import com.yibu.headmaster.global.HeadmasterApplication;
+import com.yibu.headmaster.utils.CommonUtils;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.SharedPreferencesUtil;
@@ -38,7 +42,6 @@ import com.yibu.headmaster.view.QuickReturnListView;
 import com.yibu.headmaster.view.QuickReturnListView.OnRefreshListener;
 
 public class BulletinHistoryActivity extends BaseActivity {
-
 
 	private BulletinAdapter adapter;
 	private ArrayList<BulletinBean> list = new ArrayList<BulletinBean>();
@@ -51,6 +54,9 @@ public class BulletinHistoryActivity extends BaseActivity {
 	private Context mContext = null;
 	private View view;
 	private QuickReturnListView mListView;
+	private LinearLayout blackPageLayout;
+	private ImageView blackPageIv;
+	private TextView blackPageTv;
 
 	@Override
 	protected void initView() {
@@ -67,9 +73,16 @@ public class BulletinHistoryActivity extends BaseActivity {
 		setSonsTitle(getString(R.string.history_bulletin));
 
 		baseRight.setVisibility(View.GONE);
-		
-	}
 
+		//空白页
+		blackPageLayout = (LinearLayout) view.findViewById(R.id.black_page_ll);
+		blackPageIv = (ImageView) view.findViewById(R.id.black_page_iv);
+		blackPageTv = (TextView) view.findViewById(R.id.black_page_tv);
+		blackPageIv.setBackgroundResource(R.drawable.announcement_null);
+		blackPageTv.setText("暂时还没有驾校公告");
+		mListView.setVisibility(View.VISIBLE);
+		blackPageLayout.setVisibility(View.GONE);
+	}
 
 	@Override
 	protected void initData() {
@@ -120,13 +133,24 @@ public class BulletinHistoryActivity extends BaseActivity {
 				.parseJsonToList(data, new TypeToken<List<BulletinBean>>() {
 				}.getType());
 
-		
-		
+		if (seqindex == 0) {
+			if (bulletinBeans.size() == 0) {
+				blackPageLayout.setVisibility(View.VISIBLE);
+				mListView.setVisibility(View.GONE);
+			} else {
+				blackPageLayout.setVisibility(View.GONE);
+				mListView.setVisibility(View.VISIBLE);
+
+			}
+		}
 		if (bulletinBeans.size() == 0) {
+
 			moreData = false;
 		} else {
-			//保存最后一条公告的sqlindexid
-			SharedPreferencesUtil.putInt(mContext, MailFragment.UNREADNOTICECOUNT, bulletinBeans.get(bulletinBeans.size()-1).seqindex);
+			// 保存最后一条公告的sqlindexid
+			SharedPreferencesUtil.putInt(mContext,
+					MailFragment.UNREADNOTICECOUNT,
+					bulletinBeans.get(bulletinBeans.size() - 1).seqindex);
 			moreData = true;
 		}
 		System.out.println(moreData);
@@ -143,6 +167,10 @@ public class BulletinHistoryActivity extends BaseActivity {
 	public void processFailure() {
 
 		// isLoadMore = false;
+		blackPageLayout.setVisibility(View.VISIBLE);
+		mListView.setVisibility(View.GONE);
+		blackPageIv.setBackgroundResource(R.drawable.net_null);
+		blackPageTv.setText(CommonUtils.getString(R.string.no_network));
 		mListView.loadMoreFinished();
 	}
 

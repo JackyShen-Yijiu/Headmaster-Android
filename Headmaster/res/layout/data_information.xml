@@ -34,7 +34,7 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <RelativeLayout
+        <RelativeLayout 
             android:id="@+id/rl_datas_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -477,7 +477,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_below="@+id/assess_title"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="14dp"

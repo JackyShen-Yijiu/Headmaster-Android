@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <include layout="@layout/error"/>
+    <include layout="@layout/black_page"/>
 
     <ExpandableListView
         android:id="@+id/frag_pass_percentage_lv"

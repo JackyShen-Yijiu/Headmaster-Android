@@ -162,6 +162,7 @@ public class NewsPager extends BasePagerFragment {
 			// 不是加载更多时更新轮播图
 
 			// 加载前三条信息
+			topImageNewsData.clear();
 			for (int i = 0; i < 3; i++) {
 				if (newsBean.size() >= i) {
 					topImageNewsData.add(newsBean.get(i));
@@ -169,28 +170,29 @@ public class NewsPager extends BasePagerFragment {
 			}
 
 			topImage.setAdapter(new TopImageAdapter());
+			topImage.setOnPageChangeListener(new MyOnPageChangeListener());
+			topImgInfo.setText(topImageNewsData.get(0).title);
+			prePointIndex = 0;
+			// 删除以前的点
+			topPoints.removeAllViews();
+			// 添加轮播图的点
+			for (int i = 0; i < topImageNewsData.size(); i++) {
+				ImageView imageView = new ImageView(mContext);
+				imageView.setBackgroundResource(R.drawable.point);
+				LayoutParams params = new LayoutParams(8, 8);
+				imageView.setLayoutParams(params);
+				params.leftMargin = 6;
+				imageView.setEnabled(false);
+				topPoints.addView(imageView);
+			}
+			setPointSize(0, true);
+			if (topHandler == null) {
+				topHandler = new MyHandler(this);
+			}
+			topHandler.removeCallbacksAndMessages(null);// null是删掉所有已发送的消息
 		}
-		topImage.setOnPageChangeListener(new MyOnPageChangeListener());
-		topImgInfo.setText(topImageNewsData.get(0).title);
-		prePointIndex = 0;
-		// 删除以前的点
-		topPoints.removeAllViews();
-		// 添加轮播图的点
-		for (int i = 0; i < topImageNewsData.size(); i++) {
-			ImageView imageView = new ImageView(mContext);
-			imageView.setBackgroundResource(R.drawable.point);
-			LayoutParams params = new LayoutParams(8, 8);
-			imageView.setLayoutParams(params);
-			params.leftMargin = 6;
-			imageView.setEnabled(false);
-			topPoints.addView(imageView);
-		}
-		setPointSize(0, true);
-		if (topHandler == null) {
-			topHandler = new MyHandler(this);
-		}
-		topHandler.removeCallbacksAndMessages(null);// null是删掉所有已发送的消息
 		
+		LogUtil.print("ssss----"+seqindex);
 
 		if (seqindex == 0) {
 			totalList.clear();
@@ -202,6 +204,7 @@ public class NewsPager extends BasePagerFragment {
 		}
 		pullToRefreshListView.onRefreshComplete();
 		// seqindex = totalList.get(totalList.size() - 1).seqindex;
+		isLoadMoreData = false;
 	}
 
 	//设置轮播图的圆点
@@ -222,7 +225,10 @@ public class NewsPager extends BasePagerFragment {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			NewsBean bean = totalList.get(position);
+			if(position <2){
+				return;
+			}
+			NewsBean bean = totalList.get(position-2);
 
 			Intent intent = new Intent(mContext, NewsDetailActivity.class);
 			// intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

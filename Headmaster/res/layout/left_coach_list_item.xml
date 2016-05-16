@@ -1,118 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/rl_item"
-        android:layout_width="match_parent"
-        android:paddingTop="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:layout_height="98dp" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_item"
+    android:layout_width="match_parent"
+    android:layout_height="98dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp" >
 
-        
-         <com.joooonho.SelectableRoundedImageView
+    <com.joooonho.SelectableRoundedImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/imageView_head"
         android:layout_width="36dp"
         android:layout_height="36dp"
         app:sriv_border_color="#00000000"
         app:sriv_border_width="1dip" />
-        
-         <ImageView
-            android:id="@+id/imageView_state"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_marginLeft="13dp"
-            android:layout_alignBottom="@+id/learn_state"
-            android:background="@drawable/point_rest" />
 
-            <RatingBar
-                android:id="@+id/imageView_star"
-                android:layout_width="wrap_content"  
-                android:layout_height="wrap_content" 
-                android:layout_alignParentRight="true"
-            	android:layout_alignTop="@+id/textView_name"
-                android:rating="0" 
-                android:numStars="5"
-                android:isIndicator="true"
-                style="@style/roomRatingBar"/>
+    <ImageView
+        android:id="@+id/imageView_state"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_alignBottom="@+id/learn_state"
+        android:layout_marginLeft="13dp"
+        android:background="@drawable/point_rest" />
 
-        <TextView
-            android:id="@+id/textView_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imageView_head"
-            android:layout_marginLeft="12dp"
-            android:textSize="14sp"
-            android:text="请叫我不要太帅"
-            android:textColor="@color/text_color_dark_black" />
+    <RatingBar
+        android:id="@+id/imageView_star"
+        style="@style/roomRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textView_name"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:rating="0" />
 
-        
-        <TextView 
-            android:id="@+id/learn_kemu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:layout_marginTop="8dp"
-            android:layout_alignLeft="@+id/textView_name"
-            android:layout_below="@+id/textView_name"
-            android:textColor="@color/text_color_light_black"
-            android:text="科目二 科目三"/>
-          <TextView 
-            android:id="@+id/tv_learn_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@color/text_color_light_black"
-            android:layout_alignBottom="@+id/learn_kemu"
-            android:layout_marginRight="4dp"
-            android:layout_toLeftOf="@+id/learn_pass"
-            android:text="通过率"/>
-          
-               <TextView 
-            android:id="@+id/learn_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@color/red"
-            android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/learn_kemu"
-            android:text="95%"/>
-               
-                     <TextView 
-            android:id="@+id/learn_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@color/text_color_light_black"
-            android:layout_below="@+id/learn_kemu"
-            android:layout_marginTop="14dp"
-            android:layout_alignLeft="@+id/textView_name"
-            android:text=""/>
-                     
-                     
-              <TextView 
-            android:id="@+id/learn_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@color/text_color_dark_black"
-            android:layout_alignBottom="@+id/learn_state"
-            android:layout_toRightOf="@+id/learn_state"
-            android:layout_marginLeft="4dp"
-            android:text=""/>
-          <ImageView 
-            android:id="@+id/imageView_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/learn_pass"
-			android:layout_marginTop="12dp"
-            android:src="@drawable/phone"/>
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@+id/imageView_head"
+        android:text="请叫我不要太帅"
+        android:textColor="@color/text_color_dark_black"
+        android:textSize="14sp" />
 
-          <View android:layout_width="match_parent"
-              android:layout_height="1dp"
-              android:layout_below="@+id/imageView_state"
-              android:layout_marginTop="16dp"
-              android:background="#e8eced"/>
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/learn_kemu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_name"
+        android:layout_below="@+id/textView_name"
+        android:layout_marginTop="8dp"
+        android:text="科目二 科目三"
+        android:textColor="@color/text_color_light_black"
+        android:textSize="12sp" />
 
+    <TextView
+        android:id="@+id/tv_learn_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/learn_kemu"
+        android:layout_marginRight="4dp"
+        android:layout_toLeftOf="@+id/learn_pass"
+        android:text="通过率"
+        android:textColor="@color/text_color_light_black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/learn_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/learn_kemu"
+        android:layout_alignParentRight="true"
+        android:text="95%"
+        android:textColor="@color/red"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/learn_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_name"
+        android:layout_below="@+id/learn_kemu"
+        android:layout_marginTop="14dp"
+        android:text=""
+        android:textColor="@color/text_color_light_black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/learn_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/learn_state"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/learn_state"
+        android:text=""
+        android:textColor="@color/text_color_dark_black"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/imageView_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/learn_pass"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/phone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/imageView_state"
+        android:layout_marginTop="16dp"
+        android:background="#e8eced" />
+
+</RelativeLayout>

@@ -11,6 +11,7 @@ import cn.sft.baseactivity.util.MyHandler;
 import com.jzjf.headmaster.R;
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.api.ApiHttpClient;
+import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ZProgressHUD;
 
 public class CallBackActivity extends BaseActivity implements OnClickListener {
@@ -82,6 +83,7 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void processSuccess(String data) {
+		LogUtil.print("sss-----"+data);
 		ZProgressHUD.getInstance(this).show();
 		ZProgressHUD.getInstance(this).dismissWithSuccess("反馈成功！");
 		callContent.setText("");

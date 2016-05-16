@@ -33,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:paddingTop="4dp"
+        android:background="#fafafa"
         android:orientation="horizontal" >
 
         <RadioButton
@@ -43,7 +44,6 @@
             android:button="@null"
             android:checked="true"
             android:gravity="center"
-            android:background="#fafafa"
             android:drawableTop="@drawable/selector_bottom_data"
             android:textSize="10sp"
             android:textColor="@drawable/selector_text_color"
@@ -58,7 +58,6 @@
                 android:drawableTop="@drawable/selector_bottom_news"
            		android:gravity="center"
                 android:textSize="10sp"
-                android:background="#fafafa"
           		android:textColor="@drawable/selector_text_color"
                 android:text="资讯" />
 
@@ -69,7 +68,6 @@
                     android:button="@null"
             		android:gravity="center"
                     android:layout_weight="1"
-                    android:background="#fafafa"
                     android:textSize="10sp"
                     android:drawableTop="@drawable/selector_bottom_chatter"
             		android:textColor="@drawable/selector_text_color"

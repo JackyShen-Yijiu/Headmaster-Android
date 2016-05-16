@@ -81,9 +81,12 @@ public class MyCoachAdapter extends BasicAdapter<CoachBean> {
 		if (!TextUtils.isEmpty(coachBean.headportrait.originalpic)) {
 			Picasso.with(HeadmasterApplication.getContext())
 					.load(coachBean.headportrait.originalpic)
+					.placeholder(R.drawable.head_null)
+					.error(R.drawable.head_null)
 					.into(mHolder.imageView_head);
 
 		}
+		
 		mHolder.imageView_star.setRating(coachBean.starlevel);
 		mHolder.textView_name.setText(coachBean.name);
 		mHolder.learn_pass.setText(coachBean.passrate+"%");

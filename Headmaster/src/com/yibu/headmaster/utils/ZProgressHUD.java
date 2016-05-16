@@ -24,9 +24,20 @@ public class ZProgressHUD extends Dialog {
 	ImageView ivFailure;
 	ImageView ivProgressSpinner;
 	AnimationDrawable adProgressSpinner;
-	Context mContext;
+	static Context mContext;
 
 	public static ZProgressHUD getInstance(Context context) {
+		if(mContext!=null && !mContext.equals(context)){
+			
+			synchronized (ZProgressHUD.class) {
+				if(instance!=null && instance.isShowing()){
+					instance.dismiss();
+				}
+//				if (instance == null) {
+					instance = new ZProgressHUD(context);
+//				}
+			}
+	}
 		if (instance == null) {
 			synchronized (ZProgressHUD.class) {
 				if (instance == null) {
