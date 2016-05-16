@@ -158,6 +158,7 @@ public class StatisticsAct extends BaseActivity{
 			}
 		}
 		loadDataFromWeb();
+//		LoginServlet?phone=13120064118&type=1
 //		ApiHttpClient.getDirect("http://192.168.0.124:8080/OutDoorComment/servlet/LoginServlet?phone=13120064118&type=1", handler);
 	}
 	

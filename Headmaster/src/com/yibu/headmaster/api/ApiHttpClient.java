@@ -1,11 +1,16 @@
 package com.yibu.headmaster.api;
 
+import org.apache.http.Header;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.content.Context;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.utils.LogUtil;
+import com.yibu.headmaster.utils.TestInternet;
 
 public class ApiHttpClient {
 
@@ -33,9 +38,31 @@ public class ApiHttpClient {
 	public static void clearUserCookies(Context context) {
 		// (new HttpClientCookieStore(context)).a();
 	}
+	
+	
 
 	public static void delete(String partUrl, AsyncHttpResponseHandler handler) {
 		client.delete(getAbsoluteApiUrl(partUrl), handler);
+	}
+	
+	public static void getTag(final String tag,String url,final TestInternet callback){
+		get(url,new AsyncHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+				if(arg0==200){
+					callback.onSuccess(tag, arg2);
+				}else{
+					callback.onF(tag, arg2);
+				}
+			}
+			
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+				callback.onF(tag, arg2);
+				
+			}
+		});
 	}
 
 	public static void get(String partUrl, AsyncHttpResponseHandler handler) {

@@ -173,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textColor="@color/blue"
-                    android:text="46" />
+                    android:text="0" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -203,7 +203,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textColor="@color/blue"
-                    android:text="46" />
+                    android:text="0" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -231,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textColor="@color/blue"
-                    android:text="46" />
+                    android:text="0" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -258,7 +258,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textColor="@color/blue"
-                    android:text="46" />
+                    android:text="0" />
 
                 <TextView
                     android:layout_width="wrap_content"
