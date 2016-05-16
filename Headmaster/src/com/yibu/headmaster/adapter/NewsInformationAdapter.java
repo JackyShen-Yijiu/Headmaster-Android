@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -42,36 +43,46 @@ public class NewsInformationAdapter extends BasicAdapter<NewsBean> {
 			mHolder = (NewsHolder) convertView.getTag();
 		}
 		NewsBean newsBean = list.get(position);
-		Picasso.with(HeadmasterApplication.getContext()).load(newsBean.logimg)
-				.into(mHolder.imageView_item_cover);
+		if (!TextUtils.isEmpty(newsBean.logimg)) {
+			Picasso.with(HeadmasterApplication.getContext())
+					.load(newsBean.logimg)
+					.placeholder(R.drawable.pic_load)
+					.error(R.drawable.pic_load)
+					.into(mHolder.imageView_item_cover);
+
+		} else {
+			mHolder.imageView_item_cover.setImageResource(R.drawable.pic_load);
+		}
 		mHolder.textView_item_title.setText(newsBean.title);
 		mHolder.textView_item_content.setText(newsBean.description);
-//		String time;
-//		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-//		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
-//		Date dateCreate = null;
-//		try {
-//			dateCreate = format1.parse(newsBean.createtime);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//		Date dateCurr = new Date();
-//		long diff = 1;
-//		if (dateCreate != null && dateCreate != null) {
-//			diff = (dateCurr.getTime() - dateCreate.getTime()) / 1000 / 60; // 分钟
-//		}
-//		if (diff < 60) {
-//			time = diff + "分钟前";
-//		} else {
-//			diff = diff / 60;
-//			if (diff < 60) {
-//				time = diff + "小时前";
-//			} else {
-//				time = format2.format(dateCreate);
-//			}
-//		}
+		// String time;
+		// SimpleDateFormat format1 = new
+		// SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+		// SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
+		// Date dateCreate = null;
+		// try {
+		// dateCreate = format1.parse(newsBean.createtime);
+		// } catch (ParseException e) {
+		// e.printStackTrace();
+		// }
+		// Date dateCurr = new Date();
+		// long diff = 1;
+		// if (dateCreate != null && dateCreate != null) {
+		// diff = (dateCurr.getTime() - dateCreate.getTime()) / 1000 / 60; // 分钟
+		// }
+		// if (diff < 60) {
+		// time = diff + "分钟前";
+		// } else {
+		// diff = diff / 60;
+		// if (diff < 60) {
+		// time = diff + "小时前";
+		// } else {
+		// time = format2.format(dateCreate);
+		// }
+		// }
 
-		mHolder.textView_item_time.setText(UTC2LOC.instance.getDate(newsBean.createtime, "yyyy/MM/dd"));
+		mHolder.textView_item_time.setText(UTC2LOC.instance.getDate(
+				newsBean.createtime, "yyyy/MM/dd"));
 
 		return convertView;
 	}

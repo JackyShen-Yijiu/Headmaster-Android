@@ -45,6 +45,7 @@
       <string name="setting_callback">反馈</string>  
       <string name="allow_protocol">许可服务协议</string>
       <string name="opinions_suggestions">请留下宝贵的意见和建议</string>
+      <string name="no_network">网络开小差了</string>
       
       
       <!-- 评价 -->

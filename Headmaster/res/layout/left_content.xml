@@ -3,67 +3,68 @@
     android:id="@+id/layout_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
     android:background="@drawable/background_side"
+    android:clickable="true"
     android:orientation="vertical" >
-     
-  
-   <RelativeLayout
-            android:id="@+id/my_rl_xingxi"
-            android:layout_width="match_parent"
+
+    <RelativeLayout
+        android:id="@+id/my_rl_xingxi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp" >
+
+        <com.joooonho.SelectableRoundedImageView
+            android:id="@+id/iv_left_head_portrait"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_marginLeft="36dp"
+            android:src="@drawable/left_title" />
+
+        <TextView
+            android:id="@+id/coach_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="72dp" >
-            
- <com.joooonho.SelectableRoundedImageView
-                android:id="@+id/iv_left_head_portrait"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
-                android:layout_marginLeft="36dp"
-                android:src="@drawable/left_title" />
-  <TextView 
-       android:id="@+id/coach_name"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_toRightOf="@+id/iv_left_head_portrait"
-       android:textColor="#ffffff"
-       android:textSize="16sp"
-       android:layout_marginLeft="20dp"
-       android:layout_centerVertical="true"
-       android:text=""/>
-            <FrameLayout
-                android:id="@+id/iv_left_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:padding="21dp" >
-            </FrameLayout>
-        </RelativeLayout>
-        
-   <TextView 
-       android:id="@+id/school_name"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textColor="#ffffff"
-       android:textSize="16sp"
-       android:layout_marginTop="18dp"
-       android:layout_marginLeft="36dp"
-       android:text=""/>
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/iv_left_head_portrait"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
 
+        <FrameLayout
+            android:id="@+id/iv_left_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="21dp" >
+        </FrameLayout>
+    </RelativeLayout>
 
-<TextView 
-    android:id="@+id/my_rl_coach"
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:layout_marginLeft="36dp"
-    android:gravity="center_vertical"
-    android:drawableLeft="@drawable/coach"
-    android:drawablePadding="17dp"
-    android:text="教练"
-    android:layout_marginTop="10dp"
-    android:textSize="14sp"
-    android:textColor="#ffffff"/>
-<!-- <TextView 
+    <TextView
+        android:id="@+id/school_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="18dp"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/my_rl_coach"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/coach"
+        android:drawablePadding="17dp"
+        android:gravity="center_vertical"
+        android:text="教练"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+    <!--
+     <TextView 
     android:id="@+id/my_rl_data"
     android:layout_width="match_parent"
     android:layout_height="44dp"
@@ -74,29 +75,33 @@
      android:layout_marginTop="10dp"
     android:text="数据概览"
     android:textSize="14sp"
-    android:textColor="#ffffff"/> -->
-<TextView 
-    android:id="@+id/my_rl_complain"
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:layout_marginLeft="36dp"
-    android:gravity="center_vertical"
-    android:drawableLeft="@drawable/complaint"
-    android:drawablePadding="17dp"
-     android:layout_marginTop="10dp"
-    android:text="投诉"
-    android:textSize="14sp"
     android:textColor="#ffffff"/>
-<TextView 
-    android:id="@+id/my_rl_setting"
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:layout_marginLeft="36dp"
-    android:gravity="center_vertical"
-    android:drawableLeft="@drawable/set"
-     android:layout_marginTop="10dp"
-    android:drawablePadding="17dp"
-    android:text="设置"
-    android:textSize="14sp"
-    android:textColor="#ffffff"/>
+    -->
+
+    <TextView
+        android:id="@+id/my_rl_complain"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/complaint"
+        android:drawablePadding="17dp"
+        android:gravity="center_vertical"
+        android:text="投诉"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/my_rl_setting"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/set"
+        android:drawablePadding="17dp"
+        android:gravity="center_vertical"
+        android:text="设置"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
 </LinearLayout>

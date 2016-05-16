@@ -158,7 +158,7 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 		if (!TextUtils.isEmpty(data)) {
 			ZProgressHUD.getInstance(mContext).show();
 			ZProgressHUD.getInstance(mContext)
-					.dismissWithSuccess("反馈成功！");
+					.dismissWithSuccess("回复成功！");
 		}
 		
 		//显示反馈信息
