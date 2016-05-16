@@ -43,6 +43,7 @@ public abstract class BasePagerFragment extends Fragment {
 		@Override
 		public void onFailure(int statusCode, Header[] headers,
 				byte[] responseBody, Throwable error) {
+			processFailure();
 		}
 	};
 	

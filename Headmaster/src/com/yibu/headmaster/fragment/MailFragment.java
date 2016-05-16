@@ -197,7 +197,7 @@ public class MailFragment extends BasePagerFragment implements
 		blackPageLayout.setVisibility(View.VISIBLE);
 		blackPageIv.setBackgroundResource(R.drawable.net_null);
 		blackPageTv.setText(CommonUtils.getString(R.string.no_network));
-		ToastUtil.showToast(mContext, "网络异常");
+//		ToastUtil.showToast(mContext, "网络异常");
 	}
 
 	@Override

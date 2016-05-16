@@ -5,6 +5,8 @@ import java.util.List;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jzjf.headmaster.R;
@@ -40,6 +42,8 @@ public class AssessActivity extends BaseActivity {
 		currentTime = getIntent().getIntExtra("title", 1);
 		commentlevel = getIntent().getIntExtra("commentlevel", 1);
 		baseTitle.setText("学员评价");
+		
+	
 
 	}
 
@@ -75,6 +79,7 @@ public class AssessActivity extends BaseActivity {
 
 	@Override
 	public void processFailure() {
+	
 
 	}
 

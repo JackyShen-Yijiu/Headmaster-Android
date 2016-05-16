@@ -11,6 +11,8 @@ import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
@@ -36,6 +38,9 @@ public class SearchCoachActivity extends BaseActivity{
 	private PullToRefreshListView pullToRefreshListView;
 	private View view;
 	private TextView search_cancel;
+	private ImageView black_page_iv;
+	private LinearLayout black_page_ll;
+	private TextView black_page_tv;
 	
 	@Override
 	protected void initView() {
@@ -45,6 +50,10 @@ public class SearchCoachActivity extends BaseActivity{
 		pullToRefreshListView = (PullToRefreshListView)findViewById(R.id.listView1);
 		search_cancel = (TextView)findViewById(R.id.search_cancel);
 		search_cancel.setOnClickListener(this);
+		
+		black_page_iv=(ImageView)findViewById(R.id.black_page_iv);
+		black_page_ll=(LinearLayout)findViewById(R.id.black_page_ll);
+		black_page_tv=(TextView)findViewById(R.id.black_page_tv);
 		
 	}
 	@Override
@@ -106,6 +115,13 @@ public class SearchCoachActivity extends BaseActivity{
 		pullToRefreshListView.setMode(Mode.BOTH);
 		adapter = new MyCoachAdapter(this, list);
 		pullToRefreshListView.setAdapter(adapter);
+		
+		if (list.size()==0) {
+			pullToRefreshListView.setVisibility(View.GONE);
+			black_page_ll.setVisibility(View.VISIBLE);
+			black_page_iv.setBackgroundResource(R.drawable.search_coach);
+			black_page_tv.setText("");
+		}
 	}
 
 	@Override
@@ -121,6 +137,11 @@ public class SearchCoachActivity extends BaseActivity{
 					ZProgressHUD.getInstance(SearchCoachActivity.this).show();
 					ZProgressHUD.getInstance(SearchCoachActivity.this)
 							.dismissWithSuccess("没有搜索到您要找的教练");
+					
+					pullToRefreshListView.setVisibility(View.GONE);
+					black_page_ll.setVisibility(View.VISIBLE);
+					black_page_iv.setBackgroundResource(R.drawable.search_coach);
+					black_page_tv.setText("");
 					isSearch = false;
 				}
 			}
