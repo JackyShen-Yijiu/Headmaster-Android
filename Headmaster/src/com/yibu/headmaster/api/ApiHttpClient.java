@@ -100,6 +100,7 @@ public class ApiHttpClient {
 
 	public static String getAbsoluteApiUrl(String partUrl) {
 		String url = String.format(API_URL, partUrl);
+		LogUtil.print("request--url"+url);
 		return url;
 	}
 

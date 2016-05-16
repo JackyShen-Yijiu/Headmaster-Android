@@ -10,6 +10,7 @@ import org.xclcharts.chart.LineChart;
 import org.xclcharts.chart.LineData;
 import org.xclcharts.common.DensityUtil;
 import org.xclcharts.renderer.XEnum;
+import org.xclcharts.renderer.XEnum.LabelBoxStyle;
 import org.xclcharts.renderer.info.AnchorDataPoint;
 import org.xclcharts.renderer.plot.PlotGrid;
 
@@ -231,7 +232,9 @@ public class LineChartDemoOne extends DemoView {
 				255));
 		lineData1.setDotStyle(XEnum.DotStyle.RING);
 		lineData1.getDotLabelPaint().setColor(Color.rgb(232, 0, 49));
+		//显示标签
 		lineData1.setLabelVisible(false);
+//		lineData1.getLabelOptions().setLabelBoxStyle(LabelBoxStyle.CAPROUNDRECT);
 		// lineData1.getPlotLine().getPlotDot().setRingInnerColor(Color.GREEN);
 		lineData1.getLabelOptions().setLabelBoxStyle(
 				XEnum.LabelBoxStyle.CAPRECT);

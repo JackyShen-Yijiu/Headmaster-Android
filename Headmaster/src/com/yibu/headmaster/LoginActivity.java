@@ -160,7 +160,8 @@ public class LoginActivity extends Activity implements OnClickListener,
 			params.put("mobile", phoneEt.getText().toString());
 			params.put("password", MD5.Md5(passwordEt.getText().toString()));
 			ApiHttpClient.post("userinfo/userlogin", params, handler);
-			
+			ZProgressHUD.getInstance(this).setMessage("登录中...").show();
+//			LogUtil.print("login--->"+ZProgressHUD.getInstance(this).isShowing());
 		} else {
 			ToastUtil.showToast(this, checkResult);
 		}
@@ -185,6 +186,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 		public void onFailure(int statusCode, Header[] headers,
 				byte[] responseBody, Throwable error) {
 			ToastUtil.showToast(LoginActivity.this, "网络异常");
+			ZProgressHUD.getInstance(LoginActivity.this).dismiss();
 		}
 
 		@Override
@@ -229,6 +231,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 				process(value);
 			} else {
 				ToastUtil.showToast(LoginActivity.this, "网络异常");
+				ZProgressHUD.getInstance(LoginActivity.this).dismiss();
 			}
 
 		}
@@ -271,18 +274,23 @@ LogUtil.print("-----"+userBean.userid);
 	// 环信登录的回调方法
 	@Override
 	public void loginResult(boolean result, int code, String message) {
-
+		
 		if (result) {
 			// 保存用户名和密码到本地
-			
-
 			LogUtil.print("登录环信成功！");
-			toMainActivity();
+			runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					ZProgressHUD.getInstance(LoginActivity.this).dismiss();
+					toMainActivity();
+				}
+			});
 		} else {
 			LogUtil.print("登录环信失败！");
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
+					ZProgressHUD.getInstance(LoginActivity.this).dismiss();
 					ZProgressHUD.getInstance(LoginActivity.this).show();
 					ZProgressHUD.getInstance(LoginActivity.this)
 							.dismissWithFailure("初始化聊天失败");
@@ -304,8 +312,6 @@ LogUtil.print("-----"+userBean.userid);
 			Intent intent = new Intent(LoginActivity.this,
 					MainActivity.class);
 			startActivity(intent);
-
-
 		finish();
 	}
 	//点击空白处收起键盘
