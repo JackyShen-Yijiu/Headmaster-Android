@@ -31,20 +31,16 @@
     </RelativeLayout> -->
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="104dp"
         android:id="@+id/bt_guide_start"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
-        android:textSize="21sp"
-        android:paddingTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingBottom="5dp"
-        android:paddingRight="20dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="16sp"
         android:visibility="invisible"
         android:background="@drawable/button_background"
-        android:textColor="#fefefe"
+        android:textColor="@color/white"
         android:text="@string/enter_app" />
 
 </RelativeLayout>

@@ -80,14 +80,15 @@ public class ComplainAdapter extends BasicAdapter<ComplainVO> {
 			holder.iv_one.setVisibility(View.GONE);
 			holder.iv_two.setVisibility(View.GONE);
 			break;
-		
+			
 		case 1:
 			// 第一个显示
 			if (TextUtils.isEmpty(url1[0])) {
-				LogUtil.print(position+"url22...."+url1[0]);
+				holder.iv_one.setVisibility(View.GONE);
+				holder.iv_two.setVisibility(View.GONE);
 			} else {
-				LogUtil.print(position+"url111...."+url1[0]);
 				holder.iv_one.setVisibility(View.VISIBLE);
+				holder.iv_two.setVisibility(View.GONE);
 				Picasso.with(context).load(url1[0]).into(holder.iv_one);
 				break;
 			}
@@ -95,9 +96,7 @@ public class ComplainAdapter extends BasicAdapter<ComplainVO> {
 		case 2:
 			// 第二个显示
 			if (TextUtils.isEmpty(url1[1])) {
-				LogUtil.print(position+"url33...."+url1[1]);
 			} else {
-				LogUtil.print(position+"url3...."+url1[1]);
 				holder.iv_one.setVisibility(View.VISIBLE);
 				holder.iv_one.setVisibility(View.VISIBLE);
 				Picasso.with(context).load(url1[0]).into(holder.iv_one);
