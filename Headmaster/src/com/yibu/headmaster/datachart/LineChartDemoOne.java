@@ -152,6 +152,7 @@ public class LineChartDemoOne extends DemoView {
 					max = lineData.get(i).countY;
 				}
 			}
+			max ++;
 
 			int axisMax = 8;
 			if ((max % 4 == 0) && (max != 0)) {
