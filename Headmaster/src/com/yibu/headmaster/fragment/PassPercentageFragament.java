@@ -201,6 +201,8 @@ public class PassPercentageFragament extends BasePagerFragment {
 
 	@Override
 	public void processFailure() {
+		lv.setVisibility(View.GONE);
+		blackPageLayout.setVisibility(View.VISIBLE);
 		blackPageIv.setBackgroundResource(R.drawable.net_null);
 		blackPageTv.setText(CommonUtils.getString(R.string.no_network));
 	}

@@ -86,14 +86,11 @@
         android:visibility="gone"
         />
     
-<<<<<<< HEAD
-=======
       <ImageView 
           android:layout_width="match_parent"
           android:layout_height="0.5dp"
           android:layout_below="@+id/complain_content"
           android:layout_marginTop="95dp"
           android:background="@color/line_color"/>
->>>>>>> 83787bd78b940d6d57318774d894cfa4ff9b6c96
     
 </RelativeLayout>

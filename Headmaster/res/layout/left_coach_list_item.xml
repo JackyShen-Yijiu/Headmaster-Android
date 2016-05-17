@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/rl_item"
@@ -9,15 +8,7 @@
         android:paddingRight="16dp"
         android:background="@color/white"
         android:layout_height="98dp" >
-=======
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rl_item"
-    android:layout_width="match_parent"
-    android:layout_height="98dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp" >
->>>>>>> 83787bd78b940d6d57318774d894cfa4ff9b6c96
+
 
     <com.joooonho.SelectableRoundedImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"

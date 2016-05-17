@@ -30,11 +30,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:textColor="@color/blue"
-                android:textSize="16sp" />
+                android:layout_marginRight="6dp"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="人"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
         </LinearLayout>
 
-        <RelativeLayout 
+        <RelativeLayout
             android:id="@+id/rl_datas_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -184,17 +194,30 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical" >
 
-                <com.github.lzyzsd.circleprogress.DonutProgress
-                    android:id="@+id/dout_progress_subject_one"
-                    android:layout_width="84dp"
-                    android:layout_height="84dp"
-                    custom:donut_finished_color="@color/green"
-                    custom:donut_finished_stroke_width="7dp"
-                    custom:donut_progress="0"
-                    custom:donut_text_color="@color/green"
-                    custom:donut_text_size="@dimen/text_middle_size"
-                    custom:donut_unfinished_color="#f7f7f7"
-                    custom:donut_unfinished_stroke_width="4dp" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <com.github.lzyzsd.circleprogress.DonutProgress
+                        android:id="@+id/dout_progress_subject_one"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        custom:donut_finished_color="@color/green"
+                        custom:donut_finished_stroke_width="7dp"
+                        custom:donut_progress="0"
+                        custom:donut_text_color="@color/green"
+                        custom:donut_text_size="@dimen/text_middle_size"
+                        custom:donut_unfinished_color="#f7f7f7"
+                        custom:donut_unfinished_stroke_width="4dp" />
+                   <!--  <TextView 
+                        
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="暂无数据"
+                        android:textSize="@dimen/text_middle_size"
+                        android:textColor="@color/text_color_dark_black"/> -->
+                </RelativeLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -328,9 +351,9 @@
             android:id="@+id/ll_circle_layout_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="12dp"
             android:layout_below="@+id/ll_circle_divider"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingBottom="12dp" >
 
             <LinearLayout
                 android:id="@+id/ll_pass_percent_subject_three"
@@ -341,7 +364,7 @@
                 android:orientation="vertical" >
 
                 <com.github.lzyzsd.circleprogress.DonutProgress
-                     android:id="@+id/dout_progress_subject_three"
+                    android:id="@+id/dout_progress_subject_three"
                     android:layout_width="84dp"
                     android:layout_height="84dp"
                     custom:donut_finished_color="@color/red"
@@ -404,7 +427,7 @@
                 android:orientation="vertical" >
 
                 <com.github.lzyzsd.circleprogress.DonutProgress
-                     android:id="@+id/dout_progress_subject_four"
+                    android:id="@+id/dout_progress_subject_four"
                     android:layout_width="84dp"
                     android:layout_height="84dp"
                     custom:donut_finished_color="@color/blue"
@@ -458,7 +481,7 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-           android:layout_below="@+id/ll_circle_layout_2"
+            android:layout_below="@+id/ll_circle_layout_2"
             android:background="@color/line_color" />
 
         <TextView

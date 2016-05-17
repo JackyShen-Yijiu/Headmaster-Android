@@ -61,13 +61,11 @@ public class PassPercentageAct extends BaseActivity{
 
 	@Override
 	public void processSuccess(String data) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void processFailure() {
-		// TODO Auto-generated method stub
 		
 	}
 
