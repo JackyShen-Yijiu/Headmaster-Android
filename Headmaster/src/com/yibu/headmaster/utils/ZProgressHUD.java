@@ -86,6 +86,7 @@ public class ZProgressHUD extends Dialog {
 
 	@Override
 	public void show() {
+//		LogUtil.print("login--show-->"+((Activity) mContext).isFinishing());
 		if (!((Activity) mContext).isFinishing()) {
 			super.show();
 		} else {

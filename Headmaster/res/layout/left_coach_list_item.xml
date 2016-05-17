@@ -9,7 +9,6 @@
         android:background="@color/white"
         android:layout_height="98dp" >
 
-
     <com.joooonho.SelectableRoundedImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/imageView_head"

@@ -11,7 +11,7 @@
         android:id="@+id/my_rl_xingxi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp" >
+        android:layout_marginTop="56dp" >
 
         <com.joooonho.SelectableRoundedImageView
             android:id="@+id/iv_left_head_portrait"
@@ -24,13 +24,22 @@
             android:id="@+id/coach_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="4dp"
             android:layout_toRightOf="@+id/iv_left_head_portrait"
             android:text=""
             android:textColor="#ffffff"
-            android:textSize="16sp" />
-
+            android:textSize="14sp" />
+  <TextView
+        android:id="@+id/school_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/coach_name"
+        android:layout_alignLeft="@+id/coach_name"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
         <FrameLayout
             android:id="@+id/iv_left_back"
             android:layout_width="wrap_content"
@@ -41,22 +50,14 @@
         </FrameLayout>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/school_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="18dp"
-        android:text=""
-        android:textColor="#ffffff"
-        android:textSize="16sp" />
+  
 
     <TextView
         android:id="@+id/my_rl_coach"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="98dp"
         android:drawableLeft="@drawable/coach"
         android:drawablePadding="17dp"
         android:gravity="center_vertical"
@@ -83,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/complaint"
         android:drawablePadding="17dp"
         android:gravity="center_vertical"
@@ -96,7 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/set"
         android:drawablePadding="17dp"
         android:gravity="center_vertical"

@@ -10,6 +10,8 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -56,6 +58,9 @@ public class AssessDetailPager extends BasePagerFragment implements OnClickListe
 	private TextView textView1;
 	private TextView textView2;
 	private TextView textView3;
+	private ImageView black_page_iv;
+	private LinearLayout black_page_ll;
+	private TextView black_page_tv;
 
 	public AssessDetailPager(Context context, int i, int searchtype) {
 		super(context);
@@ -104,7 +109,9 @@ public class AssessDetailPager extends BasePagerFragment implements OnClickListe
 		textView2=(TextView)viewHeader.findViewById(R.id.textView2);
 		textView3=(TextView)viewHeader.findViewById(R.id.textView3);
 		list_assess.addHeaderView(viewHeader);
-
+		black_page_iv=(ImageView)view.findViewById(R.id.black_page_iv);
+		black_page_ll=(LinearLayout)view.findViewById(R.id.black_page_ll);
+		black_page_tv=(TextView)view.findViewById(R.id.black_page_tv);
 		textView1.setOnClickListener(this);
 		textView2.setOnClickListener(this);
 		textView3.setOnClickListener(this);
@@ -154,7 +161,7 @@ public class AssessDetailPager extends BasePagerFragment implements OnClickListe
 	}
 
 	private void loadNetworkData() {
-
+		LogUtil.print("zzzzzzzzzzzzxcccccccc--------loadNetworkData----");
 		if (!hasMoreData) {
 			ToastUtil.showToast(mContext, "没有更多数据了");
 			pullToRefreshListView.postDelayed(new Runnable() {
@@ -270,6 +277,12 @@ public class AssessDetailPager extends BasePagerFragment implements OnClickListe
 
 	@Override
 	public void processFailure() {
+		LogUtil.print("zzzzzzzzzzzzxcccccccc------------");
+		progressBar_main.setVisibility(View.GONE);
+		pullToRefreshListView.setVisibility(View.GONE);
+		black_page_ll.setVisibility(View.VISIBLE);
+		black_page_iv.setBackgroundResource(R.drawable.net_null);
+		black_page_tv.setText("网络开小差了");
 	}
 	@Override
 	public void onClick(View v) {
