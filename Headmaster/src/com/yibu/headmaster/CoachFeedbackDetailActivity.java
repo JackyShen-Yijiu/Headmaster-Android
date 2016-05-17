@@ -2,6 +2,9 @@ package com.yibu.headmaster;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -24,8 +27,10 @@ import com.yibu.headmaster.api.ApiHttpClient;
 import com.yibu.headmaster.bean.CoachFeedbackBean;
 import com.yibu.headmaster.bean.ComplainVO;
 import com.yibu.headmaster.bean.UserBean;
+import com.yibu.headmaster.fragment.MailFragment;
 import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
+import com.yibu.headmaster.utils.SharedPreferencesUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 import com.yibu.headmaster.utils.UTC2LOC;
 import com.yibu.headmaster.utils.ZProgressHUD;
@@ -81,6 +86,26 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 
 		coachFeedbackBean = (CoachFeedbackBean) getIntent()
 				.getSerializableExtra("coachFeedback");
+		// 保存该反馈详情（即已读）
+		String unReadString = SharedPreferencesUtil.getString(mContext,
+				MailFragment.UNREADFEEBACKID, "");
+		if (TextUtils.isEmpty(unReadString)) {
+			unReadString = coachFeedbackBean._id;
+		} else {
+			String[] unReads = unReadString.split(",");
+			int flag = 0; // 0--没有该详情 1---存在该详情
+			for (int i = 0; i < unReads.length; i++) {
+				if (coachFeedbackBean._id.equals(unReads[i])) {
+					flag = 1;
+					break;
+				}
+			}
+			if(flag == 0){
+				unReadString += ","+coachFeedbackBean._id;
+			}
+		}
+		SharedPreferencesUtil.putString(mContext, MailFragment.UNREADFEEBACKID, unReadString);
+
 		coachHead.setScaleType(ScaleType.CENTER_CROP);
 		coachHead.setImageResource(R.drawable.left_title);
 		coachHead.setOval(true);
@@ -99,7 +124,7 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 			// 未回复
 			replyLayout.setVisibility(View.GONE);
 		} else {
-			
+
 			sendReplyLayout.setVisibility(View.GONE);
 			replyLayout.setVisibility(View.VISIBLE);
 			replyHead.setScaleType(ScaleType.CENTER_CROP);
@@ -139,8 +164,7 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 		String replyString = sendReplyContent.getText().toString();
 		if (TextUtils.isEmpty(replyString)) {
 			ZProgressHUD.getInstance(mContext).show();
-			ZProgressHUD.getInstance(mContext)
-					.dismissWithFailure( "请输入反馈内容！");
+			ZProgressHUD.getInstance(mContext).dismissWithFailure("请输入反馈内容！");
 			return;
 		}
 
@@ -161,13 +185,13 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 
 		if (!TextUtils.isEmpty(data)) {
 			ZProgressHUD.getInstance(mContext).show();
-			ZProgressHUD.getInstance(mContext)
-					.dismissWithSuccess("回复成功！");
+			ZProgressHUD.getInstance(mContext).dismissWithSuccess("回复成功！");
 		}
-		
-		//显示反馈信息
+
+		// 显示反馈信息
 		if (HeadmasterApplication.app.userInfo != null) {
-			if (!TextUtils.isEmpty(HeadmasterApplication.app.userInfo.headportrait)) {
+			if (!TextUtils
+					.isEmpty(HeadmasterApplication.app.userInfo.headportrait)) {
 				Picasso.with(mContext)
 						.load(HeadmasterApplication.app.userInfo.headportrait)
 						.into(replyHead);
@@ -178,7 +202,7 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 		replyContent.setText(sendReplyContent.getText().toString());
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd  HH:mm");
 		replyTime.setText(format.format(new Date()));
-		
+
 		sendReplyContent.setText("");
 		// 隐藏软键盘
 		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

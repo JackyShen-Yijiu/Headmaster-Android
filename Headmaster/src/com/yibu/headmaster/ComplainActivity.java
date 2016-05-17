@@ -28,6 +28,7 @@ import com.yibu.headmaster.view.QuickReturnListView.OnRefreshListener;
 
 public class ComplainActivity extends BaseActivity implements
 		OnItemClickListener {
+	
 	private ComplainAdapter adapter;
 	private ArrayList<ComplainVO> list = new ArrayList<ComplainVO>();
 
@@ -149,7 +150,17 @@ public class ComplainActivity extends BaseActivity implements
 		bundle.putSerializable("item", bean);
 		// intent.putExtra("item", bean);
 		intent.putExtras(bundle);
-		mContext.startActivity(intent);
+		startActivityForResult(intent, 1);
 	}
 
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		LogUtil.print("onActivityResult");
+		if(requestCode == 1){
+			index=1;
+			loadNetworkData();
+		}
+	}
 }

@@ -432,9 +432,9 @@ public class DataPager extends BasePagerFragment implements OnClickListener {
 	}
 	public void onEvent(ComplaintEvent event){
 		//
-		LogUtil.print("----投诉onEvent");
-		Intent intent = new Intent(mContext, ComplainActivity.class);
-		mContext.startActivity(intent);
+//		LogUtil.print("----投诉onEvent");
+//		Intent intent = new Intent(mContext, ComplainActivity.class);
+//		mContext.startActivity(intent);
 	}
 	
 

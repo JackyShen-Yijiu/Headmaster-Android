@@ -112,7 +112,7 @@ public class PassPercentageFragament extends BasePagerFragment {
 		blackPageLayout = (LinearLayout) view.findViewById(R.id.black_page_ll);
 		blackPageIv = (ImageView) view.findViewById(R.id.black_page_iv);
 		blackPageTv = (TextView) view.findViewById(R.id.black_page_tv);
-		blackPageIv.setBackgroundResource(R.drawable.message_null);
+		blackPageIv.setBackgroundResource(R.drawable.text_null);
 		blackPageTv.setText("暂时还没有学员的考试信息");
 		
 		blackPageLayout.setVisibility(View.GONE);

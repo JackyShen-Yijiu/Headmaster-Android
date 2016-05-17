@@ -68,7 +68,6 @@
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_below="@+id/ll_feedback_content"
                 android:layout_marginTop="48dp"
                 android:background="@color/line_color" />
 
@@ -76,7 +75,6 @@
                 android:id="@+id/ll_headmaster_reply_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/divider"
                 android:layout_marginTop="32dp"
                 android:orientation="horizontal"
                 android:paddingLeft="16dp"

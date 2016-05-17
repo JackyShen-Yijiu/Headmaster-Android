@@ -1,5 +1,7 @@
 package com.yibu.headmaster.utils;
 
+import java.util.Set;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -49,5 +51,19 @@ public class SharedPreferencesUtil {
 			sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
 		}
 		return sp.getInt(key, defValue);
+	}
+	
+	public static void putStringSet(Context context, String key, Set<String> value) {
+		if (sp == null) {
+			sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+		}
+		sp.edit().putStringSet(key, value).commit();
+	}
+	
+	public static Set<String> getStringSet(Context context, String key, Set<String> defValue) {
+		if (sp == null) {
+			sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+		}
+		return sp.getStringSet(key, defValue);
 	}
 }

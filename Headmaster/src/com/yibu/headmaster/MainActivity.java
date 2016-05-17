@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -213,7 +214,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			break;
 		case R.id.main_complaint_rl:
 			LogUtil.print("----投诉");
-			EventBus.getDefault().post(new ComplaintEvent());
+			Intent intent = new Intent(mContext, ComplainActivity.class);
+			startActivity(intent);
+//			EventBus.getDefault().post(new ComplaintEvent());
 			break;
 		}
 	}

@@ -41,6 +41,8 @@ public class MailFragment extends BasePagerFragment implements
 		OnItemClickListener, OnClickListener {
 
 	public static final String UNREADNOTICECOUNT = "unreadNoticeCount";
+	public static final String UNREADFEEBACKID = "unreadFeebackId";
+	
 	private PullToRefreshListView pullToRefreshListView;
 	private ListView list_coach;
 	private CoachFeedbackAdapter adapter;
