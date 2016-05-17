@@ -18,6 +18,10 @@ public class CommonUtils {
 		return HeadmasterApplication.getContext().getResources()
 				.getString(resId);
 	}
+	public static int getColor(int resId) {
+		return HeadmasterApplication.getContext().getResources()
+				.getColor(resId);
+	}
 
 	public static String[] getStringArray(int resId) {
 		return HeadmasterApplication.getContext().getResources()

@@ -155,12 +155,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			case R.id.rb_bottom_news:
 				contentPager.setCurrentItem(1, false);
 				title.setText(getString(R.string.industry_consult));
-				complaintRl.setVisibility(View.INVISIBLE);
+				complaintRl.setVisibility(View.VISIBLE);
 				break;
 			case R.id.rb_bottom_chatter:
 				contentPager.setCurrentItem(2, false);
 				title.setText(getString(R.string.mail));
-				complaintRl.setVisibility(View.INVISIBLE);
+				complaintRl.setVisibility(View.VISIBLE);
 
 				// ChatterPager chatterPager = (ChatterPager) pagers.get(2);
 				// chatterPager.checkChatterPagerHasMessage();

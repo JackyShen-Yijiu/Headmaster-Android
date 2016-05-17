@@ -58,6 +58,8 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 	private EditText sendReplyContent;
 	@ViewInject(R.id.iv_send_feedback)
 	private ImageView sendFeedback;
+	@ViewInject(R.id.feedback_repay_layout)
+	LinearLayout sendReplyLayout;
 
 	private Context mContext = null;
 	private View view;
@@ -97,6 +99,8 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 			// 未回复
 			replyLayout.setVisibility(View.GONE);
 		} else {
+			
+			sendReplyLayout.setVisibility(View.GONE);
 			replyLayout.setVisibility(View.VISIBLE);
 			replyHead.setScaleType(ScaleType.CENTER_CROP);
 			replyHead.setImageResource(R.drawable.left_title);
