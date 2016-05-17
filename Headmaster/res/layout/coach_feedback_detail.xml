@@ -109,7 +109,7 @@
                         android:layout_marginLeft="4dp"
                         android:layout_toRightOf="@+id/tv_headmaster_name"
                         android:text="回复"
-                        android:textColor="@color/blue"
+                        android:textColor="@color/text_color_light_black"
                         android:textSize="@dimen/text_middle_size" />
 
                     <TextView
@@ -151,6 +151,7 @@
             android:layout_height="32dp"
             android:layout_marginLeft="12dp"
             android:layout_weight="1"
+            android:paddingLeft="6dp"
             android:background="@drawable/edittext_bg" />
 
         <ImageView

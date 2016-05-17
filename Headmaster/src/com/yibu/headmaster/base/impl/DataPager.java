@@ -174,22 +174,22 @@ public class DataPager extends BasePagerFragment implements OnClickListener {
 	//设置合格率
 	private void setProgress(MainPageDataV2Bean todayBean) {
 		
-		if(todayBean.overstockstudent[0] == 100){
+		if(todayBean.passrate[0] == 100){
 			progressSubjectOne.setFinishedStrokeColor(mContext.getResources().getColor(R.color.green));
 			progressSubjectOne.setTextColor(mContext.getResources().getColor(R.color.green));
-		}else if(todayBean.overstockstudent[0] <= 50){
+		}else if(todayBean.passrate[0] <= 50){
 			progressSubjectOne.setFinishedStrokeColor(mContext.getResources().getColor(R.color.red));
 			progressSubjectOne.setTextColor(mContext.getResources().getColor(R.color.red));
 		}else{
 			progressSubjectOne.setFinishedStrokeColor(mContext.getResources().getColor(R.color.blue));
 			progressSubjectOne.setTextColor(mContext.getResources().getColor(R.color.blue));
 		}
+		LogUtil.print("cccc---"+todayBean.overstockstudent[1]);
 		
-		
-		if(todayBean.overstockstudent[1] == 100){
+		if(todayBean.passrate[1] == 100){
 			progressSubjectTwo.setFinishedStrokeColor(mContext.getResources().getColor(R.color.green));
 			progressSubjectTwo.setTextColor(mContext.getResources().getColor(R.color.green));
-		}else if(todayBean.overstockstudent[1] <= 50){
+		}else if(todayBean.passrate[1] <= 50){
 			progressSubjectTwo.setFinishedStrokeColor(mContext.getResources().getColor(R.color.red));
 			progressSubjectTwo.setTextColor(mContext.getResources().getColor(R.color.red));
 		}else{
@@ -198,10 +198,10 @@ public class DataPager extends BasePagerFragment implements OnClickListener {
 		}
 		
 		
-		if(todayBean.overstockstudent[2] == 100){
+		if(todayBean.passrate[2] == 100){
 			progressSubjectThree.setFinishedStrokeColor(mContext.getResources().getColor(R.color.green));
 			progressSubjectThree.setTextColor(mContext.getResources().getColor(R.color.green));
-		}else if(todayBean.overstockstudent[2] <= 50){
+		}else if(todayBean.passrate[2] <= 50){
 			progressSubjectThree.setFinishedStrokeColor(mContext.getResources().getColor(R.color.red));
 			progressSubjectThree.setTextColor(mContext.getResources().getColor(R.color.red));
 		}else{
@@ -210,26 +210,49 @@ public class DataPager extends BasePagerFragment implements OnClickListener {
 		}
 		
 		
-		if(todayBean.overstockstudent[3] == 100){
+		if(todayBean.passrate[3] == 100){
 			progressSubjectFour.setFinishedStrokeColor(mContext.getResources().getColor(R.color.green));
 			progressSubjectFour.setTextColor(mContext.getResources().getColor(R.color.green));
-		}else if(todayBean.overstockstudent[3] <= 50){
+		}else if(todayBean.passrate[3] <= 50){
 			progressSubjectFour.setFinishedStrokeColor(mContext.getResources().getColor(R.color.red));
 			progressSubjectFour.setTextColor(mContext.getResources().getColor(R.color.red));
 		}else{
 			progressSubjectFour.setFinishedStrokeColor(mContext.getResources().getColor(R.color.blue));
 			progressSubjectFour.setTextColor(mContext.getResources().getColor(R.color.blue));
 		}
+		if(todayBean.passrate[0]<0){
+			progressSubjectOne.setText("暂无数据");
+			progressSubjectOne.setTextSize(24);
+		}else{
+			progressSubjectOne.setProgress(todayBean.passrate[0]);
+		}
 		
-		progressSubjectOne.setProgress(todayBean.overstockstudent[0]);
-		progressSubjectTwo.setProgress(todayBean.overstockstudent[1]);
-		progressSubjectThree.setProgress(todayBean.overstockstudent[2]);
-		progressSubjectFour.setProgress(todayBean.overstockstudent[3]);
+		if(todayBean.passrate[1]<0){
+			progressSubjectTwo.setText("暂无数据");
+			progressSubjectTwo.setTextSize(24);
+		}else{
+			progressSubjectTwo.setProgress(todayBean.passrate[0]);
+		}
+		if(todayBean.passrate[2]<0){
+			progressSubjectThree.setText("暂无数据");
+			progressSubjectThree.setTextSize(24);
+		}else{
+			progressSubjectThree.setProgress(todayBean.passrate[0]);
+		}
+		if(todayBean.passrate[3]<0){
+			progressSubjectFour.setText("暂无数据");
+			progressSubjectFour.setTextSize(24);
+		}else{
+			progressSubjectFour.setProgress(todayBean.passrate[0]);
+		}
+//		progressSubjectTwo.setProgress(todayBean.passrate[1]);
+//		progressSubjectThree.setProgress(todayBean.passrate[2]);
+//		progressSubjectFour.setProgress(todayBean.passrate[3]);
 		//积压人数
-		subjectOneRemainingNum.setText(todayBean.passrate[0]+"");
-		subjectTwoRemainingNum.setText(todayBean.passrate[1]+"");
-		subjectThreeRemainingNum.setText(todayBean.passrate[2]+"");
-		subjectFourRemainingNum.setText(todayBean.passrate[3]+"");
+		subjectOneRemainingNum.setText(todayBean.overstockstudent[0]+"");
+		subjectTwoRemainingNum.setText(todayBean.overstockstudent[1]+"");
+		subjectThreeRemainingNum.setText(todayBean.overstockstudent[2]+"");
+		subjectFourRemainingNum.setText(todayBean.overstockstudent[3]+"");
 	}
 
 	// 设置本周的评论数

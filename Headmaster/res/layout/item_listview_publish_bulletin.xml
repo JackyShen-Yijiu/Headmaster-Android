@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="24dp"
+    android:paddingBottom="16dp"
     android:background="@color/white" >
 
     <TextView
@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="标题"
         android:textColor="@color/text_color_dark_black"
         android:textSize="16sp" />
@@ -43,7 +43,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_below="@+id/tv_bulletin_item_date"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="8dp"
         android:text="如果你无法简单地表达你的想法，那只能说明你还不公了解它。 --阿尔伯特.爱因斯坦"
         android:textColor="@color/text_color_dark_black"
         android:textSize="14sp" />
