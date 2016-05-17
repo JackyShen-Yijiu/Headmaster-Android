@@ -54,7 +54,11 @@ public class BulletinAdapter extends BasicAdapter<BulletinBean> {
 		}
 		holder.date.setText(UTC2LOC.instance.getDate(bulletinBean.createtime, "yyyy/MM/dd"));
 		holder.content.setText(bulletinBean.content);
-		holder.name.setText("发布者："+bulletinBean.name);
+		if(!TextUtils.isEmpty(bulletinBean.name)){
+			holder.name.setText("发布者："+bulletinBean.name);
+		}else{
+			holder.name.setText("发布者：未知");
+		}
 		
 		return convertView;
 	}

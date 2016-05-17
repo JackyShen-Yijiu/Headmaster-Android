@@ -121,10 +121,14 @@ public class LeftFragment extends BaseFragment implements OnClickListener {
 	@Override
 	protected void initData() {
 		ivHeadPortrait.setScaleType(ScaleType.CENTER_CROP);
-		ivHeadPortrait.setImageResource(R.drawable.left_title);
+		ivHeadPortrait.setImageResource(R.drawable.head_headmaster_null);
 		ivHeadPortrait.setOval(true);
 		if(!TextUtils.isEmpty(HeadmasterApplication.app.userInfo.headportrait)){
-			Picasso.with(getActivity()).load(HeadmasterApplication.app.userInfo.headportrait).into(ivHeadPortrait);
+			Picasso.with(getActivity()).
+			load(HeadmasterApplication.app.userInfo.headportrait)
+			.placeholder(R.drawable.head_headmaster_null)
+			.error(R.drawable.head_headmaster_null)
+			.into(ivHeadPortrait);
 		}
 	}
 
