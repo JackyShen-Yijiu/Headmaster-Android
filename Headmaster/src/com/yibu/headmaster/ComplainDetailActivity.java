@@ -1,11 +1,18 @@
 package com.yibu.headmaster;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.text.Layout;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.ActionMenuView.LayoutParams;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-import android.widget.RelativeLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.joooonho.SelectableRoundedImageView;
@@ -102,6 +109,19 @@ public class ComplainDetailActivity extends BaseActivity{
 			break;
 		}
 	}
+	
+	public void onClick(View view){
+		super.onClick(view);
+		
+		switch(view.getId()){
+		case R.id.iv_one:
+			showDialog(complainVO.piclistr[0]);
+			break;
+		case R.id.iv_two:
+			showDialog(complainVO.piclistr[1]);
+			break;
+		}
+	}
 
 	@Override
 	public void processSuccess(String data) {
@@ -111,6 +131,48 @@ public class ComplainDetailActivity extends BaseActivity{
 	@Override
 	public void processFailure() {
 		
+	}
+	
+	Dialog d ;
+	
+	private void showDialog(String url){
+		final Dialog dialog = new Dialog(this, R.style.dialog);
+		View view = View.inflate(this, R.layout.pop_pic, null);
+		ImageView img = (ImageView)view.findViewById(R.id.pop_pic_img);
+		Picasso.with(this).load(url).into(img);
+		dialog.setContentView(view);
+		dialog.setContentView(view, new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+//		
+		dialog.show();
+		view.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+	}
+	
+	
+	
+	private void show(String url){
+		final PopupWindow pop = new PopupWindow(this);
+		pop.setHeight(android.view.ViewGroup.LayoutParams.MATCH_PARENT);
+		pop.setWidth(android.view.ViewGroup.LayoutParams.MATCH_PARENT);
+		View view = View.inflate(this, R.layout.pop_pic, null);
+		
+		ImageView img = (ImageView)view.findViewById(R.id.pop_pic_img);
+		Picasso.with(this).load(url).into(img);
+		pop.setContentView(view);
+		pop.setFocusable(true);
+		pop.showAtLocation(getWindow().getDecorView(), Gravity.CENTER,0, 0);  
+		view.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				pop.dismiss();
+			}
+		});
 	}
 
 }
