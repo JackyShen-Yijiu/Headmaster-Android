@@ -25,6 +25,7 @@ import com.yibu.headmaster.bean.MainOfWeekBean;
 import com.yibu.headmaster.bean.MainPageDataV2Bean;
 import com.yibu.headmaster.event.ComplaintEvent;
 import com.yibu.headmaster.global.HeadmasterApplication;
+import com.yibu.headmaster.utils.CommonUtils;
 import com.yibu.headmaster.utils.JsonUtil;
 import com.yibu.headmaster.utils.LogUtil;
 
@@ -223,6 +224,7 @@ public class DataPager extends BasePagerFragment implements OnClickListener {
 		if(todayBean.passrate[0]<0){
 			progressSubjectOne.setText("暂无数据");
 			progressSubjectOne.setTextSize(24);
+			progressSubjectOne.setTextColor(CommonUtils.getColor(R.color.text_color_light_black));
 		}else{
 			progressSubjectOne.setProgress(todayBean.passrate[0]);
 		}
@@ -230,20 +232,23 @@ public class DataPager extends BasePagerFragment implements OnClickListener {
 		if(todayBean.passrate[1]<0){
 			progressSubjectTwo.setText("暂无数据");
 			progressSubjectTwo.setTextSize(24);
+			progressSubjectTwo.setTextColor(CommonUtils.getColor(R.color.text_color_light_black));
 		}else{
-			progressSubjectTwo.setProgress(todayBean.passrate[0]);
+			progressSubjectTwo.setProgress(todayBean.passrate[1]);
 		}
 		if(todayBean.passrate[2]<0){
 			progressSubjectThree.setText("暂无数据");
 			progressSubjectThree.setTextSize(24);
+			progressSubjectThree.setTextColor(CommonUtils.getColor(R.color.text_color_light_black));
 		}else{
-			progressSubjectThree.setProgress(todayBean.passrate[0]);
+			progressSubjectThree.setProgress(todayBean.passrate[2]);
 		}
 		if(todayBean.passrate[3]<0){
 			progressSubjectFour.setText("暂无数据");
 			progressSubjectFour.setTextSize(24);
+			progressSubjectFour.setTextColor(CommonUtils.getColor(R.color.text_color_light_black));
 		}else{
-			progressSubjectFour.setProgress(todayBean.passrate[0]);
+			progressSubjectFour.setProgress(todayBean.passrate[3]);
 		}
 //		progressSubjectTwo.setProgress(todayBean.passrate[1]);
 //		progressSubjectThree.setProgress(todayBean.passrate[2]);
