@@ -8,6 +8,7 @@ import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import cn.jpush.android.api.JPushInterface;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -27,6 +28,8 @@ public class HeadmasterApplication extends Application {
 
 	// 用户信息
 	public UserBean userInfo;
+	
+	public static float density = 2.0f;
 
 	@Override
 	public void onCreate() {
@@ -43,6 +46,8 @@ public class HeadmasterApplication extends Application {
 		// 极光
 		JPushInterface.setDebugMode(true);// 设置开发模式
 		JPushInterface.init(this);// 极光初始化
+		
+		
 	}
 
 	public static HeadmasterApplication getInstance() {
