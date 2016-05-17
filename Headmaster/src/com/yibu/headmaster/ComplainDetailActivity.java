@@ -111,14 +111,14 @@ public class ComplainDetailActivity extends BaseActivity{
 	}
 	
 	public void onClick(View view){
+		super.onClick(view);
+		
 		switch(view.getId()){
 		case R.id.iv_one:
-//			showDialog(complainVO.piclistr[0]);
-			show(complainVO.piclistr[0]);
+			showDialog(complainVO.piclistr[0]);
 			break;
 		case R.id.iv_two:
-//			showDialog(complainVO.piclistr[1]);
-			show(complainVO.piclistr[1]);
+			showDialog(complainVO.piclistr[1]);
 			break;
 		}
 	}
@@ -136,22 +136,29 @@ public class ComplainDetailActivity extends BaseActivity{
 	Dialog d ;
 	
 	private void showDialog(String url){
-		d = new Dialog(this);
+		final Dialog dialog = new Dialog(this, R.style.dialog);
 		View view = View.inflate(this, R.layout.pop_pic, null);
-		
-		d.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		ImageView img = (ImageView)view.findViewById(R.id.pop_pic_img);
 		Picasso.with(this).load(url).into(img);
-		d.setContentView(view);
-		d.show();
-		
+		dialog.setContentView(view);
+		dialog.setContentView(view, new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+//		
+		dialog.show();
+		view.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
 	}
+	
+	
 	
 	private void show(String url){
 		final PopupWindow pop = new PopupWindow(this);
 		pop.setHeight(android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		pop.setWidth(android.view.ViewGroup.LayoutParams.MATCH_PARENT);
-//				、(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 		View view = View.inflate(this, R.layout.pop_pic, null);
 		
 		ImageView img = (ImageView)view.findViewById(R.id.pop_pic_img);
