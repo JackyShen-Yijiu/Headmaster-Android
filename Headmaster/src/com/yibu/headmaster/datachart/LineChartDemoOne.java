@@ -19,9 +19,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
+import com.jzjf.headmaster.R;
 import com.yibu.headmaster.bean.MoreDataBean;
+import com.yibu.headmaster.global.HeadmasterApplication;
+import com.yibu.headmaster.utils.LogUtil;
 
 public class LineChartDemoOne extends DemoView {
 	private String TAG = "MultiAxisChart03View";
@@ -46,7 +50,7 @@ public class LineChartDemoOne extends DemoView {
 
 	// 招生表的数据
 	private List<MoreDataBean> lineData;
-
+	
 	public LineChartDemoOne(Context context, List<MoreDataBean> lineData) {
 		super(context);
 		this.lineData = lineData;
@@ -71,6 +75,7 @@ public class LineChartDemoOne extends DemoView {
 	// }
 
 	public void initView() {
+		
 		chartLabels();
 		chartDataSetLn();
 		AnchorInit();
@@ -100,8 +105,8 @@ public class LineChartDemoOne extends DemoView {
 		float top = DensityUtil.dip2px(getContext(), 62);
 
 		float piewidth = Math.min(w, h) / 4;// 1.5f;
-
-		// chartPie.setChartRange(left, top, piewidth, piewidth);
+//		chartLn.setChartRange(startX, startY, width, height)
+		chartLn.setChartRange(8, 0, w, h);
 	}
 
 	// 横向网格线
@@ -147,6 +152,7 @@ public class LineChartDemoOne extends DemoView {
 					max = lineData.get(i).countY;
 				}
 			}
+			max ++;
 
 			int axisMax = 8;
 			if ((max % 4 == 0) && (max != 0)) {
@@ -172,8 +178,14 @@ public class LineChartDemoOne extends DemoView {
 			// chartLn.getDataAxis().setTickLabelRotateAngle(-90);
 			chartLn.getDataAxis().getTickLabelPaint()
 					.setColor(Color.rgb(61, 139, 255));
+			
+//			chartLn.getDataAxis().getTickLabelPaint().setTextSize(38);
+			
+			chartLn.getDataAxis().getTickLabelPaint().setTextSize(11*HeadmasterApplication.density);
+			
+			chartLn.getCategoryAxis().getTickLabelPaint().setTextSize(11*HeadmasterApplication.density);
 			chartLn.getCategoryAxis().getTickLabelPaint()
-					.setColor(Color.rgb(232, 0, 49));
+					.setColor(getResources().getColor(R.color.text_color_light_black));
 			// 隐藏图列
 			chartLn.getPlotLegend().hide();
 			// 调整轴显示位置
@@ -242,7 +254,7 @@ public class LineChartDemoOne extends DemoView {
 		
 		lineData1.getLinePaint().setStrokeWidth(2);
 		lineData1.getDotPaint().setStrokeWidth(2);
-		lineData1.setDotRadius(6);
+		lineData1.setDotRadius((int)(3*HeadmasterApplication.density));
 		chartData.add(lineData1);
 
 	}

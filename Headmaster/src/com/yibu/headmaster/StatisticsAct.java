@@ -160,9 +160,6 @@ public class StatisticsAct extends BaseActivity {
 			}
 		}
 		loadDataFromWeb();
-		// LoginServlet?phone=13120064118&type=1
-		// ApiHttpClient.getDirect("http://192.168.0.124:8080/OutDoorComment/servlet/LoginServlet?phone=13120064118&type=1",
-		// handler);
 	}
 
 	private void loadDataFromWeb() {
@@ -177,14 +174,12 @@ public class StatisticsAct extends BaseActivity {
 
 	@Override
 	public void processSuccess(String data) {
-		LogUtil.print("processSuccess-->>" + data);
 		setWeekData(data);
 	}
 
 	@Override
 	public void processFailure() {
 		// TODO Auto-generated method stub
-
 	}
 
 	/**
@@ -236,15 +231,15 @@ public class StatisticsAct extends BaseActivity {
 			LogUtil.print("datasize-->" + lineDataList.size());
 			setColor(totalWeek + "");
 			// tvTotal.setText("共"+totalWeek+"人");
-			encrollStudent = new LineChartDemoOne(this, lineDataList);
-			frameLayout.removeAllViews();
-			frameLayout.addView(encrollStudent);
-			LayoutParams params = encrollStudent.getLayoutParams();
-			params.height = LayoutParams.MATCH_PARENT;
-			params.width = LayoutParams.MATCH_PARENT;
-			// 清空 滑动事件
-			encrollStudent.restTouchBind();
-			encrollStudent.setLayoutParams(params);
+//			encrollStudent = new LineChartDemoOne(this, lineDataList);
+//			frameLayout.removeAllViews();
+//			frameLayout.addView(encrollStudent);
+//			LayoutParams params = encrollStudent.getLayoutParams();
+//			params.height = LayoutParams.MATCH_PARENT;
+//			params.width = LayoutParams.MATCH_PARENT;
+//			// 清空 滑动事件
+//			encrollStudent.restTouchBind();
+//			encrollStudent.setLayoutParams(params);
 		}
 		//
 		if (tempBean != null) {
@@ -264,27 +259,23 @@ public class StatisticsAct extends BaseActivity {
 				}
 				bean.countY = Integer.parseInt(tempBean.datalist[i]);
 				lineDataList.add(bean);
-
 			}
-
 			LogUtil.print("datasize-->" + lineDataList.size());
 			if (searchtype == 4) {// 本日
 				setColor(totalMonth + "");
 			} else if (searchtype == 5) {// 本年
 				setColor(totalYear + "");
 			}
-			
-			// tvTotal.setText("共"+totalWeek+"人");
-			encrollStudent = new LineChartDemoOne(this, lineDataList);
-			frameLayout.removeAllViews();
-			frameLayout.addView(encrollStudent);
-			LayoutParams params = encrollStudent.getLayoutParams();
-			params.height = LayoutParams.MATCH_PARENT;
-			params.width = LayoutParams.MATCH_PARENT;
-			// 清空 滑动事件
-			encrollStudent.restTouchBind();
-			encrollStudent.setLayoutParams(params);
 		}
+		encrollStudent = new LineChartDemoOne(this, lineDataList);
+		frameLayout.removeAllViews();
+		frameLayout.addView(encrollStudent);
+		LayoutParams params = encrollStudent.getLayoutParams();
+		params.height = LayoutParams.MATCH_PARENT;
+		params.width = LayoutParams.MATCH_PARENT;
+		// 清空 滑动事件
+		encrollStudent.restTouchBind();
+		encrollStudent.setLayoutParams(params);
 
 	}
 
@@ -295,7 +286,7 @@ public class StatisticsAct extends BaseActivity {
 		// style 为0 即是正常的，还有Typeface.BOLD(粗体) Typeface.ITALIC(斜体)等
 		// size 为0 即采用原始的正常的 size大小
 		spanBuilder.setSpan(
-				new TextAppearanceSpan(null, 0, 30, redColors, null), 1,
+				new TextAppearanceSpan(null, 0, (int)(15*HeadmasterApplication.density), redColors, null), 1,
 				text.length() + 1, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 		tvTotal.setText(spanBuilder);
 	}
