@@ -165,7 +165,7 @@ public class LineChart extends LnChart {
 		float initY = plotArea.getBottom();
 		float lineStartX = initX, lineStartY = initY;
 		float lineStopX = 0.0f, lineStopY = 0.0f;
-
+		Log.d("tag","line--startYY-->"+lineStartX+"YY>>"+lineStartY+"stop-->"+lineStopY);
 		// 得到分类轴数据集
 		List<String> dataSet = categoryAxis.getDataSet();
 		if (null == dataSet || dataSet.size() == 0) {

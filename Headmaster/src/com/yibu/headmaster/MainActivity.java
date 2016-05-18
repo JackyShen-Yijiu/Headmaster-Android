@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -35,6 +36,7 @@ import com.yibu.headmaster.base.impl.ChatterPager;
 import com.yibu.headmaster.base.impl.DataPager;
 import com.yibu.headmaster.base.impl.NewsPager;
 import com.yibu.headmaster.event.ComplaintEvent;
+import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ToastUtil;
 
@@ -89,7 +91,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		initListener();
 		initData();
 		initMyLocation();
-
+		
+		DisplayMetrics metric = new DisplayMetrics();
+	    getWindowManager().getDefaultDisplay().getMetrics(metric);
+	    HeadmasterApplication.density = metric.density;
 	}
 
 	protected void initView() {
