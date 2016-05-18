@@ -46,10 +46,10 @@
    
   
 <!--     极光推送权限 -->
-    	<permission android:name="com.yibu.headmaster.permission.JPUSH_MESSAGE"
+    <permission android:name="com.jzjf.headmaster.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.yibu.headmaster.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="com.jzjf.headmaster.permission.JPUSH_MESSAGE" />
      <!--   官方定义的权限，允许应用接收JPUSH内部代码发送的广播消息。 -->
 	<uses-permission android:name="RECEIVE_USER_PRESENT" />
 	  <!-- 允许应用可以接收点亮屏幕或解锁广播。 -->
