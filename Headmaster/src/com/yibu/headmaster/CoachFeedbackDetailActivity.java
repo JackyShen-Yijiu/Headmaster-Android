@@ -107,7 +107,7 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 		SharedPreferencesUtil.putString(mContext, MailFragment.UNREADFEEBACKID, unReadString);
 
 		coachHead.setScaleType(ScaleType.CENTER_CROP);
-		coachHead.setImageResource(R.drawable.left_title);
+		coachHead.setImageResource(R.drawable.head_headmaster_null);
 		coachHead.setOval(true);
 		if (!TextUtils
 				.isEmpty(coachFeedbackBean.coachid.headportrait.originalpic)) {
@@ -128,7 +128,7 @@ public class CoachFeedbackDetailActivity extends BaseActivity {
 			sendReplyLayout.setVisibility(View.GONE);
 			replyLayout.setVisibility(View.VISIBLE);
 			replyHead.setScaleType(ScaleType.CENTER_CROP);
-			replyHead.setImageResource(R.drawable.left_title);
+			replyHead.setImageResource(R.drawable.head_headmaster_null);
 			replyHead.setOval(true);
 			if (coachFeedbackBean.replyid != null) {
 				if (!TextUtils.isEmpty(coachFeedbackBean.replyid.headportrait)) {

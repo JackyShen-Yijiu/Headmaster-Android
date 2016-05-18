@@ -103,7 +103,8 @@
             </intent-filter> </activity> 
             
         <activity android:name="com.yibu.headmaster.GuideActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            ></activity>
         <activity android:name="com.yibu.headmaster.HomeGuideActivity"
             android:screenOrientation="portrait"></activity>
         <activity android:name="com.yibu.headmaster.ComplainActivity"
