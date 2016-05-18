@@ -69,7 +69,7 @@ public class PersonSettingActivity extends BaseActivity {
 		baseTitle.setText("个人信息");
 		name.setText(HeadmasterApplication.app.userInfo.name);
 		headImage.setScaleType(ScaleType.CENTER_CROP);
-		headImage.setImageResource(R.drawable.left_title);
+		headImage.setImageResource(R.drawable.head_headmaster_null);
 		headImage.setOval(true);
 		if(!TextUtils.isEmpty(HeadmasterApplication.app.userInfo.headportrait)){
 			Picasso.with(this).load(HeadmasterApplication.app.userInfo.headportrait).into(headImage);
