@@ -109,6 +109,8 @@ public class SearchCoachActivity extends BaseActivity{
 								+ searchText.getText().toString(), handler);
 
 		searchText.setText("");
+		
+		
 	}
 	@Override
 	protected void initData() {
@@ -151,6 +153,8 @@ public class SearchCoachActivity extends BaseActivity{
 			}
 			list.addAll(coachBeans);
 			adapter.notifyDataSetChanged();
+			black_page_ll.setVisibility(View.GONE);
+			pullToRefreshListView.setVisibility(View.VISIBLE);
 			pullToRefreshListView.onRefreshComplete();
 		}
 		
