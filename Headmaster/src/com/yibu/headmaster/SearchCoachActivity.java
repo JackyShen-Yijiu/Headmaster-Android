@@ -157,7 +157,6 @@ public class SearchCoachActivity extends BaseActivity{
 			pullToRefreshListView.setVisibility(View.VISIBLE);
 			pullToRefreshListView.onRefreshComplete();
 		}
-		
 	}
 
 	@Override

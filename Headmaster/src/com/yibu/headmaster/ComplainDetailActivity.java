@@ -195,7 +195,9 @@ public class ComplainDetailActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View v) {
+				
 				pop.dismiss();
+				
 			}
 		});
 	}

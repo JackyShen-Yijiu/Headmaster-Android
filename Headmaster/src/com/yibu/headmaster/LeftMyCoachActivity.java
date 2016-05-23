@@ -151,7 +151,7 @@ public class LeftMyCoachActivity extends BaseActivity implements OnClickListener
 	}
 	
 	public void onClick(View view){
-		switch(view.getId()){
+		switch(view.getId()){	
 		case R.id.tv_base_right:
 			Intent intent = new Intent(HeadmasterApplication.getContext(),
 					SearchCoachActivity.class);
