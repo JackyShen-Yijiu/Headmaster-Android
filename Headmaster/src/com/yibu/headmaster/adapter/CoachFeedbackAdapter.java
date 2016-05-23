@@ -62,7 +62,7 @@ public class CoachFeedbackAdapter extends BasicAdapter<CoachFeedbackBean> {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		holder.coachHeadIv.setScaleType(ScaleType.CENTER_CROP);
-		holder.coachHeadIv.setImageResource(R.drawable.left_title);
+		holder.coachHeadIv.setImageResource(R.drawable.head_headmaster_null);
 		holder.coachHeadIv.setOval(true);
 
 		// 赋值

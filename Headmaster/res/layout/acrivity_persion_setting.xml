@@ -11,7 +11,7 @@
         android:layout_marginLeft="17dp"
         android:layout_marginTop="22dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/left_title" />
+        android:src="@drawable/head_headmaster_null" />
 
     <TextView
         android:id="@+id/persion_name_iv"
