@@ -158,9 +158,9 @@ public class ComplainActivity extends BaseActivity implements
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		LogUtil.print("onActivityResult");
-		if(requestCode == 1){
-			index=1;
-			loadNetworkData();
-		}
+//		if(requestCode == 1){
+//			index=1;
+//			loadNetworkData();
+//		}
 	}
 }

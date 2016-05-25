@@ -147,10 +147,10 @@ public class BulletinHistoryActivity extends BaseActivity {
 
 			moreData = false;
 		} else {
-			// 保存最后一条公告的sqlindexid
+			// 保存第一条公告的sqlindexid
 			SharedPreferencesUtil.putInt(mContext,
 					MailFragment.UNREADNOTICECOUNT,
-					bulletinBeans.get(bulletinBeans.size() - 1).seqindex);
+					bulletinBeans.get(0).seqindex);
 			moreData = true;
 		}
 		System.out.println(moreData);

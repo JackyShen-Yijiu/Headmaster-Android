@@ -140,7 +140,7 @@ public class MailFragment extends BasePagerFragment implements
 		type = 2;
 		// 最后一个公告的sqlindexid
 		int sqlindexid = SharedPreferencesUtil.getInt(mContext,
-				UNREADNOTICECOUNT, 0);
+				UNREADNOTICECOUNT, 1);
 		LogUtil.print("sqlindexid===" + sqlindexid);
 		ApiHttpClient.get("statistics/getbulletincount?userid="
 				+ HeadmasterApplication.app.userInfo.userid + "&schoolid="

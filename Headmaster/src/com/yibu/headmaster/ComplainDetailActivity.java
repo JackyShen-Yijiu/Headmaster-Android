@@ -8,8 +8,8 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
-import android.widget.ActionMenuView.LayoutParams;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.PopupWindow;
@@ -167,8 +167,8 @@ public class ComplainDetailActivity extends BaseActivity {
 		Picasso.with(this).load(url).into(img);
 		dialog.setContentView(view);
 		dialog.setContentView(view, new LayoutParams(
-				android.view.ViewGroup.LayoutParams.MATCH_PARENT,
-				android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+				LayoutParams.MATCH_PARENT,
+				LayoutParams.MATCH_PARENT));
 		//
 		dialog.show();
 		view.setOnClickListener(new OnClickListener() {
