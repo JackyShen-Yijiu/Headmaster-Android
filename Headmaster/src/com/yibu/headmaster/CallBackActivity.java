@@ -1,6 +1,8 @@
 package com.yibu.headmaster;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +13,7 @@ import cn.sft.baseactivity.util.MyHandler;
 import com.jzjf.headmaster.R;
 import com.loopj.android.http.RequestParams;
 import com.yibu.headmaster.api.ApiHttpClient;
+import com.yibu.headmaster.global.HeadmasterApplication;
 import com.yibu.headmaster.utils.LogUtil;
 import com.yibu.headmaster.utils.ZProgressHUD;
 
@@ -66,10 +69,19 @@ public class CallBackActivity extends BaseActivity implements OnClickListener {
 			RequestParams params = new RequestParams();
 
 			if (params != null) {
-
+				ConnectivityManager connectionManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+				// 获取网络的状态信息，有下面三种方式
+				NetworkInfo networkInfo = connectionManager.getActiveNetworkInfo();
+				String networkName = networkInfo.getTypeName();
+				if (networkName.equalsIgnoreCase("MOBILE")) {
+					networkName += networkInfo.getExtraInfo();
+				}
+				params.put("network", networkName);
 				params.put("mobileversion", android.os.Build.MODEL);
 				params.put("appversion", android.os.Build.VERSION.RELEASE);
-
+				params.put("userid", HeadmasterApplication.getInstance().userInfo.userid);
+				params.put("feedbackmessage", content);
+				params.put("resolution", screenWidth + "*" + screenHeight);
 				ApiHttpClient.postWithFullPath("api/v1/userfeedback", params,
 						handler);
 			}
