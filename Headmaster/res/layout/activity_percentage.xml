@@ -6,7 +6,7 @@
     android:orientation="vertical" >
     
 
-    <com.yibu.headmaster.lib.PagerSliding.PagerSlidingTab
+    <com.jzjf.headmaster.lib.PagerSliding.PagerSlidingTab
             android:id="@+id/assess_detail_sliding_tab"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -17,7 +17,7 @@
             app:indicatorColor="@color/blue"
             app:underlineColor="@color/line_color"
             app:indicatorHeight="1dp" >
-        </com.yibu.headmaster.lib.PagerSliding.PagerSlidingTab>
+        </com.jzjf.headmaster.lib.PagerSliding.PagerSlidingTab>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/assess_detail_view_pager"

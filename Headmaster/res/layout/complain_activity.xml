@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.yibu.headmaster.view.QuickReturnListView
+    <com.jzjf.headmaster.view.QuickReturnListView
         android:id="@+id/lv_publish_complain_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
          >
-    </com.yibu.headmaster.view.QuickReturnListView>
+    </com.jzjf.headmaster.view.QuickReturnListView>
 
     <include layout="@layout/black_page" />
 

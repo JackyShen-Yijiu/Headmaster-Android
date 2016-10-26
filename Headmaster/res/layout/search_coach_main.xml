@@ -15,7 +15,7 @@
         android:paddingBottom="8dp"
         android:orientation="horizontal">
 
-        <com.yibu.headmaster.view.CleanableEditText
+        <com.jzjf.headmaster.view.CleanableEditText
             android:paddingLeft="8dp"
             android:id="@+id/search_view"
             android:layout_width="0dp"

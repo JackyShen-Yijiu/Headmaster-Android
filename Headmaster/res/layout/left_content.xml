@@ -18,28 +18,30 @@
             android:layout_width="58dp"
             android:layout_height="58dp"
             android:layout_marginLeft="36dp"
-            android:src="@drawable/head_headmaster_null" />
+            android:src="@drawable/head_headmaster_null"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/coach_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="36dp"
             android:layout_marginTop="4dp"
-            android:layout_toRightOf="@+id/iv_left_head_portrait"
             android:text=""
             android:textColor="#ffffff"
-            android:textSize="14sp" />
-  <TextView
-        android:id="@+id/school_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/coach_name"
-        android:layout_alignLeft="@+id/coach_name"
-        android:layout_marginTop="10dp"
-        android:text=""
-        android:textColor="#ffffff"
-        android:textSize="12sp" />
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/school_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/coach_name"
+            android:layout_below="@+id/coach_name"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
         <FrameLayout
             android:id="@+id/iv_left_back"
             android:layout_width="wrap_content"
@@ -49,8 +51,6 @@
             android:padding="21dp" >
         </FrameLayout>
     </RelativeLayout>
-
-  
 
     <TextView
         android:id="@+id/my_rl_coach"
@@ -64,20 +64,6 @@
         android:text="教练"
         android:textColor="#ffffff"
         android:textSize="14sp" />
-    <!--
-     <TextView 
-    android:id="@+id/my_rl_data"
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:layout_marginLeft="36dp"
-    android:gravity="center_vertical"
-    android:drawableLeft="@drawable/data"
-    android:drawablePadding="17dp"
-     android:layout_marginTop="10dp"
-    android:text="数据概览"
-    android:textSize="14sp"
-    android:textColor="#ffffff"/>
-    -->
 
     <TextView
         android:id="@+id/my_rl_complain"

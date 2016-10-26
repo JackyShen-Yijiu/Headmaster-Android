@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.yibu.headmaster.view.BulleinEditText
+    <com.jzjf.headmaster.view.BulleinEditText
         android:id="@+id/et_publish_bulletin_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/line_color"/>
-    <com.yibu.headmaster.view.BulleinEditText
+    <com.jzjf.headmaster.view.BulleinEditText
         android:id="@+id/et_publish_bulletin_content"
         android:layout_width="fill_parent"
         android:layout_height="276dp"
@@ -46,7 +46,7 @@
         android:textColor="#ffffff"
         android:textSize="14sp"
         android:textCursorDrawable="@null" >
-    </com.yibu.headmaster.view.BulleinEditText>
+    </com.jzjf.headmaster.view.BulleinEditText>
     
     <Button 
         android:id="@+id/btn_publish_bulletin"

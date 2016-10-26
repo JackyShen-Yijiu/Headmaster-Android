@@ -31,7 +31,8 @@
                 android:layout_height="8dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:background="@drawable/point_red" />
+                android:background="@drawable/point_red"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <TextView

@@ -23,6 +23,7 @@
         android:layout_height="14dp"
         android:layout_alignBottom="@+id/learn_state"
         android:layout_marginLeft="13dp"
+        android:visibility="invisible"
         android:background="@drawable/point_rest" />
 
     <RatingBar
@@ -86,7 +87,7 @@
         android:layout_below="@+id/learn_kemu"
         android:layout_marginTop="14dp"
         android:text=""
-        android:textColor="@color/text_color_light_black"
+        android:textColor="@color/text_color_dark_black"
         android:textSize="12sp" />
 
     <TextView

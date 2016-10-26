@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="true"
-   	android:fitsSystemWindows="true"
-    tools:context="com.yibu.headmaster.MainActivity"
-     >
-<!-- android:background="@drawable/main_bg" -->
+    android:fitsSystemWindows="true"
+    tools:context="com.jzjf.headmaster.MainActivity" >
+
+    <!-- android:background="@drawable/main_bg" -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,37 +18,37 @@
 
         <include layout="@layout/title_main" />
 
-        <com.yibu.headmaster.view.NoScrollViewPager
+        <com.jzjf.headmaster.view.NoScrollViewPager
             android:id="@+id/vp_content_pagers"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-   <View 
-       android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/line_color"
-       />
-    <RadioGroup
-        android:id="@+id/rg_content_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:paddingTop="4dp"
-        android:background="#fafafa"
-        android:orientation="horizontal" >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_color" />
 
-        <RadioButton
-            android:id="@+id/rb_bottom_data"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:checked="true"
-            android:gravity="center"
-            android:drawableTop="@drawable/selector_bottom_data"
-            android:textSize="10sp"
-            android:textColor="@drawable/selector_text_color"
-            android:text="统计" />
+        <RadioGroup
+            android:id="@+id/rg_content_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="#fafafa"
+            android:orientation="horizontal"
+            android:paddingTop="4dp" >
+
+            <RadioButton
+                android:id="@+id/rb_bottom_data"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/selector_bottom_data"
+                android:gravity="center"
+                android:text="统计"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="10sp" />
 
             <RadioButton
                 android:id="@+id/rb_bottom_news"
@@ -56,39 +57,43 @@
                 android:layout_weight="1"
                 android:button="@null"
                 android:drawableTop="@drawable/selector_bottom_news"
-           		android:gravity="center"
-                android:textSize="10sp"
-          		android:textColor="@drawable/selector_text_color"
-                android:text="资讯" />
+                android:gravity="center"
+                android:text="资讯"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="10sp" />
 
-                <RadioButton
-                    android:id="@+id/rb_bottom_chatter"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:button="@null"
-            		android:gravity="center"
-                    android:layout_weight="1"
-                    android:textSize="10sp"
-                    android:drawableTop="@drawable/selector_bottom_chatter"
-            		android:textColor="@drawable/selector_text_color"
-                    android:text="信箱" />
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/rb_bottom_chatter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/selector_bottom_chatter"
+                android:gravity="center"
+                android:text="消息"
+                android:textColor="@drawable/selector_text_color"
+                android:textSize="10sp" />
+        </RadioGroup>
     </LinearLayout>
- <fragment
+
+    <!--
+         <fragment
         android:id="@+id/navigation_drawer"
-        android:name="com.yibu.headmaster.fragment.LeftFragment"
+        android:name="com.jzjf.headmaster.fragment.LeftFragment"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#ffffff"
         tools:layout="@layout/left_content" />
-    <!-- <FrameLayout
+    -->
+
+    <FrameLayout
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#ffffff" >
 
-        <include layout="@layout/left_content" /> 
-    </FrameLayout>-->
+        <include layout="@layout/left_content" />
+    </FrameLayout>
 
 </android.support.v4.widget.DrawerLayout>

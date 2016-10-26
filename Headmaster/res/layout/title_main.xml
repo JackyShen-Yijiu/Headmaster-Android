@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/base_titlebar_layout"
     android:layout_width="match_parent"
-    android:background="@color/bg_black"
     android:layout_height="@dimen/base_titlebar_height"
+    android:background="@color/bg_black"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -32,9 +32,9 @@
             android:id="@+id/base_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/title_left_btn"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/title_left_btn"
             android:text="@string/data_title"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -60,24 +60,23 @@
                 />
             -->
 
-
             <ImageView
                 android:id="@+id/main_complaint_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/complaint"
-                android:contentDescription="@string/app_name" />
-            
-             <TextView
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/complaint" />
+
+            <TextView
                 android:id="@+id/main_complaint_num_tv"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
-                android:gravity="center"
-                android:visibility="invisible"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/red_point"
+                android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="10sp" /> 
+                android:textSize="10sp"
+                android:visibility="invisible" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -88,7 +87,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@color/line_color"
-        android:visibility="gone"
-        android:contentDescription="@string/app_name" />
+        android:contentDescription="@string/app_name"
+        android:visibility="gone" />
 
 </LinearLayout>

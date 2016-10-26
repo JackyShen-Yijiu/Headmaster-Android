@@ -237,7 +237,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="积压："
+                        android:text="在学："
                         android:textColor="@color/text_color_dark_black"
                         android:textSize="@dimen/text_middle_size" />
 
@@ -302,7 +302,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="积压："
+                        android:text="在学："
                         android:textColor="@color/text_color_dark_black"
                         android:textSize="@dimen/text_middle_size" />
 
@@ -392,7 +392,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="积压："
+                        android:text="在学："
                         android:textColor="@color/text_color_dark_black"
                         android:textSize="@dimen/text_middle_size" />
 
@@ -455,7 +455,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="积压："
+                        android:text="在学："
                         android:textColor="@color/text_color_dark_black"
                         android:textSize="@dimen/text_middle_size" />
 
@@ -491,7 +491,7 @@
             android:layout_below="@+id/divider"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:text="学员评价"
+            android:text="今日学员评价"
             android:textColor="@color/text_color_dark_black"
             android:textSize="14sp" />
 
